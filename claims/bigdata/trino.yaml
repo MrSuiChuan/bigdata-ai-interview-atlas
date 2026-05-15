@@ -1,0 +1,326 @@
+- id: bigdata-trino-claim-0001
+  domain: bigdata
+  component: trino
+  statement: >-
+    Trino is a distributed SQL query engine for querying data from multiple sources through catalogs and connectors; it
+    should be explained as a query engine rather than as a storage system.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-docs
+    - trino-architecture-docs
+  notes: Overall positioning claim.
+- id: bigdata-trino-claim-0002
+  domain: bigdata
+  component: trino
+  statement: >-
+    The coordinator is responsible for query parsing, semantic analysis, planning and scheduling, while workers execute
+    tasks and exchange intermediate data.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-architecture-docs
+  notes: Coordinator and worker role boundary claim.
+- id: bigdata-trino-claim-0003
+  domain: bigdata
+  component: trino
+  statement: >-
+    A catalog is a named configuration that points Trino at a specific connector and its connection properties, so
+    catalog strategy is part of system design and governance.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-docs
+    - trino-connector-docs
+  notes: Catalog boundary claim.
+- id: bigdata-trino-claim-0004
+  domain: bigdata
+  component: trino
+  statement: >-
+    A connector adapts Trino to a data source and defines metadata access, split generation, data reading or writing
+    capabilities, statistics, and many pushdown opportunities.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-architecture-docs
+    - trino-connector-docs
+    - trino-pushdown-docs
+  notes: Connector capability boundary claim.
+- id: bigdata-trino-claim-0005
+  domain: bigdata
+  component: trino
+  statement: >-
+    Queries are broken into stages, tasks and splits; workers process tasks, and tasks process splits while exchanging
+    intermediate data between stages.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-architecture-docs
+  notes: Execution object model claim.
+- id: bigdata-trino-claim-0006
+  domain: bigdata
+  component: trino
+  statement: >-
+    Trino performance depends heavily on how much work can be pushed into the underlying data source, and pushdown
+    support is specific to each connector and source combination.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-pushdown-docs
+  notes: Pushdown boundary claim.
+- id: bigdata-trino-claim-0007
+  domain: bigdata
+  component: trino
+  statement: >-
+    If predicate pushdown succeeds, the explain plan no longer shows a ScanFilterProject for that predicate, and if
+    projection pushdown succeeds the TableScan layout shows only relevant columns.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-pushdown-docs
+  notes: Explain-based pushdown evidence claim.
+- id: bigdata-trino-claim-0008
+  domain: bigdata
+  component: trino
+  statement: >-
+    Join pushdown requires connector support and only applies when the join predicates can be pushed down and the joined
+    tables come from the same catalog.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-pushdown-docs
+  notes: Join pushdown boundary claim.
+- id: bigdata-trino-claim-0009
+  domain: bigdata
+  component: trino
+  statement: >-
+    Cost-based join reordering and join distribution decisions rely on table statistics supplied by connectors, and when
+    statistics are missing Trino falls back to less informed strategies.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-cost-based-optimizations-docs
+  notes: Statistics and optimizer dependency claim.
+- id: bigdata-trino-claim-0010
+  domain: bigdata
+  component: trino
+  statement: >-
+    Broadcast joins are faster when the build side is much smaller, but require the build side to fit in memory on each
+    node; partitioned joins redistribute both sides and scale to larger joins.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-cost-based-optimizations-docs
+  notes: Join distribution tradeoff claim.
+- id: bigdata-trino-claim-0011
+  domain: bigdata
+  component: trino
+  statement: >-
+    The size of broadcast joins can be capped with join-max-broadcast-table-size to protect cluster concurrency and
+    reduce the impact of optimizer misestimation.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-cost-based-optimizations-docs
+  notes: Broadcast cap governance claim.
+- id: bigdata-trino-claim-0012
+  domain: bigdata
+  component: trino
+  statement: >-
+    A resource group places limits on memory, queued queries and concurrency, and when a group runs out of a governed
+    resource new queries are queued rather than causing running queries to fail.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-resource-groups-docs
+  notes: Resource group semantics claim.
+- id: bigdata-trino-claim-0013
+  domain: bigdata
+  component: trino
+  statement: >-
+    Selectors assign each query to exactly one resource group based on attributes such as user, source, authenticated
+    user, original user or tags, making resource governance a routing problem as well as a quota problem.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-resource-groups-docs
+  notes: Resource group selection claim.
+- id: bigdata-trino-claim-0014
+  domain: bigdata
+  component: trino
+  statement: >-
+    By default, if a Trino node fails or lacks resources during query execution, the query fails and must be rerun
+    unless fault-tolerant execution is enabled.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-fault-tolerant-execution-docs
+  notes: Default failure behavior claim.
+- id: bigdata-trino-claim-0015
+  domain: bigdata
+  component: trino
+  statement: >-
+    Fault-tolerant execution can retry whole queries or individual tasks, and task retry requires an exchange manager
+    plus connector support for fault-tolerant execution.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-fault-tolerant-execution-docs
+  notes: Retry mode boundary claim.
+- id: bigdata-trino-claim-0016
+  domain: bigdata
+  component: trino
+  statement: >-
+    Fault-tolerant execution does not retry broken SQL or user errors; it is designed to mitigate worker and execution
+    faults rather than semantic query mistakes.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-fault-tolerant-execution-docs
+  notes: Retry scope claim.
+- id: bigdata-trino-claim-0017
+  domain: bigdata
+  component: trino
+  statement: >-
+    A TASK retry policy is better suited for large batch queries, while QUERY retry is recommended for clusters
+    dominated by many small queries; dedicated clusters are often the safer design choice.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-fault-tolerant-execution-docs
+  notes: Retry policy workload tradeoff claim.
+- id: bigdata-trino-claim-0018
+  domain: bigdata
+  component: trino
+  statement: >-
+    All Trino authentication types require secure connections with TLS and HTTPS or trusted process forwarding, so
+    transport security is foundational rather than optional.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-security-docs
+  notes: Transport security claim.
+- id: bigdata-trino-claim-0019
+  domain: bigdata
+  component: trino
+  statement: >-
+    Trino security is layered across TLS and HTTPS, authentication, user mapping, system access control, and secure
+    internal communication inside the cluster.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-security-docs
+  notes: Security layering claim.
+- id: bigdata-trino-claim-0020
+  domain: bigdata
+  component: trino
+  statement: >-
+    Trino does not create a single global transaction model across heterogeneous sources; consistency and write
+    guarantees remain constrained by connectors and the underlying systems.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-docs
+    - trino-architecture-docs
+    - trino-pushdown-docs
+  notes: Consistency boundary claim.
+- id: bigdata-trino-claim-0021
+  domain: bigdata
+  component: trino
+  statement: >-
+    Underlying table partitioning, file size, metadata quality and statistics quality directly affect split generation,
+    pruning effectiveness and scan efficiency in Trino.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-architecture-docs
+    - trino-pushdown-docs
+    - trino-cost-based-optimizations-docs
+  notes: Layout dependency claim.
+- id: bigdata-trino-claim-0022
+  domain: bigdata
+  component: trino
+  statement: >-
+    Connector write capabilities such as INSERT, CTAS, MERGE and DELETE are not uniform; Trino can only expose semantics
+    that the connector and underlying source can actually support.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-connector-docs
+    - trino-docs
+  notes: Write-path capability boundary claim.
+- id: bigdata-trino-claim-0023
+  domain: bigdata
+  component: trino
+  statement: >-
+    For observation and diagnosis, EXPLAIN, EXPLAIN ANALYZE, query stage and task breakdown, blocked reasons, memory
+    pressure and connector logs must be read together instead of as isolated indicators.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-optimizer-docs
+    - trino-admin-properties
+    - trino-pushdown-docs
+  notes: Evidence-driven observability claim.
+- id: bigdata-trino-claim-0024
+  domain: bigdata
+  component: trino
+  statement: >-
+    A strong Trino answer must connect engine objects, connector boundaries, query planning, pushdown, join strategy,
+    resource governance and failure handling into one causal chain.
+  status: reviewed
+  confidence: high
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - trino-docs
+    - trino-architecture-docs
+    - trino-pushdown-docs
+    - trino-fault-tolerant-execution-docs
+  notes: Writing-quality anchor claim.

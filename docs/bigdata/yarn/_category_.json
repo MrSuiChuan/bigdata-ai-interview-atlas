@@ -1,0 +1,9 @@
+{
+  "label": "YARN",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+    "title": "YARN",
+    "description": "YARN 知识库：覆盖 ResourceManager、NodeManager、ApplicationMaster、Container、Queue、调度与多租户治理。"
+  }
+}

@@ -1,0 +1,989 @@
+- id: bigdata-hdfs-claim-0001
+  domain: bigdata
+  component: hdfs
+  statement: HDFS separates filesystem namespace management in the NameNode from block storage in DataNodes; files are split into blocks and replicated across DataNodes, so HDFS interview answers should distinguish metadata, block placement, replication, read path, write pipeline, and failure recovery.
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop HDFS architecture guide as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  source_ids:
+    - hadoop-hdfs-design
+  notes: HDFS architecture foundation claim.
+- id: bigdata-hudi-claim-0001
+  domain: bigdata
+  component: hudi
+  statement: Hudi is a lakehouse table format and data management layer centered on timeline-based commits, upserts, incremental processing, indexing, and table services such as compaction and clustering; copy-on-write and merge-on-read have different read/write tradeoffs.
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  source_ids:
+    - hudi-docs-overview
+  notes: Hudi table format and service claim.
+- id: bigdata-delta-claim-0001
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake uses a transaction log to provide ACID table semantics, schema enforcement or evolution, time travel, and scalable metadata handling on data lake storage; interview answers should distinguish data files from log metadata.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  source_ids:
+    - delta-lake-docs
+  notes: Delta Lake table format foundation claim.
+- id: bigdata-clickhouse-claim-0001
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse is a column-oriented DBMS for analytical workloads; MergeTree-style storage organizes data into parts with sparse primary indexes and background merges, so design answers should focus on columnar IO, partitioning, ordering keys, compression, and merge behavior.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  source_ids:
+    - clickhouse-docs
+  notes: ClickHouse OLAP and storage claim.
+- id: bigdata-hdfs-claim-0002
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 把命名空间、文件到 block 的映射、复制决策等元数据集中在 NameNode，把真实 block replica 存在 DataNode；客户端先向 NameNode 取元数据，再直接和 DataNode 传输数据。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+    - hadoop-hdfs-user-guide
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0003
+  domain: bigdata
+  component: hdfs
+  statement: NameNode 维护 namespace 和 block map，并处理 open、close、rename 等命名空间操作；DataNode 负责读写请求以及按 NameNode 指令创建、删除、复制 block。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0004
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 的读路径以元数据查找和数据流分离为核心：客户端从 NameNode 获得 block 位置后，优先选择更近的 replica 从 DataNode 读取。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+    - hadoop-hdfs-user-guide
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0005
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 的写路径以单写者、block 分配和 DataNode pipeline 为核心，常见复制因子为 3 时会同时考虑本地性、跨 rack 容灾和写入成本。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0006
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 面向大文件、流式访问和高吞吐批处理场景设计，不应被解释成低延迟随机更新文件系统。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0007
+  domain: bigdata
+  component: hdfs
+  statement: FsImage 保存命名空间快照，EditLog 记录元数据变更；checkpoint 的价值是把 edits 合并进新的 FsImage，控制重启恢复成本。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+    - hadoop-hdfs-user-guide
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0008
+  domain: bigdata
+  component: hdfs
+  statement: DataNode 通过 Heartbeat 和 Blockreport 向 NameNode 汇报状态；NameNode 可据此判断 DataNode 存活、block 分布和副本修复需求。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0009
+  domain: bigdata
+  component: hdfs
+  statement: NameNode 启动时会进入 Safemode；在满足可安全复制 block 的阈值之前，不会进行 block 复制，退出后才处理欠复制 block。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+    - hadoop-hdfs-user-guide
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0010
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 的 rack-aware replica placement 在可靠性、跨 rack 网络成本和读取可用性之间折中，不能简单说副本越分散越好。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0011
+  domain: bigdata
+  component: hdfs
+  statement: Balancer、fsck、dfsadmin report、safemode、decommission 等工具属于 HDFS 运维面，面试排障时应先定位元数据、block、副本、DataNode 和网络层面的归属。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-user-guide
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0012
+  domain: bigdata
+  component: hdfs
+  statement: Secondary NameNode 不是热备 NameNode，它的主要作用是周期性合并 FsImage 和 EditLog，不能替代 HA 故障切换。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-user-guide
+    - hadoop-hdfs-ha-qjm
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0013
+  domain: bigdata
+  component: hdfs
+  statement: QJM 模式下的 HDFS HA 通过 active/standby NameNode、JournalNode 共享 edits、ZooKeeper Failover Controller 和 fencing 降低 NameNode 单点故障风险。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-ha-qjm
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0014
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 权限模型围绕 owner、group、mode 等文件系统访问控制展开；安全治理还需要结合认证、代理用户、审计和上层引擎权限边界理解。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-permissions
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0015
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 小文件问题的本质通常是 NameNode 元数据和调度开销被大量文件、block、目录项放大，而不是 DataNode 磁盘容量不足。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0016
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 性能分析应区分 NameNode RPC、DataNode 磁盘、网络、block 大小、副本数、数据本地性和上层计算框架访问模式。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+    - hadoop-hdfs-default-config
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0017
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 的一致性边界来自写一次读多次、追加和截断能力、单写者约束以及 close/metadata 更新时机，不能套用通用 POSIX 文件系统心智模型。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0018
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 设计题应从数据规模、文件大小、访问模式、容错目标、机架拓扑、计算本地性、权限和运维工具链一起做取舍。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+    - hadoop-hdfs-user-guide
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0019
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 观测指标要把 NameNode web UI、dfsadmin report、fsck、DataNode 日志和上层任务失败信息串起来，单看剩余容量不足以定位问题。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-user-guide
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0020
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 与对象存储、HBase、Kafka 的职责边界不同：HDFS 主要解决大文件分布式存储和高吞吐读取，不负责低延迟随机写、消息顺序消费或表级索引查询。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0021
+  domain: bigdata
+  component: hdfs
+  statement: 面试回答 HDFS 时，最有区分度的表达是把对象、状态、请求链路、故障恢复和设计取舍串起来，而不是罗列 NameNode、DataNode、Block 三个名词。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hadoop-hdfs-design
+    - hadoop-hdfs-user-guide
+  notes: Curated HDFS interview claim verified against Apache Hadoop HDFS documentation.
+- id: bigdata-hdfs-claim-0022
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 文件总体上遵循 write-once-read-many 模型；现代版本允许 append 和 truncate，但同一时刻仍然严格只允许一个 writer。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop stable docs as verified on 2026-05-10
+  last_verified_at: '2026-05-10'
+  source_ids:
+    - hadoop-hdfs-design
+    - hadoop-filesystem-outputstream
+  notes: HDFS single-writer and append/truncate boundary claim.
+- id: bigdata-hdfs-claim-0023
+  domain: bigdata
+  component: hdfs
+  statement: 对实现了 Syncable 的 HDFS 输出流，hflush 返回后新打开的 reader 必须能看到新数据；它提供可见性保证，但不保证数据已经持久化到底层存储介质。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop stable FileSystem specification as verified on 2026-05-10
+  last_verified_at: '2026-05-10'
+  source_ids:
+    - hadoop-filesystem-outputstream
+  notes: HDFS hflush visibility claim.
+- id: bigdata-hdfs-claim-0024
+  domain: bigdata
+  component: hdfs
+  statement: hsync 在可见性之外还提供持久化语义；如果应用要求关闭前必须确认 HDFS 已将数据持久化，应在 close 之前显式调用 hsync，因为 HDFS 默认不会在 close 时立即把数据 sync 到磁盘，除非启用 dfs.datanode.synconclose。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop stable FileSystem specification as verified on 2026-05-10
+  last_verified_at: '2026-05-10'
+  source_ids:
+    - hadoop-filesystem-outputstream
+    - hadoop-hdfs-default-config
+  notes: HDFS hsync and synconclose durability boundary claim.
+- id: bigdata-hdfs-claim-0025
+  domain: bigdata
+  component: hdfs
+  statement: HDFS 在文件写入期间，文件元数据长度可能落后于已经对新 reader 可见的数据长度；文件 close 完成后，元数据长度和修改时间等属性必须与最终内容一致。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop stable FileSystem specification as verified on 2026-05-10
+  last_verified_at: '2026-05-10'
+  source_ids:
+    - hadoop-filesystem-outputstream
+  notes: HDFS open-file metadata lag and close consistency claim.
+- id: bigdata-hdfs-claim-0026
+  domain: bigdata
+  component: hdfs
+  statement: 当 FileSystem.create(path, overwrite=true) 覆盖已有文件时，旧数据会立刻失去可见性，路径会先表现为空字节序列，并保持与新写入流一致的元数据状态。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hadoop stable FileSystem specification as verified on 2026-05-10
+  last_verified_at: '2026-05-10'
+  source_ids:
+    - hadoop-filesystem-outputstream
+  notes: HDFS overwrite visibility boundary claim.
+- id: bigdata-hudi-claim-0002
+  domain: bigdata
+  component: hudi
+  statement: Hudi 的定位是带时间线、upsert、增量处理和表服务的湖仓数据管理层，面试中不能把它说成单纯文件格式或只读数据目录。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0003
+  domain: bigdata
+  component: hudi
+  statement: Hudi 的核心对象包括 Timeline、Instant、Commit、File Group、File Slice、Base File、Log File、Index、Compaction、Clustering，回答时应说明状态所有权和请求链路。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0004
+  domain: bigdata
+  component: hudi
+  statement: Timeline 记录 commit、delta commit、compaction、clean 等 instant，file group 和 file slice 描述数据文件及日志文件的版本演进。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0005
+  domain: bigdata
+  component: hudi
+  statement: 写入根据 record key 和 index 定位目标 file group，按 Copy-on-Write 或 Merge-on-Read 方式生成新文件或追加 log，并把结果提交到 timeline。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0006
+  domain: bigdata
+  component: hudi
+  statement: Upsert 是 Hudi 面试核心：索引定位、写入模式、commit timeline、失败回滚、compaction/cleaning 共同决定写入语义。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0007
+  domain: bigdata
+  component: hudi
+  statement: 读取方式包括 snapshot、read optimized 和 incremental；不同读模式会看到不同的 base/log 合并结果和增量边界。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0008
+  domain: bigdata
+  component: hudi
+  statement: Hudi 的语义围绕 timeline instant 和表服务展开，不应被简化成把 Parquet 文件覆盖到目录里。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0009
+  domain: bigdata
+  component: hudi
+  statement: File group、file slice、partition path、索引和 clustering 决定小文件、读放大、写放大和增量消费效率。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0010
+  domain: bigdata
+  component: hudi
+  statement: 失败写入需要通过 timeline 状态、rollback、cleaner 和并发控制边界判断，不能只看目录里是否有新文件。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0011
+  domain: bigdata
+  component: hudi
+  statement: Compaction、cleaning、clustering、index 管理和小文件治理是 Hudi 表长期稳定的关键。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0012
+  domain: bigdata
+  component: hudi
+  statement: 性能瓶颈常见于索引查找、MOR log 合并、compaction backlog、小文件、分区倾斜和写入并发。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0013
+  domain: bigdata
+  component: hudi
+  statement: 调优要围绕表类型、索引、文件大小、compaction 策略、clustering、并发写和增量读取窗口。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0014
+  domain: bigdata
+  component: hudi
+  statement: 治理要控制 timeline 保留、clean 策略、增量消费依赖、schema 演进和表服务资源。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0015
+  domain: bigdata
+  component: hudi
+  statement: 安全边界主要来自底层存储、catalog、计算引擎和写入服务身份，Hudi 表语义不能替代权限治理。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0016
+  domain: bigdata
+  component: hudi
+  statement: 要观察 timeline instant、commit 元数据、compaction backlog、文件大小、写入错误和读查询计划。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0017
+  domain: bigdata
+  component: hudi
+  statement: 排障先看 timeline 状态，再看索引、文件布局、compaction、cleaner 和底层存储权限。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0018
+  domain: bigdata
+  component: hudi
+  statement: Hudi 与 Iceberg/Delta 都属于湖仓表管理方向，但 Hudi 更突出 upsert、增量处理和表服务时间线。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0019
+  domain: bigdata
+  component: hudi
+  statement: Hudi 系统设计要同时考虑规模、可靠性、性能、成本、权限、运维和相邻组件边界。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0020
+  domain: bigdata
+  component: hudi
+  statement: Hudi 调优必须先有观测证据，再决定参数、布局、资源或上层访问模式调整。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-hudi-claim-0021
+  domain: bigdata
+  component: hudi
+  statement: Hudi 面试答案最重要的是把对象、链路、边界、故障和取舍串成闭环。
+  status: reviewed
+  confidence: high
+  version_scope: Apache Hudi docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - hudi-docs-overview
+  notes: Curated Hudi interview claim verified against official documentation.
+- id: bigdata-delta-claim-0002
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake 的定位是基于事务日志的数据湖表格式和湖仓语义层，面试中不能把它说成计算引擎本身或普通 Parquet 目录。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0003
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake 的核心对象包括 _delta_log、JSON Commit、Checkpoint、Protocol、Metadata、AddFile、RemoveFile、Data File、Snapshot，回答时应说明状态所有权和请求链路。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0004
+  domain: bigdata
+  component: delta-lake
+  statement: _delta_log 记录表版本、协议、元数据、add/remove 文件动作和事务信息，读取端通过日志构建某个版本的 snapshot。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0005
+  domain: bigdata
+  component: delta-lake
+  statement: 写入端生成数据文件后以事务提交日志动作；读取端根据日志和 checkpoint 构造快照，再读取对应数据文件。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0006
+  domain: bigdata
+  component: delta-lake
+  statement: Delta 写入核心是乐观并发和事务日志提交，不是简单覆盖目录；冲突检测、schema enforcement/evolution 和文件动作共同决定结果。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0007
+  domain: bigdata
+  component: delta-lake
+  statement: 读取路径先解析 _delta_log 和 checkpoint 得到有效文件集合，再由计算引擎读取数据文件。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0008
+  domain: bigdata
+  component: delta-lake
+  statement: Delta 提供表级 ACID 语义、time travel 和 schema 相关能力，但底层对象存储和计算引擎行为仍要纳入设计。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0009
+  domain: bigdata
+  component: delta-lake
+  statement: 数据文件、分区目录、日志文件、checkpoint 和优化后的文件大小共同影响元数据读取和扫描性能。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0010
+  domain: bigdata
+  component: delta-lake
+  statement: 失败写入要看事务日志是否提交成功；有数据文件不代表表版本可见，日志提交才是表状态边界。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0011
+  domain: bigdata
+  component: delta-lake
+  statement: OPTIMIZE、VACUUM、checkpoint、文件合并和日志保留是 Delta 表维护重点。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0012
+  domain: bigdata
+  component: delta-lake
+  statement: 性能瓶颈常见于小文件、元数据日志过长、分区设计差、谓词裁剪不足和文件统计信息不足。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0013
+  domain: bigdata
+  component: delta-lake
+  statement: 调优要围绕文件大小、分区、数据跳过、checkpoint、OPTIMIZE/ZORDER 以及保留策略做权衡。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0014
+  domain: bigdata
+  component: delta-lake
+  statement: 治理要控制 schema 演进、time travel 保留、VACUUM、并发写、权限和审计。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0015
+  domain: bigdata
+  component: delta-lake
+  statement: 安全边界依赖 catalog、底层存储权限、计算引擎身份和表访问控制；Delta 日志不是权限系统。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0016
+  domain: bigdata
+  component: delta-lake
+  statement: 要观察表历史、事务日志、文件数量、checkpoint、查询计划、VACUUM/OPTIMIZE 结果和冲突错误。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0017
+  domain: bigdata
+  component: delta-lake
+  statement: 排障先看日志版本、checkpoint、文件动作、schema 冲突、小文件和底层存储一致性。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0018
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake 与 Hudi/Iceberg 都是湖仓表格式方向，Delta 的核心抓手是事务日志、ACID、schema 和 time travel。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0019
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake 系统设计要同时考虑规模、可靠性、性能、成本、权限、运维和相邻组件边界。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0020
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake 调优必须先有观测证据，再决定参数、布局、资源或上层访问模式调整。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-delta-claim-0021
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake 面试答案最重要的是把对象、链路、边界、故障和取舍串成闭环。
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - delta-lake-docs
+  notes: Curated Delta Lake interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0002
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse 的定位是面向 OLAP 的列式数据库管理系统，面试中不能把它说成高并发小事务 OLTP 或通用消息队列。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0003
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse 的核心对象包括 MergeTree、Part、Partition、Primary Key、Sorting Key、Granule、Mark、Sparse Index、Replica、Shard，回答时应说明状态所有权和请求链路。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0004
+  domain: bigdata
+  component: clickhouse
+  statement: MergeTree 表把数据组织成 parts，按分区和排序键写入，稀疏主键索引和 mark 帮助减少扫描，后台 merge 合并 parts。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0005
+  domain: bigdata
+  component: clickhouse
+  statement: 写入形成新的 part，后台 merge 把小 part 合并成更大 part；查询时先做分区裁剪、主键/稀疏索引裁剪，再读取所需列。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0006
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse 写入强调批量插入和 part 管理，小批量高频写会放大 part 数量和 merge 压力。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0007
+  domain: bigdata
+  component: clickhouse
+  statement: 读取路径利用列式存储、压缩、分区、排序键、稀疏索引和向量化执行降低扫描成本。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0008
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse 的强项是分析吞吐和列式扫描，不应按 OLTP 行级事务模型回答。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0009
+  domain: bigdata
+  component: clickhouse
+  statement: Partition、ORDER BY、primary key、granule、part 和 shard/replica 布局决定查询裁剪、merge 成本和分布式查询表现。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0010
+  domain: bigdata
+  component: clickhouse
+  statement: 副本、分片、Distributed 表和后台 merge 的问题要分开看；单副本表和复制表的恢复边界不同。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0011
+  domain: bigdata
+  component: clickhouse
+  statement: 后台 merge、mutation、TTL、materialized view、分区管理和副本同步是运维重点。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0012
+  domain: bigdata
+  component: clickhouse
+  statement: 性能瓶颈常见于排序键设计差、分区过细、小 part 过多、join 内存高、分布式查询网络开销和低选择性扫描。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0013
+  domain: bigdata
+  component: clickhouse
+  statement: 调优要围绕批量写入、ORDER BY、PARTITION BY、数据跳过索引、物化视图、TTL 和集群拓扑做取舍。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0014
+  domain: bigdata
+  component: clickhouse
+  statement: 治理要控制表引擎、分区策略、冷热保留、查询资源、用户权限和集群成本。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0015
+  domain: bigdata
+  component: clickhouse
+  statement: 安全边界包括用户、角色、权限、网络、TLS、行列级策略和审计能力，不能只依赖应用层控制。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0016
+  domain: bigdata
+  component: clickhouse
+  statement: system 表、query_log、part_log、merge 相关指标、replication queue、慢查询和磁盘水位要联合分析。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0017
+  domain: bigdata
+  component: clickhouse
+  statement: 排障先看查询计划、扫描行数、parts 数量、merge backlog、内存、分布式网络和副本队列。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0018
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse 与 Hive/Trino/Spark 的区别在于它是列式 OLAP DBMS；Trino 是查询引擎，Hive/Spark 更常作为批处理或湖上 SQL。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0019
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse 系统设计要同时考虑规模、可靠性、性能、成本、权限、运维和相邻组件边界。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0020
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse 调优必须先有观测证据，再决定参数、布局、资源或上层访问模式调整。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.
+- id: bigdata-clickhouse-claim-0021
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse 面试答案最重要的是把对象、链路、边界、故障和取舍串成闭环。
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  source_ids:
+    - clickhouse-docs
+  notes: Curated ClickHouse interview claim verified against official documentation.

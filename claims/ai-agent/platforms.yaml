@@ -1,0 +1,142 @@
+- id: platform-claim-0001
+  domain: ai-agent
+  component: dify
+  statement: >-
+    Dify's Agent documentation positions an Agent app as a tool-using assistant where prompts guide task goals, workflow expectations, and tool usage; Dify tools can connect the model to external services, APIs, search, or databases.
+  status: reviewed
+  confidence: high
+  version_scope: "Dify docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - dify-agent-docs
+  notes: Use for Dify Agent application boundaries.
+
+- id: platform-claim-0002
+  domain: ai-agent
+  component: dify
+  statement: >-
+    Dify's workflow Agent node gives the LLM autonomous control over tools and can expose final answers, tool outputs, reasoning trace, iteration count, success status, and agent logs.
+  status: reviewed
+  confidence: high
+  version_scope: "Dify docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - dify-agent-node-docs
+  notes: Important for explaining why Dify workflows are observable orchestration graphs rather than only prompt templates.
+
+- id: platform-claim-0003
+  domain: ai-agent
+  component: dify
+  statement: >-
+    Dify knowledge pipeline documentation describes knowledge processing as a configurable pipeline covering document extraction, chunking, cleaning strategies, and YAML-based DSL configuration for knowledge workflow behavior.
+  status: reviewed
+  confidence: high
+  version_scope: "Dify docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - dify-knowledge-pipeline-docs
+  notes: Use for Dify knowledge-base and RAG pipeline design.
+
+- id: platform-claim-0004
+  domain: ai-agent
+  component: dify
+  statement: >-
+    Datawhale's self-dify course is organized around local Dify deployment and progressively covers prompt design, workflow, knowledge base, DeepResearch, database, MCP, and complex task orchestration topics.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale self-dify repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-self-dify
+  notes: Community course structure; use as learning-path source rather than sole platform-behavior authority.
+
+- id: platform-claim-0005
+  domain: ai-agent
+  component: ollama
+  statement: >-
+    Ollama's documentation provides a local model runtime and developer integration surface, including model running guidance, API reference, and official library references.
+  status: reviewed
+  confidence: high
+  version_scope: "Ollama docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - ollama-docs
+  notes: General positioning claim for local-model platform interviews.
+
+- id: platform-claim-0006
+  domain: ai-agent
+  component: ollama
+  statement: >-
+    Ollama's Modelfile documentation defines a Modelfile as the blueprint for creating and sharing customized models in Ollama.
+  status: reviewed
+  confidence: high
+  version_scope: "Ollama docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - ollama-modelfile-docs
+  notes: Use for explaining local model packaging and customization boundaries.
+
+- id: platform-claim-0007
+  domain: ai-agent
+  component: ollama
+  statement: >-
+    Ollama's OpenAI compatibility documentation shows how OpenAI-compatible clients can be pointed at a local Ollama endpoint, while local runtime behavior such as context settings still depends on Ollama-side model configuration.
+  status: reviewed
+  confidence: high
+  version_scope: "Ollama docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - ollama-openai-compat-docs
+  notes: Useful for compatibility-versus-equivalence interview questions.
+
+- id: platform-claim-0008
+  domain: ai-agent
+  component: ollama
+  statement: >-
+    Datawhale's handy-ollama course is a hands-on Ollama learning path focused on local large-model deployment and practical use.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale handy-ollama repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-handy-ollama
+  notes: Community course structure; use as learning-path source rather than sole runtime authority.
+
+- id: platform-claim-0009
+  domain: ai-agent
+  component: coze
+  statement: >-
+    Coze Studio describes itself as an AI agent development platform with visual tools for agent creation, debugging, and deployment.
+  status: reviewed
+  confidence: high
+  version_scope: "Coze Studio GitHub repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - coze-studio-github
+  notes: Use for Coze platform positioning.
+
+- id: platform-claim-0010
+  domain: ai-agent
+  component: coze
+  statement: >-
+    The Coze Studio repository describes support around agent and workflow runtime engines, model abstractions, plugins, and knowledge base indexing and retrieval.
+  status: reviewed
+  confidence: high
+  version_scope: "Coze Studio GitHub repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - coze-studio-github
+  notes: Use for explaining Coze as a visual application platform rather than only a prompt editor.
+
+- id: platform-claim-0011
+  domain: ai-agent
+  component: coze
+  statement: >-
+    Datawhale's coze-ai-assistant project is organized around building a Coze-based personal productivity assistant and decomposes AI workflow, agent, plugin, and resource management practice.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale coze-ai-assistant repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-coze-ai-assistant
+  notes: Community course structure; use as case and learning-path source.

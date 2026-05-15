@@ -1,0 +1,7 @@
+SHOW TRANSACTIONS;
+
+SHOW LOCKS dwd_user_profile_acid EXTENDED;
+
+ALTER TABLE dwd_user_profile_acid COMPACT 'MAJOR';
+
+SHOW COMPACTIONS;

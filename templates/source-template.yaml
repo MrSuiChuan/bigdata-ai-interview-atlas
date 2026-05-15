@@ -1,0 +1,9 @@
+- id: replace-source-id
+  title: Replace With Source Title
+  kind: official-doc
+  component: replace-component
+  url: https://example.com
+  version_scope: "Replace with verified version scope"
+  last_verified_at: "YYYY-MM-DD"
+  trust_level: primary
+  notes: Optional note about anchors, release pages, or scope.

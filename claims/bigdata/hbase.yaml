@@ -1,0 +1,300 @@
+- id: bigdata-hbase-claim-0001
+  domain: bigdata
+  component: hbase
+  statement: >-
+    HBase is a distributed column-family store designed for sparse and large tables, with the primary access model centered on RowKey-based random reads, writes and ordered range scans.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-book
+    - hbase-datamodel
+    - hbase-architecture-overview
+  notes: Positioning claim for HBase overview and system-selection pages.
+
+- id: bigdata-hbase-claim-0002
+  domain: bigdata
+  component: hbase
+  statement: >-
+    HBase stores table data in regions split by contiguous RowKey ranges, and regions are served by RegionServers while the master coordinates assignment and cluster management rather than normal data-plane reads and writes.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-architecture-overview
+    - hbase-regions-docs
+    - hbase-regionserver-docs
+  notes: Core architecture claim for object and role boundaries.
+
+- id: bigdata-hbase-claim-0003
+  domain: bigdata
+  component: hbase
+  statement: >-
+    HBase clients discover cluster metadata through ZooKeeper and hbase:meta, cache region locations locally, and then communicate directly with the target RegionServer for normal requests.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-client-architecture
+    - hbase-catalog-tables
+  notes: Request-routing claim for read and write path explanations.
+
+- id: bigdata-hbase-claim-0004
+  domain: bigdata
+  component: hbase
+  statement: >-
+    The basic HBase data model is table, row, column family, column qualifier, cell version and timestamp; multiple versions of a cell can coexist and delete operations are represented with tombstone-like markers until compaction rewrites storage files.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-datamodel
+    - hbase-acid-semantics
+  notes: Data-model and delete-semantics claim.
+
+- id: bigdata-hbase-claim-0005
+  domain: bigdata
+  component: hbase
+  statement: >-
+    HBase write durability is built around the sequence WAL append, MemStore update, flush to HFile and later background compaction; the flush boundary changes physical layout but does not define the logical write success boundary seen by the client.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-regionserver-docs
+    - hbase-architecture-docs
+  notes: Canonical write-path mechanism claim.
+
+- id: bigdata-hbase-claim-0006
+  domain: bigdata
+  component: hbase
+  statement: >-
+    HBase reads can involve MemStore, BlockCache and on-disk HFiles, while Bloom filters, block indexes, RowKey locality and version count strongly affect the amount of storage that must be touched to answer a request.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-regionserver-docs
+    - hbase-schema-design
+  notes: Canonical read-path and latency-model claim.
+
+- id: bigdata-hbase-claim-0007
+  domain: bigdata
+  component: hbase
+  statement: >-
+    HBase guarantees atomicity at the row level for mutation operations, but it does not provide general multi-row or multi-table transactions like a relational OLTP database.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-acid-semantics
+  notes: Consistency-boundary claim that separates HBase from generic transactional databases.
+
+- id: bigdata-hbase-claim-0008
+  domain: bigdata
+  component: hbase
+  statement: >-
+    Conditional mutation APIs such as checkAndMutate build on row-scoped atomicity and are the standard mechanism when the caller needs compare-and-set style semantics in HBase.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official API and semantics docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-acid-semantics
+  notes: Use when explaining why HBase coordination patterns are usually row-centric.
+
+- id: bigdata-hbase-claim-0009
+  domain: bigdata
+  component: hbase
+  statement: >-
+    RowKey design is the first-order performance decision in HBase because it simultaneously determines region distribution, hotspot risk, range-scan locality and how evenly writes spread across RegionServers.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-schema-design
+    - hbase-regionserver-sizing
+  notes: RowKey design claim for overview, layout and tuning topics.
+
+- id: bigdata-hbase-claim-0010
+  domain: bigdata
+  component: hbase
+  statement: >-
+    Monotonic or poorly distributed RowKeys can create hotspotting, where a small number of regions or RegionServers absorb a disproportionate share of requests and cap cluster throughput long before total hardware capacity is exhausted.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-schema-design
+    - hbase-regionserver-sizing
+    - hbase-hbtop
+  notes: Hotspotting claim for production diagnosis and design tradeoffs.
+
+- id: bigdata-hbase-claim-0011
+  domain: bigdata
+  component: hbase
+  statement: >-
+    Pre-splitting can reduce cold-start concentration for predictable keyspaces, but it does not fix a fundamentally skewed RowKey design and can even increase operational overhead when overused.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-schema-design
+    - hbase-regions-docs
+  notes: Region-layout claim for design scenarios and tuning.
+
+- id: bigdata-hbase-claim-0012
+  domain: bigdata
+  component: hbase
+  statement: >-
+    A high region count is not free: each region carries metadata, MemStore, block-cache and scheduling overhead, so region count and size are capacity-management decisions rather than a simple 'more parallelism is always better' knob.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-regions-docs
+    - hbase-regionserver-sizing
+  notes: Region-count claim for performance and operations pages.
+
+- id: bigdata-hbase-claim-0013
+  domain: bigdata
+  component: hbase
+  statement: >-
+    Flush, minor compaction, major compaction, split, merge, balancing and region reassignment are long-running background maintenance activities that reshape physical layout and performance but should not be confused with the logical API semantics seen by applications.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-regionserver-docs
+    - hbase-regions-docs
+    - hbase-ops-management
+  notes: Maintenance-boundary claim for lifecycle and troubleshooting pages.
+
+- id: bigdata-hbase-claim-0014
+  domain: bigdata
+  component: hbase
+  statement: >-
+    RegionServer failure recovery depends on reassigning regions and replaying WAL data that has not yet been flushed to HFiles, while master failure primarily affects cluster coordination instead of the already-assigned data path.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-regionserver-docs
+    - hbase-architecture-overview
+    - hbase-ops-management
+  notes: Failure-recovery claim for recovery and troubleshooting topics.
+
+- id: bigdata-hbase-claim-0015
+  domain: bigdata
+  component: hbase
+  statement: >-
+    Snapshots, backup and replication solve different recovery or mobility problems in HBase: snapshots are cheap point-in-time table views, backup or restore manages recoverable copies, and replication addresses cross-cluster continuity rather than local rollback by itself.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-ops-management
+    - hbase-backup-restore
+    - hbase-synchronous-replication
+  notes: Recovery-tooling differentiation claim.
+
+- id: bigdata-hbase-claim-0016
+  domain: bigdata
+  component: hbase
+  statement: >-
+    HBase observability has to combine region-level skew, WAL sync latency, flush and compaction pressure, block-cache behavior, slow request evidence and RegionServer health instead of relying on a single throughput metric.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-ops-management
+    - hbase-hbtop
+    - hbase-regionserver-sizing
+  notes: Observability claim for evidence-based diagnosis.
+
+- id: bigdata-hbase-claim-0017
+  domain: bigdata
+  component: hbase
+  statement: >-
+    HBase security is layered: secure deployment typically combines Kerberos-based authentication, RPC protection or TLS, ACL-based authorization and underlying HDFS permission boundaries rather than a single in-product toggle.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-security
+  notes: Security-governance claim.
+
+- id: bigdata-hbase-claim-0018
+  domain: bigdata
+  component: hbase
+  statement: >-
+    HBase should be compared as an online key-addressed serving store, not as a drop-in replacement for Hive, ClickHouse or object-storage table formats whose primary strengths are SQL analytics, scan efficiency or lakehouse governance.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-book
+    - hbase-datamodel
+  notes: Selection-boundary claim for comparison and system design pages.
+
+- id: bigdata-hbase-claim-0019
+  domain: bigdata
+  component: hbase
+  statement: >-
+    Large scans, excessive column families, too many versions, cache-unfriendly access patterns and compaction backlog are common self-inflicted causes of HBase performance regressions even when raw hardware is not saturated.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-datamodel
+    - hbase-schema-design
+    - hbase-regionserver-sizing
+  notes: Production performance anti-pattern claim.
+
+- id: bigdata-hbase-claim-0020
+  domain: bigdata
+  component: hbase
+  statement: >-
+    Evidence-driven HBase tuning starts by identifying whether the bottleneck is hotspotting, metadata or routing churn, WAL durability cost, flush pressure, compaction debt, storage amplification or an application access-pattern mistake before changing configuration values.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-ops-management
+    - hbase-regionserver-sizing
+    - hbase-hbtop
+  notes: Tuning-method claim.
+
+- id: bigdata-hbase-claim-0021
+  domain: bigdata
+  component: hbase
+  statement: >-
+    A strong HBase explanation should connect objects, request routing, physical state changes, consistency boundaries, failure recovery and selection tradeoffs into a single causal chain rather than listing component names.
+  status: reviewed
+  confidence: high
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - hbase-book
+    - hbase-architecture-docs
+    - hbase-acid-semantics
+  notes: Writing-quality anchor claim used by knowledge-map and release-quality pages.

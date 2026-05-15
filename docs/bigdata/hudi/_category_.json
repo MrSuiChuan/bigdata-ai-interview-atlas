@@ -1,0 +1,9 @@
+{
+  "label": "Hudi",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+    "title": "Hudi",
+    "description": "Hudi 知识库：覆盖 Timeline、File Group、COW/MOR、索引、表服务、增量处理与湖仓治理。"
+  }
+}

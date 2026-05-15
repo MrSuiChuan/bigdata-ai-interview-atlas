@@ -1,0 +1,9 @@
+{
+  "label": "Iceberg",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "title": "Iceberg",
+    "description": "Iceberg 知识库：覆盖 Snapshot、Manifest、Catalog、并发提交、Delete File、分区演进与湖仓治理。"
+  }
+}

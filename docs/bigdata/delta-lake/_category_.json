@@ -1,0 +1,9 @@
+{
+  "label": "Delta Lake",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+    "title": "Delta Lake",
+    "description": "Delta Lake 知识库：覆盖 _delta_log、ACID、Snapshot、Time Travel、VACUUM、OPTIMIZE 与并发边界。"
+  }
+}

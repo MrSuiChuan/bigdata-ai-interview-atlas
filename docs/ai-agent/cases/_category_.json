@@ -1,0 +1,9 @@
+{
+  "label": "案例",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "title": "AI Agent 案例",
+    "description": "面向 DeepResearch、Agentic RAG、私有化助手与工作流落地的案例拆解。"
+  }
+}

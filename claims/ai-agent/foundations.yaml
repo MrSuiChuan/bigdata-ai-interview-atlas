@@ -1,0 +1,158 @@
+- id: agent-runtime-claim-0001
+  domain: ai-agent
+  component: agent-runtime
+  statement: >-
+    OpenAI Agents SDK, LangGraph, and Microsoft Agent Framework all describe value beyond a bare model call,
+    emphasizing runtime concerns such as orchestration, state management, tool execution, observability,
+    or workflow control.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-docs
+    - langgraph-overview-docs
+    - microsoft-agent-framework-overview
+  notes: Synthesized inference for the general definition of an agent runtime.
+
+- id: agent-runtime-claim-0002
+  domain: ai-agent
+  component: agent-runtime
+  statement: >-
+    Tool use in modern agent runtimes is a structured runtime capability with schemas and invocation semantics,
+    not just a prompt asking the model to imagine external actions.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-tools
+    - mcp-server-concepts
+  notes: Useful when explaining the difference between plain prompting and actual tool calling.
+
+- id: agent-runtime-claim-0003
+  domain: ai-agent
+  component: agent-runtime
+  statement: >-
+    Persisted state, sessions, or checkpoints are treated by current frameworks as runtime-layer capabilities that
+    make multi-turn, long-running, resumable agent behavior possible.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-sessions
+    - langgraph-persistence-docs
+    - microsoft-agent-framework-conversations
+  notes: Synthesized claim for memory and state discussions.
+
+- id: agent-runtime-claim-0004
+  domain: ai-agent
+  component: agent-runtime
+  statement: >-
+    Multi-agent execution requires explicit orchestration semantics such as handoffs, workflows, or graph edges,
+    rather than simply running many models at once.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-handoffs
+    - langgraph-overview-docs
+    - microsoft-agent-framework-workflows
+  notes: Synthesized inference for multi-agent interview questions.
+
+- id: agent-runtime-claim-0005
+  domain: ai-agent
+  component: agent-runtime
+  statement: >-
+    Human-in-the-loop support in agent systems depends on pause-resume or interrupt semantics plus persisted state,
+    otherwise approvals and manual intervention cannot be resumed safely.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - langgraph-human-in-the-loop-docs
+    - langgraph-persistence-docs
+    - microsoft-agent-framework-workflows
+  notes: Synthesized claim for approval and intervention design.
+
+- id: agent-runtime-claim-0006
+  domain: ai-agent
+  component: agent-runtime
+  statement: >-
+    Observability is treated as a first-class production concern in current agent frameworks, commonly exposed
+    through tracing, events, logs, metrics, or span-style execution views.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-tracing
+    - microsoft-agent-framework-observability
+    - microsoft-agent-framework-workflow-events
+  notes: Synthesized claim for tracing and debugging questions.
+
+- id: agent-runtime-claim-0007
+  domain: ai-agent
+  component: agent-runtime
+  statement: >-
+    Guardrails and workflow orchestration solve different problems: guardrails check safety or policy boundaries,
+    while workflows and graphs control execution path and system behavior.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-guardrails
+    - microsoft-agent-framework-workflows
+    - langgraph-overview-docs
+  notes: Synthesized distinction that is frequently confused in interviews.
+
+- id: agent-runtime-claim-0008
+  domain: ai-agent
+  component: agent-runtime
+  statement: >-
+    A protocol like MCP standardizes how context and capabilities are exposed across systems, but it does not by itself
+    define reasoning policy, planning strategy, or orchestration logic.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - mcp-introduction
+    - mcp-architecture
+  notes: Synthesized claim for protocol-versus-runtime boundary questions.
+
+- id: agent-runtime-claim-0009
+  domain: ai-agent
+  component: agent-runtime
+  statement: >-
+    Runtime memory in agent systems is usually implemented as conversation history, checkpoints, or serialized session state,
+    not as a change to the underlying model itself.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-sessions
+    - langgraph-persistence-docs
+    - microsoft-agent-framework-conversations
+  notes: Synthesized claim for clarifying what memory means in production agents.
+
+- id: agent-runtime-claim-0010
+  domain: ai-agent
+  component: agent-runtime
+  statement: >-
+    The common engineering trajectory in modern agent frameworks is to move from single-turn model calls toward a system
+    that combines tools, state, orchestration, and observability under one runtime.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-docs
+    - langgraph-overview-docs
+    - microsoft-agent-framework-overview
+  notes: High-level synthesis for AI agent overview material.

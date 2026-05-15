@@ -1,0 +1,134 @@
+- id: a2a-claim-0001
+  domain: ai-agent
+  component: a2a
+  statement: >-
+    Agent2Agent (A2A) is an open protocol that enables applications to collaborate with opaque agentic systems.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - a2a-overview-docs
+  notes: Core framing claim for A2A positioning.
+
+- id: a2a-claim-0002
+  domain: ai-agent
+  component: a2a
+  statement: >-
+    A2A is designed to support enterprises with agents operating in dynamic, multi-application ecosystems.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - a2a-overview-docs
+    - a2a-google-blog
+  notes: Useful for enterprise integration and interoperability questions.
+
+- id: a2a-claim-0003
+  domain: ai-agent
+  component: a2a
+  statement: >-
+    The A2A protocol uses JSON-RPC 2.0 messages over HTTP(S) POST, and it also supports Server-Sent Events for streaming.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A specification as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - a2a-spec-docs
+  notes: Important wire-protocol claim for technical interviews.
+
+- id: a2a-claim-0004
+  domain: ai-agent
+  component: a2a
+  statement: >-
+    A2A is built around tasks so agents can exchange context, send messages, and coordinate work that may be long-running.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - a2a-overview-docs
+    - a2a-spec-docs
+  notes: Key claim for long-running execution and task semantics.
+
+- id: a2a-claim-0005
+  domain: ai-agent
+  component: a2a
+  statement: >-
+    The A2A protocol defines an Agent Card as the metadata object clients use to discover a remote agent's identity, skills, capabilities, and preferred interfaces.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - a2a-agent-discovery-docs
+    - a2a-spec-docs
+  notes: Core claim for agent discovery and capability advertisement.
+
+- id: a2a-claim-0006
+  domain: ai-agent
+  component: a2a
+  statement: >-
+    Current A2A documentation recommends hosting the Agent Card at a well-known URL ending in /.well-known/agent-card.json.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A latest discovery and specification docs as verified on 2026-05-14"
+  last_verified_at: "2026-05-14"
+  source_ids:
+    - a2a-agent-discovery-docs
+    - a2a-spec-docs
+  notes: Use the latest official docs for current discovery path; integration with older implementations should still confirm remote version details.
+
+- id: a2a-claim-0007
+  domain: ai-agent
+  component: a2a
+  statement: >-
+    In A2A, agents are opaque by design and do not need to share memory, internal tools, or planning details with each other.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - a2a-overview-docs
+  notes: High-value boundary claim for protocol design discussions.
+
+- id: a2a-claim-0008
+  domain: ai-agent
+  component: a2a
+  statement: >-
+    The A2A documentation explicitly says that MCP is ideal for connecting tools to agents, while A2A is ideal for connecting agents to agents.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - a2a-and-mcp-docs
+  notes: Core comparison claim for A2A versus MCP.
+
+- id: a2a-claim-0009
+  domain: ai-agent
+  component: a2a
+  statement: >-
+    A2A and MCP are described as complementary protocols that can be used together in the same agent ecosystem.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - a2a-and-mcp-docs
+  notes: Important for avoiding false either-or framing.
+
+- id: a2a-claim-0010
+  domain: ai-agent
+  component: a2a
+  statement: >-
+    The A2A enterprise guidance recommends using HTTPS in production and carrying authentication and authorization metadata in the Agent Card and protocol exchanges.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - a2a-enterprise-docs
+    - a2a-agent-discovery-docs
+  notes: Use for security and enterprise readiness questions.

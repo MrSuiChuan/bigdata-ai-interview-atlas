@@ -1,0 +1,569 @@
+- id: bigdata-delta-claim-0001
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake is an open-source storage layer that brings ACID transactions, scalable metadata handling, and unified batch and streaming processing to data lakes.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-faq
+    - delta-lake-docs
+  notes: Use this as the anchor positioning fact for Delta Lake overview answers.
+
+- id: bigdata-delta-claim-0002
+  domain: bigdata
+  component: delta-lake
+  statement: A Delta table has a single serial history of atomic versions named with contiguous monotonically increasing integers.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-protocol
+  notes: This is the protocol-level basis for table versioning and time travel.
+
+- id: bigdata-delta-claim-0003
+  domain: bigdata
+  component: delta-lake
+  statement: A Delta snapshot is defined by the table protocol, table metadata, active files, recent tombstones, and successfully committed application transactions.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-protocol
+  notes: Use this when explaining what exactly a reader reconstructs from the log.
+
+- id: bigdata-delta-claim-0004
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake transactions use multi-version concurrency control, so readers choose a consistent snapshot from the transaction log while old files can remain until cleanup.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-protocol
+  notes: This is the mechanism-level explanation for snapshot isolation and delayed file deletion.
+
+- id: bigdata-delta-claim-0005
+  domain: bigdata
+  component: delta-lake
+  statement: Delta writers first stage new or rewritten data files and then commit a new atomic log version that records add and remove actions.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-protocol
+  notes: This is the core write-path fact behind Delta Lake commit semantics.
+
+- id: bigdata-delta-claim-0006
+  domain: bigdata
+  component: delta-lake
+  statement: Checkpoints contain the protocol, metadata, active files, recently removed files that have not expired, and transaction identifiers needed to rebuild a snapshot quickly.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-protocol
+  notes: Use this when explaining snapshot initialization cost and checkpoint value.
+
+- id: bigdata-delta-claim-0007
+  domain: bigdata
+  component: delta-lake
+  statement: For supported storage systems Delta Lake allows multiple writers on multiple clusters to modify a table while readers still see a consistent snapshot and writes have a serial order.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-concurrency-control
+  notes: This is the table-level ACID guarantee users usually mean when asking about consistency.
+
+- id: bigdata-delta-claim-0008
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake optimistic concurrency control validates a proposed write after reading and staging files, and conflicting writes fail with exceptions instead of corrupting the table.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-concurrency-control
+  notes: Use this to explain why Delta Lake detects conflicts at commit time rather than locking files.
+
+- id: bigdata-delta-claim-0009
+  domain: bigdata
+  component: delta-lake
+  statement: In Delta Lake conflict rules, INSERT does not conflict with INSERT or compaction, while UPDATE, DELETE, MERGE, and compaction can conflict when they touch the same files.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-concurrency-control
+  notes: This is the main official fact behind write-conflict interview answers.
+
+- id: bigdata-delta-claim-0010
+  domain: bigdata
+  component: delta-lake
+  statement: Partitioning a table by columns commonly used in command conditions can reduce conflicts by making write file sets disjoint, but high-cardinality partition columns cause other performance issues.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-concurrency-control
+    - delta-lake-best-practices
+  notes: This connects concurrency and layout design into one practical rule.
+
+- id: bigdata-delta-claim-0011
+  domain: bigdata
+  component: delta-lake
+  statement: DESCRIBE HISTORY returns write operations in reverse chronological order and table history is retained for 30 days by default.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-utility
+  notes: Use this as the main observability anchor for commit history and operation provenance.
+
+- id: bigdata-delta-claim-0012
+  domain: bigdata
+  component: delta-lake
+  statement: VACUUM is not triggered automatically, the default deleted-file retention threshold is 7 days, and Delta log files are cleaned automatically after checkpoints with a default log retention of 30 days.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-utility
+    - delta-lake-table-properties
+  notes: This is the key retention boundary for time travel and stale-reader discussions.
+
+- id: bigdata-delta-claim-0013
+  domain: bigdata
+  component: delta-lake
+  statement: RESTORE is a data-changing operation whose log entries use dataChange equals true, so downstream streaming consumers can treat restored files as new data and process duplicates.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-utility
+  notes: This is the most important restore caveat for downstream pipelines.
+
+- id: bigdata-delta-claim-0014
+  domain: bigdata
+  component: delta-lake
+  statement: Change data feed is not enabled by default and records row-level inserts, deletes, and updates that can be read in batch or streaming mode.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-cdf
+  notes: Use this as the baseline CDF capability fact.
+
+- id: bigdata-delta-claim-0015
+  domain: bigdata
+  component: delta-lake
+  statement: When enabled, Delta Lake stores change data under the _change_data folder for relevant operations, and VACUUM removes change data feed files as well.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-cdf
+  notes: This links CDF behavior to retention and recovery boundaries.
+
+- id: bigdata-delta-claim-0016
+  domain: bigdata
+  component: delta-lake
+  statement: A Delta streaming source first processes the full current table and then new commits, and even when you specify a starting version or timestamp the source schema is always the latest table schema.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-streaming
+  notes: Use this for streaming-read visibility and schema-change caveat answers.
+
+- id: bigdata-delta-claim-0017
+  domain: bigdata
+  component: delta-lake
+  statement: If a streaming source lags and source log entries are cleaned by logRetentionDuration, Delta Lake reads from the latest available history rather than failing the stream, which can drop data.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-streaming
+  notes: This is one of the sharpest operational boundaries for slow streaming readers.
+
+- id: bigdata-delta-claim-0018
+  domain: bigdata
+  component: delta-lake
+  statement: foreachBatch writes are not idempotent by default, but Delta tables support txnAppId and txnVersion writer options for idempotent writes.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-streaming
+    - delta-lake-batch
+  notes: Use this for retry semantics and exactly-once style answers.
+
+- id: bigdata-delta-claim-0019
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake enforces CHECK and NOT NULL constraints on writes and throws InvariantViolationException when new data violates them.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-constraints
+  notes: This is the core data-quality boundary for constraint discussions.
+
+- id: bigdata-delta-claim-0020
+  domain: bigdata
+  component: delta-lake
+  statement: Enabling some Delta features upgrades table protocol requirements and can break forward compatibility for older clients, while lower-version tables remain readable and writable by newer Delta versions.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-versioning
+  notes: Use this when explaining protocol upgrades and mixed-client risks.
+
+- id: bigdata-delta-claim-0021
+  domain: bigdata
+  component: delta-lake
+  statement: Starting with writer version 7 and reader version 3, Delta Lake introduces table features so tables can enable specific features with finer-grained compatibility than old bundled protocol versions.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-versioning
+  notes: This is the key fact behind modern Delta compatibility design.
+
+- id: bigdata-delta-claim-0022
+  domain: bigdata
+  component: delta-lake
+  statement: Column mapping enables rename and drop column operations without rewriting underlying Parquet files and also allows special characters in column names.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-column-mapping
+  notes: Use this as the anchor feature fact for column mapping.
+
+- id: bigdata-delta-claim-0023
+  domain: bigdata
+  component: delta-lake
+  statement: Column mapping can break downstream operations that rely on change data feed, and non-additive schema changes on column-mapped tables require schema tracking for Structured Streaming reads in Delta 3.0 and above.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-column-mapping
+    - delta-lake-cdf
+  notes: This is the main operational caveat for schema evolution on active pipelines.
+
+- id: bigdata-delta-claim-0024
+  domain: bigdata
+  component: delta-lake
+  statement: Deletion vectors allow Delta Lake to mark rows as removed without rewriting Parquet files, and enabling them upgrades the table protocol to require compatible readers and writers.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-deletion-vectors
+  notes: This is the key mechanism-level fact for delete-vector explanations.
+
+- id: bigdata-delta-claim-0025
+  domain: bigdata
+  component: delta-lake
+  statement: Changes recorded through deletion vectors are applied physically when files are rewritten, such as by OPTIMIZE, REORG TABLE APPLY PURGE, or DML operations without deletion vectors.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-deletion-vectors
+  notes: Use this to separate logical deletion from physical purge.
+
+- id: bigdata-delta-claim-0026
+  domain: bigdata
+  component: delta-lake
+  statement: OPTIMIZE compaction is idempotent, uses dataChange false for layout-only rewrites, and does not affect query results or streaming readers because Delta readers use snapshot isolation.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-optimizations
+  notes: This is the main fact behind safe compaction answers.
+
+- id: bigdata-delta-claim-0027
+  domain: bigdata
+  component: delta-lake
+  statement: Auto compaction runs synchronously after a successful write on the same cluster and only rewrites partitions or tables that have enough small files.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-optimizations
+  notes: This is the right source-backed explanation for write-latency tradeoffs of auto compaction.
+
+- id: bigdata-delta-claim-0028
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake collects file statistics automatically for data skipping, but skipping effectiveness depends on data layout and the delta.dataSkippingNumIndexedCols property controls how many columns collect stats.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-optimizations
+    - delta-lake-table-properties
+  notes: Use this when explaining file pruning and stats-driven optimization.
+
+- id: bigdata-delta-claim-0029
+  domain: bigdata
+  component: delta-lake
+  statement: Z-Ordering colocates related values so data skipping can read less data, but it is not idempotent and is ineffective on columns without collected statistics.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-optimizations
+  notes: This is the practical boundary for Z-ORDER tuning.
+
+- id: bigdata-delta-claim-0030
+  domain: bigdata
+  component: delta-lake
+  statement: Row tracking adds row ids and row commit versions to a table, and disabling row tracking does not remove the table feature or downgrade the protocol version.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-row-tracking
+  notes: Use this to explain lineage metadata and irreversible compatibility impact.
+
+- id: bigdata-delta-claim-0031
+  domain: bigdata
+  component: delta-lake
+  statement: Enabling row tracking on an existing non-empty table assigns metadata to existing rows, can create multiple new versions, and may take a long time.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-row-tracking
+  notes: This is a rollout-risk claim for existing production tables.
+
+- id: bigdata-delta-claim-0032
+  domain: bigdata
+  component: delta-lake
+  statement: Default column values require the allowColumnDefaults writer table feature, and enabling that feature upgrades the protocol irreversibly.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-default-columns
+  notes: Use this when discussing defaults and protocol risk.
+
+- id: bigdata-delta-claim-0033
+  domain: bigdata
+  component: delta-lake
+  statement: Delta identity columns disable concurrent transactions, cannot be used as partition columns, and cannot be updated in place.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-batch
+  notes: This is the highest-value limitation for identity-column design answers.
+
+- id: bigdata-delta-claim-0034
+  domain: bigdata
+  component: delta-lake
+  statement: Generated columns are stored like normal columns, explicit values must satisfy the generation expression, and generated partition columns can help Delta derive partition filters from base-column predicates.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-batch
+  notes: Use this to explain generated columns beyond simple syntax memorization.
+
+- id: bigdata-delta-claim-0035
+  domain: bigdata
+  component: delta-lake
+  statement: The delta.appendOnly table property makes a table append-only so existing rows cannot be updated or deleted.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-table-properties
+  notes: This is the cleanest official fact for append-only boundary discussions.
+
+- id: bigdata-delta-claim-0036
+  domain: bigdata
+  component: delta-lake
+  statement: The deletedFileRetentionDuration property protects stale readers and paused streams by keeping logically deleted files long enough, and setTransactionRetentionDuration governs how long idempotent transaction identifiers are retained.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-table-properties
+  notes: Use this for retention and idempotency-governance explanations.
+
+- id: bigdata-delta-claim-0037
+  domain: bigdata
+  component: delta-lake
+  statement: Converting a Parquet table to Delta is an in-place operation that creates a transaction log over existing files, and files not tracked by Delta are invisible and can later be vacuumed.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-utility
+  notes: This is the correct boundary for convert-to-delta migration answers.
+
+- id: bigdata-delta-claim-0038
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake does not support multi-table transactions or foreign keys and keeps transaction guarantees at the individual table level.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-faq
+  notes: This is the most important non-goal boundary in architecture interviews.
+
+- id: bigdata-delta-claim-0039
+  domain: bigdata
+  component: delta-lake
+  statement: The Delta releases page lists Delta 4.0.x as compatible with Spark 4.0.x and Delta 3.0.x to 3.3.x as compatible with Spark 3.5.x.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-releases
+  notes: Use this when answering version-selection or upgrade-path questions.
+
+- id: bigdata-delta-claim-0040
+  domain: bigdata
+  component: delta-lake
+  statement: Catalog-managed tables introduce a catalogManaged table feature where the catalog coordinates commit atomicity, enabling features such as multi-table transactions that are difficult with filesystem-only primitives.
+  status: reviewed
+  confidence: medium
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-catalog-managed-tables
+  notes: Use this carefully as a newer Delta architecture mode rather than a blanket claim about all Delta tables.
+
+- id: bigdata-delta-claim-0041
+  domain: bigdata
+  component: delta-lake
+  statement: Best-practice guidance says not to partition on very high-cardinality columns and recommends that a chosen partition usually hold at least around 1 GB of data.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-best-practices
+  notes: This is the best official rule of thumb for partition layout design.
+
+- id: bigdata-delta-claim-0042
+  domain: bigdata
+  component: delta-lake
+  statement: Using dataChange false is only correct for layout-only rewrites such as compaction, and using it on a data-changing operation can corrupt the table.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-best-practices
+  notes: This is a critical operational warning for manual maintenance code.
+
+- id: bigdata-delta-claim-0043
+  domain: bigdata
+  component: delta-lake
+  statement: Replacing a Delta table with overwriteSchema or REPLACE TABLE is atomic, preserves the old version for recovery, and is safer than deleting the table directory and recreating it.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-best-practices
+  notes: Use this as the canonical answer for full-table rewrites and schema replacement.
+
+- id: bigdata-delta-claim-0044
+  domain: bigdata
+  component: delta-lake
+  statement: Delta Lake automatically validates write schema compatibility; extra columns not present in the target table raise an exception, missing target columns are written as null, data types must match, and column names cannot differ only by case.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-batch
+  notes: Use this as the baseline schema enforcement claim for batch writes.
+
+- id: bigdata-delta-claim-0045
+  domain: bigdata
+  component: delta-lake
+  statement: When you update a Delta table schema, streams that read from that table terminate and must be restarted if you want them to continue.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-batch
+  notes: This is the key operational boundary between schema evolution and long-running streams.
+
+- id: bigdata-delta-claim-0046
+  domain: bigdata
+  component: delta-lake
+  statement: A Delta merge can fail if multiple source rows match the same target row and the merge attempts to update that target row, because the result is ambiguous.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-update
+  notes: Use this to explain why CDC merge sources often need deduplication before upsert.
+
+- id: bigdata-delta-claim-0047
+  domain: bigdata
+  component: delta-lake
+  statement: Enabling column mapping upgrades the table protocol, requires reader version 2 and writer version 5 or above, and cannot be turned off after it is enabled.
+  status: reviewed
+  confidence: high
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - delta-lake-column-mapping
+  notes: This is the most practical compatibility claim for column mapping rollout discussions.

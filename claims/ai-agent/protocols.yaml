@@ -1,0 +1,161 @@
+- id: mcp-claim-0001
+  domain: ai-agent
+  component: mcp
+  statement: >-
+    The Model Context Protocol is an open standard for connecting AI assistants to the systems where data lives,
+    including content repositories, business tools, and development environments.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - mcp-introduction
+  notes: Core framing for MCP positioning.
+
+- id: mcp-claim-0002
+  domain: ai-agent
+  component: mcp
+  statement: >-
+    MCP uses a host-client-server architecture where the host application can run multiple clients, each maintaining
+    a connection to a specific MCP server.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - mcp-architecture
+  notes: Important for explaining topology and integration boundaries.
+
+- id: mcp-claim-0003
+  domain: ai-agent
+  component: mcp
+  statement: >-
+    MCP focuses on standardizing context exchange between clients and servers and does not prescribe how applications
+    use large language models.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - mcp-architecture
+  notes: High-value boundary for protocol-versus-agent-runtime questions.
+
+- id: mcp-claim-0004
+  domain: ai-agent
+  component: mcp
+  statement: >-
+    The MCP data layer is based on JSON-RPC 2.0 and defines lifecycle management, server features, and message exchange patterns.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - mcp-architecture
+  notes: Useful for protocol-structure questions.
+
+- id: mcp-claim-0005
+  domain: ai-agent
+  component: mcp
+  statement: >-
+    MCP separates transport concerns from the data layer and documents transport mechanisms including stdio and Streamable HTTP.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - mcp-architecture
+  notes: Important when explaining local versus remote deployment modes.
+
+- id: mcp-claim-0006
+  domain: ai-agent
+  component: mcp
+  statement: >-
+    MCP servers can expose three main categories of primitives: tools, resources, and prompts.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - mcp-server-concepts
+  notes: Canonical capability taxonomy for MCP.
+
+- id: mcp-claim-0007
+  domain: ai-agent
+  component: mcp
+  statement: >-
+    In MCP, tools are executable functions that the client or model can invoke to perform actions or retrieve computed results.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - mcp-server-concepts
+  notes: Use for tool-calling boundary questions.
+
+- id: mcp-claim-0008
+  domain: ai-agent
+  component: mcp
+  statement: >-
+    Resources in MCP are URI-addressed pieces of contextual data that applications can read and include in the model context.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - mcp-server-concepts
+    - mcp-resources
+  notes: Important for distinguishing resources from tools.
+
+- id: mcp-claim-0009
+  domain: ai-agent
+  component: mcp
+  statement: >-
+    Prompts in MCP are user-controlled templates that can accept arguments and may embed resources or other context.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - mcp-server-concepts
+    - mcp-prompts
+  notes: Useful for explaining that MCP can expose more than executable tools.
+
+- id: mcp-claim-0010
+  domain: ai-agent
+  component: mcp
+  statement: >-
+    Because MCP standardizes capability discovery and invocation, it reduces the need for one-off integrations between each client and each external system.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - mcp-introduction
+    - mcp-server-concepts
+  notes: Practical interoperability claim for system-design discussions.
+
+- id: mcp-claim-0011
+  domain: ai-agent
+  component: mcp
+  statement: >-
+    Datawhale's mcp-lite-dev repository is positioned as project code for learning minimal MCP development, making it suitable as implementation-oriented supporting material for MCP interview content.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale mcp-lite-dev repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-mcp-lite-dev
+  notes: Community code source; official MCP docs remain the authority for protocol semantics.
+
+- id: mcp-claim-0012
+  domain: ai-agent
+  component: llm-protocols
+  statement: >-
+    Datawhale's llm-protocols-guide repository is suitable as a learning-path source for LLM protocol engineering, but concrete protocol semantics should be verified against the relevant official protocol documentation.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale llm-protocols-guide repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-llm-protocols-guide
+  notes: Use for import planning and learning structure, not as sole authority.

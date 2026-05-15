@@ -1,0 +1,249 @@
+- id: transformer-attention-paper
+  title: Attention Is All You Need
+  kind: research-paper
+  component: transformer
+  url: https://arxiv.org/abs/1706.03762
+  version_scope: "arXiv paper as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for Transformer encoder-decoder architecture, self-attention, multi-head attention, positional encoding, residual connections, and layer normalization framing.
+
+- id: gpt3-language-models-paper
+  title: Language Models are Few-Shot Learners
+  kind: research-paper
+  component: llm-foundations
+  url: https://arxiv.org/abs/2005.14165
+  version_scope: "arXiv paper as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for large autoregressive language model framing, few-shot prompting, and scaling-oriented LLM mental model.
+
+- id: huggingface-tokenizers-course
+  title: Hugging Face NLP Course - Tokenizers
+  kind: official-course
+  component: tokenizer
+  url: https://huggingface.co/learn/nlp-course/chapter6/1
+  version_scope: "Hugging Face course as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for tokenizer concepts, subword tokenization, BPE, WordPiece, Unigram, encoding and decoding behavior.
+
+- id: openai-tokenizer-help
+  title: OpenAI Help - What are tokens and how to count them
+  kind: official-doc
+  component: tokenizer
+  url: https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them
+  version_scope: "OpenAI help article as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for token counting, prompt tokens, completion tokens, cached tokens, reasoning tokens, and cost or context-budget framing.
+
+- id: instructgpt-rlhf-paper
+  title: Training language models to follow instructions with human feedback
+  kind: research-paper
+  component: post-training
+  url: https://arxiv.org/abs/2203.02155
+  version_scope: "arXiv paper as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for instruction tuning, human feedback, reward modeling, PPO-based RLHF, and helpfulness or harmlessness alignment framing.
+
+- id: dpo-paper
+  title: Direct Preference Optimization
+  kind: research-paper
+  component: post-training
+  url: https://arxiv.org/abs/2305.18290
+  version_scope: "arXiv paper as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for DPO as a preference optimization objective that can optimize from preference data without explicit reward model training.
+
+- id: huggingface-trl-dpo-docs
+  title: Hugging Face TRL - DPO Trainer
+  kind: official-doc
+  component: post-training
+  url: https://huggingface.co/docs/trl/dpo_trainer
+  version_scope: "Hugging Face TRL docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for practical DPO trainer framing, chosen/rejected preference data, and implementation-level terminology.
+
+- id: lora-paper
+  title: LoRA - Low-Rank Adaptation of Large Language Models
+  kind: research-paper
+  component: parameter-efficient-fine-tuning
+  url: https://arxiv.org/abs/2106.09685
+  version_scope: "arXiv paper as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for LoRA as low-rank trainable adaptation matrices inserted into frozen pretrained model weights.
+
+- id: qlora-paper
+  title: QLoRA - Efficient Finetuning of Quantized LLMs
+  kind: research-paper
+  component: parameter-efficient-fine-tuning
+  url: https://arxiv.org/abs/2305.14314
+  version_scope: "arXiv paper as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for QLoRA as fine-tuning through frozen quantized pretrained models into LoRA adapters, including the memory-efficiency framing.
+
+- id: scaling-laws-paper
+  title: Scaling Laws for Neural Language Models
+  kind: research-paper
+  component: llm-training-foundations
+  url: https://arxiv.org/abs/2001.08361
+  version_scope: "arXiv paper as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for high-level scaling law framing across model size, dataset size, and compute. Do not use as a current model capability guarantee.
+
+- id: chinchilla-compute-optimal-paper
+  title: Training Compute-Optimal Large Language Models
+  kind: research-paper
+  component: llm-training-foundations
+  url: https://arxiv.org/abs/2203.15556
+  version_scope: "arXiv paper as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for compute-optimal training framing and the importance of jointly considering model size and training tokens.
+
+- id: chain-of-thought-paper
+  title: Chain-of-Thought Prompting Elicits Reasoning in Large Language Models
+  kind: research-paper
+  component: prompt-engineering
+  url: https://arxiv.org/abs/2201.11903
+  version_scope: "arXiv paper as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for chain-of-thought prompting as an empirical prompting technique, especially for multi-step reasoning tasks in sufficiently capable language models.
+
+- id: self-consistency-paper
+  title: Self-Consistency Improves Chain of Thought Reasoning in Language Models
+  kind: research-paper
+  component: prompt-engineering
+  url: https://arxiv.org/abs/2203.11171
+  version_scope: "arXiv paper as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for self-consistency as sampling multiple reasoning paths and selecting a consistent final answer; applicability and cost depend on task and model.
+
+- id: huggingface-kv-cache-docs
+  title: Hugging Face Transformers - Cache strategies
+  kind: official-doc
+  component: inference
+  url: https://huggingface.co/docs/transformers/en/kv_cache
+  version_scope: "Hugging Face Transformers docs as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for KV cache strategies, memory tradeoffs, long-context generation bottlenecks, and cache implementation terminology in Transformers.
+
+- id: huggingface-generation-strategies-docs
+  title: Hugging Face Transformers - Text generation strategies
+  kind: official-doc
+  component: inference
+  url: https://huggingface.co/docs/transformers/v4.49.0/en/generation_strategies
+  version_scope: "Hugging Face Transformers docs as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for greedy decoding, sampling, beam search, top-p, temperature, assisted decoding, and generation configuration concepts.
+
+- id: owasp-llm-top10-2025
+  title: OWASP Top 10 for Large Language Model Applications 2025
+  kind: security-standard
+  component: llm-safety
+  url: https://owasp.org/www-project-top-10-for-large-language-model-applications/
+  version_scope: "OWASP project page as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for LLM application security risks such as prompt injection, sensitive information disclosure, and excessive agency.
+
+- id: openai-prompt-injection-blog
+  title: OpenAI - Understanding prompt injections
+  kind: official-article
+  component: llm-safety
+  url: https://openai.com/index/prompt-injections
+  version_scope: "OpenAI article as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for prompt injection risk framing, sandboxing, and the need for system-level mitigations beyond prompting.
+
+- id: openai-images-vision-docs
+  title: OpenAI API - Images and vision
+  kind: official-doc
+  component: multimodal
+  url: https://platform.openai.com/docs/guides/images-vision
+  version_scope: "OpenAI API docs as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for image input and image generation API framing. Always verify concrete model availability and limits against current provider docs.
+
+- id: clip-paper
+  title: Learning Transferable Visual Models From Natural Language Supervision
+  kind: research-paper
+  component: multimodal
+  url: https://arxiv.org/abs/2103.00020
+  version_scope: "arXiv paper as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for contrastive image-text representation learning and image-text alignment framing in multimodal systems.
+
+- id: huggingface-transformers-docs
+  title: Hugging Face Transformers Documentation
+  kind: official-doc
+  component: huggingface-ecosystem
+  url: https://huggingface.co/docs/transformers/index
+  version_scope: "Hugging Face Transformers docs as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for Transformers library positioning, pipelines, Auto classes, models, tokenizers, generation, and training/inference workflow framing.
+
+- id: huggingface-datasets-docs
+  title: Hugging Face Datasets Documentation
+  kind: official-doc
+  component: huggingface-ecosystem
+  url: https://huggingface.co/docs/datasets/index
+  version_scope: "Hugging Face Datasets docs as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for dataset loading, processing, and dataset workflow framing in the Hugging Face ecosystem.
+
+- id: huggingface-peft-docs
+  title: Hugging Face PEFT Documentation
+  kind: official-doc
+  component: huggingface-ecosystem
+  url: https://huggingface.co/docs/peft/index
+  version_scope: "Hugging Face PEFT docs as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for parameter-efficient fine-tuning library concepts and adapter-based workflow framing.
+
+- id: huggingface-evaluate-docs
+  title: Hugging Face Evaluate Documentation
+  kind: official-doc
+  component: huggingface-ecosystem
+  url: https://huggingface.co/docs/evaluate/index
+  version_scope: "Hugging Face Evaluate docs as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for model evaluation workflow framing in the Hugging Face ecosystem.
+
+- id: stanford-ir-book
+  title: Introduction to Information Retrieval
+  kind: textbook
+  component: information-retrieval
+  url: https://nlp.stanford.edu/IR-book/
+  version_scope: "Online IR textbook as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for classical information retrieval concepts such as inverted indexes, term weighting, vector space retrieval, evaluation, and relevance.
+
+- id: tree-of-thoughts-paper
+  title: Tree of Thoughts - Deliberate Problem Solving with Large Language Models
+  kind: research-paper
+  component: llm-reasoning
+  url: https://arxiv.org/abs/2305.10601
+  version_scope: "arXiv paper as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  trust_level: primary
+  notes: Use for search-over-thoughts framing and deliberate problem-solving prompting. Do not generalize as guaranteed reasoning correctness.

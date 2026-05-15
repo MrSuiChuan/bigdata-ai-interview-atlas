@@ -1,0 +1,116 @@
+- id: semantic-kernel-claim-0001
+  domain: ai-agent
+  component: semantic-kernel
+  statement: >-
+    Semantic Kernel is described by Microsoft as a lightweight open-source development kit and model abstraction layer for building AI agents and integrating the latest AI models into applications.
+  status: reviewed
+  confidence: high
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - semantic-kernel-introduction
+  notes: Core positioning claim for Semantic Kernel.
+
+- id: semantic-kernel-claim-0002
+  domain: ai-agent
+  component: semantic-kernel
+  statement: >-
+    In Semantic Kernel, the kernel is the central dependency injection container and runtime hub for services, plugins, and execution settings.
+  status: reviewed
+  confidence: high
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - semantic-kernel-kernel-docs
+  notes: Important for explaining SK architecture.
+
+- id: semantic-kernel-claim-0003
+  domain: ai-agent
+  component: semantic-kernel
+  statement: >-
+    Semantic Kernel plugins are a way to encapsulate APIs into a collection that can be used by AI applications and support function calling.
+  status: reviewed
+  confidence: high
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - semantic-kernel-plugins-docs
+  notes: Key claim for plugin architecture discussions.
+
+- id: semantic-kernel-claim-0004
+  domain: ai-agent
+  component: semantic-kernel
+  statement: >-
+    Semantic Kernel supports importing plugins from native code, OpenAPI specifications, and MCP servers.
+  status: reviewed
+  confidence: high
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - semantic-kernel-plugins-docs
+  notes: Strong interoperability claim for SK.
+
+- id: semantic-kernel-claim-0005
+  domain: ai-agent
+  component: semantic-kernel
+  statement: >-
+    The Semantic Kernel Agent Framework is positioned as a platform for creating AI agents that can collaborate with one another.
+  status: reviewed
+  confidence: high
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - semantic-kernel-agent-framework-docs
+  notes: Important for agent-layer positioning.
+
+- id: semantic-kernel-claim-0006
+  domain: ai-agent
+  component: semantic-kernel
+  statement: >-
+    Semantic Kernel agent orchestration provides a unified interface for multiple coordination patterns including concurrent, sequential, handoff, group chat, and magentic orchestration.
+  status: reviewed
+  confidence: high
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - semantic-kernel-agent-orchestration-docs
+  notes: Useful for comparing SK orchestration with other frameworks.
+
+- id: semantic-kernel-claim-0007
+  domain: ai-agent
+  component: semantic-kernel
+  statement: >-
+    Microsoft labels Semantic Kernel agent orchestration as experimental, indicating that the API surface may evolve.
+  status: reviewed
+  confidence: high
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - semantic-kernel-agent-orchestration-docs
+  notes: Important production-readiness boundary.
+
+- id: semantic-kernel-claim-0008
+  domain: ai-agent
+  component: semantic-kernel
+  statement: >-
+    In the Semantic Kernel Process Framework, a Process orchestrates one or more Steps, and the framework is designed to support stateful, event-driven, long-running flows with pause and resume behavior.
+  status: reviewed
+  confidence: high
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - semantic-kernel-process-framework-docs
+  notes: High-value claim for deterministic orchestration and workflow discussions.
+
+- id: semantic-kernel-claim-0009
+  domain: ai-agent
+  component: semantic-kernel
+  statement: >-
+    Semantic Kernel observability is compatible with OpenTelemetry and covers logs, metrics, and traces.
+  status: reviewed
+  confidence: high
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - semantic-kernel-observability-docs
+  notes: Important production operations claim.

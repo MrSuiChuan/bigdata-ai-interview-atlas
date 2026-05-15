@@ -1,0 +1,9 @@
+{
+  "label": "Spark",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "title": "Spark",
+    "description": "Spark 知识库：覆盖 Driver、Executor、Job、Stage、Shuffle、SQL、Streaming、内存模型、部署模式与生产调优。"
+  }
+}

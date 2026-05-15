@@ -1,0 +1,167 @@
+- id: practice-p1-claim-0001
+  domain: ai-agent
+  component: n8n
+  statement: >-
+    Datawhale's handy-n8n repository is positioned as a Chinese practice course for learning n8n through theory and hands-on workflow automation, covering deployment, nodes, code, credentials, AI/RAG/MCP, human-in-the-loop, error handling, custom node development, and cases.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale handy-n8n repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-handy-n8n
+  notes: Community course framing; n8n platform semantics should be verified against official n8n docs.
+
+- id: practice-p1-claim-0002
+  domain: ai-agent
+  component: n8n
+  statement: >-
+    n8n official AI workflow documentation describes an AI Agent node connected to a Chat Trigger, chat model, logs, prompt configuration, and memory/persistence, showing that n8n AI workflows combine node orchestration with model-backed agent behavior.
+  status: reviewed
+  confidence: high
+  version_scope: "n8n docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - n8n-ai-workflow-docs
+  notes: Official n8n tutorial claim.
+
+- id: practice-p1-claim-0003
+  domain: ai-agent
+  component: cli-agent
+  statement: >-
+    Datawhale's anycli repository positions AnyCLI as a CLI-native platform that unifies CLI tool registration and indexing so AI agents can search, inspect, install, and call CLI tools through structured JSON outputs.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale anycli repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-anycli
+  notes: Community project framing.
+
+- id: practice-p1-claim-0004
+  domain: ai-agent
+  component: cli-agent
+  statement: >-
+    Agent-facing CLI registries should expose structured metadata, install plans, executable names, examples, dry-run behavior, approval points, and audit records rather than letting the model freely synthesize shell commands.
+  status: reviewed
+  confidence: high
+  version_scope: "AnyCLI repository and existing tool-permission pattern docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-anycli
+    - openai-agents-sdk-tools
+    - mcp-server-concepts
+  notes: Synthesized design claim for CLI-agent safety boundaries.
+
+- id: practice-p1-claim-0005
+  domain: ai-agent
+  component: generic-agent
+  statement: >-
+    The GenericAgent repository positions GenericAgent as a minimal self-evolving autonomous agent framework built around a small core, an autonomous execution loop, atomic tools, layered memory, and skill crystallization.
+  status: reviewed
+  confidence: high
+  version_scope: "GenericAgent GitHub repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - generic-agent-github
+    - practice-hello-generic-agent
+  notes: Repository-level framing; performance or token-efficiency claims should be quoted only with explicit source context.
+
+- id: practice-p1-claim-0006
+  domain: ai-agent
+  component: pocketflow
+  statement: >-
+    PocketFlow documentation and repository position PocketFlow as a minimalist LLM framework centered on a small graph abstraction, with Node and Flow concepts used to build patterns such as agents, workflows, RAG, map-reduce, and multi-agent flows.
+  status: reviewed
+  confidence: high
+  version_scope: "PocketFlow docs and GitHub repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - pocketflow-docs
+    - pocketflow-github
+    - practice-easy-pocket
+  notes: Official framework positioning plus Datawhale tutorial framing.
+
+- id: practice-p1-claim-0007
+  domain: ai-agent
+  component: openclaw
+  statement: >-
+    Datawhale's OpenClaw tutorials cover practical setup and usage paths such as multi-channel chat integration, workspace/persona files, skills or plugins, cron tasks, heartbeat, model/API configuration, and personal AI assistant workflows.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale OpenClaw tutorial repositories as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-openclaw-tutorial
+    - practice-hand-on-openclaw
+  notes: Community tutorial framing; OpenClaw behavior and security boundaries should be cross-checked against official OpenClaw sources.
+
+- id: practice-p1-claim-0008
+  domain: ai-agent
+  component: openclaw
+  statement: >-
+    OpenClaw should be evaluated as a high-permission personal agent runtime because its value comes from connecting chat interfaces to actions, memory, skills or plugins, local context, and external services, which also creates strong security and credential-governance requirements.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenClaw official site, GitHub repository, and security advisory as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - openclaw-site
+    - openclaw-github
+    - openclaw-security-advisory-ghsa-m3mh-3mpg-37hw
+  notes: Security-sensitive design claim; avoid operational security recommendations beyond cited sources unless separately verified.
+
+- id: practice-p1-claim-0009
+  domain: ai-agent
+  component: ai-mental-health-agent
+  statement: >-
+    Datawhale's resonant-soul repository is an AI mental-health agent case source, but any interview-system guidance derived from it must explicitly separate product case design from clinical advice, crisis handling, privacy, and safety escalation.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale resonant-soul repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-resonant-soul
+    - openai-safety-best-practices
+    - who-ai-health-ethics-governance
+    - lifeline-988-official
+  notes: Case import gating claim; medical or crisis guidance needs additional authoritative sources before detailed content is added.
+
+- id: practice-p1-claim-0010
+  domain: ai-agent
+  component: video-note-agent
+  statement: >-
+    Datawhale's video-devour repository is positioned around an ASR plus VLM workflow for transforming video into structured notes or reports through transcription, outline generation, video slicing, key-frame extraction, visual filtering, and final report generation.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale video-devour repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-video-devour
+  notes: Community case framing; model-specific ASR or VLM behavior requires separate primary sources.
+
+- id: practice-p1-claim-0011
+  domain: ai-agent
+  component: multi-agent-writing
+  statement: >-
+    Datawhale's vibe-blog repository is positioned as a multi-agent long-form technical blog generation system covering research, outline planning, writing, code integration, diagram generation, illustration, review, and publishing.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale vibe-blog repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-vibe-blog
+  notes: Community case framing.
+
+- id: practice-p1-claim-0012
+  domain: ai-agent
+  component: ai-coding-workflow
+  statement: >-
+    Datawhale's smart-dev repository is positioned as an introductory AI programming workflow course built around Roo Code and DeepSeek, covering environment setup, first-program workflow, prompt configuration, MCP service creation, and tool use.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale smart-dev repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-smart-dev
+    - roo-code-docs
+  notes: Community course framing; Roo Code official docs also state that Roo Code products are scheduled to be shut down on 2026-05-15, so current recommendations must include version and lifecycle caveats.

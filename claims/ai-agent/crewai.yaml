@@ -1,0 +1,116 @@
+- id: crewai-claim-0001
+  domain: ai-agent
+  component: crewai
+  statement: >-
+    CrewAI positions itself as an open-source framework for orchestrating autonomous AI agents by combining Crews and Flows.
+  status: reviewed
+  confidence: high
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - crewai-introduction-docs
+  notes: Core positioning claim for CrewAI.
+
+- id: crewai-claim-0002
+  domain: ai-agent
+  component: crewai
+  statement: >-
+    CrewAI documentation explicitly recommends starting with Flows for production-ready applications and then using Crews within Flows for more autonomous complex tasks.
+  status: reviewed
+  confidence: high
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - crewai-introduction-docs
+  notes: Strong guidance claim for framework selection and architecture questions.
+
+- id: crewai-claim-0003
+  domain: ai-agent
+  component: crewai
+  statement: >-
+    CrewAI Flows are described as event-driven workflows that provide fine-grained control over execution paths and state management.
+  status: reviewed
+  confidence: high
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - crewai-flows-docs
+  notes: Key claim for explaining Flows as more deterministic orchestration.
+
+- id: crewai-claim-0004
+  domain: ai-agent
+  component: crewai
+  statement: >-
+    CrewAI Flows support structured state, including schema-based state models and unique identifiers for each flow instance.
+  status: reviewed
+  confidence: high
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - crewai-flows-docs
+  notes: Useful when discussing persistence and resumability.
+
+- id: crewai-claim-0005
+  domain: ai-agent
+  component: crewai
+  statement: >-
+    CrewAI documents a persist decorator for Flows that allows state to survive process interruptions and continue later.
+  status: reviewed
+  confidence: high
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - crewai-flows-docs
+  notes: Useful for checkpointing and recovery questions.
+
+- id: crewai-claim-0006
+  domain: ai-agent
+  component: crewai
+  statement: >-
+    A Crew in CrewAI is a collaborative group of agents with defined roles that work together toward a shared goal.
+  status: reviewed
+  confidence: high
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - crewai-crews-docs
+  notes: Core claim for Crew semantics.
+
+- id: crewai-claim-0007
+  domain: ai-agent
+  component: crewai
+  statement: >-
+    CrewAI process options include sequential and hierarchical execution, and hierarchical mode requires either a manager LLM or a custom manager agent.
+  status: reviewed
+  confidence: high
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - crewai-processes-docs
+  notes: High-value implementation boundary for Crew process questions.
+
+- id: crewai-claim-0008
+  domain: ai-agent
+  component: crewai
+  statement: >-
+    CrewAI's current memory system uses a unified Memory class and relies on the LLM to analyze what should be saved and what should be recalled.
+  status: reviewed
+  confidence: high
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - crewai-memory-docs
+  notes: Useful for discussing CrewAI memory semantics beyond simple chat history.
+
+- id: crewai-claim-0009
+  domain: ai-agent
+  component: crewai
+  statement: >-
+    CrewAI provides tracing for both Crews and Flows and exposes agent decisions, task timelines, tool usage, and LLM calls in its observability tooling.
+  status: reviewed
+  confidence: high
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - crewai-tracing-docs
+  notes: Use for production observability discussions.

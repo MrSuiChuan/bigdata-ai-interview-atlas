@@ -1,0 +1,12 @@
+- id: replace-claim-id
+  domain: bigdata
+  component: replace-component
+  statement: Replace with a precise factual statement.
+  status: draft
+  confidence: medium
+  version_scope: "Replace with verified version scope"
+  last_verified_at: "YYYY-MM-DD"
+  source_ids:
+    - replace-source-id
+  notes: Optional reviewer note.
+

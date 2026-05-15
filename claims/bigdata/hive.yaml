@@ -1,0 +1,1803 @@
+- id: hive-claim-0001
+  domain: bigdata
+  component: hive
+  statement: Apache Hive documentation describes Hive as a distributed, fault-tolerant data warehouse system that enables analytics at massive scale and is queried using SQL syntax.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - hive-docs-home
+  notes: Useful when explaining why Hive is usually discussed as a SQL data warehouse layer rather than a generic execution engine.
+
+- id: hive-claim-0002
+  domain: bigdata
+  component: hive
+  statement: Apache Hive facilitates reading, writing, and managing large datasets residing in distributed storage using SQL.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-introduction
+  notes: Good high-level anchor for Hive's warehouse-layer positioning.
+
+- id: hive-claim-0003
+  domain: bigdata
+  component: hive
+  statement: Hive is built on top of Apache Hadoop and executes queries using execution engines such as Apache Tez or Apache MapReduce.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-introduction
+  notes: Useful when explaining that Hive is not itself a standalone execution runtime.
+
+- id: hive-claim-0004
+  domain: bigdata
+  component: hive
+  statement: Hive can provide sub-second query retrieval through Apache Hive LLAP.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-introduction
+  notes: Important when discussing why Hive is not only associated with classic high-latency batch SQL.
+
+- id: hive-claim-0005
+  domain: bigdata
+  component: hive
+  statement: The Hive LanguageManual documentation labels Hive CLI as the old command line interface and Beeline as the new command line interface.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-language-manual
+  notes: Useful for separating modern HS2 access from legacy CLI usage.
+
+- id: hive-claim-0006
+  domain: bigdata
+  component: hive
+  statement: Temporary tables are visible only within the session that created them and are dropped automatically at the end of that session.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-language-manual-ddl
+  notes: Important lifecycle boundary for temporary tables.
+
+- id: hive-claim-0007
+  domain: bigdata
+  component: hive
+  statement: Data for temporary tables is stored in the user's scratch directory and is deleted at the end of the session.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-language-manual-ddl
+  notes: Useful when distinguishing temp-table storage from warehouse-managed storage.
+
+- id: hive-claim-0008
+  domain: bigdata
+  component: hive
+  statement: If a temporary table has the same name as a permanent table, all references in the current session resolve to the temporary table and the permanent table becomes inaccessible until the temporary table is dropped.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-language-manual-ddl
+  notes: High-value name-resolution boundary for interview questions.
+
+- id: hive-claim-0009
+  domain: bigdata
+  component: hive
+  statement: Temporary tables do not support partitioned columns.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-language-manual-ddl
+  notes: Useful API limitation when contrasting temp tables with warehouse tables.
+
+- id: hive-claim-0010
+  domain: bigdata
+  component: hive
+  statement: DESCRIBE FORMATTED can identify whether a Hive table is a MANAGED_TABLE or an EXTERNAL_TABLE.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-managed-external-tables
+  notes: Useful operational signal when auditing table ownership semantics.
+
+- id: hive-claim-0011
+  domain: bigdata
+  component: hive
+  statement: Hive can manage statistics on both internal and external tables as well as partitions.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-managed-external-tables
+  notes: Important for optimizer discussions involving external data.
+
+- id: hive-claim-0012
+  domain: bigdata
+  component: hive
+  statement: External tables define schema on external files, and the files are accessible to external applications such as Pig or MapReduce and are not moved into Hive's warehouse.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-managed-external-tables
+  notes: This is the clearest official ownership boundary for external tables.
+
+- id: hive-claim-0013
+  domain: bigdata
+  component: hive
+  statement: External tables can point to files in remote locations such as remote HDFS clusters or Azure Storage Vault.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-managed-external-tables
+  notes: Useful when answering data-lake and federated-storage questions.
+
+- id: hive-claim-0014
+  domain: bigdata
+  component: hive
+  statement: If the table structure or partitioning for an external table is changed externally, users should run MSCK REPAIR TABLE so Hive can update the metadata about partitions.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-managed-external-tables
+  notes: Important operational boundary for metadata drift.
+
+- id: hive-claim-0015
+  domain: bigdata
+  component: hive
+  statement: By default, managed tables are created under the warehouse directory controlled by Hive, although an explicit LOCATION clause can override the default path.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-managed-external-tables
+  notes: Useful when explaining ownership versus physical placement.
+
+- id: hive-claim-0016
+  domain: bigdata
+  component: hive
+  statement: Dropping a managed table removes both table metadata and data, and if PURGE is not specified the data is moved to a trash location for a configured duration.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-managed-external-tables
+  notes: Important lifecycle difference from external tables.
+
+- id: hive-claim-0017
+  domain: bigdata
+  component: hive
+  statement: Dropping an external table deletes only the metadata and does not remove the underlying data files.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-managed-external-tables
+  notes: The most common interview distinction between managed and external tables.
+
+- id: hive-claim-0018
+  domain: bigdata
+  component: hive
+  statement: Acid and transactional features in Hive work only on managed tables.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-managed-external-tables
+    - hive-transactions
+  notes: Critical boundary for transactional-table design.
+
+- id: hive-claim-0019
+  domain: bigdata
+  component: hive
+  statement: The metastore records the schema version in the metastore database and verifies that it is compatible with the Hive binaries.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-metastore-admin
+  notes: Important for upgrade and compatibility discussions.
+
+- id: hive-claim-0020
+  domain: bigdata
+  component: hive
+  statement: Hive does not implicitly create or alter metastore schema by default because schema verification is enabled by default.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-metastore-admin
+  notes: Useful when explaining why metastore startup can fail after version drift.
+
+- id: hive-claim-0021
+  domain: bigdata
+  component: hive
+  statement: If Hive encounters an old schema version it will fail to access the metastore unless users suppress the check by setting hive.metastore.schema.verification to false.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-metastore-admin
+  notes: High-value operational boundary during upgrades.
+
+- id: hive-claim-0022
+  domain: bigdata
+  component: hive
+  statement: Hive includes an offline schema tool called schematool that can initialize and upgrade the metastore schema.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-metastore-admin
+  notes: Important when discussing metastore operations and deployment.
+
+- id: hive-claim-0023
+  domain: bigdata
+  component: hive
+  statement: HiveServer2 supports multi-client concurrency and authentication and is designed to provide better support for open API clients such as JDBC and ODBC.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-hiveserver2-overview
+  notes: This is the right official positioning for HS2 in modern Hive access architecture.
+
+- id: hive-claim-0024
+  domain: bigdata
+  component: hive
+  statement: HiveServer2 is implemented as a single process containing both a Hive Thrift server and a Jetty web server for web UI.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-hiveserver2-overview
+  notes: Useful when describing HS2 runtime architecture.
+
+- id: hive-claim-0025
+  domain: bigdata
+  component: hive
+  statement: HiveServer2 should run in HTTP mode when a proxy intermediary is needed between clients and server.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-hiveserver2-overview
+  notes: Practical deployment boundary for proxied enterprise environments.
+
+- id: hive-claim-0026
+  domain: bigdata
+  component: hive
+  statement: HiveServer2 talks to the metastore to obtain the metadata required for query compilation.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-hiveserver2-overview
+  notes: Important for understanding why HS2 depends on a healthy metastore.
+
+- id: hive-claim-0027
+  domain: bigdata
+  component: hive
+  statement: The HiveServer2 ExecuteStatement API is asynchronous and returns an OperationHandle that clients can use to poll for query status and results.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-hiveserver2-overview
+  notes: Useful when discussing long-running query execution and client behavior.
+
+- id: hive-claim-0028
+  domain: bigdata
+  component: hive
+  statement: SQL standard based authorization is the recommended Hive authorization model because it follows a SQL standard compliant security model without backward compatibility complications.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-sql-standard-authorization
+  notes: Good top-level anchor for Hive security answers.
+
+- id: hive-claim-0029
+  domain: bigdata
+  component: hive
+  statement: Under SQL standard based authorization, the dfs, add, delete, compile, and reset commands are disabled.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-sql-standard-authorization
+  notes: Useful when explaining reduced surface area under secured SQL access.
+
+- id: hive-claim-0030
+  domain: bigdata
+  component: hive
+  statement: Under SQL standard based authorization, SET commands are restricted to a whitelist of configuration parameters.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-sql-standard-authorization
+  notes: Important for operationally accurate security answers.
+
+- id: hive-claim-0031
+  domain: bigdata
+  component: hive
+  statement: The TRANSFORM clause is disabled under SQL standard based authorization.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-sql-standard-authorization
+  notes: Useful when explaining why some HiveQL features are intentionally unavailable in secured mode.
+
+- id: hive-claim-0032
+  domain: bigdata
+  component: hive
+  statement: SQL standard based authorization supports privileges on tables and views but not on databases.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-sql-standard-authorization
+  notes: Important privilege-scope boundary.
+
+- id: hive-claim-0033
+  domain: bigdata
+  component: hive
+  statement: Before upgrading to Hive 3, transactional partitions that have seen update, delete, or merge operations since their last major compaction must undergo a major compaction.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-transactions
+  notes: High-value operational boundary for transactional-table upgrades.
+
+- id: hive-claim-0034
+  domain: bigdata
+  component: hive
+  statement: Support for insert, update, and delete under Hive transactions requires hive.support.concurrency to be true and hive.exec.dynamic.partition.mode to be nonstrict.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-transactions
+  notes: Important configuration prerequisites for ACID DML.
+
+- id: hive-claim-0035
+  domain: bigdata
+  component: hive
+  statement: Hive ACID write operations require tables to be declared with the table property transactional=true.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-transactions
+  notes: The most common transactional-table definition boundary.
+
+- id: hive-claim-0036
+  domain: bigdata
+  component: hive
+  statement: Once a table has been declared transactional in Hive, it cannot be converted back to a non-ACID table by changing the table property to false.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-transactions
+  notes: Important irreversible-lifecycle boundary for ACID tables.
+
+- id: hive-claim-0037
+  domain: bigdata
+  component: hive
+  statement: Hive transactional support requires hive.txn.manager to be set to org.apache.hadoop.hive.ql.lockmgr.DbTxnManager.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-transactions
+  notes: Key configuration requirement for ACID enablement.
+
+- id: hive-claim-0038
+  domain: bigdata
+  component: hive
+  statement: For Hive compaction, the cleaner should be enabled on exactly one metastore instance and compactor worker threads must be configured with a value greater than zero on at least one metastore instance.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-transactions
+  notes: Useful when answering compaction-runtime deployment questions.
+
+- id: hive-claim-0039
+  domain: bigdata
+  component: hive
+  statement: The Hive EXPLAIN command supports clauses including EXTENDED, CBO, AST, DEPENDENCY, AUTHORIZATION, LOCKS, VECTORIZATION, and ANALYZE.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-explain
+  notes: Important for plan-reading and troubleshooting answers.
+
+- id: hive-claim-0040
+  domain: bigdata
+  component: hive
+  statement: ANALYZE TABLE ... COMPUTE STATISTICS FOR COLUMNS computes column statistics for all columns and, for partitioned tables, can compute them for all partitions.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-language-manual-ddl
+  notes: Important for statistics-gathering answers.
+
+- id: hive-claim-0041
+  domain: bigdata
+  component: hive
+  statement: DESCRIBE FORMATTED table_name column_name displays the column statistics that have been gathered for that column.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-language-manual-ddl
+  notes: Useful operational command for stats verification.
+
+- id: hive-claim-0042
+  domain: bigdata
+  component: hive
+  statement: The Hive configuration property hive.cbo.enable enables the cost based optimizer using Calcite and its default value is true in Hive 1.1.0 and later.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-config-properties
+  notes: Useful when distinguishing rule-based and cost-based optimization behavior.
+
+- id: hive-claim-0043
+  domain: bigdata
+  component: hive
+  statement: The Hive configuration property hive.stats.autogather is enabled by default and causes basic table and partition statistics to be gathered or updated automatically during Hive DML INSERT OVERWRITE, CTAS, IMPORT, and LOAD DATA into managed tables, but not for LOAD DATA into external tables.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-config-properties
+  notes: Important default behavior for statistics freshness discussions.
+
+- id: hive-claim-0044
+  domain: bigdata
+  component: hive
+  statement: The Hive configuration property hive.stats.column.autogather automatically computes column statistics at the end of INSERT OVERWRITE, and its default changed from false in early versions to true in Hive 3 and later.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-config-properties
+  notes: Useful for version-aware optimizer answers.
+
+- id: hive-claim-0045
+  domain: bigdata
+  component: hive
+  statement: Hive vectorized query execution currently targets ORC files and requires hive.vectorized.execution.enabled to be true.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-vectorization
+  notes: Core boundary for vectorization applicability.
+
+- id: hive-claim-0046
+  domain: bigdata
+  component: hive
+  statement: Hive vectorization is disabled by default.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-vectorization
+  notes: Useful when explaining why vectorization is not always active automatically.
+
+- id: hive-claim-0047
+  domain: bigdata
+  component: hive
+  statement: If a built-in operator or function used by a query is not supported by vectorization, Hive automatically falls back to standard row-at-a-time execution.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-vectorization
+  notes: Important fallback boundary for mixed query plans.
+
+- id: hive-claim-0048
+  domain: bigdata
+  component: hive
+  statement: Hive EXPLAIN output can be used to verify whether vectorization is enabled for a query.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-vectorization
+    - hive-explain
+  notes: Practical troubleshooting hook for execution-path inspection.
+
+- id: hive-claim-0049
+  domain: bigdata
+  component: hive
+  statement: Hive join optimizations reduce the need for users to place explicit join hints in many cases.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-join-optimization
+  notes: Good top-level positioning for modern join-planning answers.
+
+- id: hive-claim-0050
+  domain: bigdata
+  component: hive
+  statement: Hive can automatically recognize joins where one side fits in memory and optimize execution by loading that side into an in-memory hash table while scanning only the larger table.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-join-optimization
+  notes: This is the clearest official description of auto map join behavior.
+
+- id: hive-claim-0051
+  domain: bigdata
+  component: hive
+  statement: The configuration hive.auto.convert.join changed its default from false to true in Hive 0.11.0.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-join-optimization
+  notes: Useful version fact for optimizer-history questions.
+
+- id: hive-claim-0052
+  domain: bigdata
+  component: hive
+  statement: If all but one of the tables in a join are small enough to fit in memory, Hive can execute the join as a map-only job without a reducer.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-join-optimization
+  notes: Important when explaining why some joins avoid reducer stages.
+
+- id: hive-claim-0053
+  domain: bigdata
+  component: hive
+  statement: With hive.enforce.bucketing set to true, Hive automatically determines the number of reducers and adds a clustering operator for bucketed table population in Hive 0.x and 1.x.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-bucketed-tables
+  notes: Important version-scoped bucket-population behavior.
+
+- id: hive-claim-0054
+  domain: bigdata
+  component: hive
+  statement: Materialized view support was introduced in Hive 3.0.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-materialized-views
+  notes: Useful anchor for version-aware MV discussions.
+
+- id: hive-claim-0055
+  domain: bigdata
+  component: hive
+  statement: CREATE MATERIALIZED VIEW is an atomic statement in Hive, and the materialized view is not visible to other users until its results have been populated.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-materialized-views
+  notes: Important visibility boundary for MV creation.
+
+- id: hive-claim-0056
+  domain: bigdata
+  component: hive
+  statement: By default a Hive materialized view can be used for automatic query rewriting, but users can disable rewriting with the DISABLE REWRITE option.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-materialized-views
+  notes: Useful when distinguishing storage-only MVs from optimizer-rewrite MVs.
+
+- id: hive-claim-0057
+  domain: bigdata
+  component: hive
+  statement: ALTER MATERIALIZED VIEW ... REBUILD refreshes a Hive materialized view after source table changes.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-materialized-views
+  notes: Core operational action for MV maintenance.
+
+- id: hive-claim-0058
+  domain: bigdata
+  component: hive
+  statement: By default Hive first attempts an incremental rebuild of a materialized view and falls back to a full rebuild if incremental maintenance is not possible.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-materialized-views
+  notes: Important refresh-strategy boundary.
+
+- id: hive-claim-0059
+  domain: bigdata
+  component: hive
+  statement: Hive currently supports incremental materialized view rebuild only when source table changes are INSERT operations, while UPDATE and DELETE force a full rebuild.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-materialized-views
+  notes: High-value boundary for MV freshness and maintenance answers.
+
+- id: hive-claim-0060
+  domain: bigdata
+  component: hive
+  statement: Hive materialized view rebuild acquires an exclusive lock, so only one rebuild can execute at a time.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-materialized-views
+  notes: Important concurrency boundary for operational planning.
+
+- id: hive-claim-0061
+  domain: bigdata
+  component: hive
+  statement: Stale materialized views are not used for automatic query rewriting by default in Hive.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-materialized-views
+  notes: Important optimizer-freshness boundary for MV rewrite answers.
+
+- id: hive-claim-0062
+  domain: bigdata
+  component: hive
+  statement: To provide security through SQL standard based authorization, users should be allowed access only through HiveServer2 and user code and non-SQL commands should be restricted.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-sql-standard-authorization
+  notes: This is the key deployment boundary for secure SQL-standard authorization.
+
+- id: hive-claim-0063
+  domain: bigdata
+  component: hive
+  statement: Users who have access to Hive CLI, HDFS commands, Pig command line, or hadoop jar are considered privileged users, and that access is not authorized through the SQL standard based authorization model.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-sql-standard-authorization
+  notes: Important to explain why Hive CLI cannot be treated as a secure SQL-standard auth endpoint.
+
+- id: hive-claim-0064
+  domain: bigdata
+  component: hive
+  statement: Partitioned tables in Hive are created with the PARTITIONED BY clause, may have one or more partition columns, and create a separate data directory for each distinct partition-value combination.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-language-manual-ddl
+  notes: Core physical-layout fact for partitioned-table explanations.
+
+- id: hive-claim-0065
+  domain: bigdata
+  component: hive
+  statement: Hive tables or partitions can be bucketed using CLUSTERED BY columns and sorted within buckets using SORT BY columns, which can improve performance for certain kinds of queries.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - hive-language-manual-ddl
+    - hive-bucketed-tables
+  notes: Useful for separating partitioning from bucketing in system-design answers.
+
+- id: hive-claim-0066
+  domain: bigdata
+  component: hive
+  statement: "Hive architecture is organized around five major components: the user interface, the driver, the compiler, the metastore, and the execution engine."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-design
+  notes: Useful for turning vague “Hive is a warehouse layer” answers into a concrete control-plane and execution-plane breakdown.
+
+- id: hive-claim-0067
+  domain: bigdata
+  component: hive
+  statement: In Hive query flow, the compiler obtains metadata from the metastore, and that metadata is used to type-check query expressions and prune partitions based on query predicates.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-design
+  notes: High-value boundary for explaining why metastore is on the compile path, not just the admin path.
+
+- id: hive-claim-0068
+  domain: bigdata
+  component: hive
+  statement: The execution plan generated by Hive is a DAG of stages, where each stage is either a map-reduce job, a metadata operation, or an HDFS operation, and the execution engine manages dependencies between those stages.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-design
+  notes: Important for distinguishing Hive stage planning from single-job thinking.
+
+- id: hive-claim-0069
+  domain: bigdata
+  component: hive
+  statement: Hive compiler phases include parsing the query into a parse tree, semantic analysis that verifies column names, expands *, performs type checking and implicit conversions, and collects partition-pruning and sampling expressions before logical-plan generation.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-design
+  notes: This is the clearest official basis for compiler-pipeline explanations.
+
+- id: hive-claim-0070
+  domain: bigdata
+  component: hive
+  statement: Hive logical-plan generation produces a tree of operators, and reduceSink is a Hive-specific operator that marks the map-reduce boundary and carries the reduction keys used at that boundary.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-design
+  notes: Critical for explaining why reduceSink appears so often in Hive EXPLAIN output.
+
+- id: hive-claim-0071
+  domain: bigdata
+  component: hive
+  statement: During logical-plan generation, Hive can optimize the operator DAG by converting a series of joins into a single multi-way join, performing map-side partial aggregation for group-by, and using a two-stage group-by to avoid a single reducer bottleneck with skewed grouping keys.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-design
+  notes: Useful for showing that optimization already starts before later CBO discussion.
+
+- id: hive-claim-0072
+  domain: bigdata
+  component: hive
+  statement: Hive uses the SerDe interface for I/O, and that interface handles serialization, deserialization, and interpretation of serialized results as individual fields for processing.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-serde
+  notes: Core claim for explaining why SerDe is a runtime adapter layer instead of a file format synonym.
+
+- id: hive-claim-0073
+  domain: bigdata
+  component: hive
+  statement: A SerDe allows Hive to read table data and write it back to HDFS in custom formats, and users can implement their own SerDes for custom data formats.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-serde
+  notes: Important for separating file-format support from SQL syntax support.
+
+- id: hive-claim-0074
+  domain: bigdata
+  component: hive
+  statement: HiveQL can specify SerDes and their properties in CREATE TABLE row-format clauses and ALTER TABLE add-SerDe-properties statements.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-serde
+    - hive-language-manual-ddl
+  notes: Useful when connecting runtime adapters to DDL control surfaces.
+
+- id: hive-claim-0075
+  domain: bigdata
+  component: hive
+  statement: On Hive input processing, the execution engine first uses the configured InputFormat to read a record, then invokes SerDe.deserialize(), obtains an ObjectInspector from the SerDe, and uses that ObjectInspector to access individual fields needed by operators.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-serde
+  notes: This is the cleanest official read-path explanation for SerDe, InputFormat, and ObjectInspector collaboration.
+
+- id: hive-claim-0076
+  domain: bigdata
+  component: hive
+  statement: On Hive output processing, the execution engine passes the record object and corresponding ObjectInspector to SerDe.serialize(), which converts the record into the type expected by the configured OutputFormat.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-serde
+  notes: Important for explaining write-path boundaries and why OutputFormat and SerDe are different concerns.
+
+- id: hive-claim-0077
+  domain: bigdata
+  component: hive
+  statement: The Hive SerDe library is in org.apache.hadoop.hive.serde2 and built-in SerDes include Avro, ORC, RegEx, Thrift, Parquet, CSV, and JsonSerDe.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-serde
+  notes: Useful for showing that SerDe is a pluggable family, not a single implementation.
+
+- id: hive-claim-0078
+  domain: bigdata
+  component: hive
+  statement: Apache Tez is a YARN-based application framework that executes complex DAGs of general data-processing tasks, with tasks as vertices and edges as first-class data connections, and can execute arbitrary DAGs directly.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-on-tez
+  notes: Core claim for why Tez is more flexible than chained MapReduce jobs.
+
+- id: hive-claim-0079
+  domain: bigdata
+  component: hive
+  statement: In Hive on Tez, multiple linked reduce sinks can be connected directly so data can be pipelined without temporary HDFS files; this pattern is referred to as MRR, meaning Map-Reduce-Reduce*.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-on-tez
+  notes: Important for explaining why Tez reduces intermediate materialization overhead.
+
+- id: hive-claim-0080
+  domain: bigdata
+  component: hive
+  statement: Hive on Tez can detect chains of MR jobs and optimize them into a single DAG of the form MR*, and can detect joins with multiple parent tasks and combine them into a single tree-shaped DAG.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-on-tez
+  notes: High-value execution-graph fact for MRR and MPJ discussions.
+
+- id: hive-claim-0081
+  domain: bigdata
+  component: hive
+  statement: Hive on Tez design states that MRR optimization is shown in EXPLAIN plans.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-on-tez
+  notes: Practical observability hook for Tez physical-optimization answers.
+
+- id: hive-claim-0082
+  domain: bigdata
+  component: hive
+  statement: Tez allows the entire query plan to be sent at once so data can be pipelined across stages, reducing I/O and synchronization barriers and scheduling overhead between individual stages.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-on-tez
+  notes: Useful for explaining why Tez speeds up multi-stage analytical queries.
+
+- id: hive-claim-0083
+  domain: bigdata
+  component: hive
+  statement: Tez can handle small datasets entirely in memory during shuffle, while no such optimization is available in classic MapReduce.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-on-tez
+  notes: Important runtime boundary for explaining why Tez is not merely “same MR jobs but on YARN”.
+
+- id: hive-claim-0084
+  domain: bigdata
+  component: hive
+  statement: ORC files store row data in groups called stripes, keep auxiliary metadata in a file footer, and place a postscript at the end of the file to hold compression parameters and the size of the compressed footer.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-orc
+  notes: Core structural fact for ORC read-path answers.
+
+- id: hive-claim-0085
+  domain: bigdata
+  component: hive
+  statement: In ORC stripe structure, index data includes per-column min and max values and row positions, and ORC indexes are used for selecting stripes and row groups rather than directly answering queries.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-orc
+  notes: Important for explaining predicate pruning boundaries without overstating index capabilities.
+
+- id: hive-claim-0086
+  domain: bigdata
+  component: hive
+  statement: ORC row index entries enable row-skipping within a stripe for rapid reads, and by default every 10,000 rows can be skipped.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-orc
+  notes: Useful for connecting ORC indexes to real scan pruning behavior.
+
+- id: hive-claim-0087
+  domain: bigdata
+  component: hive
+  statement: Hive can configure ORC tables through TBLPROPERTIES such as orc.compress, orc.stripe.size, orc.row.index.stride, orc.create.index, and bloom filter settings, and ORC file format can be declared at table or partition level.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-orc
+  notes: Important for tying storage behavior to explicit DDL and property controls.
+
+- id: hive-claim-0088
+  domain: bigdata
+  component: hive
+  statement: ALTER TABLE ... CONCATENATE can merge small ORC files into a larger file at the stripe level, avoiding decompression and decoding during the merge.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-orc
+  notes: High-value fact for small-file governance in ORC-heavy warehouses.
+
+- id: hive-claim-0089
+  domain: bigdata
+  component: hive
+  statement: Hive LOAD DATA does not perform transformation during loading; before Hive 3.0 load operations are pure copy or move operations that move data files into locations corresponding to Hive tables.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-dml
+  notes: Important for distinguishing file movement from query-based rewrite.
+
+- id: hive-claim-0090
+  domain: bigdata
+  component: hive
+  statement: With LOAD DATA LOCAL, Hive reads from the local filesystem and copies files to the target filesystem; when the command runs against HiveServer2, the local path refers to a path on the HiveServer2 instance.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-dml
+  notes: Critical operational boundary for HS2-based loading.
+
+- id: hive-claim-0091
+  domain: bigdata
+  component: hive
+  statement: For a partitioned Hive table, if LOAD DATA omits partition information but the incoming rows end with partition column values that conform to the table schema, Hive rewrites the load into an INSERT AS SELECT job.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-dml
+  notes: This is the sharpest official boundary for when a seemingly pure file move becomes a transformed write job.
+
+- id: hive-claim-0092
+  domain: bigdata
+  component: hive
+  statement: In Hive dynamic partition terminology, static partition columns are known at compile time from user-specified values, while dynamic partition columns are known only at execution time.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-dynamic-partitions
+  notes: Core definition for dynamic-partition interview questions.
+
+- id: hive-claim-0093
+  domain: bigdata
+  component: hive
+  statement: In Hive INSERT ... SELECT with dynamic partitions, dynamic partition columns must appear last in the SELECT list and in the same order as in the PARTITION() clause, and all-dynamic partition inserts are allowed only in nonstrict mode.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-dynamic-partitions
+  notes: High-value syntax-and-semantics boundary for production ETL design.
+
+- id: hive-claim-0094
+  domain: bigdata
+  component: hive
+  statement: In Hive dynamic partition inserts, making a static partition column a subpartition of a dynamic partition column should raise an error because the partition column order determines the directory hierarchy and DML cannot change that hierarchy.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-dynamic-partitions
+  notes: Important for explaining why partition-column order is a physical-layout contract rather than just syntax.
+
+- id: hive-claim-0095
+  domain: bigdata
+  component: hive
+  statement: LLAP provides a hybrid execution model consisting of a long-lived daemon and a tightly integrated DAG-based framework, moving capabilities such as caching, pre-fetching, some query processing, and access control into the daemon.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-llap
+  notes: Core positioning fact for LLAP answers.
+
+- id: hive-claim-0096
+  domain: bigdata
+  component: hive
+  statement: LLAP works within existing process-based Hive execution, does not replace the existing execution model, and the daemons are optional because Hive can bypass them even when they are deployed.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-llap
+  notes: Important boundary for avoiding the “LLAP replaces Tez” misunderstanding.
+
+- id: hive-claim-0097
+  domain: bigdata
+  component: hive
+  statement: LLAP is not an execution engine like MapReduce or Tez; overall execution is still scheduled and monitored by an existing Hive execution engine such as Tez across both LLAP nodes and regular containers, and MapReduce support is not planned.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-llap
+  notes: High-value answer boundary for LLAP architecture questions.
+
+- id: hive-claim-0098
+  domain: bigdata
+  component: hive
+  statement: LLAP daemons run on worker nodes to handle I/O, caching, and query fragment execution, and because requests carry data location and metadata while the nodes remain stateless, Tez AM can rerun failed fragments on the cluster.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-llap
+  notes: Useful for explaining resiliency and why LLAP caching does not create executor affinity semantics.
+
+- id: hive-claim-0099
+  domain: bigdata
+  component: hive
+  statement: LLAP query fragments include filters, projections, data transformations, partial aggregates, sorting, bucketing, and hash joins or semi-joins, and only Hive code with blessed UDFs is accepted because code is not localized and executed on the fly.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-llap
+  notes: Important for describing LLAP's execution scope and security boundary.
+
+- id: hive-claim-0100
+  domain: bigdata
+  component: hive
+  statement: LLAP off-loads I/O and compressed-format transformation to separate threads and passes data forward in an RLE-encoded columnar format that is ready for vectorized processing and also used as the caching format.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-llap
+  notes: Core read-path fact for LLAP and vectorization interaction answers.
+
+- id: hive-claim-0101
+  domain: bigdata
+  component: hive
+  statement: LLAP caches both metadata and data, can cache metadata and index information even when data is not currently cached, keeps cached data off-heap, and uses column chunks as the cache unit with an eviction policy tuned for analytical workloads.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-llap
+  notes: Useful for explaining LLAP cache granularity and memory model.
+
+- id: hive-claim-0102
+  domain: bigdata
+  component: hive
+  statement: LLAP can push SARGs and Bloom filters down to the storage layer when supported, and it automatically creates a Bloom filter to provide dynamic runtime filtering.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-llap
+  notes: Important for tying LLAP to runtime filtering and scan pruning.
+
+- id: hive-claim-0103
+  domain: bigdata
+  component: hive
+  statement: LLAP is aware of transactions, merges delta files for the requested table state before data enters cache, and can serve multiple versions depending on the request.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-llap
+  notes: High-value boundary for ACID plus cache correctness discussions.
+
+- id: hive-claim-0104
+  domain: bigdata
+  component: hive
+  statement: The Hive configuration property hive.execution.mode chooses whether query fragments run in containers or in LLAP, defaults to container, and accepts container or llap as valid settings.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-config-properties
+  notes: Important because current official configuration uses hive.execution.mode rather than older unofficial names.
+
+- id: hive-claim-0105
+  domain: bigdata
+  component: hive
+  statement: The Hive configuration property hive.llap.io.enabled controls whether the LLAP I/O layer is enabled, and removing the property or setting it to false disables LLAP I/O.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-config-properties
+  notes: Useful operational control point for LLAP tuning.
+
+- id: hive-claim-0106
+  domain: bigdata
+  component: hive
+  statement: The Hive configuration properties hive.llap.auto.enforce.vectorized and hive.llap.auto.enforce.stats both default to true and require vectorized inputs and available column statistics before considering a vertex for LLAP.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-config-properties
+  notes: Key boundary for explaining why not every vertex is automatically considered LLAP-friendly.
+
+- id: hive-claim-0107
+  domain: bigdata
+  component: hive
+  statement: Hive table-generating functions transform a single input row into multiple output rows, and built-in UDTFs include explode for arrays or maps, posexplode, inline, stack, json_tuple, and parse_url_tuple.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-udf
+  notes: Core anchor fact for UDTF and LATERAL VIEW topics.
+
+- id: hive-claim-0108
+  domain: bigdata
+  component: hive
+  statement: "Using the syntax SELECT udtf(col) AS alias has important limitations in Hive: no other expressions may appear in SELECT, UDTFs cannot be nested, and GROUP BY, CLUSTER BY, DISTRIBUTE BY, and SORT BY are not supported, so LATERAL VIEW is the documented alternative."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-udf
+  notes: Important for explaining why explode questions naturally lead to LATERAL VIEW.
+
+- id: hive-claim-0109
+  domain: bigdata
+  component: hive
+  statement: The UDTFs json_tuple and parse_url_tuple return tuples and are more efficient than repeatedly calling get_json_object or parse_url when extracting multiple fields, and json_tuple is typically used with LATERAL VIEW.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-udf
+  notes: Useful for practical ETL and semi-structured data parsing answers.
+
+- id: hive-claim-0110
+  domain: bigdata
+  component: hive
+  statement: A LATERAL VIEW first applies the UDTF to each row of the base table and then joins the resulting output rows back to the input rows to form a virtual table using the supplied alias.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-lateralview
+  notes: Core semantic definition for explaining row expansion.
+
+- id: hive-claim-0111
+  domain: bigdata
+  component: hive
+  statement: A FROM clause can contain multiple LATERAL VIEW clauses, later LATERAL VIEW clauses may reference columns from tables to their left, and the clauses are applied in the order they appear.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-lateralview
+  notes: Important for understanding row multiplication and evaluation order.
+
+- id: hive-claim-0112
+  domain: bigdata
+  component: hive
+  statement: LATERAL VIEW OUTER preserves the source row even when the UDTF would otherwise emit no rows, filling the UDTF-derived columns with NULL values; this capability was introduced in Hive 0.12.0.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-lateralview
+  notes: High-value correctness boundary for explode-on-empty-array scenarios.
+
+- id: hive-claim-0113
+  domain: bigdata
+  component: hive
+  statement: From Hive 0.12.0, column aliases in LATERAL VIEW can be omitted and then inherit field names from the StructObjectInspector returned by the UDTF.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-lateralview
+  notes: Useful detail for explaining modern LATERAL VIEW ergonomics.
+
+- id: hive-claim-0114
+  domain: bigdata
+  component: hive
+  statement: Prior to Hive 0.6.0, LATERAL VIEW did not support predicate pushdown and queries with WHERE clauses could fail to compile; the documented workaround was setting hive.optimize.ppd=false.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-lateralview
+  notes: Good version-boundary detail for advanced interviews.
+
+- id: hive-claim-0115
+  domain: bigdata
+  component: hive
+  statement: In Hive TRANSFORM, input columns are serialized to tab-delimited STRING values by default, NULL becomes the literal string \\N, script stdout is treated as tab-separated STRING columns, \\N is interpreted back to NULL, and then the values are cast to the declared output types.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-transform
+  notes: Core execution-boundary fact for TRANSFORM questions.
+
+- id: hive-claim-0116
+  domain: bigdata
+  component: hive
+  statement: Hive TRANSFORM supports overriding the default serialization and deserialization behavior with ROW FORMAT, and output fields are STRING by default unless explicit types are declared with syntax such as AS (col1 INT, col2 INT).
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-transform
+  notes: Useful for explaining why script integration is not an untyped black box.
+
+- id: hive-claim-0117
+  domain: bigdata
+  component: hive
+  statement: If there is no AS clause after USING in Hive TRANSFORM, Hive assumes the script output has two parts named key and value split at the first tab, which differs from explicitly declaring AS key, value when multiple tabs are present.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-transform
+  notes: Important schema boundary for script outputs.
+
+- id: hive-claim-0118
+  domain: bigdata
+  component: hive
+  statement: In Hive, MAP and REDUCE keywords are syntactic transformations of SELECT TRANSFORM and do not force a reduce phase or a new map phase to occur.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-transform
+  notes: Important for avoiding execution-graph misconceptions.
+
+- id: hive-claim-0119
+  domain: bigdata
+  component: hive
+  statement: Hive documentation explicitly warns that users should sanitize STRING columns before TRANSFORM because embedded tabs can break row-boundary assumptions and even an identity transformer may not reproduce the original values.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-transform
+  notes: High-value operational caveat for script-based ETL.
+
+- id: hive-claim-0120
+  domain: bigdata
+  component: hive
+  statement: In Hive, joins occur before WHERE clauses, so referencing columns from the null-supplying side of an OUTER JOIN in the WHERE clause can filter away unmatched rows and effectively defeat the OUTER JOIN semantics.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-joins
+  notes: Core interview boundary for ON versus WHERE filter placement.
+
+- id: hive-claim-0121
+  domain: bigdata
+  component: hive
+  statement: Hive joins are left-associative and not commutative, regardless of whether later joins are LEFT or RIGHT joins.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-joins
+  notes: Important for multi-join reasoning questions.
+
+- id: hive-claim-0122
+  domain: bigdata
+  component: hive
+  statement: Hive outer join behavior defines preserved-row tables and null-supplying tables, and the documented predicate-pushdown rules are that during-join predicates cannot be pushed past preserved-row tables while after-join predicates cannot be pushed past null-supplying tables.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-outer-join-behavior
+  notes: This is the cleanest official formulation of outer-join PPD safety.
+
+- id: hive-claim-0123
+  domain: bigdata
+  component: hive
+  statement: Hive enforces the documented outer-join predicate-pushdown rules during plan generation via parseJoinCondition in SemanticAnalyzer and during JoinPPD via getQualifiedAliases.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-outer-join-behavior
+  notes: Useful when showing that the rule is implemented in the planner rather than being just conceptual guidance.
+
+- id: hive-claim-0124
+  domain: bigdata
+  component: hive
+  statement: The Hive configuration properties hive.optimize.ppd and hive.optimize.ppd.storage both default to true, storage pushdown is ignored when hive.optimize.ppd is false, and hive.ppd.recognizetransivity defaults to true to transitively replicate predicate filters over equijoin conditions.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-config-properties
+  notes: Core configuration baseline for predicate-pushdown discussions.
+
+- id: hive-claim-0125
+  domain: bigdata
+  component: hive
+  statement: The TRANSFORM clause is disallowed when SQL standard based authorization is configured in Hive 0.13.0 and later releases.
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hive-language-manual-transform
+  notes: Important security boundary for production clusters.
+
+- id: hive-claim-0126
+  domain: bigdata
+  component: hive
+  statement: "Hive ACID design stores table or partition data in base files while new records, updates, and deletes are stored in delta files, and readers merge base and delta data at read time while applying updates and deletes."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-transactions-acid
+  notes: Core read-path fact for deep ACID explanations.
+
+- id: hive-claim-0127
+  domain: bigdata
+  component: hive
+  statement: "For ACID-aware writes, a partition or unpartitioned table no longer stores all files in a single directory; instead it contains a base directory and a directory for each set of delta files."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-transactions-acid
+  notes: Useful for explaining why ACID tables accumulate many directories before compaction.
+
+- id: hive-claim-0128
+  domain: bigdata
+  component: hive
+  statement: "Hive minor compaction rewrites a set of existing delta files into a single delta file per bucket, while major compaction rewrites one or more delta files together with the base file for the bucket into a new base file per bucket."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-transactions-acid
+  notes: Important for understanding compaction semantics rather than treating it as a black box.
+
+- id: hive-claim-0129
+  domain: bigdata
+  component: hive
+  statement: "Hive minor and major compactions run in the background and do not prevent concurrent reads and writes, while rebalance compaction uses an exclusive write lock and therefore prevents concurrent writes."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-transactions-acid
+  notes: Good operational boundary for maintenance-window and lock-behavior questions.
+
+- id: hive-claim-0130
+  domain: bigdata
+  component: hive
+  statement: "Hive documents ROW__ID as a virtual column, and virtual columns cannot be reused as ordinary user-defined table column names."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-virtual-columns
+  notes: Important when explaining why ROW__ID is system-managed metadata rather than modeled business schema.
+
+- id: hive-claim-0131
+  domain: bigdata
+  component: hive
+  statement: "Hive's streaming mutation documentation states that RecordIdentifiers stored in the virtual ROW__ID column are used internally to uniquely identify records within an ACID table."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-hcatalog-streaming-mutation-api
+  notes: Core mechanism fact for update/delete internals.
+
+- id: hive-claim-0132
+  domain: bigdata
+  component: hive
+  statement: "To issue mutations against a Hive ACID table, a process must first read a current snapshot of the data and join its domain-specific key with the corresponding Hive ROW__ID values for the target records."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-hcatalog-streaming-mutation-api
+  notes: High-value fact that explains why Hive updates are not primary-key overwrites.
+
+- id: hive-claim-0133
+  domain: bigdata
+  component: hive
+  statement: "Hive's streaming mutation API requires records to be ordered by ROW__ID.originalTxn and then ROW__ID.rowId, requires inserts to have a computed bucketId in ROW__ID, and recommends grouping by partition value and ROW__ID.bucketId."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-hcatalog-streaming-mutation-api
+  notes: Advanced but concrete fact for demonstrating deep understanding of ACID write ordering.
+
+- id: hive-claim-0134
+  domain: bigdata
+  component: hive
+  statement: "For transactional tables, Hive insert operations always acquire shared locks because these tables implement MVCC at the storage layer and can provide Snapshot Isolation in the presence of concurrent modifications."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-transactions-acid
+  notes: Useful for explaining why transactional-table concurrency differs from non-ACID tables.
+
+- id: hive-claim-0135
+  domain: bigdata
+  component: hive
+  statement: "Hive's DbTxnManager manages locks and transactions in the metastore together with DbLockManager, making transactions and locks durable in the face of server failure, while DummyTxnManager preserves pre-transaction behavior and provides no transactions."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-transactions-acid
+  notes: Core control-plane boundary for transaction-manager interview questions.
+
+- id: hive-claim-0136
+  domain: bigdata
+  component: hive
+  statement: "Hive sends regular heartbeats from lock holders and transaction initiators to the metastore, and if a heartbeat is not received within the configured time, the corresponding lock or transaction is aborted."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-transactions-acid
+  notes: Important for explaining long-running transactions and abandoned-session cleanup.
+
+- id: hive-claim-0137
+  domain: bigdata
+  component: hive
+  statement: "Hive's AcidHouseKeeperService looks for transactions that have not heartbeated within hive.txn.timeout and aborts them, releasing resources held by crashed clients."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-transactions-acid
+  notes: Useful detail for internalizing the housekeeping role in the ACID subsystem.
+
+- id: hive-claim-0138
+  domain: bigdata
+  component: hive
+  statement: "Hive added SHOW TRANSACTIONS and SHOW COMPACTIONS commands for ACID observability, and ALTER TABLE ... COMPACT enqueues a compaction request and returns immediately so progress is later checked with SHOW COMPACTIONS."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-transactions-acid
+  notes: High-value operational fact for observability answers and examples.
+
+- id: hive-claim-0139
+  domain: bigdata
+  component: hive
+  statement: "In Hive 3.0 and later, the Metastore can be released and run separately from the rest of Hive, with standalone mode documented as a first-class deployment option."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-metastore-3-admin
+  notes: Important for modern lakehouse and multi-engine catalog answers.
+
+- id: hive-claim-0140
+  domain: bigdata
+  component: hive
+  statement: "The Metastore can be embedded directly into a process as a library and this mode is the default whenever metastore.uris is not set; HiveServer2 often uses embedded mode to avoid an additional network hop for metadata operations."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-metastore-3-admin
+  notes: Useful for explaining why HS2 plus embedded metastore remains common.
+
+- id: hive-claim-0141
+  domain: bigdata
+  component: hive
+  statement: "Except for HiveServer2, Hive documentation does not recommend embedded Metastore mode in production because many clients each open their own backing-RDBMS connections and all clients require read-write access to the RDBMS."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-metastore-3-admin
+  notes: Important risk boundary for deployment-architecture questions.
+
+- id: hive-claim-0142
+  domain: bigdata
+  component: hive
+  statement: "Hive documents the Metastore service as stateless, which allows multiple instances for high availability; clients can list multiple metastore.thrift.uris and choose RANDOM or SEQUENTIAL server selection."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-metastore-3-admin
+  notes: Core HA fact for multi-metastore deployments.
+
+- id: hive-claim-0143
+  domain: bigdata
+  component: hive
+  statement: "In standalone Metastore mode, Hive documents that ACID tables can still be read and written, but the compactor cannot be run without Hive."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-metastore-3-admin
+  notes: Important limitation when treating HMS as a general catalog service.
+
+- id: hive-claim-0144
+  domain: bigdata
+  component: hive
+  statement: "Hive 3's CachedStore uses metastore.rawstore.impl=org.apache.hadoop.hive.metastore.cache.CachedStore to cache objects in memory, and in multi-server deployments it refreshes the cache at a configurable frequency with a documented default of one minute."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-metastore-3-admin
+  notes: Good entry point for metadata-cache tuning discussions.
+
+- id: hive-claim-0145
+  domain: bigdata
+  component: hive
+  statement: "Hive's synchronized metastore cache design states that with multiple HMS instances, background polling from the notification log updates cache entries, and without the new synchronization design the caches are eventually consistent rather than immediately synchronized."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-synchronized-metastore-cache
+  notes: Useful for distinguishing best-effort refresh from stronger consistency.
+
+- id: hive-claim-0146
+  domain: bigdata
+  component: hive
+  statement: "Hive's synchronized metastore cache uses a query's ValidWriteIdList to check whether a cached table or partition entry is obsolete without introducing an extra database call, and the database remains the source of truth for the latest metadata copy."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-synchronized-metastore-cache
+  notes: Core mechanism fact for full-consistency cache answers.
+
+- id: hive-claim-0147
+  domain: bigdata
+  component: hive
+  statement: "If Hive determines a cached metadata entry is stale or not yet usable, the Metastore serves the read from ObjectStore until the notification log catches up; cached entries become available for read only after the corresponding commit message is processed."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-synchronized-metastore-cache
+  notes: Important for explaining monotonic reads and temporary read-path fallback to the database.
+
+- id: hive-claim-0148
+  domain: bigdata
+  component: hive
+  statement: "Hive's synchronized metastore cache design explicitly states that write id is not valid for external tables, so external-table reads continue to use the original eventually consistent cache model rather than the ValidWriteIdList-based freshness check."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive design docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-synchronized-metastore-cache
+  notes: Sharp boundary for external-table metadata-consistency discussions.
+
+- id: hive-claim-0149
+  domain: bigdata
+  component: hive
+  statement: "HCatalog notifications automatically emit a message when addPartition is called, and writers can explicitly signal that a set of partitions is complete by calling markPartitionForEvent with PartitionEventType.LOAD_DONE."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-hcatalog-notification
+  notes: Useful when explaining event-driven downstream scheduling on top of Metastore events.
+
+- id: hive-claim-0150
+  domain: bigdata
+  component: hive
+  statement: "Hive documentation says notification support can be disabled by leaving hive.metastore.event.listeners blank or removing it from hive-site.xml, and it documents event expiry and cleaning properties for the notifications table."
+  status: reviewed
+  confidence: high
+  version_scope: "Hive latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - hive-hcatalog-notification
+  notes: Important operational boundary for notification retention and disabling event delivery.

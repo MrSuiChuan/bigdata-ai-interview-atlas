@@ -1,0 +1,1448 @@
+- id: kafka-claim-0001
+  domain: bigdata
+  component: kafka
+  statement: Kafka organizes event streams into topics, and topics are divided into partitions that provide the unit of parallelism.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-docs-home
+    - kafka-design-doc
+  notes: Partitioning is the entry point for explaining throughput, ordering, and consumer-group parallelism.
+
+- id: kafka-claim-0002
+  domain: bigdata
+  component: kafka
+  statement: Kafka guarantees ordering within a partition, but it does not guarantee topic-wide total ordering across multiple partitions.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-design-doc
+  notes: This is one of the highest-frequency Kafka interview topics.
+
+- id: kafka-claim-0003
+  domain: bigdata
+  component: kafka
+  statement: Within a consumer group, each partition is assigned to at most one consumer at any given time.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: This is the key fact behind consumer-group parallelism and the partition-count ceiling.
+
+- id: kafka-claim-0004
+  domain: bigdata
+  component: kafka
+  statement: The committed offset tracks the next message the application will read, so offset commits record progress rather than business completion.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: Important when separating transport progress from business-level exactly-once semantics.
+
+- id: kafka-claim-0005
+  domain: bigdata
+  component: kafka
+  statement: Kafka uses a pull-based consumer model in which consumers control their own position and can rewind to re-consume older data.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-design-doc
+    - kafka-consumer-javadoc
+  notes: This is useful when explaining replay, backfill, and offset reset behavior.
+
+- id: kafka-claim-0006
+  domain: bigdata
+  component: kafka
+  statement: A message is considered committed only after all in-sync replicas for its partition have applied it, and committed messages will not be lost as long as at least one in-sync replica remains alive.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-design-doc
+  notes: This is the core durability statement behind ISR-based replication discussions.
+
+- id: kafka-claim-0007
+  domain: bigdata
+  component: kafka
+  statement: Stronger produce-side durability is typically configured by combining acks=all with a topic min.insync.replicas requirement.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-topic-configs
+    - kafka-producer-javadoc
+  notes: This is a classic interview point when discussing durability versus availability trade-offs.
+
+- id: kafka-claim-0008
+  domain: bigdata
+  component: kafka
+  statement: Kafka topic cleanup.policy supports delete, compact, or both, so retention-by-time/size and log compaction can be configured separately or together.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-topic-configs
+  notes: Helpful for distinguishing log retention from compacted changelog-style topics.
+
+- id: kafka-claim-0009
+  domain: bigdata
+  component: kafka
+  statement: Log compaction guarantees that Kafka retains at least the latest value for each message key within a partition.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-design-doc
+  notes: This is central when explaining changelog topics and state restoration.
+
+- id: kafka-claim-0010
+  domain: bigdata
+  component: kafka
+  statement: The KafkaProducer idempotent mode strengthens delivery semantics from at-least-once to exactly-once for retries within the producer session.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-producer-javadoc
+  notes: This should be explained as a producer-side guarantee, not as full end-to-end exactly-once processing.
+
+- id: kafka-claim-0011
+  domain: bigdata
+  component: kafka
+  statement: Kafka transactions allow atomic writes across multiple topic partitions and can be combined with committed consumer offsets in consume-transform-produce applications.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-producer-javadoc
+  notes: This is the key fact behind Kafka's exactly-once stream processing discussions.
+
+- id: kafka-claim-0012
+  domain: bigdata
+  component: kafka
+  statement: Kafka 4.0 made the new consumer rebalance protocol generally available and the protocol is designed to be fully incremental.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-rebalance-protocol
+  notes: This is a useful version-aware detail for modern Kafka interview answers.
+
+- id: kafka-claim-0013
+  domain: bigdata
+  component: kafka
+  statement: Under the new Kafka consumer rebalance protocol, the broker-side group coordinator computes assignments instead of using a client-side group leader.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-rebalance-protocol
+  notes: This matters when explaining why newer Kafka rebalances can be less disruptive.
+
+- id: kafka-claim-0014
+  domain: bigdata
+  component: kafka
+  statement: Inside a single consumer group, increasing the number of consumers beyond the number of partitions does not increase parallelism because each partition can only be assigned once.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: This is the operational consequence of one-partition-one-consumer assignment within a group.
+
+- id: kafka-claim-0015
+  domain: bigdata
+  component: kafka
+  statement: Kafka consumers can explicitly control position through seek and can choose different offset reset behaviors when no committed position is available.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: This supports replay, bootstrap, and backfill explanation patterns in interviews.
+
+- id: kafka-claim-0016
+  domain: bigdata
+  component: kafka
+  statement: Kafka producers send data directly to the broker leading the target partition, using metadata lookup to discover current leaders and partition placement.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-design-doc
+  notes: This is the key fact behind Kafka's no-routing-tier producer path.
+
+- id: kafka-claim-0017
+  domain: bigdata
+  component: kafka
+  statement: Kafka producers can choose partitions randomly or by a semantic partitioning function such as hashing a key, which is what enables locality-sensitive processing and same-key ordering strategies.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-design-doc
+  notes: This should be used when explaining partition key selection and same-key ordering.
+
+- id: kafka-claim-0018
+  domain: bigdata
+  component: kafka
+  statement: Kafka producers batch records in memory and send larger requests, trading a small amount of latency for better throughput and more efficient I/O.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-design-doc
+    - kafka-producer-javadoc
+  notes: Useful when discussing batching, linger, and throughput-latency trade-offs.
+
+- id: kafka-claim-0019
+  domain: bigdata
+  component: kafka
+  statement: Kafka consumers issue fetch requests to brokers leading the partitions they read, specifying an offset and receiving back a chunk of log data from that position.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-design-doc
+  notes: This is the core read-path fact and should be used to explain replay, lag, and pull-based consumption.
+
+- id: kafka-claim-0020
+  domain: bigdata
+  component: kafka
+  statement: Kafka uses a pull-based consumer model because it lets slower consumers fall behind and catch up later, while also enabling efficient batching on fetches.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-design-doc
+  notes: Important when explaining why Kafka chose pull instead of broker push.
+
+- id: kafka-claim-0021
+  domain: bigdata
+  component: kafka
+  statement: Kafka consumers expose both a current position, which is the next offset to return, and a committed position, which is the securely stored restart point.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: This distinction is one of the core concepts behind delivery semantics.
+
+- id: kafka-claim-0022
+  domain: bigdata
+  component: kafka
+  statement: Consumer offset commits for a group are handled by that group's coordinator and are appended to the compacted internal topic __consumer_offsets, with successful commit responses sent only after the offsets replicate.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-implementation-distribution
+  notes: This is a deeper implementation fact behind committed offsets and offset durability.
+
+- id: kafka-claim-0023
+  domain: bigdata
+  component: kafka
+  statement: A Kafka partition log is stored as a per-partition directory containing segment files named by the first offset they contain.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-implementation-log
+  notes: This should be used when explaining that Topic is logical while Partition is the real storage unit.
+
+- id: kafka-claim-0024
+  domain: bigdata
+  component: kafka
+  statement: Kafka log writes are serial appends to the active segment, while reads first locate the segment for a logical offset and then read from the file-specific position.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-implementation-log
+  notes: This is the storage-path fact behind Kafka's sequential write and offset-based read explanation.
+
+- id: kafka-claim-0025
+  domain: bigdata
+  component: kafka
+  statement: Kafka log deletion happens segment by segment using time- and size-based policies, while reads stay consistent through a copy-on-write style segment list during deletes.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-implementation-log
+  notes: Useful when explaining why retention works at segment granularity rather than per-record deletion.
+
+- id: kafka-claim-0026
+  domain: bigdata
+  component: kafka
+  statement: On startup Kafka recovers the newest log segment by validating entries and truncating the log to the last valid offset if corruption is detected.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-implementation-log
+  notes: This is a useful failure-recovery fact for storage and durability discussions.
+
+- id: kafka-claim-0027
+  domain: bigdata
+  component: kafka
+  statement: Kafka's network layer is an NIO server with one acceptor thread and N processor threads, and file-backed record sends can use transferTo for a more efficient zero-copy style path.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-implementation-network
+    - kafka-design-doc
+  notes: This is most useful in architecture and performance explanation rather than in beginner overviews.
+
+- id: kafka-claim-0028
+  domain: bigdata
+  component: kafka
+  statement: From Kafka 3.0, producer idempotence defaults to true, and with idempotence enabled retries default to Integer.MAX_VALUE while acks defaults to all.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-producer-javadoc
+  notes: This is a useful modern-version detail and should be framed as a producer-side default, not a full end-to-end exactly-once guarantee.
+
+- id: kafka-claim-0029
+  domain: bigdata
+  component: kafka
+  statement: KafkaConsumer.endOffsets returns the high watermark in read_uncommitted mode, the Last Stable Offset (LSO) in read_committed mode, and 0 for partitions that have never been written.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: This is the precise source-backed way to explain why "end" is not always the physical log tail for transactional consumers.
+
+- id: kafka-claim-0030
+  domain: bigdata
+  component: kafka
+  statement: KafkaConsumer.currentLag uses locally cached metadata, returns empty if position or end offset is unknown, and may trigger an end-offset fetch request while returning immediately.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: Important when explaining why runtime lag is not always instantly available or perfectly synchronized with broker state.
+
+- id: kafka-claim-0031
+  domain: bigdata
+  component: kafka
+  statement: The consumer metric records-lag-max is published by the consumer client and is based on current offset rather than committed offset.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-monitoring
+  notes: This prevents a common interview mistake where runtime fetch lag is confused with committed-offset backlog.
+
+- id: kafka-claim-0032
+  domain: bigdata
+  component: kafka
+  statement: Kafka broker monitoring exposes UnderReplicatedPartitions, UnderMinIsrPartitionCount, and AtMinIsrPartitionCount to reflect ISR health and min.insync.replicas pressure.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-monitoring
+  notes: These metrics belong to the broker/replica-health dimension, not the same dimension as client-side lag metrics.
+
+- id: kafka-claim-0033
+  domain: bigdata
+  component: kafka
+  statement: Adding partitions does not change the partitioning of existing data, and if routing depends on hash(key) % number_of_partitions the key-to-partition mapping may be shuffled without Kafka automatically redistributing old data.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-basic-operations
+  notes: This is the official basis for explaining why partition expansion can disturb same-key routing semantics.
+
+- id: kafka-claim-0034
+  domain: bigdata
+  component: kafka
+  statement: Kafka does not currently support reducing the number of partitions for a topic.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-basic-operations
+  notes: Useful when discussing partition-count design as an upfront system-design decision rather than a freely reversible knob.
+
+- id: kafka-claim-0035
+  domain: bigdata
+  component: kafka
+  statement: During graceful shutdown Kafka syncs logs to disk, and with controlled.shutdown.enable=true it migrates leader partitions to other replicas before stopping, minimizing unavailability; controlled shutdown succeeds only if another live replica exists for each hosted partition.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-basic-operations
+  notes: This is the official distinction between planned maintenance and hard failure from an availability perspective.
+
+- id: kafka-claim-0036
+  domain: bigdata
+  component: kafka
+  statement: After a broker restarts it comes back as a follower for its partitions, and Kafka may restore leadership to preferred replicas automatically with auto.leader.rebalance.enable or manually through preferred leader election.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-basic-operations
+  notes: This helps explain why post-restart recovery and long-term leader balance are not the same thing.
+
+- id: kafka-claim-0037
+  domain: bigdata
+  component: kafka
+  statement: OffsetAndMetadata can carry the leader epoch of the previously consumed record as part of the committed offset metadata.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-offset-and-metadata-javadoc
+  notes: This is the source-backed bridge between consumer offset tracking and leader-epoch-aware recovery.
+
+- id: kafka-claim-0038
+  domain: bigdata
+  component: kafka
+  statement: Log truncation can be detected when there exists a leader epoch larger than the committed epoch and that newer epoch begins at an offset earlier than the committed offset.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-offset-and-metadata-javadoc
+  notes: This is the official explanation for why leader epoch matters during consumer recovery after leader changes or truncation.
+
+- id: kafka-claim-0039
+  domain: bigdata
+  component: kafka
+  statement: Kafka consumer commit APIs recommend committing the next message to process and attaching the leader epoch, which can be obtained from ConsumerRecord.leaderEpoch or ConsumerRecords.nextOffsets.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: This is a modern official nuance that most interview answers miss.
+
+- id: kafka-claim-0040
+  domain: bigdata
+  component: kafka
+  statement: KafkaConsumer.seek(TopicPartition, OffsetAndMetadata) allows applications to set a fetch position together with a leader epoch.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: This is the client-side API surface that makes leader-epoch-aware recovery actionable.
+
+- id: kafka-claim-0041
+  domain: bigdata
+  component: kafka
+  statement: FencedLeaderEpochException means the request carried a leader epoch smaller than the broker's current epoch, typically because metadata is stale, and clients usually refresh metadata before retrying.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-fenced-leader-epoch-exception
+  notes: This is the source-backed explanation for "stale metadata" in epoch-aware reads and recovery.
+
+- id: kafka-claim-0042
+  domain: bigdata
+  component: kafka
+  statement: Eligible Leader Replicas (ELR) is available starting in Kafka 4.0 and is enabled by default on new clusters starting in Kafka 4.1.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-eligible-leader-replicas
+  notes: This version boundary matters when giving modern Kafka answers rather than generic cross-version statements.
+
+- id: kafka-claim-0043
+  domain: bigdata
+  component: kafka
+  statement: With ELR enabled, KRaft leader election prefers ISR first, then an unfenced ELR, and finally the unfenced last known leader.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-eligible-leader-replicas
+  notes: This is the exact official election order and should replace vague wording such as "Kafka may pick any caught-up replica".
+
+- id: kafka-claim-0044
+  domain: bigdata
+  component: kafka
+  statement: When ELR is enabled, Kafka manages cluster-level min.insync.replicas specially, and updating cluster-level or topic-level min.insync.replicas cleans ELR state.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-eligible-leader-replicas
+  notes: This is an advanced operational detail that becomes relevant when discussing ELR and strict min ISR semantics.
+
+- id: kafka-claim-0045
+  domain: bigdata
+  component: kafka
+  statement: The kafka-consumer-groups.sh --describe tool displays CURRENT-OFFSET, LOG-END-OFFSET, and LAG for consumer groups.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-basic-operations
+  notes: This is the official tool-level anchor for explaining lag inspection from an operator's perspective.
+
+- id: kafka-claim-0046
+  domain: bigdata
+  component: kafka
+  statement: Topic config index.interval.bytes controls how frequently Kafka adds entries to the offset index and conditionally to the time index; more frequent indexing improves how closely reads can jump to the target position but makes index files larger.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-topic-configs
+  notes: This is the most direct official source for explaining offset-index density without over-speculating about internals.
+
+- id: kafka-claim-0047
+  domain: bigdata
+  component: kafka
+  statement: In read_committed mode, Kafka consumer fetch lag metrics are adjusted relative to the Last Stable Offset rather than the high watermark.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: This is the official reason why lag numbers for transactional consumers can differ from naive "log tail minus offset" expectations.
+
+- id: kafka-claim-0048
+  domain: bigdata
+  component: kafka
+  statement: Kafka stores all offsets for a given consumer group on a designated broker for that group called the group coordinator, and consumer instances in that group send offset commits and fetches to that coordinator broker.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-implementation-distribution
+  notes: This is the source-backed starting point for explaining that Consumer Group is not just a logical label but a coordinator-mediated protocol.
+
+- id: kafka-claim-0049
+  domain: bigdata
+  component: kafka
+  statement: Consumer groups are assigned to coordinators based on group names, consumers discover the coordinator via FindCoordinatorRequest, and must rediscover it if the coordinator moves.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-implementation-distribution
+  notes: Useful when explaining coordinator lookup, restart, and failover behavior rather than treating the coordinator as a magical fixed endpoint.
+
+- id: kafka-claim-0050
+  domain: bigdata
+  component: kafka
+  statement: The group coordinator caches committed offsets in memory to serve offset fetches quickly, and offset fetch requests can fail with CoordinatorLoadInProgressException while the coordinator is loading offsets into cache.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-implementation-distribution
+  notes: This is a deeper implementation detail that helps explain restart windows and why coordinator readiness can briefly affect offset fetches.
+
+- id: kafka-claim-0051
+  domain: bigdata
+  component: kafka
+  statement: Manual partition assignment with assign(Collection) does not use group coordination, and consumer failures will not cause assigned partitions to be rebalanced.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: This is the sharpest official boundary between dynamic group management and manual assignment.
+
+- id: kafka-claim-0052
+  domain: bigdata
+  component: kafka
+  statement: For topic subscription, group rebalances are generally triggered by topic changes or consumer group membership changes, and group rebalances only take place during an active call to poll(Duration).
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: Important when explaining why some ownership changes or listener callbacks appear only when the application is polling.
+
+- id: kafka-claim-0053
+  domain: bigdata
+  component: kafka
+  statement: ConsumerRebalanceListener.onPartitionsRevoked is called when a consumer has to give up partitions, offsets are recommended to be committed in this callback to prevent duplicate data, and the callback runs before partitions are reassigned.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-rebalance-listener-javadoc
+  notes: This is a core source-backed explanation for why rebalance can affect duplicates and offset safety.
+
+- id: kafka-claim-0054
+  domain: bigdata
+  component: kafka
+  statement: Under normal conditions, all consumers in a group execute onPartitionsRevoked before any instance executes onPartitionsAssigned, and onPartitionsAssigned is invoked after reassignment completes, before fetching starts, and even when no new partitions are assigned.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-rebalance-listener-javadoc
+  notes: This is the strongest official ordering guarantee for explaining graceful handoff and state restoration logic.
+
+- id: kafka-claim-0055
+  domain: bigdata
+  component: kafka
+  statement: onPartitionsLost is used for partitions that have already been reassigned to other consumers, for example after session timeout or a fatal error indicating the consumer is no longer part of the group, and in this case users may no longer be able to commit consumed offsets for those partitions.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-rebalance-listener-javadoc
+  notes: This gives a precise ownership-loss boundary and is one of the most useful facts when discussing rebalance failure scenarios.
+
+- id: kafka-claim-0056
+  domain: bigdata
+  component: kafka
+  statement: Since Kafka 4.0 the new consumer rebalance protocol is supported but not enabled by default; consumers must set group.protocol=consumer to enable it.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-rebalance-protocol
+  notes: This is an important version-aware boundary that prevents over-generalizing new-protocol behavior to all Kafka 4.x consumer groups.
+
+- id: kafka-claim-0057
+  domain: bigdata
+  component: kafka
+  statement: For topic writes with acks=all, every replica currently in the ISR must acknowledge the write for it to succeed; if the ISR size falls below min.insync.replicas, the producer raises NotEnoughReplicas or NotEnoughReplicasAfterAppend.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-topic-configs
+  notes: This is the exact source-backed boundary behind the common interview phrase "acks=all plus min.insync.replicas gives stronger durability".
+
+- id: kafka-claim-0058
+  domain: bigdata
+  component: kafka
+  statement: Automatic offset commits only preserve at-least-once delivery if the application consumes all records returned by each poll before the next poll call or before closing the consumer; otherwise the committed offset can get ahead of actual processing and missing records can result.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: This is one of the most important official boundaries for explaining why auto commit is easy to misuse in real applications.
+
+- id: kafka-claim-0059
+  domain: bigdata
+  component: kafka
+  statement: Only committed messages are exposed to consumers; regardless of the producer acks setting, messages are not visible until they are replicated to all in-sync replicas and the min.insync.replicas condition is satisfied.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - kafka-design-doc
+    - kafka-topic-configs
+  notes: This is the cleanest official explanation for separating producer acknowledgment timing from consumer visibility timing.
+
+- id: kafka-claim-0060
+  domain: bigdata
+  component: kafka
+  statement: To benefit from Kafka producer idempotence, applications must avoid application-level re-sends because they cannot be de-duplicated, and the producer only guarantees idempotence for messages sent within a single producer session.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-producer-javadoc
+  notes: This is a critical boundary that prevents overstating idempotence as a universal duplicate-protection mechanism.
+
+- id: kafka-claim-0061
+  domain: bigdata
+  component: kafka
+  statement: To use the transactional producer, applications must set transactional.id; when transactional.id is set, idempotence is automatically enabled, and transactional.id exists to enable transaction recovery across multiple sessions of a single producer instance.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-producer-javadoc
+  notes: This is the cleanest official description of the relationship between idempotence and transactions.
+
+- id: kafka-claim-0062
+  domain: bigdata
+  component: kafka
+  statement: KafkaProducer javadoc recommends transactional topics be configured durably, in particular with replication.factor at least 3 and min.insync.replicas set to 2, and states that consumers must read only committed messages for end-to-end transactional guarantees to be realized.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-producer-javadoc
+  notes: This is a recommendation boundary, not an absolute protocol rule, but it is the strongest official guidance for transactional durability and visibility.
+
+- id: kafka-claim-0063
+  domain: bigdata
+  component: kafka
+  statement: In Kafka transactional sending, commitTransaction surfaces irrecoverable send failures, applications should abortTransaction for recoverable KafkaException cases, and errors such as ProducerFencedException, OutOfOrderSequenceException, UnsupportedVersionException, or AuthorizationException require closing the producer.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-producer-javadoc
+  notes: This is the most important operational boundary for explaining transactional producer failure handling.
+
+- id: kafka-claim-0064
+  domain: bigdata
+  component: kafka
+  statement: In compacted topics, a record with a key and a null payload is treated as a tombstone delete marker, and tombstones are later removed after the delete retention window to free space.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-design-doc
+    - kafka-topic-configs
+  notes: This is the official source-backed definition for Kafka deletes in compacted logs.
+
+- id: kafka-claim-0065
+  domain: bigdata
+  component: kafka
+  statement: Kafka log compaction preserves message ordering and never changes message offsets; it removes obsolete records without reordering the remaining log.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-design-doc
+  notes: This is one of the most important guarantees to state when distinguishing compaction from physical rewriting misconceptions.
+
+- id: kafka-claim-0066
+  domain: bigdata
+  component: kafka
+  statement: For compacted topics, any consumer progressing from the start of the log will see at least the final state of all records in order, and will also see delete markers only if it reaches the head of the log within delete.retention.ms; otherwise it may miss tombstones.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-design-doc
+    - kafka-topic-configs
+  notes: This is the sharpest official boundary for explaining state snapshot validity when replaying compacted topics.
+
+- id: kafka-claim-0067
+  domain: bigdata
+  component: kafka
+  statement: Kafka uses min.compaction.lag.ms to provide a lower bound on how long a message remains uncompacted and max.compaction.lag.ms to provide an upper bound on how long a message can remain ineligible for compaction.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-design-doc
+    - kafka-topic-configs
+  notes: This is the cleanest source-backed way to explain compaction timing boundaries without pretending compaction is immediate.
+
+- id: kafka-claim-0068
+  domain: bigdata
+  component: kafka
+  statement: Kafka log compaction is performed by background log cleaner threads that recopy log segments, does not block reads, and can be throttled to limit its I/O impact on producers and consumers.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-design-doc
+  notes: This explains why compaction is an asynchronous storage maintenance process rather than an inline write-path operation.
+
+- id: kafka-claim-0069
+  domain: bigdata
+  component: kafka
+  statement: Partitions with transactional messages contain commit or abort markers that occupy offsets but are not returned to applications, so consumers can observe gaps in offsets; read_committed consumers can also see gaps caused by aborted transactions.
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-consumer-javadoc
+  notes: This is the most useful official fact for explaining why transactional topics can show offset gaps even without data loss.
+
+- id: kafka-claim-0070
+  domain: bigdata
+  component: kafka
+  statement: "In KRaft mode, each Kafka server can act as a broker, a controller, or both via process.roles; combined broker/controller mode is simpler for small environments but is not recommended in critical deployments because controllers cannot be rolled or scaled separately from brokers."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-kraft-operations
+  notes: Useful when contrasting development convenience with production isolation in KRaft deployments.
+
+- id: kafka-claim-0071
+  domain: bigdata
+  component: kafka
+  statement: "In KRaft mode, selected controllers participate in the metadata quorum, a majority of controllers must stay alive to maintain availability, three controllers tolerate one failure, five tolerate two, and every broker and controller must set controller.quorum.bootstrap.servers."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-kraft-operations
+  notes: This is the core official availability boundary for KRaft metadata quorum discussions.
+
+- id: kafka-claim-0072
+  domain: bigdata
+  component: kafka
+  statement: "KRaft supports static and dynamic controller quorums; dynamic quorum requires controller.quorum.voters to be unset and uses controller.quorum.bootstrap.servers instead, while static quorum requires every broker and controller to list all controllers in controller.quorum.voters."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-kraft-operations
+  notes: This is the most useful exact boundary for static versus dynamic quorum explanations.
+
+- id: kafka-claim-0073
+  domain: bigdata
+  component: kafka
+  statement: "Dynamic controller quorum support was added in kraft.version=1, corresponding to release-version 4.1; if kraft.version is 0 or absent the cluster is using a static quorum, and dynamic quorum supports add-controller and remove-controller operations."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-kraft-operations
+  notes: Important for version-aware KRaft answers and operational migration discussions.
+
+- id: kafka-claim-0074
+  domain: bigdata
+  component: kafka
+  statement: "Kafka removed auto-formatting for blank storage directories in KRaft because if a majority of controllers start with empty logs, a leader could be elected with missing committed metadata."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-kraft-operations
+  notes: High-value operational boundary for explaining why KRaft formatting must be explicit.
+
+- id: kafka-claim-0075
+  domain: bigdata
+  component: kafka
+  statement: "Kafka security covers authentication of connections using SSL or SASL, with supported SASL mechanisms including GSSAPI (Kerberos), PLAIN, SCRAM-SHA-256, SCRAM-SHA-512, and OAUTHBEARER."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-security-overview
+  notes: Useful as the high-level official framing before discussing ACLs and quotas.
+
+- id: kafka-claim-0076
+  domain: bigdata
+  component: kafka
+  statement: "Kafka uses a pluggable authorization framework; for KRaft clusters the default authorizer stores ACLs in the cluster metadata log and should be configured on all nodes as org.apache.kafka.metadata.authorizer.StandardAuthorizer."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-authorization-acls
+  notes: This is the official replacement answer for ACL storage after ZooKeeper.
+
+- id: kafka-claim-0077
+  domain: bigdata
+  component: kafka
+  statement: "By default, if a Kafka resource has no matching ACLs, only super users may access it; setting allow.everyone.if.no.acl.found=true changes this default only for resources without ACLs."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-authorization-acls
+  notes: Critical boundary for interview questions about default-deny versus default-allow behavior.
+
+- id: kafka-claim-0078
+  domain: bigdata
+  component: kafka
+  statement: "In KRaft clusters, admin requests sent to brokers are forwarded to the active controller through the first controller listener via an Envelope request, and custom principal builders must implement KafkaPrincipalSerde so the principal can be serialized and forwarded."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-authorization-acls
+  notes: This is the sharpest source-backed explanation for KRaft principal forwarding behavior.
+
+- id: kafka-claim-0079
+  domain: bigdata
+  component: kafka
+  statement: "In multi-tenant Kafka clusters, hierarchical topic naming combined with prefixed ACLs is recommended because it isolates tenant namespaces while minimizing ACL administration overhead."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-multi-tenancy
+    - kafka-authorization-acls
+  notes: High-value principle fact for shared-cluster system design answers.
+
+- id: kafka-claim-0080
+  domain: bigdata
+  component: kafka
+  statement: "Kafka multi-tenant clusters should generally be configured with quotas because quotas protect shared brokers from noisy tenants consuming too much network, broker CPU, or mutation capacity."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-multi-tenancy
+  notes: This is the cleanest official motivation for client and server quotas in shared clusters.
+
+- id: kafka-claim-0081
+  domain: bigdata
+  component: kafka
+  statement: "Kafka client quotas are per-user principal and apply irrespective of which topics the client reads or writes; request rate quotas help limit broker CPU time per user, controller_mutation_rate quotas protect topic-operation capacity, and broker-side quotas can also limit new connections, total connections, or per-IP connections."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-multi-tenancy
+  notes: Useful for explaining why quota isolation is orthogonal to topic-level ACLs.
+
+- id: kafka-claim-0082
+  domain: bigdata
+  component: kafka
+  statement: "Kafka Connect supports two execution modes: standalone and distributed; standalone runs all work in a single process and lacks some fault-tolerance features, while distributed mode automatically balances work, supports fault tolerance, and stores offsets, configs, and task statuses in Kafka topics."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-connect-user-guide
+  notes: This is the key conceptual boundary for Connect architecture questions.
+
+- id: kafka-claim-0083
+  domain: bigdata
+  component: kafka
+  statement: "In distributed Kafka Connect, config.storage.topic should have a single partition and compaction, offset.storage.topic should have many partitions and compaction, status.storage.topic may have multiple partitions and compaction, and connector lifecycle operations should be managed through the REST API rather than command-line connector configs."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-connect-user-guide
+  notes: This is the best official explanation of why Connect internal topics have different partitioning expectations.
+
+- id: kafka-claim-0084
+  domain: bigdata
+  component: kafka
+  statement: "Kafka Connect can provide exactly-once semantics for sink connectors and source connectors, but support depends on connector design; exactly-once source support is only available in distributed mode, and existing clusters require a preparing phase followed by enabled during two rolling upgrades."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-connect-user-guide
+  notes: High-value boundary for avoiding overstatements about Connect exactly-once.
+
+- id: kafka-claim-0085
+  domain: bigdata
+  component: kafka
+  statement: "Since Kafka 2.3, Kafka Connect uses incremental cooperative rebalancing by default when workers use connect.protocol=compatible, while connect.protocol=eager retains the old full rebalance behavior."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-connect-administration
+  notes: Useful for explaining why Connect rebalances are less disruptive than before.
+
+- id: kafka-claim-0086
+  domain: bigdata
+  component: kafka
+  statement: "When a Kafka Connect worker leaves the group, Connect waits scheduled.rebalance.max.delay.ms before rebalancing; the default is 300000 ms, tasks remain unassigned during the delay, and if the worker returns within the delay it receives its previous tasks back."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-connect-administration
+  notes: This is a very high-value operational detail for Connect recovery behavior.
+
+- id: kafka-claim-0087
+  domain: bigdata
+  component: kafka
+  statement: "A Kafka Streams application is a program that uses the Kafka Streams library and defines its logic as one or more processor topologies, where each stream processor handles one input record at a time; Kafka Streams offers both a high-level DSL and a low-level Processor API."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-streams-core-concepts
+  notes: This is the clearest official statement for positioning Streams as an application library rather than a broker-side feature.
+
+- id: kafka-claim-0088
+  domain: bigdata
+  component: kafka
+  statement: "Kafka Streams scales an application's topology by creating a fixed number of tasks from the input stream partitions; the assignment of partitions to tasks does not change, so each task is a fixed unit of parallelism."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-streams-architecture
+  notes: Useful for connecting Kafka partition count directly to Streams parallelism.
+
+- id: kafka-claim-0089
+  domain: bigdata
+  component: kafka
+  statement: "Every Kafka Streams task may embed one or more local state stores; for each state store Kafka Streams maintains a replicated changelog topic, restores state by replaying the changelog after failure, and uses standby replicas to minimize task restoration latency."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-streams-architecture
+  notes: This is the key mechanism-level answer for local state, recovery, and standby replicas.
+
+- id: kafka-claim-0090
+  domain: bigdata
+  component: kafka
+  statement: "Kafka Streams processing.guarantee supports at_least_once and exactly_once_v2; exactly_once_v2 requires brokers version 2.5 or newer, changes commit.interval.ms default to 100 ms, uses read_committed on consumers and enable.idempotence=true on producers, and production resilience guidance recommends replication factor 3 with min.insync.replicas=2."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-streams-config
+  notes: High-value official boundary for Streams exactly-once answers.
+
+- id: kafka-claim-0091
+  domain: bigdata
+  component: kafka
+  statement: "Kafka Streams interactive queries natively support querying the local state stores of one application instance, but exposing the full state of the entire application requires an additional RPC layer such as a REST API between instances."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-streams-interactive-queries
+  notes: This is the most important boundary when explaining local versus global queryability in Streams.
+
+- id: kafka-claim-0092
+  domain: bigdata
+  component: kafka
+  statement: "MirrorMaker is built on the Kafka Connect framework, so Kafka Connect, source connector, and sink connector settings can be used directly in MirrorMaker configuration."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-geo-replication
+  notes: This is the cleanest official framing for explaining why MM2 inherits many Connect operational characteristics.
+
+- id: kafka-claim-0093
+  domain: bigdata
+  component: kafka
+  statement: "MirrorMaker can replicate topics, topic configurations, consumer groups with offsets, and ACLs across clusters, preserves partitioning semantics, and production guidance recommends tasks.max of at least 2 so workload can spread across multiple MirrorMaker processes."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - kafka-geo-replication
+  notes: This is the strongest concise official statement for MM2 capability and scaling guidance.
+- id: kafka-claim-0094
+  domain: bigdata
+  component: kafka
+  statement: "Kafka producers maintain a pool of buffer space for unsent records and use the buffer.memory setting to bound it; when the pool is exhausted, producer.send and partition metadata requests can block for up to max.block.ms before failing."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 producer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-producer-configs
+  notes: "Good starting point for explaining why producer throughput tuning and backpressure tuning are the same topic."
+
+- id: kafka-claim-0095
+  domain: bigdata
+  component: kafka
+  statement: "Compression in Kafka producers is applied to full batches of data, so batching more records together improves compression ratio."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 producer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-producer-configs
+  notes: "Important for explaining why linger and batch size affect both network efficiency and compression efficiency."
+
+- id: kafka-claim-0096
+  domain: bigdata
+  component: kafka
+  statement: "Kafka producer batch.size controls the default batch size in bytes for each partition, and a produce request may bundle multiple batches that each contain data for a single partition."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 producer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-producer-configs
+  notes: "Useful for answering why batching is partition-scoped even when one network request can carry multiple partition batches."
+
+- id: kafka-claim-0097
+  domain: bigdata
+  component: kafka
+  statement: "Kafka 4.0 changed the default linger.ms from 0 to 5 ms because larger batches typically produce similar or lower end-to-end latency thanks to fewer requests, despite the small intentional delay."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 producer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-producer-configs
+  notes: "A concrete modern-version detail that shows the platform now prefers batching by default."
+
+- id: kafka-claim-0098
+  domain: bigdata
+  component: kafka
+  statement: "The producer delivery.timeout.ms setting bounds the total time the client may spend reporting success or failure for a send, and it should be greater than or equal to request.timeout.ms plus linger.ms."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 producer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-producer-configs
+  notes: "Useful for separating broker timeout, batching delay, and overall delivery deadline."
+
+- id: kafka-claim-0099
+  domain: bigdata
+  component: kafka
+  statement: "When key bytes are present, the default Kafka producer partitioner hashes the key to choose a partition; when no key or partition is present, the producer uses a sticky partition that changes when at least batch.size bytes have been produced to that partition."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 producer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-producer-configs
+  notes: "Important for explaining why no-key traffic still tends to batch efficiently instead of round-robinning every record."
+
+- id: kafka-claim-0100
+  domain: bigdata
+  component: kafka
+  statement: "If enable.idempotence is false and max.in.flight.requests.per.connection is greater than 1, failed sends that are retried can cause records from one batch to be reordered after records from a later successful batch."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 producer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-producer-configs
+  notes: "This is the cleanest official configuration-level explanation of retry-induced reordering."
+
+- id: kafka-claim-0101
+  domain: bigdata
+  component: kafka
+  statement: "Enabling Kafka producer idempotence requires max.in.flight.requests.per.connection to be at most 5, retries to be greater than 0, and acks to be all; conflicting explicitly-set values disable or reject idempotence instead of silently preserving it."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 producer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-producer-configs
+  notes: "High-value for interviews that ask whether idempotence is just a boolean switch."
+
+- id: kafka-claim-0102
+  domain: bigdata
+  component: kafka
+  statement: "Setting transactional.id on a Kafka producer enables reliability semantics that span multiple producer sessions, implies enable.idempotence, and production guidance recommends at least three brokers for transactional topics by default."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 producer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-producer-configs
+  notes: "Useful for distinguishing session-scoped idempotence from transactional identity that survives restarts."
+
+- id: kafka-claim-0103
+  domain: bigdata
+  component: kafka
+  statement: "For isolation.level=read_committed, Kafka consumer poll only returns transactional messages that have been committed and does so only up to the Last Stable Offset, which is one less than the offset of the first open transaction."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 consumer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-consumer-configs
+  notes: "This is the best short official statement for why read_committed visibility is bounded by LSO rather than by the high watermark."
+
+- id: kafka-claim-0104
+  domain: bigdata
+  component: kafka
+  statement: "Because read_committed consumers stop at the Last Stable Offset, they may not be able to read up to the partition high watermark when there are open transactions."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 consumer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-consumer-configs
+  notes: "Essential for correcting the common misunderstanding that committed visibility and replicated visibility are the same boundary."
+
+- id: kafka-claim-0105
+  domain: bigdata
+  component: kafka
+  statement: "In read_committed mode, KafkaConsumer.seekToEnd returns the Last Stable Offset instead of the high watermark."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 consumer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-consumer-configs
+  notes: "A very interview-worthy practical detail because it changes how replay and catch-up tooling behaves on transactional topics."
+
+- id: kafka-claim-0106
+  domain: bigdata
+  component: kafka
+  statement: "A non-empty group.instance.id makes the consumer a static member, meaning only one instance with that ID may join the group at a time, and combining it with a larger session timeout can help avoid group rebalances caused by transient unavailability such as process restarts."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 consumer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-consumer-configs
+  notes: "Useful for operationally explaining static membership beyond the buzzword."
+
+- id: kafka-claim-0107
+  domain: bigdata
+  component: kafka
+  statement: "If a consumer exceeds max.poll.interval.ms, the group will rebalance to reassign its partitions; for static members this reassignment is delayed until the session timeout expires, and under the consumer group protocol that timeout is controlled by the broker-side group.consumer.session.timeout.ms."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 consumer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-consumer-configs
+  notes: "Important for distinguishing poll-progress timeout from liveness timeout."
+
+- id: kafka-claim-0108
+  domain: bigdata
+  component: kafka
+  statement: "Kafka consumer max.poll.records limits only how many records poll returns at a time; it does not change the underlying fetch behavior, because the consumer caches fetched records and returns them incrementally across polls."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 consumer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-consumer-configs
+  notes: "Good for correcting the common misconception that max.poll.records reduces network fetch size."
+
+- id: kafka-claim-0109
+  domain: bigdata
+  component: kafka
+  statement: "Kafka consumer group.protocol supports classic and consumer, defaults to classic, and the heartbeat.interval.ms client setting is not supported when group.protocol is consumer because the broker controls the heartbeat cadence."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 consumer configs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-consumer-configs
+  notes: "Useful for version-accurate answers about the new broker-driven consumer group protocol."
+
+- id: kafka-claim-0110
+  domain: bigdata
+  component: kafka
+  statement: "A successful offset commit response is sent only after all replicas of the __consumer_offsets topic receive the offsets."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 implementation distribution docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-implementation-distribution
+  notes: "This is the core durability boundary behind committed offsets as recoverable state."
+
+- id: kafka-claim-0111
+  domain: bigdata
+  component: kafka
+  statement: "The Kafka __consumer_offsets topic is periodically compacted because, for a given partition, only the latest offset commit is needed."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 implementation distribution docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-implementation-distribution
+  notes: "A concise mechanism-level answer for why offsets live in a compacted internal topic."
+
+- id: kafka-claim-0112
+  domain: bigdata
+  component: kafka
+  statement: "Kafka group coordinators cache loaded offsets in memory to serve offset fetch requests quickly, in addition to storing them durably in __consumer_offsets."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 implementation distribution docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-implementation-distribution
+  notes: "Useful for explaining why offset fetch latency is not simply disk-read latency."
+
+- id: kafka-claim-0113
+  domain: bigdata
+  component: kafka
+  statement: "If an offsets topic partition leader or coordinator has just started or changed leadership and is still loading offsets into the cache, Kafka may return CoordinatorLoadInProgressException for offset fetches."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 implementation distribution docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-implementation-distribution
+  notes: "A high-value failure-mode detail for understanding why offset reads can transiently fail during recovery."
+
+- id: kafka-claim-0114
+  domain: bigdata
+  component: kafka
+  statement: "Formatting a KRaft node creates a metadata directory that contains a meta.properties file recording properties such as the cluster ID and a random directory ID."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 KRaft docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-kraft-operations
+  notes: "This is the minimum accurate storage-level fact behind KRaft node identity."
+
+- id: kafka-claim-0115
+  domain: bigdata
+  component: kafka
+  statement: "When a standalone KRaft controller is formatted, Kafka writes a bootstrap metadata checkpoint whose record set contains KRaftVersionRecord and VotersRecord so the node can start as a cluster with a single voter."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 KRaft docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-kraft-operations
+  notes: "Useful for moving from abstract quorum discussion to concrete bootstrap artifacts."
+
+- id: kafka-claim-0116
+  domain: bigdata
+  component: kafka
+  statement: "When multiple KRaft controllers are formatted, the same initial-controllers value and cluster ID must be used on every controller, and the bootstrap metadata checkpoint contains a VotersRecord listing all of them."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 KRaft docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-kraft-operations
+  notes: "Important for accurately explaining how a controller quorum is bootstrapped before any metadata traffic exists."
+
+- id: kafka-claim-0117
+  domain: bigdata
+  component: kafka
+  statement: "Kafka's metadata shell is an interactive tool for inspecting the state of the Kafka cluster metadata partition from a valid metadata snapshot."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 KRaft docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-kraft-operations
+  notes: "A practical observability tool worth mentioning in advanced KRaft operations discussions."
+
+- id: kafka-claim-0118
+  domain: bigdata
+  component: kafka
+  statement: "The bootstrap checkpoint file 00000000000000000000-0000000000.checkpoint does not contain cluster metadata, so metadata shell inspection should use a valid metadata snapshot instead."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 KRaft docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-kraft-operations
+  notes: "This prevents a common debugging mistake when operators first inspect KRaft metadata directories."
+
+- id: kafka-claim-0119
+  domain: bigdata
+  component: kafka
+  statement: "Kafka's metadata partition can be decoded for debugging with the metadata quorum describe and dump log tools, which can inspect KRaft metadata logs and snapshots."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 KRaft docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-kraft-operations
+  notes: "Useful for turning KRaft from an abstract consensus topic into something operators can actually debug."
+
+- id: kafka-claim-0120
+  domain: bigdata
+  component: kafka
+  statement: "Starting in Kafka 4.0, modern 4.0+ Kafka producers can use a stronger server-side transactional protocol defense that is controlled by the server-side transaction.version setting, and when enabled the producer epoch is incremented on every transaction to prevent duplicates from leaking across transaction boundaries."
+  status: reviewed
+  confidence: high
+  version_scope: "Kafka 4.2 transaction protocol docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - kafka-transaction-protocol
+  notes: "A high-value modern-version detail that deepens transaction answers beyond the older client-only mental model."

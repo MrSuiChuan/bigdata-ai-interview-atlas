@@ -1,0 +1,580 @@
+﻿- id: bigdata-yarn-claim-0001
+  domain: bigdata
+  component: yarn
+  statement: >-
+    YARN separates cluster-wide resource management in the ResourceManager, per-application coordination in an
+    ApplicationMaster, and per-node container execution in NodeManagers, with containers as the unit of resource
+    allocation.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-architecture
+  notes: Core architecture boundary claim.
+- id: bigdata-yarn-claim-0002
+  domain: bigdata
+  component: yarn
+  statement: >-
+    YARN should be positioned as Hadoop's resource-management and application-scheduling layer rather than as the
+    storage system or the business-computation engine itself.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-architecture
+  notes: Overall positioning claim.
+- id: bigdata-yarn-claim-0003
+  domain: bigdata
+  component: yarn
+  statement: >-
+    YARN application state is organized around Application, ApplicationAttempt and Container objects, while queue and
+    node-partition metadata form separate governance state that influences where those application objects can run.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-architecture
+    - hadoop-yarn-capacity-scheduler
+    - hadoop-yarn-node-labels
+  notes: Core object and state ownership claim.
+- id: bigdata-yarn-claim-0004
+  domain: bigdata
+  component: yarn
+  statement: >-
+    The ResourceManager includes an ApplicationsManager and a pluggable Scheduler, and the Scheduler is a pure
+    scheduler that performs no monitoring or tracking of application execution status.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-architecture
+  notes: Scheduler responsibility boundary claim.
+- id: bigdata-yarn-claim-0005
+  domain: bigdata
+  component: yarn
+  statement: >-
+    In the normal submission flow, a client submits an application to the ResourceManager, the scheduler allocates the
+    first container for the ApplicationMaster, the NodeManager launches that ApplicationMaster, and then the
+    ApplicationMaster negotiates additional containers from the scheduler.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-architecture
+  notes: Canonical application submission sequence claim.
+- id: bigdata-yarn-claim-0006
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Container launch depends on a ContainerLaunchContext that carries commands, environment, localized resources and
+    credentials, and the NodeManager is responsible for preparing those resources before starting the container.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-node-manager
+    - hadoop-yarn-application-security
+  notes: Container launch and localization claim.
+- id: bigdata-yarn-claim-0007
+  domain: bigdata
+  component: yarn
+  statement: >-
+    YARN read-side diagnosis is primarily about reading application, attempt, container, queue, node and log state,
+    with Timeline Service v2 extending that surface for historical entities and metrics.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-commands-reference
+    - hadoop-yarn-timeline-service-v2
+  notes: State-reading surface claim.
+- id: bigdata-yarn-claim-0008
+  domain: bigdata
+  component: yarn
+  statement: >-
+    YARN governs resource arbitration and container lifecycle, but upper-layer execution semantics such as Spark SQL
+    correctness, MapReduce logic or Flink checkpoint behavior remain the responsibility of the framework running on
+    top of YARN.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-architecture
+  notes: Responsibility boundary claim.
+- id: bigdata-yarn-claim-0009
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Queue hierarchy, queue capacities, node partitions and container requests jointly determine the practical resource
+    layout seen by a YARN application, so governance policy directly shapes usable capacity.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-capacity-scheduler
+    - hadoop-yarn-node-labels
+  notes: Resource-layout claim.
+- id: bigdata-yarn-claim-0010
+  domain: bigdata
+  component: yarn
+  statement: >-
+    ResourceManager HA addresses control-plane availability through an Active/Standby model, while actual recovery of
+    running application state depends on restart and re-synchronization behavior rather than HA alone.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-resource-manager-ha
+    - hadoop-yarn-resource-manager-restart
+  notes: HA versus recovery-scope claim.
+- id: bigdata-yarn-claim-0011
+  domain: bigdata
+  component: yarn
+  statement: >-
+    NodeManager and container-side failures are distinct from ResourceManager failures; application recovery still
+    depends on ApplicationAttempt retry and on whether replacement containers can be allocated and relaunched.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-architecture
+    - hadoop-yarn-node-manager
+    - hadoop-yarn-resource-manager-restart
+  notes: Multi-layer recovery claim.
+- id: bigdata-yarn-claim-0012
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Common YARN performance bottlenecks appear at admission, scheduling, container sizing, localization and node
+    health layers, so accepted-state waiting and launch latency must be separated from upper-layer compute slowness.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-capacity-scheduler
+    - hadoop-yarn-node-manager
+    - hadoop-yarn-commands-reference
+  notes: Performance-model claim.
+- id: bigdata-yarn-claim-0013
+  domain: bigdata
+  component: yarn
+  statement: >-
+    YARN tuning should focus first on queue policy, AM admission share, container granularity, resource partitioning
+    and NodeManager-side launch overhead before chasing low-value parameter tweaking.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-capacity-scheduler
+    - hadoop-yarn-node-manager
+    - hadoop-yarn-commands-reference
+  notes: Tuning-priority claim.
+- id: bigdata-yarn-claim-0014
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Robust YARN multi-tenant design must combine queue hierarchy, user or application limits, AM admission control,
+    node partitions, security boundaries and time-based reservation policy rather than treating any single knob as the
+    whole governance model.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-capacity-scheduler
+    - hadoop-yarn-node-labels
+    - hadoop-yarn-reservation-system
+    - hadoop-yarn-application-security
+  notes: Multi-tenant governance claim.
+- id: bigdata-yarn-claim-0015
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Secure YARN applications rely on Kerberos-authenticated submission plus delegation tokens that are propagated to
+    the container launch context, so applications can access other Hadoop services without exposing long-lived
+    credentials to container processes.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-application-security
+  notes: Token propagation and secure execution claim.
+- id: bigdata-yarn-claim-0016
+  domain: bigdata
+  component: yarn
+  statement: >-
+    The official YARN command surface includes application, applicationattempt, container, node, queue and logs
+    subcommands, making command-line inspection a first-class diagnostic path rather than a UI-only fallback.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-commands-reference
+  notes: CLI observability claim.
+- id: bigdata-yarn-claim-0017
+  domain: bigdata
+  component: yarn
+  statement: >-
+    YARN troubleshooting becomes tractable only after splitting failures into submission, Accepted waiting,
+    ApplicationMaster launch, container launch, node health, log visibility and upper-framework execution stages.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-commands-reference
+    - hadoop-yarn-node-manager
+    - hadoop-yarn-capacity-scheduler
+  notes: Stage-based diagnosis claim.
+- id: bigdata-yarn-claim-0018
+  domain: bigdata
+  component: yarn
+  statement: >-
+    YARN is a Hadoop-centric resource-management layer, not the same thing as Spark or Flink execution engines, not a
+    storage system like HDFS, and not a fully equivalent replacement for a general-purpose orchestrator such as
+    Kubernetes.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-architecture
+  notes: Neighboring-technology boundary claim.
+- id: bigdata-yarn-claim-0019
+  domain: bigdata
+  component: yarn
+  statement: >-
+    YARN system design must weigh queue governance, node partitioning, HA and restart targets, federation scale-out,
+    observability and security together because those choices define the real platform boundary before node counts or
+    parameter tuning do.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-capacity-scheduler
+    - hadoop-yarn-node-labels
+    - hadoop-yarn-resource-manager-ha
+    - hadoop-yarn-resource-manager-restart
+    - hadoop-yarn-federation
+    - hadoop-yarn-application-security
+  notes: System-design tradeoff claim.
+- id: bigdata-yarn-claim-0020
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Reliable YARN tuning and diagnosis require evidence from RM state, queue state, container state, NodeManager
+    health and logs before changing queue policy, resource shape or framework-side request patterns.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-commands-reference
+    - hadoop-yarn-node-manager
+    - hadoop-yarn-capacity-scheduler
+  notes: Evidence-first operations claim.
+- id: bigdata-yarn-claim-0021
+  domain: bigdata
+  component: yarn
+  statement: >-
+    To understand YARN at production depth, you have to connect architecture, queue governance, recovery, security,
+    observability and neighboring-system boundaries into one model instead of memorizing individual terms.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-architecture
+    - hadoop-yarn-capacity-scheduler
+    - hadoop-yarn-resource-manager-restart
+    - hadoop-yarn-application-security
+    - hadoop-yarn-timeline-service-v2
+  notes: Integrated knowledge-map claim.
+- id: bigdata-yarn-claim-0022
+  domain: bigdata
+  component: yarn
+  statement: >-
+    CapacityScheduler organizes resources through hierarchical queues with configured capacities while still allowing
+    elastic sharing of unused capacity subject to queue policy.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-capacity-scheduler
+  notes: Queue hierarchy and elasticity claim.
+- id: bigdata-yarn-claim-0023
+  domain: bigdata
+  component: yarn
+  statement: >-
+    ResourceManager HA uses an Active/Standby architecture in which exactly one RM is Active at a time, removing the
+    single control-plane failure point but not by itself guaranteeing that running application work is preserved.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-resource-manager-ha
+    - hadoop-yarn-resource-manager-restart
+  notes: Active/Standby control-plane claim.
+- id: bigdata-yarn-claim-0024
+  domain: bigdata
+  component: yarn
+  statement: >-
+    ResourceManager restart supports both non-work-preserving and work-preserving recovery; the latter reconstructs
+    running state from persisted RM state plus NodeManager and ApplicationMaster re-sync rather than simply launching a
+    new application attempt from scratch.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-resource-manager-restart
+  notes: Restart-mode semantics claim.
+- id: bigdata-yarn-claim-0025
+  domain: bigdata
+  component: yarn
+  statement: >-
+    The NodeManager is not only a launcher; it also monitors container resource usage, performs health checks,
+    manages localized resources and participates in log aggregation and container lifecycle reporting.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-node-manager
+  notes: Node execution-plane claim.
+- id: bigdata-yarn-claim-0026
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Node labels partition the cluster into subsets of nodes, and queues or applications use label expressions to limit
+    which node partitions their containers may consume.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-node-labels
+    - hadoop-yarn-capacity-scheduler
+  notes: Node label partitioning claim.
+- id: bigdata-yarn-claim-0027
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Node attributes describe node properties without creating resource guarantees, can attach multiple attributes to a
+    node, and are meant for finer-grained placement and selection than node labels alone.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-node-attributes
+  notes: Attribute-based placement claim.
+- id: bigdata-yarn-claim-0028
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Placement constraints extend YARN beyond simple locality by using allocation tags and scheduling scopes to express
+    affinity, anti-affinity and cardinality-style placement rules for containers.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-placement-constraints
+  notes: Expressive placement constraint claim.
+- id: bigdata-yarn-claim-0029
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Timeline Service v2 provides a generic history and metrics store for YARN applications and supports queries over
+    flows, flow runs, applications and generic entities.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-timeline-service-v2
+  notes: ATS v2 history-model claim.
+- id: bigdata-yarn-claim-0030
+  domain: bigdata
+  component: yarn
+  statement: >-
+    The ReservationSystem is designed to let users reserve resources over time on plan queues so capacity governance
+    can reason about time-based guarantees instead of only instantaneous queue shares.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-reservation-system
+    - hadoop-yarn-capacity-scheduler
+  notes: Time-based governance claim.
+- id: bigdata-yarn-claim-0031
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Opportunistic containers are weaker-guarantee allocations than guaranteed containers, and if a guaranteed
+    container arrives at a node without enough free resources the NodeManager may preempt one or more opportunistic
+    containers to make room.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-opportunistic-containers
+  notes: Opportunistic versus guaranteed execution claim.
+- id: bigdata-yarn-claim-0032
+  domain: bigdata
+  component: yarn
+  statement: >-
+    YARN Federation scales the control plane by introducing multiple sub-clusters together with a Router, AMRMProxy,
+    a federation state store and policy logic instead of stretching a single ResourceManager indefinitely.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-federation
+  notes: Federation architecture claim.
+- id: bigdata-yarn-claim-0033
+  domain: bigdata
+  component: yarn
+  statement: >-
+    In YARN Federation, each application is assigned a home sub-cluster, and after the Router forwards submission to
+    that home ResourceManager the normal per-cluster YARN application flow continues there.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-federation
+  notes: Home sub-cluster routing claim.
+- id: bigdata-yarn-claim-0034
+  domain: bigdata
+  component: yarn
+  statement: >-
+    In secure mode, non-work-preserving RM restart persists not only application metadata but also credentials so a
+    restarted ResourceManager can re-kick unfinished applications without forcing users to resubmit them.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-resource-manager-restart
+  notes: Secure restart-state claim.
+- id: bigdata-yarn-claim-0035
+  domain: bigdata
+  component: yarn
+  statement: >-
+    CapacityScheduler can cap how much of a queue's resources may be consumed by ApplicationMasters, which is why a
+    queue can still show aggregate capacity while new applications remain blocked at AM admission.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-capacity-scheduler
+  notes: AM admission boundary claim.
+- id: bigdata-yarn-claim-0036
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Authentication or proxy submission does not by itself grant access to arbitrary YARN queues; queue ACLs remain a
+    separate authorization boundary that governs who may submit into or administer a given resource path.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-application-security
+    - hadoop-yarn-capacity-scheduler
+  notes: Queue ACL as a distinct authorization layer claim.
+- id: bigdata-yarn-claim-0037
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Proxy-user support defines which trusted service may submit on behalf of which end users, but it does not remove
+    the need to evaluate the effective user against queue ACLs and downstream data-access credentials.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-application-security
+    - hadoop-yarn-capacity-scheduler
+  notes: Proxy-user versus queue authorization claim.
+- id: bigdata-yarn-claim-0038
+  domain: bigdata
+  component: yarn
+  statement: >-
+    The YARN CLI exposes separate subcommands for application, applicationattempt, container, node, queue and logs,
+    mirroring the fact that diagnosis must move across distinct state objects instead of relying on a single status
+    endpoint.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-commands-reference
+  notes: Layered CLI diagnosis claim.
+- id: bigdata-yarn-claim-0039
+  domain: bigdata
+  component: yarn
+  statement: >-
+    ResourceManager state answers current admission and scheduling questions, while Timeline Service v2 is designed
+    for longer-lived historical entities, flows, flow runs and metrics; the two are complementary rather than
+    interchangeable.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-timeline-service-v2
+    - hadoop-yarn-commands-reference
+  notes: RM current-state versus ATS historical-state claim.
+- id: bigdata-yarn-claim-0040
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Container launch delays and startup failures frequently come from NodeManager-side work such as localization,
+    disk-health checks, log-directory behavior and resource preparation, even after scheduling has already allocated a
+    container.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-node-manager
+  notes: NodeManager launch-path root-cause claim.
+- id: bigdata-yarn-claim-0041
+  domain: bigdata
+  component: yarn
+  statement: >-
+    Local container logs and aggregated remote logs are different visibility surfaces; failure to fetch aggregated logs
+    does not by itself prove that the container never executed or that local logs were never generated.
+  status: reviewed
+  confidence: high
+  version_scope: Official Apache Hadoop current YARN docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  source_ids:
+    - hadoop-yarn-node-manager
+    - hadoop-yarn-commands-reference
+  notes: Local-log versus aggregated-log visibility claim.

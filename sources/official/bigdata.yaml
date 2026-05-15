@@ -1,0 +1,2412 @@
+- id: kafka-docs-home
+  title: Apache Kafka Documentation
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/documentation/
+  version_scope: Kafka 4.2 docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: The Kafka documentation landing page currently lists release branches up to 4.2 and links to key concepts, design, and APIs.
+- id: kafka-design-doc
+  title: Kafka Design Documentation
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/design/design/
+  version_scope: Kafka 4.2 design docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for Kafka's core model, producer and consumer behavior, replication durability, pull model, and log compaction explanations.
+- id: kafka-consumer-javadoc
+  title: KafkaConsumer Javadoc
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html
+  version_scope: Kafka 4.2 client javadocs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for consumer position, committed offsets, group coordination semantics, and consumer progress details.
+- id: kafka-producer-javadoc
+  title: KafkaProducer Javadoc
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html
+  version_scope: Kafka 4.2 client javadocs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for idempotent producer, transactions, retries, and produce-side delivery semantics.
+- id: kafka-topic-configs
+  title: Kafka Topic Configs
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/configuration/topic-configs/
+  version_scope: Kafka 4.2 topic configs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for cleanup.policy, min.insync.replicas, retention, and topic-level durability configuration.
+- id: kafka-consumer-rebalance-protocol
+  title: Kafka Consumer Rebalance Protocol
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/operations/consumer-rebalance-protocol/
+  version_scope: Kafka 4.2 consumer rebalance protocol docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for the new rebalance protocol, group coordination changes, and rolling-upgrade guidance.
+- id: kafka-implementation-log
+  title: Kafka Log Implementation
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/implementation/log/
+  version_scope: Kafka 4.2 implementation log docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for partition log layout, segment rolling, offset lookup, retention deletion behavior, and recovery guarantees.
+- id: kafka-implementation-distribution
+  title: Kafka Distribution Implementation
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/implementation/distribution/
+  version_scope: Kafka 4.2 implementation distribution docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for group coordinator behavior, offset commit storage in __consumer_offsets, and offset fetch/commit flow.
+- id: kafka-implementation-network
+  title: Kafka Network Layer Implementation
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/implementation/network-layer/
+  version_scope: Kafka 4.2 network layer docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for network threading model and zero-copy style transferTo explanation in broker reads.
+- id: kafka-monitoring
+  title: Kafka Monitoring
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/operations/monitoring/
+  version_scope: Kafka 4.2 monitoring docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for broker health metrics, ISR-related metrics, request timing metrics, and consumer lag metrics such as records-lag-max.
+- id: kafka-basic-operations
+  title: Kafka Basic Operations
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/operations/basic-kafka-operations/
+  version_scope: Kafka 4.2 operations docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for graceful shutdown, partition expansion caveats, leadership balancing, and partition folder behavior.
+- id: kafka-eligible-leader-replicas
+  title: Kafka Eligible Leader Replicas
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/operations/eligible-leader-replicas/
+  version_scope: Kafka 4.2 ELR docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for ELR election order, min ISR interaction, and version-scope details from Kafka 4.x.
+- id: kafka-offset-and-metadata-javadoc
+  title: OffsetAndMetadata Javadoc
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/javadoc/org/apache/kafka/clients/consumer/OffsetAndMetadata.html
+  version_scope: Kafka 4.2 client javadocs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for leader epoch in offset commits and log truncation detection semantics.
+- id: kafka-fenced-leader-epoch-exception
+  title: FencedLeaderEpochException Javadoc
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/javadoc/org/apache/kafka/common/errors/FencedLeaderEpochException.html
+  version_scope: Kafka 4.2 client javadocs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for stale leader epoch and metadata refresh semantics on the client side.
+- id: kafka-consumer-rebalance-listener-javadoc
+  title: ConsumerRebalanceListener Javadoc
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/javadoc/org/apache/kafka/clients/consumer/ConsumerRebalanceListener.html
+  version_scope: Kafka 4.2 client javadocs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for revoked/assigned/lost callback semantics, rebalance callback ordering, and ownership-loss boundaries.
+- id: spark-docs-home
+  title: Apache Spark Documentation
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/documentation.html
+  version_scope: Spark documentation page as verified on 2026-04-22; latest stable listed is Spark 4.1.1
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use as the primary source for Spark's documentation entry, stable version listing, and release navigation.
+- id: spark-overview-doc
+  title: Spark Overview
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/index.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for Spark's positioning as a unified analytics engine, supported languages, higher-level tools, and guidance on RDD/DataFrame/Structured Streaming API eras.
+- id: spark-rdd-guide
+  title: RDD Programming Guide
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/rdd-programming-guide.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for driver/RDD basics, lazy transformations, actions, persistence, broadcast variables, accumulators, and shuffle cost.
+- id: spark-rdd-scaladoc
+  title: Spark RDD ScalaDoc
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/api/scala/org/apache/spark/rdd/RDD.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for the formal RDD definition and its five internal properties that drive scheduling and execution.
+- id: spark-sql-guide
+  title: Spark SQL, DataFrames and Datasets Guide
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/sql-programming-guide.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for DataFrame/Dataset positioning, Spark SQL optimizations, API/language unification, and DataFrame versus Dataset semantics.
+- id: spark-dataset-javadoc
+  title: Dataset JavaDoc
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/api/java/org/apache/spark/sql/Dataset.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for Dataset lazy semantics, logical plan, physical plan, explain, and checkpoint caveats.
+- id: spark-job-scheduling
+  title: Spark Job Scheduling
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/job-scheduling.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for jobs, stages, FIFO versus FAIR scheduling, application-level resource sharing, and dynamic allocation.
+- id: spark-tuning-guide
+  title: Spark Tuning Guide
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/tuning.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for bottleneck analysis, serialization choices, memory tuning, and performance trade-offs.
+- id: spark-configuration-doc
+  title: Spark Configuration
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/configuration.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for runtime SQL configuration boundaries such as broadcast thresholds, adaptive partition sizing, file split sizing, and max records per output file.
+- id: spark-dagscheduler-source
+  title: Spark DAGScheduler Source
+  kind: official-doc
+  component: spark
+  url: https://github.com/apache/spark/blob/v4.1.1/core/src/main/scala/org/apache/spark/scheduler/DAGScheduler.scala
+  version_scope: Spark 4.1.1 source as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for the official class-level description of DAGScheduler, stage cutting at shuffle boundaries, preferred locations, and failure handling boundaries.
+- id: spark-taskscheduler-source
+  title: Spark TaskScheduler Source
+  kind: official-doc
+  component: spark
+  url: https://github.com/apache/spark/blob/v4.1.1/core/src/main/scala/org/apache/spark/scheduler/TaskScheduler.scala
+  version_scope: Spark 4.1.1 source as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for the official class-level description of TaskScheduler as the low-level scheduler responsible for task launch, retries, and straggler mitigation.
+- id: flink-docs-home
+  title: Apache Flink Stable Documentation
+  kind: official-doc
+  component: flink
+  url: https://flink.apache.org/documentation/flink-stable/
+  version_scope: Flink 2.2 stable docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use for Flink stable release line identification and high-level runtime positioning.
+- id: clickhouse-docs
+  title: ClickHouse Documentation Home
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for ClickHouse overall positioning, documentation entry, and navigation to storage, SQL and operations topics.
+- id: clickhouse-mergetree-docs
+  title: ClickHouse MergeTree Table Engine
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/engines/table-engines/mergetree-family/mergetree
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for MergeTree storage layout, partitions, ORDER BY, primary key, granules and background merge behavior.
+- id: clickhouse-replication-docs
+  title: ClickHouse Replication in MergeTree Engines
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/engines/table-engines/mergetree-family/replication
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for ReplicatedMergeTree, Keeper or ZooKeeper metadata, replication queue and replica recovery semantics.
+- id: clickhouse-distributed-engine-doc
+  title: ClickHouse Distributed Table Engine
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/engines/table-engines/special/distributed
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for distributed reads, distributed inserts and the boundary between local tables and the Distributed engine.
+- id: clickhouse-system-parts-doc
+  title: ClickHouse system.parts Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/parts
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for part visibility, active parts, bytes, rows and partition-level storage observations.
+- id: clickhouse-system-part-log-doc
+  title: ClickHouse system.part_log Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/part_log
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for part lifecycle events such as new part creation, merge and download history.
+- id: clickhouse-system-query-log-doc
+  title: ClickHouse system.query_log Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/query_log
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for executed query history, durations, read rows and resource usage evidence.
+- id: clickhouse-system-query-thread-log-doc
+  title: ClickHouse system.query_thread_log Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/query_thread_log
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for per-thread query execution details and skew or long-tail analysis.
+- id: clickhouse-system-merges-doc
+  title: ClickHouse system.merges Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/merges
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for active background merges and mutations currently in progress.
+- id: clickhouse-system-mutations-doc
+  title: ClickHouse system.mutations Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/mutations
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for mutation progress, unfinished parts and ALTER UPDATE or DELETE diagnosis.
+- id: clickhouse-system-replicas-doc
+  title: ClickHouse system.replicas Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/replicas
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for replica health, queue size, absolute delay and Keeper session status.
+- id: clickhouse-system-replication-queue-doc
+  title: ClickHouse system.replication_queue Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/replication_queue
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for replication task types, queue backlog and failure retries.
+- id: clickhouse-system-processes-doc
+  title: ClickHouse system.processes Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/processes
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for currently executing queries and in-flight memory or progress inspection.
+- id: clickhouse-system-metrics-doc
+  title: ClickHouse system.metrics Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/metrics
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for instantaneous server metrics.
+- id: clickhouse-system-events-doc
+  title: ClickHouse system.events Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/events
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for ProfileEvents counters that help diagnose read amplification, cache misses and execution hotspots.
+- id: clickhouse-system-asynchronous-metrics-doc
+  title: ClickHouse system.asynchronous_metrics Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/asynchronous_metrics
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for server health metrics collected asynchronously, including storage and background subsystem indicators.
+- id: clickhouse-explain-doc
+  title: ClickHouse EXPLAIN Statement
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/sql-reference/statements/explain
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for EXPLAIN indexes, EXPLAIN PIPELINE and execution-plan diagnosis.
+- id: clickhouse-prewhere-doc
+  title: ClickHouse PREWHERE Clause
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/sql-reference/statements/select/prewhere
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for selective column loading and read-optimization behavior.
+- id: clickhouse-sparse-primary-indexes-guide
+  title: ClickHouse Sparse Primary Indexes Guide
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/guides/best-practices/sparse-primary-indexes
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for granules, marks, sparse primary index semantics and why ClickHouse prunes ranges instead of locating individual rows.
+- id: clickhouse-query-optimization-guide
+  title: ClickHouse Query Optimization Guide
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/optimize/query-optimization
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for evidence-driven query tuning, read-volume reduction and query_log based diagnosis.
+- id: clickhouse-access-rights-doc
+  title: ClickHouse Access Rights
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/access-rights
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for users, roles, row policies, settings profiles and quotas.
+- id: clickhouse-settings-doc
+  title: ClickHouse Settings Reference
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/settings/settings
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for execution settings such as memory limits, thread counts and distributed-query behaviors.
+- id: clickhouse-role-doc
+  title: ClickHouse CREATE ROLE
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/sql-reference/statements/create/role
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for role creation and RBAC examples.
+- id: clickhouse-quota-doc
+  title: ClickHouse CREATE QUOTA
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/sql-reference/statements/create/quota
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for quota objects, interval-based restrictions and resource-governance examples.
+- id: clickhouse-row-policy-doc
+  title: ClickHouse CREATE ROW POLICY
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/sql-reference/statements/create/row-policy
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for row-level filtering and security-boundary examples.
+- id: clickhouse-workload-scheduling-doc
+  title: ClickHouse Workload Scheduling
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/workload-scheduling
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for query and background workload scheduling, resources and fairness controls.
+- id: clickhouse-partitioning-key-doc
+  title: ClickHouse Custom Partitioning Key
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/engines/table-engines/mergetree-family/custom-partitioning-key
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for partition-key design boundaries and why over-partitioning is harmful.
+- id: clickhouse-ttl-doc
+  title: ClickHouse TTL Guide
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/guides/developer/ttl
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for TTL delete, move and recompression behavior.
+- id: clickhouse-backup-doc
+  title: ClickHouse Backup Overview
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/backup/overview
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for BACKUP and RESTORE capabilities, scope and production recovery planning.
+- id: clickhouse-errors-doc
+  title: ClickHouse system.errors Table
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables/errors
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  trust_level: primary
+  notes: Use for server-side error counters and recurring failure signatures.
+- id: hive-docs-home
+  title: Apache Hive Documentation
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/
+  version_scope: Hive latest docs as verified on 2026-04-22
+  last_verified_at: '2026-04-22'
+  trust_level: primary
+  notes: Use as the main source when describing Hive as a distributed, fault-tolerant SQL data warehouse system and when discussing the latest docs entry.
+- id: hive-introduction
+  title: Introduction to Apache Hive
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/introduction-to-apache-hive/
+  version_scope: Hive latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for Hive's high-level positioning, Hadoop relationship, execution engines, and LLAP mention.
+- id: hive-language-manual
+  title: 'Apache Hive : LanguageManual'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/languagemanual/
+  version_scope: Hive latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for the current structure of HiveQL documentation, CLI positioning, and overall language surface.
+- id: hive-language-manual-ddl
+  title: 'Apache Hive : LanguageManual DDL'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/languagemanual-ddl/
+  version_scope: Hive latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for DDL semantics, temporary tables, ANALYZE TABLE, and DESCRIBE FORMATTED statistics display.
+- id: hive-managed-external-tables
+  title: 'Apache Hive : Managed vs. External Tables'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/managed-vs--external-tables/
+  version_scope: Hive latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for managed versus external table ownership, lifecycle differences, MSCK REPAIR, and ACID boundaries.
+- id: hive-metastore-admin
+  title: 'Apache Hive : AdminManual Metastore Administration'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/admin/adminmanual-metastore-administration/
+  version_scope: Hive latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for metastore schema verification, schema upgrade behavior, and schematool usage.
+- id: hive-metastore-3-admin
+  title: 'Apache Hive : AdminManual Metastore 3.0 Administration'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/admin/adminmanual-metastore-3-0-administration/
+  version_scope: Hive latest docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for embedded mode, remote metastore service, standalone metastore, HA, schema governance, and CachedStore behavior in Hive 3+.
+- id: hive-transactions
+  title: 'Apache Hive : ACID Transactions'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/user/hive-transactions/
+  version_scope: Hive latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for transactional table requirements, compaction, upgrade boundaries, and ACID configuration.
+- id: hive-transactions-acid
+  title: 'Apache Hive : Hive Transactions (Hive ACID)'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/user/hive-transactions-acid/
+  version_scope: Hive latest docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for base and delta directory layout, compaction types, transaction manager, heartbeat, MVCC lock behavior, and ACID table examples.
+- id: hive-explain
+  title: 'Apache Hive : LanguageManual Explain'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/languagemanual-explain/
+  version_scope: Hive latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for EXPLAIN syntax, CBO clause, vectorization inspection, and plan-reading semantics.
+- id: hive-config-properties
+  title: 'Apache Hive : Configuration Properties'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/user/configuration-properties/
+  version_scope: Hive latest docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for hive.cbo.enable, statistics autogather settings, predicate-pushdown properties, LLAP execution and I/O properties, and optimizer-related configuration defaults.
+- id: hive-design
+  title: 'Apache Hive : Design'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/development/desingdocs/design/
+  version_scope: Hive design docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for Hive architecture components, query flow, compiler phases, logical-plan generation, reduceSink boundaries, and the role of SerDe in execution.
+- id: hive-serde
+  title: 'Apache Hive : SerDe'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/user/serde/
+  version_scope: Hive latest docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for Serializer/Deserializer semantics, InputFormat and OutputFormat interaction, ObjectInspector boundaries, built-in SerDes, and SerDe-related DDL hooks.
+- id: hive-on-tez
+  title: 'Apache Hive : Hive on Tez'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/development/desingdocs/hive-on-tez/
+  version_scope: Hive design docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for Tez DAG execution, MRR and MPJ optimization boundaries, pipelining across reduce sinks, and in-memory versus disk shuffle differences from MapReduce.
+- id: hive-synchronized-metastore-cache
+  title: 'Apache Hive : Synchronized Metastore Cache'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/development/desingdocs/synchronized-metastore-cache/
+  version_scope: Hive design docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for multi-HMS cache consistency, notification-log-driven updates, ValidWriteIdList-based freshness checks, and external-table consistency boundaries.
+- id: hive-hcatalog-notification
+  title: 'Apache Hive : HCatalog Notification'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/hcatalog/hcatalog-notification/
+  version_scope: Hive latest docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for addPartition notifications, markPartitionForEvent LOAD_DONE, JMS and event-listener configuration, and event retention settings.
+- id: hive-hcatalog-streaming-mutation-api
+  title: 'Apache Hive : HCatalog Streaming Mutation API'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/hcatalog/hcatalog-streaming-mutation-api/
+  version_scope: Hive latest docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for ROW__ID semantics, mutation ordering requirements, bucket assignment, and ACID mutation API constraints.
+- id: hive-virtual-columns
+  title: 'Apache Hive : LanguageManual VirtualColumns'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/languagemanual-virtualcolumns/
+  version_scope: Hive latest docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for ROW__ID as a virtual column and virtual-column naming restrictions.
+- id: hive-language-manual-dml
+  title: 'Apache Hive : LanguageManual DML'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/languagemanual-dml/
+  version_scope: Hive latest docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for LOAD DATA, INSERT INTO/OVERWRITE, LOCAL path semantics, rewrite-to-insert boundaries, and DML write behavior.
+- id: hive-dynamic-partitions
+  title: 'Apache Hive : DynamicPartitions'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/development/desingdocs/dynamicpartitions/
+  version_scope: Hive design docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for static versus dynamic partition terminology, dynamic partition insert ordering, strict/nonstrict mode boundaries, and directory-hierarchy constraints.
+- id: hive-language-manual-orc
+  title: 'Apache Hive : LanguageManual ORC'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/languagemanual-orc/
+  version_scope: Hive latest docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for ORC file structure, stripes, indexes, bloom filters, table properties, concatenate behavior, and ORC dump tooling.
+- id: hive-vectorization
+  title: 'Apache Hive : Vectorized Query Execution'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/development/desingdocs/vectorized-query-execution/
+  version_scope: Hive design docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for ORC-backed vectorization, enablement flags, fallback behavior, and EXPLAIN-based verification.
+- id: hive-join-optimization
+  title: 'Apache Hive : LanguageManual Join Optimization'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/languagemanual-joinoptimization/
+  version_scope: Hive latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for automatic map join conversion, star-schema optimization, and reduced need for hints.
+- id: hive-bucketed-tables
+  title: 'Apache Hive : LanguageManual DDL BucketedTables'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/languagemanual-ddl-bucketedtables/
+  version_scope: Hive latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for bucketed table population rules and hive.enforce.bucketing behavior.
+- id: hive-materialized-views
+  title: 'Apache Hive : Materialized views'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/materialized-views/
+  version_scope: Hive latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for materialized view creation, rewrite semantics, rebuild behavior, and freshness boundaries.
+- id: hive-hiveserver2-overview
+  title: 'Apache Hive : HiveServer2 Overview'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/user/hiveserver2-overview/
+  version_scope: Hive latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for HS2 architecture, concurrency, transport modes, metastore dependency, and asynchronous execution handles.
+- id: hive-sql-standard-authorization
+  title: 'Apache Hive : SQL Standard Based Hive Authorization'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/sql-standard-based-hive-authorization/
+  version_scope: Hive latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for recommended authorization mode, command restrictions, and table/view privilege boundaries.
+- id: hive-llap
+  title: 'Apache Hive : LLAP'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/development/desingdocs/llap/
+  version_scope: Hive design docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for LLAP hybrid execution model, daemon responsibilities, query-fragment execution, off-heap cache, dynamic runtime filtering, and ACID-aware cache behavior.
+- id: hive-language-manual-udf
+  title: 'Apache Hive : LanguageManual UDF'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/languagemanual-udf/
+  version_scope: Hive latest docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for UDTF definitions, explode/json_tuple/parse_url_tuple/inline/stack behavior, and direct SELECT UDTF limitations.
+- id: hive-language-manual-lateralview
+  title: 'Apache Hive : LanguageManual LateralView'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/languagemanual-lateralview/
+  version_scope: Hive latest docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for LATERAL VIEW semantics, multiple lateral views, OUTER behavior, alias inheritance, and the historical PPD limitation before Hive 0.6.
+- id: hive-language-manual-transform
+  title: 'Apache Hive : LanguageManual Transform'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/languagemanual-transform/
+  version_scope: Hive latest docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for TRANSFORM input/output serialization defaults, ROW FORMAT overrides, typed output, schema-less key/value output, and MAP/REDUCE keyword semantics.
+- id: hive-language-manual-joins
+  title: 'Apache Hive : LanguageManual Joins'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/docs/latest/language/languagemanual-joins/
+  version_scope: Hive latest docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for JOIN execution order, OUTER JOIN filter placement, left-associativity, and the semantic difference between ON and WHERE.
+- id: hive-outer-join-behavior
+  title: 'Apache Hive : OuterJoinBehavior'
+  kind: official-doc
+  component: hive
+  url: https://hive.apache.org/development/desingdocs/outerjoinbehavior/
+  version_scope: Hive design docs as verified on 2026-04-25
+  last_verified_at: '2026-04-25'
+  trust_level: primary
+  notes: Use for preserved-row/null-supplying definitions, outer-join predicate pushdown rules, and the parseJoinCondition/getQualifiedAliases implementation hooks.
+- id: iceberg-docs-home
+  title: Apache Iceberg
+  kind: official-doc
+  component: iceberg
+  url: https://iceberg.apache.org/
+  version_scope: Iceberg official site as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use as the primary source for Iceberg's positioning as an open table format for analytic datasets and its multi-engine interoperability.
+- id: iceberg-docs-latest
+  title: Apache Iceberg Documentation
+  kind: official-doc
+  component: iceberg
+  url: https://iceberg.apache.org/docs/latest/
+  version_scope: Iceberg latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for the latest documentation index and current feature surface of Iceberg.
+- id: iceberg-schemas
+  title: Iceberg Schemas
+  kind: official-doc
+  component: iceberg
+  url: https://iceberg.apache.org/docs/latest/schemas/
+  version_scope: Iceberg latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for field IDs, schema structure, identifier fields, and schema-evolution rules.
+- id: iceberg-evolution
+  title: Iceberg Evolution
+  kind: official-doc
+  component: iceberg
+  url: https://iceberg.apache.org/docs/latest/evolution/
+  version_scope: Iceberg latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for schema evolution, partition evolution, sort-order evolution, and safe mixed-layout table history.
+- id: iceberg-partitioning
+  title: Iceberg Partitioning
+  kind: official-doc
+  component: iceberg
+  url: https://iceberg.apache.org/docs/latest/partitioning/
+  version_scope: Iceberg latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for hidden partitioning, partition transforms, and why query authors should not manage physical layout manually.
+- id: iceberg-reliability
+  title: Iceberg Reliability
+  kind: official-doc
+  component: iceberg
+  url: https://iceberg.apache.org/docs/latest/reliability/
+  version_scope: Iceberg latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for optimistic concurrency, atomic metadata swap, serializable isolation, and object-store correctness boundaries.
+- id: iceberg-maintenance
+  title: Iceberg Maintenance
+  kind: official-doc
+  component: iceberg
+  url: https://iceberg.apache.org/docs/latest/maintenance/
+  version_scope: Iceberg latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for snapshot expiration, orphan-file cleanup, data-file compaction, and manifest rewriting procedures.
+- id: iceberg-branching-and-tagging
+  title: Iceberg Branching and Tagging
+  kind: official-doc
+  component: iceberg
+  url: https://iceberg.apache.org/docs/latest/branching/
+  version_scope: Iceberg latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for branches, tags, retention controls, fast-forward workflows, and write-audit-publish patterns.
+- id: iceberg-spark-writes
+  title: Iceberg Spark Writes
+  kind: official-doc
+  component: iceberg
+  url: https://iceberg.apache.org/docs/latest/spark-writes/
+  version_scope: Iceberg latest docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for Spark DataSource V2 writes, branch writes, overwrite semantics, and SQL row-level operations.
+- id: iceberg-spec
+  title: Apache Iceberg Table Spec
+  kind: official-spec
+  component: iceberg
+  url: https://iceberg.apache.org/spec/
+  version_scope: Iceberg table spec as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for metadata JSON, snapshots, manifest lists, manifests, delete files, sequence numbers, and normative table-format rules.
+- id: flink-stateful-stream-processing
+  title: Stateful Stream Processing
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/concepts/stateful-stream-processing/
+  version_scope: Flink 2.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for keyed state partitioning, key groups, checkpointing principles, stream replay, and savepoint positioning.
+- id: flink-timely-stream-processing
+  title: Timely Stream Processing
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/concepts/time/
+  version_scope: Flink 2.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for event time, watermark semantics, multi-input watermark minimum rule, and lateness tradeoffs.
+- id: flink-working-with-state
+  title: Working with State
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/dev/datastream/fault-tolerance/state/
+  version_scope: Flink 2.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for KeyedStream boundary, keyed state primitives, operator state, broadcast state, and Python API boundaries.
+- id: flink-checkpointing
+  title: Checkpointing
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/dev/datastream/fault-tolerance/checkpointing/
+  version_scope: Flink 2.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for enabling checkpointing, exactly-once versus at-least-once, checkpoint storage, and unaligned checkpoint constraints.
+- id: flink-checkpointing-under-backpressure
+  title: Checkpointing under Backpressure
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/ops/state/checkpointing_under_backpressure/
+  version_scope: Flink 2.2 docs as verified on 2026-04-24
+  last_verified_at: '2026-04-24'
+  trust_level: primary
+  notes: Use for backpressure-driven checkpoint slowdown, buffer debloating, unaligned checkpoint guidance, aligned-checkpoint timeout, and watermark-related recovery caveats.
+- id: flink-architecture-doc
+  title: Flink Architecture
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/concepts/flink-architecture/
+  version_scope: Flink 2.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for JobManager and TaskManager responsibilities, task slots, operator chaining, and cluster mode comparisons.
+- id: flink-state-backends-ops
+  title: State Backends
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/ops/state/state_backends/
+  version_scope: Flink 2.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for HashMapStateBackend versus EmbeddedRocksDBStateBackend tradeoffs and backend selection guidance.
+- id: flink-savepoints
+  title: Savepoints
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/ops/state/savepoints/
+  version_scope: Flink 2.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for operational savepoint behavior, claim mode, restore caveats, and operator UID guidance.
+- id: flink-checkpoints-vs-savepoints
+  title: Checkpoints vs. Savepoints
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/ops/state/checkpoints_vs_savepoints/
+  version_scope: Flink 2.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for the conceptual difference between recovery checkpoints and operational savepoints.
+- id: flink-task-failure-recovery
+  title: Task Failure Recovery
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/ops/state/task_failure_recovery/
+  version_scope: Flink 2.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for restart strategies, failover strategies, pipelined-region recovery, and default restart behavior.
+- id: flink-generating-watermarks
+  title: Generating Watermarks
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/dev/datastream/event-time/generating_watermarks/
+  version_scope: Flink 2.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for source-side WatermarkStrategy, idle source handling, and watermark alignment recommendations.
+- id: flink-windows
+  title: Windows
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/operators/windows/
+  version_scope: Flink 2.2 stable docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for window lifecycle, windowAll parallelism boundary, triggers, FIRE versus FIRE_AND_PURGE, evictors, allowed lateness, late firing, and incremental aggregation tradeoffs.
+- id: flink-process-function
+  title: Process Function
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/dev/datastream/operators/process_function/
+  version_scope: Flink 2.2 docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for low-level joins, KeyedProcessFunction, TimerService semantics, timer fault tolerance, immediate-fire-after-restore behavior, and timer coalescing guidance.
+- id: flink-kafka-connector
+  title: Kafka Connector
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/kafka/
+  version_scope: Flink 2.2 stable docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for KafkaSource, KafkaSink, offset commit semantics, watermark/idleness behavior on Kafka partitions, sink delivery guarantees, and transactionalIdPrefix requirements.
+- id: flink-connector-guarantees
+  title: Fault Tolerance Guarantees of Data Sources and Sinks
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/guarantees/
+  version_scope: Flink 2.2 stable docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for source participation in snapshotting, exactly-once state semantics, and end-to-end delivery boundaries across connectors.
+- id: flink-dynamic-tables
+  title: Dynamic Tables
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/dev/table/concepts/dynamic_tables/
+  version_scope: Flink 2.2 docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for continuous queries, snapshot equivalence, append versus update queries, and append/retract/upsert changelog encodings.
+- id: flink-state-ttl-migration
+  title: State TTL Migration Compatibility
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/fault-tolerance/state_migration/
+  version_scope: Flink 2.2 stable docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for TTL enable/disable compatibility, backend version boundaries, non-retroactive expiration, and 2.2 full support status.
+- id: flink-state-schema-evolution
+  title: State Schema Evolution
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/fault-tolerance/serialization/schema_evolution/
+  version_scope: Flink 2.2 stable docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for POJO/Avro support, field add/remove rules, key-schema limitation, and Kryo incompatibility.
+- id: flink-async-io
+  title: Async I/O
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/operators/asyncio/
+  version_scope: Flink 2.2 stable docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for ordered versus unordered wait, event-time boundary, exactly-once checkpoint behavior, retry support, DirectExecutor guidance, and asyncInvoke caveats.
+- id: flink-joining
+  title: Joining
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/operators/joining/
+  version_scope: Flink 2.2 stable docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for window join inner semantics, interval join bounds, timestamp rules, and event-time-only interval join boundary.
+- id: flink-monitoring-backpressure
+  title: Monitoring Back Pressure
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/monitoring/back_pressure/
+  version_scope: Flink 2.2 stable docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for backpressure propagation, busy/idle/backpressured metrics, output-buffer criterion, and WebUI status thresholds.
+- id: flink-execution-mode
+  title: Execution Mode (Batch/Streaming)
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/execution_mode/
+  version_scope: Flink 2.2 stable docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for STREAMING/BATCH/AUTOMATIC runtime modes, boundedness, final-result equivalence, shuffle/scheduling differences, and checkpoint/failure boundaries.
+- id: flink-broadcast-state-pattern
+  title: The Broadcast State Pattern
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/fault-tolerance/broadcast_state/
+  version_scope: Flink 2.2 stable docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for broadcast rule streams, read-only versus read-write contexts, deterministic updates, per-task checkpointing, in-memory runtime storage, and KeyedBroadcastProcessFunction timer boundaries.
+- id: flink-cep
+  title: Complex Event Processing (CEP)
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/libs/cep/
+  version_scope: Flink 2.2 stable docs as verified on 2026-05-07
+  last_verified_at: '2026-05-07'
+  trust_level: primary
+  notes: Use for CEP pattern matching, event sequence constraints, skip strategies, timeout handling, contiguity, and NFA-based pattern semantics.
+- id: flink-table-sql-joins
+  title: Table SQL Joins
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/sql/queries/joins/
+  version_scope: Flink 2.2 stable docs as verified on 2026-05-07
+  last_verified_at: '2026-05-07'
+  trust_level: primary
+  notes: Use for regular joins, temporal joins, versioned tables, lookup joins, FOR SYSTEM_TIME AS OF semantics, and changelog boundaries in Flink SQL.
+- id: flink-table-catalogs
+  title: Table API and SQL Catalogs
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/catalogs/
+  version_scope: Flink 2.2 stable docs as verified on 2026-05-07
+  last_verified_at: '2026-05-07'
+  trust_level: primary
+  notes: Use for catalog responsibilities, metadata storage, default catalog/database resolution, and integration boundaries between Table API, SQL, and external metastores.
+- id: flink-data-sources
+  title: Data Sources
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/sources/
+  version_scope: Flink 2.2 stable docs as verified on 2026-05-07
+  last_verified_at: '2026-05-07'
+  trust_level: primary
+  notes: Use for FLIP-27 source architecture, Split, SplitEnumerator, SourceReader, source-side watermarks, and custom source implementation boundaries.
+- id: flink-data-sinks
+  title: Data Sinks
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/sinks/
+  version_scope: Flink 2.2 stable docs as verified on 2026-05-07
+  last_verified_at: '2026-05-07'
+  trust_level: primary
+  notes: Use for the Sink API, SinkWriter, flush semantics on checkpoint, writer state, committer boundaries, and custom sink topology.
+- id: flink-serialization
+  title: Data Types and Serialization
+  kind: official-doc
+  component: flink
+  url: https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/fault-tolerance/serialization/
+  version_scope: Flink 2.2 stable docs as verified on 2026-05-07
+  last_verified_at: '2026-05-07'
+  trust_level: primary
+  notes: Use for TypeInformation, POJO versus generic types, type extraction, serializer selection, and execution impact of Flink's serialization model.
+- id: kafka-kraft-operations
+  title: Kafka KRaft Operations
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/operations/kraft/
+  version_scope: Kafka 4.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for KRaft process roles, metadata quorum, dynamic versus static controller quorum, formatting, and controller membership changes.
+- id: kafka-security-overview
+  title: Kafka Security Overview
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/security/security-overview/
+  version_scope: Kafka 4.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for Kafka authentication, encryption, SASL mechanisms, and the high-level security model.
+- id: kafka-authorization-acls
+  title: Kafka Authorization and ACLs
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/security/authorization-and-acls/
+  version_scope: Kafka 4.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for StandardAuthorizer, ACL defaults, KRaft principal forwarding, and prefixed ACL mechanics.
+- id: kafka-multi-tenancy
+  title: Kafka Multi-Tenancy
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/operations/multi-tenancy/
+  version_scope: Kafka 4.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for hierarchical topic naming, prefixed ACLs, client quotas, request rate quotas, and server quotas in shared clusters.
+- id: kafka-connect-user-guide
+  title: Kafka Connect User Guide
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/kafka-connect/user-guide/
+  version_scope: Kafka 4.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for standalone versus distributed mode, internal topics, REST API management, and exactly-once boundaries.
+- id: kafka-connect-administration
+  title: Kafka Connect Administration
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/kafka-connect/administration/
+  version_scope: Kafka 4.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for incremental cooperative rebalancing, connect.protocol, worker rejoin delay, and operational rebalance behavior.
+- id: kafka-streams-core-concepts
+  title: Kafka Streams Core Concepts
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/streams/core-concepts/
+  version_scope: Kafka 4.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for Kafka Streams application positioning, topology, stream processor semantics, DSL, and Processor API.
+- id: kafka-streams-architecture
+  title: Kafka Streams Architecture
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/streams/architecture/
+  version_scope: Kafka 4.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for tasks, partitions, local state stores, changelog topics, standby replicas, and failure recovery.
+- id: kafka-streams-config
+  title: Kafka Streams Developer Guide Configurations
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/streams/developer-guide/config-streams/
+  version_scope: Kafka 4.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for processing.guarantee, exactly_once_v2, commit.interval.ms, resiliency settings, and internal topic recommendations.
+- id: kafka-streams-interactive-queries
+  title: Kafka Streams Interactive Queries
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/streams/developer-guide/interactive-queries/
+  version_scope: Kafka 4.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for local state queries, full-application query boundaries, and RPC requirements.
+- id: kafka-geo-replication
+  title: Kafka Geo-Replication (Cross-Cluster Data Mirroring)
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/operations/geo-replication-cross-cluster-data-mirroring/
+  version_scope: Kafka 4.2 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for MirrorMaker 2, Connect-based mirroring, replicated resources, partition preservation, and tasks.max guidance.
+- id: kafka-producer-configs
+  title: Kafka Producer Configs
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/configuration/producer-configs/
+  version_scope: Kafka 4.2 producer configs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for batching, linger.ms, compression, delivery timeout, max.in.flight ordering caveats, idempotence constraints, and transactional.id configuration boundaries.
+- id: kafka-consumer-configs
+  title: Kafka Consumer Configs
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/configuration/consumer-configs/
+  version_scope: Kafka 4.2 consumer configs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for isolation.level, group.protocol, static membership, max.poll interval boundaries, and how fetch-return limits differ from low-level fetch behavior.
+- id: kafka-transaction-protocol
+  title: Kafka Transaction Protocol
+  kind: official-doc
+  component: kafka
+  url: https://kafka.apache.org/42/operations/transaction-protocol/
+  version_scope: Kafka 4.2 transaction protocol docs as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: primary
+  notes: Use for modern server-side transactional protocol defenses, producer epoch bumping, transaction.version rollout boundaries, and duplicate-prevention improvements introduced in Kafka 4.x.
+- id: spark-structured-streaming-guide
+  title: Structured Streaming Programming Guide
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/streaming/index.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for Structured Streaming positioning, exactly-once checkpoint/WAL guarantee, micro-batch versus continuous processing, and streaming-on-Spark-SQL framing.
+- id: spark-structured-streaming-apis
+  title: Structured Streaming APIs on DataFrames and Datasets
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/streaming/apis-on-dataframes-and-datasets.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for output modes, watermark behavior, stream-static and stream-stream join boundaries, state store behavior, checkpoint recovery, and unsupported stateful-operation combinations.
+- id: spark-sql-site
+  title: Spark SQL Home
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/sql/
+  version_scope: Spark SQL site as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for Spark SQL's high-level positioning around cost-based optimization, columnar storage, and code generation.
+- id: spark-sql-performance-tuning
+  title: Spark SQL Performance Tuning
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/sql-performance-tuning.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for CBO inputs, join strategy, AQE, skew handling, storage partition join, and SQL-side partitioning guidance.
+- id: spark-cluster-overview
+  title: Spark Cluster Mode Overview
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/cluster-overview.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for driver/executor/cluster-manager relationships and per-application executor isolation.
+- id: spark-submitting-applications
+  title: Submitting Applications
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/submitting-applications.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for spark-submit, master URL meanings, client versus cluster deploy mode, dependency distribution, and uniform cluster-manager interface.
+- id: spark-running-on-yarn
+  title: Running Spark on YARN
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/running-on-yarn.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for YARN client versus cluster mode boundary and ApplicationMaster behavior.
+- id: spark-running-on-kubernetes
+  title: Running Spark on Kubernetes
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/running-on-kubernetes.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for Kubernetes support, client mode networking, driver pod requirements, and cluster-manager-specific deployment constraints.
+- id: spark-standalone-mode
+  title: Spark Standalone Mode
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/spark-standalone.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for standalone client versus cluster deploy mode and supervise behavior.
+- id: spark-sql-paper
+  title: 'Spark SQL: Relational Data Processing in Spark'
+  kind: research-paper
+  component: spark
+  url: https://people.csail.mit.edu/matei/papers/2015/sigmod_spark_sql.pdf
+  version_scope: SIGMOD 2015 paper as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for Catalyst optimizer, tree-based analysis/planning/code generation, and DataFrame optimization model.
+- id: spark-release-1-6-0
+  title: Spark Release 1.6.0 Notes
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/releases/spark-release-1-6-0.html
+  version_scope: Spark 1.6.0 release notes as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for the historical Tungsten-mode-always-enabled boundary.
+- id: spark-release-2-0-0
+  title: Spark Release 2.0.0 Notes
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/releases/spark-release-2-0-0.html
+  version_scope: Spark 2.0.0 release notes as verified on 2026-04-23
+  last_verified_at: '2026-04-23'
+  trust_level: primary
+  notes: Use for whole-stage code generation, off-heap runtime execution, Structured Streaming initial release, and DataFrame/Dataset unification history.
+- id: hadoop-hdfs-design
+  title: Apache Hadoop HDFS Architecture Guide
+  kind: official-doc
+  component: hdfs
+  url: https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html
+  version_scope: Apache Hadoop stable docs as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: primary
+  notes: Use for NameNode, DataNode, block, namespace, replication, rack awareness, and HDFS write/read architecture.
+- id: hadoop-yarn-architecture
+  title: Apache Hadoop YARN Architecture
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html
+  version_scope: Apache Hadoop stable docs as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: primary
+  notes: Use for ResourceManager, NodeManager, ApplicationMaster, containers, and YARN resource-management architecture.
+- id: hbase-book
+  title: Apache HBase Reference Guide
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/book.html
+  version_scope: Apache HBase reference guide as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: primary
+  notes: Use for HBase data model, RegionServer, regions, MemStore, WAL, HFile, compaction, and read/write path framing.
+- id: trino-docs
+  title: Trino Documentation
+  kind: official-doc
+  component: trino
+  url: https://trino.io/docs/current/
+  version_scope: Trino current docs as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: primary
+  notes: Use for Trino distributed SQL engine, coordinator, worker, connector, catalog, query execution, and federation concepts.
+- id: hudi-docs-overview
+  title: Apache Hudi Documentation
+  kind: official-doc
+  component: hudi
+  url: https://hudi.apache.org/docs/overview/
+  version_scope: Apache Hudi docs as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: primary
+  notes: Use for Hudi table services, copy-on-write, merge-on-read, timeline, commits, indexing, upsert, and incremental processing framing.
+- id: delta-lake-docs
+  title: Delta Lake Documentation
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/latest/index.html
+  version_scope: Delta Lake docs as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: primary
+  notes: Use for Delta transaction log, ACID transactions, time travel, schema enforcement/evolution, and lakehouse table format framing.
+- id: clickhouse-docs
+  title: ClickHouse Documentation
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs
+  version_scope: ClickHouse docs as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: primary
+  notes: Use for ClickHouse as a column-oriented DBMS for online analytical processing, MergeTree family, parts, primary index, and distributed query framing.
+- id: hadoop-hdfs-user-guide
+  title: Apache Hadoop HDFS Users Guide
+  kind: official-doc
+  component: hdfs
+  url: https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  trust_level: primary
+  notes: Use for HDFS administration commands, web UI, fsck, safemode, balancer, checkpoint node, backup node, and user-facing operational workflows.
+- id: hadoop-hdfs-permissions
+  title: Apache Hadoop HDFS Permissions Guide
+  kind: official-doc
+  component: hdfs
+  url: https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  trust_level: primary
+  notes: Use for HDFS user/group/mode permission behavior, super-user framing, ACL-related boundaries, and security interview questions.
+- id: hadoop-hdfs-ha-qjm
+  title: Apache Hadoop HDFS High Availability with QJM
+  kind: official-doc
+  component: hdfs
+  url: https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  trust_level: primary
+  notes: Use for active/standby NameNode, shared edits through Quorum Journal Manager, ZooKeeper failover controller, fencing, and HA limits.
+- id: hadoop-hdfs-default-config
+  title: Apache Hadoop hdfs-default.xml
+  kind: official-doc
+  component: hdfs
+  url: https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml
+  version_scope: Apache Hadoop 3.3.5 stable HDFS docs as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  trust_level: primary
+  notes: Use for configuration names and tuning boundaries. Do not memorize defaults without checking the running cluster version.
+- id: hadoop-filesystem-outputstream
+  title: Apache Hadoop FileSystem OutputStream and Syncable Specification
+  kind: official-doc
+  component: hdfs
+  url: https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/filesystem/outputstream.html
+  version_scope: Apache Hadoop stable FileSystem specification as verified on 2026-05-10
+  last_verified_at: '2026-05-10'
+  trust_level: primary
+  notes: Use for OutputStream create or overwrite visibility, Syncable hflush and hsync semantics, close behavior, metadata lag during open writes, and HDFS synconclose durability boundary.
+- id: clickhouse-architecture-docs
+  title: ClickHouse Architecture
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/development/architecture
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for ClickHouse server architecture, query processing, storage and execution responsibilities.
+- id: clickhouse-mergetree-docs
+  title: ClickHouse MergeTree Engine
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/engines/table-engines/mergetree-family/mergetree
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for MergeTree parts, primary key ordering, sparse indexes, partitions and background merges.
+- id: clickhouse-system-tables
+  title: ClickHouse System Tables
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/system-tables
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for observability, query diagnosis, mutations, merges and runtime metadata inspection.
+- id: delta-lake-protocol
+  title: Delta Lake Transaction Log Protocol
+  kind: official-doc
+  component: delta-lake
+  url: https://github.com/delta-io/delta/blob/master/PROTOCOL.md
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for Delta transaction log actions, protocol versions, metadata and commit semantics.
+- id: delta-lake-concurrency-control
+  title: Delta Lake Concurrency Control
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/latest/concurrency-control.html
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for optimistic concurrency, conflict detection and isolation semantics.
+- id: delta-lake-optimizations
+  title: Delta Lake Optimizations
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/latest/optimizations-oss.html
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for compaction, data skipping, Z-order and maintenance tradeoffs.
+- id: hbase-architecture-docs
+  title: Apache HBase Architecture Overview
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/architecture/
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for HBase architecture topic navigation and the official breakdown of client, catalog tables, RegionServer and regions.
+- id: hbase-architecture-overview
+  title: Apache HBase Architecture Overview Page
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/architecture/overview
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for HMaster, RegionServer, ZooKeeper and high-level deployment topology.
+- id: hbase-client-architecture
+  title: Apache HBase Client
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/architecture/client
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for client bootstrap, ZooKeeper lookup, hbase:meta location, region lookup cache and direct client-to-RegionServer access.
+- id: hbase-catalog-tables
+  title: Apache HBase Catalog Tables
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/architecture/catalog-tables
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for hbase:meta responsibilities, namespace table role and metadata lookup boundaries.
+- id: hbase-regionserver-docs
+  title: Apache HBase RegionServer
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/architecture/regionserver
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for RegionServer internals including WAL, MemStore, BlockCache, HFile and compaction-related responsibilities.
+- id: hbase-regions-docs
+  title: Apache HBase Regions
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/architecture/regions
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for region lifecycle, split, assignment, size planning and why region count is a first-order scaling factor.
+- id: hbase-datamodel
+  title: Apache HBase Data Model
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/datamodel
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for namespace, table, row, column family, qualifier, cell, timestamp, versions and delete marker semantics.
+- id: hbase-schema-design
+  title: Apache HBase Schema Design
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/schema-design
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for row key design, hotspotting, salting or hashing tradeoffs, scan locality and column-family design constraints.
+- id: hbase-acid-semantics
+  title: Apache HBase Acid Semantics
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/acid-semantics.html
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for single-row atomicity, visibility semantics, consistency model, scanners, delete semantics and read-your-own-write boundaries.
+- id: hbase-ops-management
+  title: Apache HBase Operational Management
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/operational-management
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for cluster operations, snapshots, running multiple workloads, node management, metrics and operational toolchain.
+- id: hbase-regionserver-sizing
+  title: Apache HBase RegionServer Sizing Rules of Thumb
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/regionserver-sizing
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for RegionServer capacity planning, heap versus cache tradeoffs, region count guidance and hotspot-related sizing heuristics.
+- id: hbase-hbtop
+  title: Apache HBase hbtop
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/hbtop
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for hot region, hot table and per-RegionServer live observation workflows.
+- id: hbase-backup-restore
+  title: Apache HBase Backup and Restore
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/backup-restore
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for full or incremental backup, restore workflow and backup-system boundaries relative to snapshots and replication.
+- id: hbase-synchronous-replication
+  title: Apache HBase Synchronous Replication
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/synchronous-replication
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for synchronous replication concepts, remote WAL shipping, peer state and disaster-recovery boundaries.
+- id: hbase-security
+  title: Apache HBase Security
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/security
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for Kerberos, TLS, ACL, secure RPC, trusted execution boundary and HDFS-integrated security model.
+- id: hudi-timeline-docs
+  title: Apache Hudi Timeline
+  kind: official-doc
+  component: hudi
+  url: https://hudi.apache.org/docs/timeline/
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for Hudi instant, commit timeline, action states and table service scheduling.
+- id: hudi-file-layout-docs
+  title: Apache Hudi File Layouts
+  kind: official-doc
+  component: hudi
+  url: https://hudi.apache.org/docs/file_layouts/
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for file groups, file slices, base files, log files and copy-on-write versus merge-on-read layouts.
+- id: hudi-writing-data-docs
+  title: Apache Hudi Writing Data
+  kind: official-doc
+  component: hudi
+  url: https://hudi.apache.org/docs/writing_data/
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for write operations, upsert, insert, bulk insert and writer-side semantics.
+- id: trino-architecture-docs
+  title: Trino Concepts and Architecture
+  kind: official-doc
+  component: trino
+  url: https://trino.io/docs/current/overview/concepts.html
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for coordinator, worker, connector, split, stage, task and query execution concepts.
+- id: trino-admin-properties
+  title: Trino Administration Properties
+  kind: official-doc
+  component: trino
+  url: https://trino.io/docs/current/admin/properties.html
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for memory, scheduling, exchange, fault tolerance and runtime configuration boundaries.
+- id: trino-optimizer-docs
+  title: Trino Optimizer
+  kind: official-doc
+  component: trino
+  url: https://trino.io/docs/current/optimizer.html
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for optimizer behavior, statistics, join planning and query performance reasoning.
+- id: hadoop-yarn-capacity-scheduler
+  title: Hadoop YARN Capacity Scheduler
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for queues, capacities, resource limits, scheduling and multi-tenant governance.
+- id: hadoop-yarn-resource-manager-restart
+  title: Hadoop YARN ResourceManager Restart
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerRestart.html
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for ResourceManager recovery, application state and failover boundaries.
+- id: hadoop-yarn-node-labels
+  title: Hadoop YARN Node Labels
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/NodeLabel.html
+  version_scope: Official documentation as verified on 2026-04-29
+  last_verified_at: '2026-04-29'
+  trust_level: primary
+  notes: Use for node labels, placement constraints and resource isolation reasoning.
+- id: clickhouse-query-optimization-guide
+  title: ClickHouse Query Optimization Guide
+  kind: official-guide
+  component: clickhouse
+  url: https://clickhouse.com/resources/engineering/clickhouse-query-optimisation-definitive-guide
+  version_scope: Official ClickHouse resource as verified on 2026-04-30
+  last_verified_at: '2026-04-30'
+  trust_level: primary
+  notes: Use for query optimization principles, data pruning, materialized views, and workload diagnosis boundaries.
+- id: delta-lake-best-practices
+  title: Delta Lake Best Practices
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/latest/best-practices.html
+  version_scope: Official Delta Lake documentation as verified on 2026-04-30
+  last_verified_at: '2026-04-30'
+  trust_level: primary
+  notes: Use for partitioning, small-file compaction, overwrite safety, VACUUM boundaries, and table maintenance tradeoffs.
+- id: hbase-performance-guide
+  title: Apache HBase Performance and Tuning References
+  kind: official-doc
+  component: hbase
+  url: https://hbase.apache.org/docs/regionserver-sizing
+  version_scope: HBase official docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for cache sizing, heap tradeoffs, scan behavior, compaction pressure and evidence-based performance reasoning.
+- id: hudi-table-types-docs
+  title: Apache Hudi Table and Query Types
+  kind: official-doc
+  component: hudi
+  url: https://hudi.apache.org/docs/table_types
+  version_scope: Official Apache Hudi documentation as verified on 2026-04-30
+  last_verified_at: '2026-04-30'
+  trust_level: primary
+  notes: Use for Copy-on-Write, Merge-on-Read, query types, compaction tradeoffs, and read/write performance boundaries.
+- id: trino-resource-groups-docs
+  title: Trino Resource Groups
+  kind: official-doc
+  component: trino
+  url: https://trino.io/docs/current/admin/resource-groups.html
+  version_scope: Official Trino documentation as verified on 2026-04-30
+  last_verified_at: '2026-04-30'
+  trust_level: primary
+  notes: Use for query queueing, concurrency limits, memory limits, resource group hierarchy, and multi-tenant governance.
+- id: hadoop-yarn-resource-manager-ha
+  title: Hadoop YARN ResourceManager High Availability
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html
+  version_scope: Official Hadoop YARN documentation as verified on 2026-04-30
+  last_verified_at: '2026-04-30'
+  trust_level: primary
+  notes: Use for ResourceManager active/standby architecture, failover, client retry behavior, and HA operational commands.
+- id: spark-connect-overview
+  title: Spark Connect Overview
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/spark-connect-overview.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-05
+  last_verified_at: '2026-05-05'
+  trust_level: primary
+  notes: Use for Spark Connect client/server architecture, unresolved logical plans, gRPC and Arrow result boundaries.
+- id: spark-monitoring-doc
+  title: Spark Monitoring
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/monitoring.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-05
+  last_verified_at: '2026-05-05'
+  trust_level: primary
+  notes: Use for Web UI, History Server, event logs, REST API and metrics system boundaries.
+- id: spark-pyspark-user-guide
+  title: PySpark User Guide
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/api/python/user_guide/index.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-05
+  last_verified_at: '2026-05-05'
+  trust_level: primary
+  notes: Use for PySpark execution, Python API and user-facing boundaries.
+- id: spark-arrow-pandas-doc
+  title: Apache Arrow in PySpark
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/api/python/tutorial/sql/arrow_pandas.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-05
+  last_verified_at: '2026-05-05'
+  trust_level: primary
+  notes: Use for Arrow, Pandas conversion and Pandas UDF boundaries.
+- id: spark-security-doc
+  title: Spark Security
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/security.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-05
+  last_verified_at: '2026-05-05'
+  trust_level: primary
+  notes: Use for Spark ACLs, authentication, encryption, redaction and UI/event log protection.
+- id: spark-sql-data-sources
+  title: Spark SQL Data Sources
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/sql-data-sources.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-06
+  last_verified_at: '2026-05-06'
+  trust_level: primary
+  notes: Use for DataFrame load/save, file source options, Parquet, ORC, Hive tables, JDBC, Avro, Protobuf and data-source troubleshooting boundaries.
+- id: spark-sql-reference
+  title: Spark SQL Reference
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/sql-ref.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-06
+  last_verified_at: '2026-05-06'
+  trust_level: primary
+  notes: Use for ANSI compliance, data types, operators, functions, identifiers, null semantics, name resolution, DDL, DML and SQL syntax boundaries.
+- id: spark-streaming-dstreams-guide
+  title: Spark Streaming Programming Guide
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/streaming-programming-guide.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-06
+  last_verified_at: '2026-05-06'
+  trust_level: primary
+  notes: Use for DStream legacy status, StreamingContext, receiver/input DStreams, checkpointing, batch interval, output operations and migration boundaries.
+- id: spark-mllib-guide
+  title: MLlib Main Guide
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/ml-guide.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-06
+  last_verified_at: '2026-05-06'
+  trust_level: primary
+  notes: Use for MLlib positioning, DataFrame-based spark.ml as primary API, RDD-based spark.mllib maintenance mode, pipelines, persistence and numerical dependency boundaries.
+- id: spark-graphx-guide
+  title: GraphX Programming Guide
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/graphx-programming-guide.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-06
+  last_verified_at: '2026-05-06'
+  trust_level: primary
+  notes: Use for GraphX property graph abstraction, vertex and edge RDDs, aggregateMessages, Pregel API, caching and graph algorithm boundaries.
+- id: spark-sparkr-guide
+  title: SparkR Guide
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/sparkr.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-06
+  last_verified_at: '2026-05-06'
+  trust_level: primary
+  notes: Use for SparkR deprecation status, SparkDataFrame, SparkSession startup, MLlib support and Arrow-in-SparkR conversion boundaries.
+- id: spark-declarative-pipelines-guide
+  title: Spark Declarative Pipelines Programming Guide
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/declarative-pipelines-programming-guide.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-06
+  last_verified_at: '2026-05-06'
+  trust_level: primary
+  notes: Use for Spark Declarative Pipelines, flows, datasets, pipelines, pipeline projects, CLI, dry-run and batch/streaming declarative ETL boundaries.
+- id: spark-hardware-provisioning
+  title: Spark Hardware Provisioning
+  kind: official-doc
+  component: spark
+  url: https://spark.apache.org/docs/latest/hardware-provisioning.html
+  version_scope: Spark 4.1.1 docs as verified on 2026-05-06
+  last_verified_at: '2026-05-06'
+  trust_level: primary
+  notes: Use for storage locality, local disks, memory sizing, network bottlenecks and CPU provisioning boundaries.
+- id: clickhouse-schema-design-doc
+  title: ClickHouse Schema Design
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/data-modeling/schema-design
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for ordering-key design, type optimization, compression factors, and denormalization trade-offs.
+- id: clickhouse-denormalization-doc
+  title: ClickHouse Denormalizing Data
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/data-modeling/denormalization
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for when denormalization is preferred over query-time joins and what trade-offs it introduces.
+- id: clickhouse-backfilling-doc
+  title: ClickHouse Backfilling Data
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/data-modeling/backfilling
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for replay, staged load, and backfill safety patterns around large historical data imports.
+- id: clickhouse-joins-guide
+  title: Using JOINs in ClickHouse
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/guides/joining-tables
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for JOIN algorithm selection, direct join boundary, and normalized-vs-denormalized modeling trade-offs.
+- id: clickhouse-incremental-materialized-view-doc
+  title: ClickHouse Incremental Materialized View
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/materialized-view/incremental-materialized-view
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for insert-time trigger semantics, target-table updates, and JOIN caveats for incremental views.
+- id: clickhouse-refreshable-materialized-view-doc
+  title: ClickHouse Refreshable Materialized View
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/materialized-view/refreshable-materialized-view
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for scheduled full-refresh view semantics, refresh intervals, and system.view_refreshes observability.
+- id: clickhouse-projections-doc
+  title: ClickHouse Projections
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/data-modeling/projections
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for hidden table-like projections, automatic optimizer selection, and _part_offset projection semantics.
+- id: clickhouse-dictionary-doc
+  title: ClickHouse Dictionary Overview
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/dictionary
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for in-memory key-value lookup semantics, refresh lifecycle, and dictionary-backed direct join boundaries.
+- id: clickhouse-transactional-doc
+  title: ClickHouse Transactional (ACID) Support
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/guides/developer/transactional
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for the official ACID case matrix, async_insert durability boundary, and experimental multi-statement transactions.
+- id: clickhouse-delete-statement-doc
+  title: ClickHouse Lightweight DELETE Statement
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/sql-reference/statements/delete
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for lightweight DELETE semantics, delete mask behavior, merge-time physical removal, and projection limitations.
+- id: clickhouse-update-statement-doc
+  title: ClickHouse Lightweight UPDATE Statement
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/sql-reference/statements/update
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for patch-part based lightweight UPDATE semantics, visibility boundary, and limitations around keys and projections.
+- id: clickhouse-deduplicating-inserts-doc
+  title: ClickHouse Deduplicating Inserts on Retries
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/guides/developer/deduplicating-inserts-on-retries
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for block_id-based retry deduplication, insert_deduplicate, insert_deduplication_token, and dependent materialized view deduplication.
+- id: clickhouse-asynchronous-inserts-doc
+  title: ClickHouse Asynchronous Inserts
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/optimize/asynchronous-inserts
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for async_insert buffering thresholds, wait_for_async_insert return modes, and part-creation reduction guidance.
+- id: clickhouse-bulk-inserts-doc
+  title: ClickHouse Bulk Inserts
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/optimize/bulk-inserts
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for recommended batch sizing and insert-rate guidance for synchronous ingestion.
+- id: clickhouse-query-parallelism-doc
+  title: ClickHouse Query Parallelism
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/optimize/query-parallelism
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for lane-based local parallelism, max_threads behavior, and shard-level fan-out execution.
+- id: clickhouse-data-skipping-indexes-doc
+  title: ClickHouse Data Skipping Indexes
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/optimize/skipping-indexes
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for secondary skipping index semantics and the distinction between granule pruning and row-unique indexes.
+- id: clickhouse-lazy-materialization-doc
+  title: ClickHouse Lazy Materialization
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/optimize/lazy-materialization
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for deferred column reads, Top N acceleration, and EXPLAIN plan evidence.
+- id: clickhouse-analyzer-guide-doc
+  title: ClickHouse Understanding Query Execution with the Analyzer
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for AST, query tree, plan, and pipeline stages and the EXPLAIN surfaces that expose them.
+- id: clickhouse-query-cache-doc
+  title: ClickHouse Query Cache
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/query-cache
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for server-side query-result cache scope, TTL-based staleness model, and observability through system tables.
+- id: clickhouse-query-condition-cache-doc
+  title: ClickHouse Query Condition Cache
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/query-condition-cache
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for per-filter per-granule cache semantics and analyzer-enabled repeated-filter acceleration.
+- id: clickhouse-userspace-page-cache-doc
+  title: ClickHouse Userspace Page Cache
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/operations/userspace-page-cache
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for remote-storage in-process memory caching and the difference from filesystem cache.
+- id: clickhouse-avoid-mutations-doc
+  title: ClickHouse Avoid Mutations
+  kind: official-doc
+  component: clickhouse
+  url: https://clickhouse.com/docs/best-practices/avoid-mutations
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for rewrite cost of mutations, ordering semantics, and the recommendation to prefer engine-level alternatives.
+- id: delta-lake-batch
+  title: Delta Lake Table Batch Reads and Writes
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/delta-batch/
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for batch read and write semantics, time travel, generated columns, identity columns, schema evolution, and idempotent writes.
+- id: delta-lake-streaming
+  title: Delta Lake Table Streaming Reads and Writes
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/delta-streaming/
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for Structured Streaming source and sink semantics, ignoreChanges and ignoreDeletes, lag behavior, and foreachBatch idempotence.
+- id: delta-lake-update
+  title: Delta Lake Table Deletes, Updates, and Merges
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/delta-update/
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for DELETE, UPDATE, MERGE, merge schema evolution, and deterministic merge behavior.
+- id: delta-lake-cdf
+  title: Delta Lake Change Data Feed
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/latest/delta-change-data-feed.html
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for enabling CDF, batch and streaming reads, retention, and column-mapping limitations.
+- id: delta-lake-utility
+  title: Delta Lake Table Utility Commands
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/delta-utility/
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for VACUUM, HISTORY, DETAIL, CONVERT TO DELTA, RESTORE, shallow clone, and manifest generation.
+- id: delta-lake-constraints
+  title: Delta Lake Constraints
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/latest/delta-constraints.html
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for CHECK and NOT NULL constraints and their enforcement semantics.
+- id: delta-lake-versioning
+  title: Delta Lake Feature Compatibility and Versioning
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/versioning/
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for table features, protocol versions, upgrade boundaries, and reader or writer compatibility.
+- id: delta-lake-column-mapping
+  title: Delta Lake Column Mapping
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/delta-column-mapping/
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for rename or drop without rewrite, special characters, and streaming or CDF limitations.
+- id: delta-lake-deletion-vectors
+  title: Delta Lake Deletion Vectors
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/latest/delta-deletion-vectors.html
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for soft-delete semantics, protocol upgrades, and physical purge behavior.
+- id: delta-lake-clustering
+  title: Delta Lake Liquid Clustering
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/delta-clustering/
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for liquid clustering feature behavior, table-feature requirements, and maintenance model.
+- id: delta-lake-row-tracking
+  title: Delta Lake Row Tracking
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/delta-row-tracking/
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for row ids, row commit versions, protocol impacts, and storage overhead.
+- id: delta-lake-default-columns
+  title: Delta Lake Default Column Values
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/latest/delta-default-columns.html
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for allowColumnDefaults table feature semantics and irreversible protocol upgrade behavior.
+- id: delta-lake-faq
+  title: Delta Lake Frequently Asked Questions
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/delta-faq/
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for table-level transaction boundary, DStream limitation, and core positioning facts.
+- id: delta-lake-releases
+  title: Delta Lake Releases and Spark Compatibility
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/releases/
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for current Delta Lake to Apache Spark compatibility mapping.
+- id: delta-lake-table-properties
+  title: Delta Lake Table Properties Reference
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/table-properties/
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for appendOnly, retention durations, idempotent transaction retention, data skipping stats, and checkpoint policy properties.
+- id: delta-lake-catalog-managed-tables
+  title: Delta Lake Catalog-Managed Tables
+  kind: official-doc
+  component: delta-lake
+  url: https://docs.delta.io/delta-catalog-managed-tables/
+  version_scope: Delta Lake docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  trust_level: primary
+  notes: Use for catalog-managed commit coordination and the newer catalogManaged table feature boundary.
+- id: trino-connector-docs
+  title: Trino Connectors overview
+  kind: official-doc
+  component: trino
+  url: https://trino.io/docs/current/connector.html
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for catalog-to-connector mapping, available connector model, and the fact that catalogs are configured with connector-specific properties.
+- id: trino-pushdown-docs
+  title: Trino Pushdown
+  kind: official-doc
+  component: trino
+  url: https://trino.io/docs/current/optimizer/pushdown.html
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for predicate, projection, dereference, aggregation, join, limit and Top-N pushdown semantics, and for proving that pushdown is connector-specific.
+- id: trino-cost-based-optimizations-docs
+  title: Trino Cost-based optimizations
+  kind: official-doc
+  component: trino
+  url: https://trino.io/docs/current/optimizer/cost-based-optimizations.html
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for join reordering, join distribution, broadcast vs partitioned join tradeoffs, and the dependence on table statistics.
+- id: trino-fault-tolerant-execution-docs
+  title: Trino Fault-tolerant execution
+  kind: official-doc
+  component: trino
+  url: https://trino.io/docs/current/admin/fault-tolerant-execution.html
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for default failure behavior, QUERY and TASK retry policies, exchange manager requirements, connector support boundaries, and retry configuration.
+- id: trino-security-docs
+  title: Trino Security overview
+  kind: official-doc
+  component: trino
+  url: https://trino.io/docs/current/security.html
+  version_scope: Official Trino current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for TLS and HTTPS, authentication, user mapping, access control, secure internal communication and secrets.
+- id: hadoop-yarn-node-manager
+  title: Apache Hadoop YARN NodeManager
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/NodeManager.html
+  version_scope: Official Apache Hadoop current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for NodeManager lifecycle, container launch, localization, log aggregation and health-check behavior.
+- id: hadoop-yarn-application-security
+  title: Apache Hadoop YARN Application Security
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YarnApplicationSecurity.html
+  version_scope: Official Apache Hadoop current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for Kerberos, tokens, ACLs, proxy-user and secure YARN application execution boundaries.
+- id: hadoop-yarn-timeline-service-v2
+  title: Apache Hadoop YARN Timeline Service v2
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/TimelineServiceV2.html
+  version_scope: Official Apache Hadoop current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for YARN history, timeline entities, ATS v2 storage and observability boundaries.
+- id: hadoop-yarn-reservation-system
+  title: Apache Hadoop YARN ReservationSystem
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ReservationSystem.html
+  version_scope: Official Apache Hadoop current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for reservation queues, time-based resource guarantees and capacity planning.
+- id: hadoop-yarn-opportunistic-containers
+  title: Apache Hadoop YARN Opportunistic Containers
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/OpportunisticContainers.html
+  version_scope: Official Apache Hadoop current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for guaranteed vs opportunistic execution semantics and scheduling tradeoffs.
+- id: hadoop-yarn-federation
+  title: Apache Hadoop YARN Federation
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/Federation.html
+  version_scope: Official Apache Hadoop current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for multi-RM federation, router and scalability design boundaries.
+- id: hadoop-yarn-placement-constraints
+  title: Apache Hadoop YARN Placement Constraints
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/PlacementConstraints.html
+  version_scope: Official Apache Hadoop current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for anti-affinity, tag-based placement and scheduling constraint reasoning.
+- id: hadoop-yarn-node-attributes
+  title: Apache Hadoop YARN Node Attributes
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/NodeAttributes.html
+  version_scope: Official Apache Hadoop current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for attribute-based scheduling, host grouping and placement governance.
+- id: hadoop-yarn-commands-reference
+  title: Apache Hadoop YARN Commands Reference
+  kind: official-doc
+  component: yarn
+  url: https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YarnCommands.html
+  version_scope: Official Apache Hadoop current docs as verified on 2026-05-11
+  last_verified_at: '2026-05-11'
+  trust_level: primary
+  notes: Use for yarn application, node, queue and logs command-based diagnosis references.

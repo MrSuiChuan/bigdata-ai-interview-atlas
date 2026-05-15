@@ -1,0 +1,1464 @@
+- id: iceberg-claim-0001
+  domain: bigdata
+  component: iceberg
+  statement: "Apache Iceberg positions itself as an open table format for huge analytic datasets and emphasizes that engines like Spark, Trino, Flink, Hive and Impala can work with the same tables safely."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg official site and docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-docs-home
+  notes: "This is the core framing to use when explaining why Iceberg shows up in data lake and lakehouse interviews."
+
+- id: iceberg-claim-0002
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg schemas use unique field IDs to track columns, which lets the table format distinguish column identity from column names or positions."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-schemas
+  notes: "Field ID is the foundation for explaining safe schema evolution."
+
+- id: iceberg-claim-0003
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg schema evolution supports add, drop, rename, update and reorder as first-class evolution operations."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-evolution
+  notes: "Use this claim when the interview asks what counts as schema evolution in Iceberg."
+
+- id: iceberg-claim-0004
+  domain: bigdata
+  component: iceberg
+  statement: "Because Iceberg tracks columns by field ID, adding a column never causes existing values in another column to be read into the new column."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-evolution
+    - iceberg-schemas
+  notes: "Good for explaining why Iceberg evolution is safer than position-based thinking."
+
+- id: iceberg-claim-0005
+  domain: bigdata
+  component: iceberg
+  statement: "Dropping a column in Iceberg does not cause remaining columns to shift into a new meaning because column identity is not based on ordinal position."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-evolution
+    - iceberg-schemas
+  notes: "Useful when contrasting Iceberg with naive schema-on-read assumptions."
+
+- id: iceberg-claim-0006
+  domain: bigdata
+  component: iceberg
+  statement: "Hidden partitioning is designed to separate partition relations from query syntax and from how values are represented in storage."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-partitioning
+  notes: "This is the right starting point for explaining hidden partitioning."
+
+- id: iceberg-claim-0007
+  domain: bigdata
+  component: iceberg
+  statement: "In Iceberg, partition values are produced from table configuration, so users query business columns rather than manually supplying physical partition columns in filters."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-partitioning
+  notes: "Use this claim to explain why hidden partitioning reduces user-facing layout coupling."
+
+- id: iceberg-claim-0008
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg partitioning supports transforms such as identity, bucket, truncate, year, month, day and hour to derive partition values from source columns."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-partitioning
+    - iceberg-spec
+  notes: "Helpful when a follow-up asks what a partition spec actually stores."
+
+- id: iceberg-claim-0009
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg allows partition layouts to evolve over a table's lifetime instead of forcing the initial partition design to remain fixed forever."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-evolution
+    - iceberg-partitioning
+  notes: "Key claim for explaining partition evolution."
+
+- id: iceberg-claim-0010
+  domain: bigdata
+  component: iceberg
+  statement: "Partition evolution in Iceberg is a metadata operation, and old data written under previous partition specs remains valid without a full rewrite."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-evolution
+  notes: "Important for migration and long-lived table design questions."
+
+- id: iceberg-claim-0011
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg's reliability design keeps an authoritative list of table files in metadata instead of discovering table state by recursively listing directories at query time."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-reliability
+  notes: "This is the main systems-level difference from legacy directory-listing approaches."
+
+- id: iceberg-claim-0012
+  domain: bigdata
+  component: iceberg
+  statement: "Valid snapshots are stored in table metadata, and readers plan work from a specific snapshot rather than from a mutable live directory listing."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-reliability
+    - iceberg-spec
+  notes: "Useful when explaining why Iceberg offers consistent reads."
+
+- id: iceberg-claim-0013
+  domain: bigdata
+  component: iceberg
+  statement: "Each Iceberg commit creates a new metadata file and publishes it through an atomic metadata swap, which becomes the table's new current state."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-reliability
+    - iceberg-spec
+  notes: "This is the core commit model to describe in interviews."
+
+- id: iceberg-claim-0014
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg's reliability documentation explicitly frames one of its goals as solving correctness and performance problems caused by directory listing on object stores such as S3."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-reliability
+  notes: "Use for why Iceberg became important in cloud object-storage data lakes."
+
+- id: iceberg-claim-0015
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg uses optimistic concurrency control: a writer prepares new metadata under the assumption that no conflicting change has committed first, then tries to atomically commit that metadata."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-reliability
+  notes: "This is the baseline explanation for concurrent writers."
+
+- id: iceberg-claim-0016
+  domain: bigdata
+  component: iceberg
+  statement: "When a concurrent commit wins first, an Iceberg writer retries by re-reading the latest table metadata and validating its own operation against the new current state."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-reliability
+  notes: "Useful for explaining commit retry instead of global locking."
+
+- id: iceberg-claim-0017
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg write operations define both assumptions and actions, and commit succeeds only if those assumptions still hold against the latest metadata."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-reliability
+  notes: "Important when explaining how conflicts are detected."
+
+- id: iceberg-claim-0018
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg's reliability model is designed to provide serializable isolation for table operations when the write requirements are validated successfully."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-reliability
+  notes: "Use this only when you also explain optimistic concurrency and validation."
+
+- id: iceberg-claim-0019
+  domain: bigdata
+  component: iceberg
+  statement: "The reliability documentation highlights that operations like compaction and inserting late-arriving data can be handled safely because writes are validated against the latest snapshot state."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-reliability
+  notes: "Good for system-design discussions around maintenance jobs and streaming upserts."
+
+- id: iceberg-claim-0020
+  domain: bigdata
+  component: iceberg
+  statement: "Table metadata in the Iceberg specification is JSON and records schema, partition specs, sort orders, snapshots, snapshot logs, metadata logs and references."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spec
+  notes: "This claim anchors the metadata-tree explanation."
+
+- id: iceberg-claim-0021
+  domain: bigdata
+  component: iceberg
+  statement: "A snapshot in Iceberg points to a manifest list, and the manifest list points to manifests that enumerate data files or delete files that belong to that snapshot."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the minimal accurate description of the snapshot-to-file indirection chain."
+
+- id: iceberg-claim-0022
+  domain: bigdata
+  component: iceberg
+  statement: "Each Iceberg manifest contains files written using a single partition spec, which allows mixed partition layouts to coexist across table history."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spec
+    - iceberg-evolution
+  notes: "Important for tying manifest design back to partition evolution."
+
+- id: iceberg-claim-0023
+  domain: bigdata
+  component: iceberg
+  statement: "A manifest cannot contain both data files and delete files; the spec treats those as separate content types."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spec
+  notes: "Useful when explaining row-level deletes."
+
+- id: iceberg-claim-0024
+  domain: bigdata
+  component: iceberg
+  statement: "Manifest lists include per-manifest summary information such as partition summaries and sequence numbers, which reduces the amount of metadata planning work needed before reading files."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spec
+  notes: "Good for explaining why planning can avoid touching every data file directly."
+
+- id: iceberg-claim-0025
+  domain: bigdata
+  component: iceberg
+  statement: "The Iceberg specification records snapshot history in both a snapshot log and a metadata log so engines can trace how current table state changed over time."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spec
+  notes: "Useful for debugging and retention discussions."
+
+- id: iceberg-claim-0026
+  domain: bigdata
+  component: iceberg
+  statement: "The table's current-snapshot-id is always the snapshot ID of the main branch head in the Iceberg specification."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spec
+  notes: "Important when explaining how refs relate to the main branch."
+
+- id: iceberg-claim-0027
+  domain: bigdata
+  component: iceberg
+  statement: "Position delete files identify deleted rows by the path of the data file together with the row position inside that file."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the canonical definition of a position delete."
+
+- id: iceberg-claim-0028
+  domain: bigdata
+  component: iceberg
+  statement: "Equality delete files identify deleted rows using one or more field IDs and the encoded column values for those fields."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the canonical definition of an equality delete."
+
+- id: iceberg-claim-0029
+  domain: bigdata
+  component: iceberg
+  statement: "Delete files are first-class content files in the Iceberg table format and are tracked through manifests and snapshots just like data files."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spec
+  notes: "Useful when explaining why row-level deletes are table-format features, not ad hoc engine tricks."
+
+- id: iceberg-claim-0030
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg's Spark integration uses DataSource V2 for SQL commands and DataFrame writes."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "Good starting point for Spark integration questions."
+
+- id: iceberg-claim-0031
+  domain: bigdata
+  component: iceberg
+  statement: "Spark SQL operations supported by Iceberg include INSERT INTO, INSERT OVERWRITE, DELETE FROM, UPDATE and MERGE INTO."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "Helpful for row-level operation and DML capability questions."
+
+- id: iceberg-claim-0032
+  domain: bigdata
+  component: iceberg
+  statement: "The Spark writes documentation recommends MERGE INTO instead of INSERT OVERWRITE because MERGE rewrites only affected data files and overwrite behavior can change when partitioning changes."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "Strong interview point for upsert design tradeoffs."
+
+- id: iceberg-claim-0033
+  domain: bigdata
+  component: iceberg
+  statement: "In Spark, DELETE FROM can be a metadata-only delete when the filter matches entire partitions; otherwise Iceberg rewrites only the affected data files."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "This is one of the most common row-level-delete interview details."
+
+- id: iceberg-claim-0034
+  domain: bigdata
+  component: iceberg
+  statement: "Writing to an Iceberg branch from Spark uses a branch-qualified table name or the spark.wap.branch setting, and the target branch must already exist."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spark-writes
+    - iceberg-branching-and-tagging
+  notes: "Useful when the user asks whether branch writes are implicit or auto-created."
+
+- id: iceberg-claim-0035
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg stores named snapshot references in table metadata, and each reference points to a snapshot ID with its own retention configuration."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-branching-and-tagging
+    - iceberg-spec
+  notes: "This is the structural definition of branches and tags."
+
+- id: iceberg-claim-0036
+  domain: bigdata
+  component: iceberg
+  statement: "In Iceberg, a branch is a named reference that can move forward as new snapshots are committed, while a tag is a named reference to a specific snapshot."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-branching-and-tagging
+    - iceberg-spec
+  notes: "This is the cleanest conceptual difference between branches and tags."
+
+- id: iceberg-claim-0037
+  domain: bigdata
+  component: iceberg
+  statement: "Snapshot references support retention properties such as minimum snapshots to keep, maximum snapshot age and maximum reference age."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-branching-and-tagging
+    - iceberg-spec
+  notes: "Important when discussing cost control for long-lived branches and tags."
+
+- id: iceberg-claim-0038
+  domain: bigdata
+  component: iceberg
+  statement: "The branching documentation shows a write-audit-publish workflow in which data is written to an audit branch and then fast-forwarded into main after validation."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-branching-and-tagging
+  notes: "This is the most practical branch workflow to mention in interviews."
+
+- id: iceberg-claim-0039
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg maintenance guidance recommends expiring snapshots because old snapshots keep data files and delete files reachable until those snapshots are removed."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-maintenance
+  notes: "Critical for storage-cost and data-lifecycle questions."
+
+- id: iceberg-claim-0040
+  domain: bigdata
+  component: iceberg
+  statement: "Deleting orphan files is a separate maintenance action from expiring snapshots because orphan files are files that are not reachable from valid table metadata."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-maintenance
+  notes: "Good for explaining why snapshot expiration alone is not enough."
+
+- id: iceberg-claim-0041
+  domain: bigdata
+  component: iceberg
+  statement: "The maintenance documentation warns that orphan-file deletion is dangerous when the retention interval is shorter than the longest-running write job."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-maintenance
+  notes: "This is a high-value operational caveat."
+
+- id: iceberg-claim-0042
+  domain: bigdata
+  component: iceberg
+  statement: "RewriteDataFiles is used to compact small files and improve read performance by reducing file-open overhead and metadata volume."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-maintenance
+  notes: "Main compaction claim for performance interviews."
+
+- id: iceberg-claim-0043
+  domain: bigdata
+  component: iceberg
+  statement: "RewriteManifests reorganizes manifest files so metadata layout better matches query patterns and scan planning becomes more efficient."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-maintenance
+  notes: "Important for explaining metadata maintenance, not just data-file compaction."
+
+- id: iceberg-claim-0044
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg evolution also covers sort-order evolution, which means file ordering strategy can change over time without redefining the table as a new dataset."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-evolution
+  notes: "Useful when discussing long-term table tuning."
+
+- id: iceberg-claim-0045
+  domain: bigdata
+  component: iceberg
+  statement: "Because manifests and manifest lists are immutable metadata files, Iceberg can reuse existing metadata work across commits and retries instead of rebuilding the full table state each time."
+  status: reviewed
+  confidence: medium
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-reliability
+    - iceberg-spec
+  notes: "This is a useful implementation-level explanation for efficient commit retries."
+
+- id: iceberg-claim-0046
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg is compatible with object stores because correctness does not depend on atomic directory rename or fully consistent recursive file listing."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-reliability
+  notes: "Strong systems-design claim for cloud data lakes."
+
+- id: iceberg-claim-0047
+  domain: bigdata
+  component: iceberg
+  statement: "Query planning in Iceberg can prune work using metadata before touching data files because manifests and manifest lists contain partition and file-level summary information."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-spec
+    - iceberg-reliability
+  notes: "Good bridge from metadata internals to read performance."
+
+- id: iceberg-claim-0048
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg's value is not that it executes queries by itself, but that it standardizes table metadata, evolution and correctness rules so multiple compute engines can share one analytical table safely."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg official site and latest docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - iceberg-docs-home
+    - iceberg-docs-latest
+    - iceberg-reliability
+  notes: "Good concluding claim for architecture and positioning questions."
+
+- id: iceberg-claim-0049
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg table metadata is JSON and includes fields such as current-snapshot-id, snapshots, snapshot-log, metadata-log, refs, sort-orders, and default-sort-order-id."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the right starting point for explaining the metadata tree at field level."
+
+- id: iceberg-claim-0050
+  domain: bigdata
+  component: iceberg
+  statement: "The current-snapshot-id field must be the same as the snapshot referenced by the main branch."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "Useful for explaining why current state and refs are not two independent truth sources."
+
+- id: iceberg-claim-0051
+  domain: bigdata
+  component: iceberg
+  statement: "The snapshots list stores valid snapshots, and a data file must not be deleted until the last snapshot that references it has been garbage collected."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "Important for connecting metadata retention to physical file deletion boundaries."
+
+- id: iceberg-claim-0052
+  domain: bigdata
+  component: iceberg
+  statement: "Each time current-snapshot-id changes, Iceberg should append an entry to snapshot-log that records the change time and the new snapshot ID."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the precise metadata basis for timestamp-based history resolution."
+
+- id: iceberg-claim-0053
+  domain: bigdata
+  component: iceberg
+  statement: "Each new metadata file should append a metadata-log entry that records when the change happened and where the previous metadata file was stored."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "Useful for explaining how metadata history differs from snapshot history."
+
+- id: iceberg-claim-0054
+  domain: bigdata
+  component: iceberg
+  statement: "Time-travel queries by timestamp should use snapshot-log metadata instead of assuming that the parent-child snapshot lineage is a reliable clock order."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is a strong principle fact for deep time-travel questions."
+
+- id: iceberg-claim-0055
+  domain: bigdata
+  component: iceberg
+  statement: "The refs map stores valid snapshot references, and the main branch exists even if refs is null because main is implied by current-snapshot-id."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "Good detail for distinguishing explicit refs from the implied main branch."
+
+- id: iceberg-claim-0056
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg branches are mutable named references that move forward when new snapshots are committed, while tags label specific snapshots."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-branching-and-tagging
+    - iceberg-spec
+  notes: "This is the cleanest concise distinction between branch and tag."
+
+- id: iceberg-claim-0057
+  domain: bigdata
+  component: iceberg
+  statement: "Branch references support min-snapshots-to-keep and max-snapshot-age-ms, while max-ref-age-ms applies to snapshot references other than the main branch."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-branching-and-tagging
+    - iceberg-spec
+  notes: "These property names are worth memorizing because they show real retention semantics rather than hand-waving."
+
+- id: iceberg-claim-0058
+  domain: bigdata
+  component: iceberg
+  statement: "The main branch never expires."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-branching-and-tagging
+    - iceberg-spec
+  notes: "A small fact, but it matters when explaining ref retention boundaries."
+
+- id: iceberg-claim-0059
+  domain: bigdata
+  component: iceberg
+  statement: "Snapshot expiration first removes expired refs except main, then retains snapshots that are still referenced and enough branch ancestors to satisfy each branch policy, and expires the rest."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the real algorithmic reason branch retention changes cleanup results."
+
+- id: iceberg-claim-0060
+  domain: bigdata
+  component: iceberg
+  statement: "The default retention policy for branches and tags is to keep them forever."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-branching-and-tagging
+  notes: "Useful for explaining why refs can silently increase storage cost if governance is weak."
+
+- id: iceberg-claim-0061
+  domain: bigdata
+  component: iceberg
+  statement: "When querying a branch head, Iceberg uses the current table schema because schema is tracked at the table level and remains valid across branches."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-branching-and-tagging
+  notes: "This is the key schema-selection rule for branch reads."
+
+- id: iceberg-claim-0062
+  domain: bigdata
+  component: iceberg
+  statement: "When querying a tag, Iceberg uses the schema that was current when the tagged snapshot was created."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-branching-and-tagging
+  notes: "This is the key schema-selection rule for tag reads."
+
+- id: iceberg-claim-0063
+  domain: bigdata
+  component: iceberg
+  statement: "Writing to a branch validates data against the current table schema rather than against some isolated branch-only schema."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-branching-and-tagging
+    - iceberg-spark-writes
+  notes: "Useful for explaining why branches isolate snapshots, not schema governance."
+
+- id: iceberg-claim-0064
+  domain: bigdata
+  component: iceberg
+  statement: "A branch must already exist before a write is attempted, and Iceberg write operations do not create a missing branch automatically."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "This is a strong implementation detail that often separates superficial and solid answers."
+
+- id: iceberg-claim-0065
+  domain: bigdata
+  component: iceberg
+  statement: "The WAP branch configured through spark.wap.branch cannot be used together with an explicit branch identifier in the target table name."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "Important for avoiding incorrect branch-write examples."
+
+- id: iceberg-claim-0066
+  domain: bigdata
+  component: iceberg
+  statement: "In Spark, MERGE INTO is implemented for Iceberg by rewriting data files that contain rows needing update, delete, or insert changes in an overwrite commit."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "This is the mechanism-level answer behind MERGE semantics."
+
+- id: iceberg-claim-0067
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg recommends MERGE INTO instead of INSERT OVERWRITE because MERGE can replace only affected data files, while overwrite semantics can become surprising after partition evolution."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs and evolution docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+    - iceberg-evolution
+  notes: "A high-value answer for update and upsert design questions."
+
+- id: iceberg-claim-0068
+  domain: bigdata
+  component: iceberg
+  statement: "INSERT OVERWRITE on an Iceberg table is atomic."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "Useful when contrasting correctness with legacy path-replacement approaches."
+
+- id: iceberg-claim-0069
+  domain: bigdata
+  component: iceberg
+  statement: "Spark's default overwrite mode is static, but the Iceberg documentation recommends dynamic overwrite mode."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "This is the operational default-versus-recommendation fact that interviews often test."
+
+- id: iceberg-claim-0070
+  domain: bigdata
+  component: iceberg
+  statement: "Dynamic overwrite replaces only partitions that receive rows from the SELECT query being written."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "This is the simplest correct statement of dynamic overwrite semantics."
+
+- id: iceberg-claim-0071
+  domain: bigdata
+  component: iceberg
+  statement: "Static overwrite converts the PARTITION clause into a row filter, and if the clause is omitted then all table partitions are replaced."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "This is the real reason static overwrite is dangerous when the target scope is misunderstood."
+
+- id: iceberg-claim-0072
+  domain: bigdata
+  component: iceberg
+  statement: "Static overwrite cannot target hidden partition expressions directly because the PARTITION clause is written against table columns rather than physical partition transforms."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs and partitioning docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+    - iceberg-partitioning
+  notes: "Useful for explaining why hidden partitioning changes overwrite ergonomics."
+
+- id: iceberg-claim-0073
+  domain: bigdata
+  component: iceberg
+  statement: "If a DELETE FROM filter matches entire partitions, Iceberg can perform a metadata-only delete without rewriting data files."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "A classic cost-model fact for DELETE questions."
+
+- id: iceberg-claim-0074
+  domain: bigdata
+  component: iceberg
+  statement: "Default Spark writers for Iceberg require each task's incoming records to be clustered by partition values so that the number of simultaneously open file handles stays manageable."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "This is the engine-side reason write distribution is not just an optimization knob."
+
+- id: iceberg-claim-0075
+  domain: bigdata
+  component: iceberg
+  statement: "Starting in Iceberg 1.2.0, the default write.distribution-mode requested by Spark writers is hash."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "This is a concrete versioned behavior that often appears in tuning discussions."
+
+- id: iceberg-claim-0076
+  domain: bigdata
+  component: iceberg
+  statement: "When write.distribution-mode is none, Iceberg requests no automatic shuffle or sort, so data must already be sorted manually or a fanout writer must keep file handles open until task completion."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "Good for explaining why none is not a free speed mode."
+
+- id: iceberg-claim-0077
+  domain: bigdata
+  component: iceberg
+  statement: "The range write.distribution-mode is more expensive than hash because it uses a two-stage sample and range exchange, but it produces globally ordered output and becomes the default when a table has a sort order."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "This ties together write cost, read benefit, and sort-order awareness."
+
+- id: iceberg-claim-0078
+  domain: bigdata
+  component: iceberg
+  statement: "Spark cannot write an Iceberg file larger than a single Spark task, and a file cannot span an Iceberg partition boundary."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "This is the correct physical boundary to mention in file-size questions."
+
+- id: iceberg-claim-0079
+  domain: bigdata
+  component: iceberg
+  statement: "When write.distribution-mode is not none, Spark AQE coalesces or splits tasks using spark.sql.adaptive.advisoryPartitionSizeInBytes, and that advisory size reflects in-memory row size rather than on-disk file size."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg Spark writes docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spark-writes
+  notes: "Useful when explaining why target file sizes and AQE settings do not map one-to-one."
+
+- id: iceberg-claim-0080
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg sort order can evolve over time without rewriting old data, so files written under older sort orders remain valid."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-evolution
+    - iceberg-spec
+  notes: "Good for explaining why layout tuning in Iceberg is metadata-centric rather than rebuild-centric."
+
+- id: iceberg-claim-0081
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg engines can write data using the latest sort order or write unsorted data when maintaining the sort order would be too expensive."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg latest docs and spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-evolution
+    - iceberg-spec
+  notes: "This is the right caveat when someone overstates how strictly sort orders are enforced."
+
+- id: iceberg-claim-0082
+  domain: bigdata
+  component: iceberg
+  statement: "The default-sort-order-id may guide writers, but readers do not use it directly because read planning uses the sort-order information stored with manifest metadata."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "A good field-level explanation of why default sort order is mainly a write-side hint."
+
+- id: iceberg-claim-0083
+  domain: bigdata
+  component: iceberg
+  statement: "Format version 2 of the Iceberg specification adds support for row-level updates and deletes in immutable data files by introducing delete files."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the cleanest version-boundary fact for row-level DML."
+
+- id: iceberg-claim-0084
+  domain: bigdata
+  component: iceberg
+  statement: "A position delete identifies deleted rows using the data file path and a row position that starts at 0, and it may optionally include the deleted row itself."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the minimal precise definition of a position delete."
+
+- id: iceberg-claim-0085
+  domain: bigdata
+  component: iceberg
+  statement: "An equality delete identifies deleted rows by one or more column values, and the delete columns are recorded using the table's field IDs."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the minimal precise definition of an equality delete."
+
+- id: iceberg-claim-0086
+  domain: bigdata
+  component: iceberg
+  statement: "Columns used in equality delete files follow the same restrictions as identifier fields, except that optional columns and columns nested under optional structs are allowed."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "A high-value spec detail for delete-design questions."
+
+- id: iceberg-claim-0087
+  domain: bigdata
+  component: iceberg
+  statement: "Format version 3 introduces deletion vectors, and deletion vectors are not supported in format version 2 or earlier."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the main format-version boundary for DV questions."
+
+- id: iceberg-claim-0088
+  domain: bigdata
+  component: iceberg
+  statement: "Writers must not add new position delete files to format version 3 tables, but position delete files that already exist remain valid after an upgrade."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "Useful for explaining upgrade compatibility and new-write boundaries."
+
+- id: iceberg-claim-0089
+  domain: bigdata
+  component: iceberg
+  statement: "At most one deletion vector may exist for a data file in a snapshot, so writers must merge a new deletion vector with an existing vector or existing position deletes."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the key multiplicity rule for DV implementations."
+
+- id: iceberg-claim-0090
+  domain: bigdata
+  component: iceberg
+  statement: "New data and metadata file entries are written with null sequence numbers and inherit their sequence numbers from the manifest metadata when they are read."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the baseline fact behind sequence-number inheritance."
+
+- id: iceberg-claim-0091
+  domain: bigdata
+  component: iceberg
+  statement: "When a data or delete file is written to a new manifest as an existing entry, the inherited sequence number is stored explicitly so it does not change after first inheritance."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "A deeper detail that matters when explaining delete applicability across rewrites."
+
+- id: iceberg-claim-0092
+  domain: bigdata
+  component: iceberg
+  statement: "Sequence-number inheritance allows a newly written manifest to be reused across commit retries, so only the manifest list must be rewritten when a retry is needed."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the most important low-level reason optimistic retries stay cheap."
+
+- id: iceberg-claim-0093
+  domain: bigdata
+  component: iceberg
+  statement: "The write.metadata.previous-versions-max table property controls how many previous metadata files are tracked in the metadata log."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg maintenance docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-maintenance
+  notes: "A concrete retention property that shows metadata history is also governed."
+
+- id: iceberg-claim-0094
+  domain: bigdata
+  component: iceberg
+  statement: "The write.metadata.delete-after-commit.enabled property defaults to false."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg maintenance docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-maintenance
+  notes: "This default matters because many teams assume metadata cleanup is automatic when it is not."
+
+- id: iceberg-claim-0095
+  domain: bigdata
+  component: iceberg
+  statement: "Automatic delete-after-commit only removes tracked metadata files and does not delete orphaned metadata files."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg maintenance docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-maintenance
+  notes: "Useful for distinguishing tracked metadata retention from orphan cleanup."
+
+- id: iceberg-claim-0096
+  domain: bigdata
+  component: iceberg
+  statement: "If delete-after-commit is disabled and write.metadata.previous-versions-max is 10, then after 100 commits only the latest 10 metadata files are tracked and the other 90 can become orphaned metadata files."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg maintenance docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-maintenance
+  notes: "This is the official concrete example that makes metadata-orphan buildup easy to explain."
+
+- id: iceberg-claim-0097
+  domain: bigdata
+  component: iceberg
+  statement: "Metadata files that are no longer tracked cannot be cleaned up later just by enabling delete-after-commit; they require orphan-file deletion."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg maintenance docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-maintenance
+  notes: "A high-value operational boundary that many teams miss."
+
+- id: iceberg-claim-0098
+  domain: bigdata
+  component: iceberg
+  statement: "Expiring old snapshots removes them from table metadata, so they are no longer available for time travel queries."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg maintenance docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-maintenance
+  notes: "Critical for answering the tradeoff between storage cost and historical readability."
+
+- id: iceberg-claim-0099
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg does not delete data files until they are no longer referenced by a snapshot that may still be used for time travel or rollback."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg maintenance docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-maintenance
+  notes: "Good for linking logical retention to physical cleanup timing."
+
+- id: iceberg-claim-0100
+  domain: bigdata
+  component: iceberg
+  statement: "The default orphan-file retention interval is 3 days, and using a shorter interval than the longest write duration is dangerous."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg maintenance docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-maintenance
+  notes: "This combines the operational default with the key safety warning."
+
+- id: iceberg-claim-0101
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg orphan-file cleanup compares string path representations, so changes in path scheme or authority can create false mismatches and risk deleting live files."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg maintenance docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-maintenance
+  notes: "A very practical and interview-worthy data-loss caveat."
+
+- id: iceberg-claim-0102
+  domain: bigdata
+  component: iceberg
+  statement: "Manifest files are compacted automatically in the order they are added, which works best when the write pattern naturally aligns with query filters."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg maintenance docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-maintenance
+  notes: "This explains why automatic manifest behavior is sometimes enough and sometimes not."
+
+- id: iceberg-claim-0103
+  domain: bigdata
+  component: iceberg
+  statement: "RewriteManifests is used when the write pattern does not align with the query pattern and manifest groupings should be reorganized to reduce scan-planning cost."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg maintenance docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-maintenance
+  notes: "This is the correct purpose statement for RewriteManifests."
+
+- id: iceberg-claim-0104
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg uses metadata in manifest lists and manifests as an index so that query planning can prune unnecessary data files before reading table data."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg maintenance docs and spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-maintenance
+    - iceberg-spec
+  notes: "This ties together metadata maintenance and scan-planning performance."
+
+- id: iceberg-claim-0105
+  domain: bigdata
+  component: iceberg
+  statement: "Iceberg tracks the complete list of data files in each snapshot using a persistent tree structure, and each new snapshot reuses as much of the previous metadata tree as possible."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg reliability docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-reliability
+  notes: "This is the right mechanism-level explanation behind low-cost snapshot reuse."
+
+- id: iceberg-claim-0106
+  domain: bigdata
+  component: iceberg
+  statement: "Planning a read from an Iceberg snapshot requires O(1) RPC calls instead of listing O(n) directories or partitions."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg reliability docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-reliability
+  notes: "A high-value systems claim for object-store and planning-performance interviews."
+
+- id: iceberg-claim-0107
+  domain: bigdata
+  component: iceberg
+  statement: "Distributed planning together with O(1) RPC reads removes the metastore as a planning bottleneck and enables finer-grained partitioning."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg reliability docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-reliability
+  notes: "Useful for connecting metadata design to partition strategy freedom."
+
+- id: iceberg-claim-0108
+  domain: bigdata
+  component: iceberg
+  statement: "A manifest is an immutable Avro file that lists data files or delete files together with partition tuples, metrics, and tracking information."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the precise structural definition of a manifest."
+
+- id: iceberg-claim-0109
+  domain: bigdata
+  component: iceberg
+  statement: "A manifest may store either data files or delete files, but not both, and manifests containing delete files are scanned first during job planning."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "A deep planning detail that explains why delete semantics affect planning order."
+
+- id: iceberg-claim-0110
+  domain: bigdata
+  component: iceberg
+  statement: "Each manifest stores files for a single partition spec, so when a table's partition spec changes, old files remain in older manifests and new files are written to new manifests."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the key reason partition evolution does not require rewriting old manifests."
+
+- id: iceberg-claim-0111
+  domain: bigdata
+  component: iceberg
+  statement: "For each manifest, scan predicates over rows are converted into partition predicates that are evaluated against partition tuples."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the mechanism-level explanation of manifest pruning."
+
+- id: iceberg-claim-0112
+  domain: bigdata
+  component: iceberg
+  statement: "Manifest lists store partition field summaries, including contains_null, contains_nan, lower_bound, and upper_bound for each partition field in the manifest's spec."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the exact metadata structure to mention in deep scan-planning answers."
+
+- id: iceberg-claim-0113
+  domain: bigdata
+  component: iceberg
+  statement: "Partition field lower and upper bounds are serialized to bytes using the single-object serialization of the partition field's data type, and they are null when all values are null or NaN."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "A spec-level detail that distinguishes exact bounds from rough stats."
+
+- id: iceberg-claim-0114
+  domain: bigdata
+  component: iceberg
+  statement: "Because manifests and manifest lists carry partition summaries and file metadata, Iceberg can prune unnecessary work during planning before reading data files."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg reliability docs and spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-reliability
+    - iceberg-spec
+  notes: "This ties structural manifest metadata directly to planning efficiency."
+
+- id: iceberg-claim-0115
+  domain: bigdata
+  component: iceberg
+  statement: "In format version 3 and later, an Iceberg table must track row lineage fields for all newly created rows."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the top-level requirement for row lineage in v3+."
+
+- id: iceberg-claim-0116
+  domain: bigdata
+  component: iceberg
+  statement: "For row lineage in v3+, engines must maintain the next-row-id table field, a unique _row_id for each row, and _last_updated_sequence_number for row updates."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "Useful for moving from abstract lineage to concrete tracked fields."
+
+- id: iceberg-claim-0117
+  domain: bigdata
+  component: iceberg
+  statement: "Row lineage values are assigned by inheritance because commit sequence numbers and starting row IDs are not known until the snapshot commit succeeds."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the reason row lineage and optimistic retries are compatible."
+
+- id: iceberg-claim-0118
+  domain: bigdata
+  component: iceberg
+  statement: "A data file that contains only new rows may omit _row_id and _last_updated_sequence_number columns, and readers should treat missing values as null so they can be inherited."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "A precise read-path detail that matters when explaining lineage assignment laziness."
+
+- id: iceberg-claim-0119
+  domain: bigdata
+  component: iceberg
+  statement: "When a table is upgraded to format v3, next-row-id is initialized to 0, existing snapshots are not modified, and rows in pre-upgrade snapshots read with null row IDs."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "This is the key upgrade boundary for row-lineage questions."
+
+- id: iceberg-claim-0120
+  domain: bigdata
+  component: iceberg
+  statement: "Row lineage does not preserve original row identity for updates implemented through equality deletes; those updates are treated as removing the old row and adding a unique new row."
+  status: reviewed
+  confidence: high
+  version_scope: "Iceberg table spec as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - iceberg-spec
+  notes: "A subtle but important boundary when discussing lineage correctness under equality-delete workflows."

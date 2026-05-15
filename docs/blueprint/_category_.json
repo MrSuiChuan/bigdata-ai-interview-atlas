@@ -1,0 +1,9 @@
+﻿{
+  "label": "实施蓝图",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "title": "实施蓝图",
+    "description": "说明仓库结构、内容规则以及整个系统的演进路线。"
+  }
+}

@@ -1,0 +1,99 @@
+- id: practice-p2-claim-0001
+  domain: ai-agent
+  component: agentic-ai
+  statement: >-
+    Datawhale's agentic-ai repository is a Chinese learning resource around DeepLearning.AI's Agentic AI course, covering introduction to agentic workflows, reflection, tool use, practical building tips, and highly autonomous agent patterns.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale agentic-ai repository and DeepLearning.AI course page as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-agentic-ai
+    - deeplearning-ai-agentic-ai-course
+  notes: Course-note framing; detailed framework behavior should be verified against official framework docs.
+
+- id: practice-p2-claim-0002
+  domain: ai-agent
+  component: agent-skills
+  statement: >-
+    Datawhale's agent-skills-with-anthropic repository is a Chinese learning resource around DeepLearning.AI's Agent Skills with Anthropic course, covering why to use skills, skills versus tools/MCP/subagents, custom skills, Claude API, Claude Code, and Claude Agent SDK usage.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale agent-skills-with-anthropic repository and DeepLearning.AI course page as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-agent-skills-with-anthropic
+    - deeplearning-ai-agent-skills-course
+  notes: Course-note framing.
+
+- id: practice-p2-claim-0003
+  domain: ai-agent
+  component: agent-skills
+  statement: >-
+    Anthropic documentation frames Agent Skills as reusable capability packages that can include instructions, scripts, and resources; this makes skills different from raw tools, MCP servers, and subagents and also creates a security boundary around code and tool use.
+  status: reviewed
+  confidence: high
+  version_scope: "Anthropic docs and Claude blog as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - anthropic-agent-skills-docs
+    - anthropic-skills-explained-blog
+  notes: Official conceptual claim.
+
+- id: practice-p2-claim-0004
+  domain: ai-agent
+  component: metagpt
+  statement: >-
+    Datawhale's hugging-multi-agent repository is a MetaGPT-based practical guide for learning multi-agent systems from concepts to code-level role and action development.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale hugging-multi-agent repository and MetaGPT repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-hugging-multi-agent
+    - metagpt-github
+  notes: Community course framing plus official repository positioning.
+
+- id: practice-p2-claim-0005
+  domain: ai-agent
+  component: langchain-langgraph-lagent
+  statement: >-
+    Datawhale's easy-langent repository is a practical Chinese course that connects LangChain and LangGraph components, RAG, memory, tools, multi-agent collaboration, and comprehensive agent projects.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale easy-langent repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-easy-langent
+    - langgraph-overview-docs
+    - lagent-github
+  notes: Community course framing and official framework references.
+
+- id: practice-p2-claim-0006
+  domain: ai-agent
+  component: rag
+  statement: >-
+    Datawhale's wow-rag and llm-universe repositories are suitable sources for an application-oriented RAG learning path covering LLM API calling, knowledge-base setup, document processing, vector retrieval, prompt engineering, QA chains, deployment, validation, and iteration.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale wow-rag and llm-universe repositories as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-wow-rag
+    - practice-llm-universe
+  notes: Community course framing; retrieval and vector database mechanisms should continue to rely on primary retrieval sources already used in RAG pattern docs.
+
+- id: practice-p2-claim-0007
+  domain: ai-agent
+  component: deepseek
+  statement: >-
+    Datawhale's unlock-deepseek repository is a paper-reading and reproduction learning path for DeepSeek-related models and infrastructure, but model architecture, benchmark, API, and lifecycle claims must be verified against DeepSeek official repositories, papers, and API docs.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale unlock-deepseek repository and DeepSeek official sources as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-unlock-deepseek
+    - deepseek-r1-github
+    - deepseek-api-docs
+  notes: Use as a case source, not as sole authority for model behavior or benchmark claims.

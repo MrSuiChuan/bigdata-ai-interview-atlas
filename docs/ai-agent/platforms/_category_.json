@@ -1,0 +1,9 @@
+{
+  "label": "平台",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "title": "AI Agent 平台",
+    "description": "面向 Dify、Coze、Ollama 等平台型产品的运行时、编排与落地专题。"
+  }
+}

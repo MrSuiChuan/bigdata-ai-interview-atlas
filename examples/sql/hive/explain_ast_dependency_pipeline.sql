@@ -1,0 +1,17 @@
+EXPLAIN AST
+SELECT dt, COUNT(*) AS cnt
+FROM dwd_orders
+WHERE dt = '2026-04-25'
+GROUP BY dt;
+
+EXPLAIN DEPENDENCY
+SELECT dt, COUNT(*) AS cnt
+FROM dwd_orders
+WHERE dt = '2026-04-25'
+GROUP BY dt;
+
+EXPLAIN EXTENDED
+SELECT dt, COUNT(*) AS cnt
+FROM dwd_orders
+WHERE dt = '2026-04-25'
+GROUP BY dt;

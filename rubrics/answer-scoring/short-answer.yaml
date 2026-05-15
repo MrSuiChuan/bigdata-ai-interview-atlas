@@ -1,0 +1,15 @@
+- id: rubric-short-answer-default
+  question_type: short_answer
+  dimensions:
+    - name: accuracy
+      weight: 0.4
+    - name: completeness
+      weight: 0.3
+    - name: clarity
+      weight: 0.2
+    - name: tradeoff_awareness
+      weight: 0.1
+  output_requirements:
+    - identify whether required points are present
+    - call out material mistakes explicitly
+    - give one short improvement suggestion

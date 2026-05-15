@@ -1,0 +1,9 @@
+{
+  "label": "Flink",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "title": "Flink",
+    "description": "Flink 知识库：覆盖 JobManager、TaskManager、State、Checkpoint、Watermark、Window、反压与恢复边界。"
+  }
+}

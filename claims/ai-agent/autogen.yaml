@@ -1,0 +1,103 @@
+- id: autogen-claim-0001
+  domain: ai-agent
+  component: autogen
+  statement: >-
+    AutoGen AgentChat is described as a high-level API for rapid prototyping and easy learning that is built on top of autogen-core.
+  status: reviewed
+  confidence: high
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - autogen-agentchat-docs
+  notes: Core positioning claim for AutoGen.
+
+- id: autogen-claim-0002
+  domain: ai-agent
+  component: autogen
+  statement: >-
+    AutoGen guidance recommends starting with a single agent when possible and only using teams when the task is too complex for one agent.
+  status: reviewed
+  confidence: high
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - autogen-teams-docs
+  notes: High-value anti-overengineering claim for interview answers.
+
+- id: autogen-claim-0003
+  domain: ai-agent
+  component: autogen
+  statement: >-
+    In AutoGen RoundRobinGroupChat, all agents share the same message context and take turns responding in sequence.
+  status: reviewed
+  confidence: high
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - autogen-teams-docs
+  notes: Useful when explaining one concrete team coordination mode.
+
+- id: autogen-claim-0004
+  domain: ai-agent
+  component: autogen
+  statement: >-
+    AutoGen human-in-the-loop guidance presents UserProxyAgent as a blocking approach for human feedback and warns that application state cannot be saved or resumed while waiting.
+  status: reviewed
+  confidence: high
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - autogen-human-in-the-loop-docs
+  notes: Important boundary for pause-resume and production design questions.
+
+- id: autogen-claim-0005
+  domain: ai-agent
+  component: autogen
+  statement: >-
+    AutoGen includes built-in tracing and supports collecting traces with OpenTelemetry-compatible backends.
+  status: reviewed
+  confidence: high
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - autogen-tracing-docs
+  notes: Use for observability discussions.
+
+- id: autogen-claim-0006
+  domain: ai-agent
+  component: autogen
+  statement: >-
+    A Workbench in AutoGen is a collection of tools and resources that share state, resources, and configuration within a specific scope.
+  status: reviewed
+  confidence: high
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - autogen-workbench-docs
+  notes: Useful for explaining tool organization beyond individual function registration.
+
+- id: autogen-claim-0007
+  domain: ai-agent
+  component: autogen
+  statement: >-
+    McpWorkbench is documented as an implementation of the Workbench interface that connects to MCP servers and makes their tools available to agents.
+  status: reviewed
+  confidence: high
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - autogen-workbench-docs
+  notes: Strong bridge claim between AutoGen and MCP.
+
+- id: autogen-claim-0008
+  domain: ai-agent
+  component: autogen
+  statement: >-
+    AutoGen runtime environments are designed to abstract message delivery, agent identity, lifecycle management, and security boundaries across standalone and distributed deployments.
+  status: reviewed
+  confidence: high
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - autogen-runtime-docs
+  notes: High-value architecture claim for explaining autogen-core versus simple chat orchestration.

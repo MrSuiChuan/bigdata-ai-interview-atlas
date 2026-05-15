@@ -1,0 +1,1549 @@
+- id: openai-agents-sdk-docs
+  title: OpenAI Agents SDK
+  kind: official-doc
+  component: openai-agents-sdk
+  url: https://openai.github.io/openai-agents-python/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use as the main source for SDK positioning, primitives, and runtime framing.
+
+- id: openai-platform-agents-overview
+  title: OpenAI API Docs - Agents SDK
+  kind: official-doc
+  component: openai-agents-sdk
+  url: https://developers.openai.com/api/docs/guides/agents
+  version_scope: "OpenAI API docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for the current OpenAI platform guide, section map, and production-facing SDK framing.
+
+- id: openai-agents-sdk-tools
+  title: OpenAI Agents SDK - Tools
+  kind: official-doc
+  component: openai-agents-sdk
+  url: https://openai.github.io/openai-agents-python/tools/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for function tools, hosted tools, agents as tools, and tool-schema behavior.
+
+- id: openai-agents-sdk-handoffs
+  title: OpenAI Agents SDK - Handoffs
+  kind: official-doc
+  component: openai-agents-sdk
+  url: https://openai.github.io/openai-agents-python/handoffs/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for delegation semantics, handoff inputs, and the distinction between handoffs and agents-as-tools.
+
+- id: openai-agents-sdk-sessions
+  title: OpenAI Agents SDK - Sessions
+  kind: official-doc
+  component: openai-agents-sdk
+  url: https://openai.github.io/openai-agents-python/sessions/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for session memory, conversation history retrieval, and session backends.
+
+- id: openai-agents-sdk-guardrails
+  title: OpenAI Agents SDK - Guardrails
+  kind: official-doc
+  component: openai-agents-sdk
+  url: https://openai.github.io/openai-agents-python/guardrails/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for input, output, and tool guardrails, execution boundaries, and tripwires.
+
+- id: openai-agents-sdk-tracing
+  title: OpenAI Agents SDK - Tracing
+  kind: official-doc
+  component: openai-agents-sdk
+  url: https://openai.github.io/openai-agents-python/tracing/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for built-in tracing, trace/span coverage, and observability behavior.
+
+- id: dify-agent-docs
+  title: Dify Docs - Agent
+  kind: official-doc
+  component: dify
+  url: https://docs.dify.ai/en/use-dify/build/agent
+  version_scope: "Dify docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for Dify Agent positioning, tool use, prompt guidance, and knowledge retrieval behavior.
+
+- id: dify-agent-node-docs
+  title: Dify Docs - Workflow Agent Node
+  kind: official-doc
+  component: dify
+  url: https://docs.dify.ai/en/guides/workflow/node/agent
+  version_scope: "Dify docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for Agent node outputs, reasoning trace, tool outputs, iteration count, success status, and workflow integration.
+
+- id: dify-knowledge-pipeline-docs
+  title: Dify Docs - Knowledge Pipeline
+  kind: official-doc
+  component: dify
+  url: https://docs.dify.ai/en/use-dify/knowledge/knowledge-pipeline/create-knowledge-pipeline
+  version_scope: "Dify docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for Dify knowledge pipeline, chunking, data processing, and DSL-based knowledge workflow configuration.
+
+- id: ollama-docs
+  title: Ollama Documentation
+  kind: official-doc
+  component: ollama
+  url: https://docs.ollama.com/
+  version_scope: "Ollama docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for Ollama positioning, model running, API reference, and official library references.
+
+- id: ollama-modelfile-docs
+  title: Ollama Docs - Modelfile
+  kind: official-doc
+  component: ollama
+  url: https://docs.ollama.com/modelfile
+  version_scope: "Ollama docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for Modelfile as the blueprint for creating and sharing customized Ollama models.
+
+- id: ollama-openai-compat-docs
+  title: Ollama Docs - OpenAI Compatibility
+  kind: official-doc
+  component: ollama
+  url: https://docs.ollama.com/openai
+  version_scope: "Ollama docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for OpenAI-compatible client integration and local API compatibility boundaries.
+
+- id: coze-studio-github
+  title: Coze Studio GitHub Repository
+  kind: official-repository
+  component: coze
+  url: https://github.com/coze-dev/coze-studio
+  version_scope: "Coze Studio GitHub repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for Coze Studio positioning as an AI agent development platform, visual tools, deployment, workflow runtime, plugin, and knowledge base references.
+
+- id: camel-ai-docs
+  title: CAMEL-AI Documentation
+  kind: official-doc
+  component: camel-ai
+  url: https://docs.camel-ai.org/
+  version_scope: "CAMEL-AI docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for CAMEL-AI framework positioning, multi-agent systems, and AI application development concepts.
+
+- id: camel-ai-workforce-docs
+  title: CAMEL-AI Workforce Documentation
+  kind: official-doc
+  component: camel-ai
+  url: https://docs.camel-ai.org/key_modules/workforce
+  version_scope: "CAMEL-AI docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for Workforce as a multi-agent collaboration engine and role-based worker orchestration.
+
+- id: langgraph-overview-docs
+  title: LangGraph Overview
+  kind: official-doc
+  component: langgraph
+  url: https://docs.langchain.com/oss/python/langgraph/overview
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for LangGraph positioning as a low-level orchestration runtime for long-running stateful agents.
+
+- id: langgraph-persistence-docs
+  title: LangGraph Persistence
+  kind: official-doc
+  component: langgraph
+  url: https://docs.langchain.com/oss/python/langgraph/persistence
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for checkpoints, threads, fault tolerance, memory, and time travel.
+
+- id: langgraph-streaming-docs
+  title: LangGraph Streaming
+  kind: official-doc
+  component: langgraph
+  url: https://docs.langchain.com/oss/python/langgraph/streaming
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for real-time updates, token streaming, and debug or state streaming modes.
+
+- id: langgraph-human-in-the-loop-docs
+  title: LangGraph Interrupts and Human-in-the-Loop
+  kind: official-doc
+  component: langgraph
+  url: https://docs.langchain.com/oss/python/langgraph/human-in-the-loop
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for interrupts, pause-resume semantics, approvals, and thread-based resumption.
+
+- id: microsoft-agent-framework-overview
+  title: Microsoft Agent Framework Overview
+  kind: official-doc
+  component: microsoft-agent-framework
+  url: https://learn.microsoft.com/en-us/agent-framework/overview/
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for overall positioning, direct successor framing, and preview status.
+
+- id: microsoft-agent-framework-workflows
+  title: Microsoft Agent Framework Workflows
+  kind: official-doc
+  component: microsoft-agent-framework
+  url: https://learn.microsoft.com/en-us/agent-framework/workflows/
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for workflow versus agent distinctions, executors, edges, checkpointing, and multi-agent orchestration.
+
+- id: microsoft-agent-framework-conversations
+  title: Microsoft Agent Framework Conversations and Memory
+  kind: official-doc
+  component: microsoft-agent-framework
+  url: https://learn.microsoft.com/en-us/agent-framework/agents/conversations/
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for AgentSession, conversation context, serialization, and resumption.
+
+- id: microsoft-agent-framework-observability
+  title: Microsoft Agent Framework Observability
+  kind: official-doc
+  component: microsoft-agent-framework
+  url: https://learn.microsoft.com/en-us/agent-framework/user-guide/observability
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for built-in observability, OpenTelemetry integration, and traces, logs, metrics.
+
+- id: microsoft-agent-framework-workflow-events
+  title: Microsoft Agent Framework Workflow Events
+  kind: official-doc
+  component: microsoft-agent-framework
+  url: https://learn.microsoft.com/en-us/agent-framework/workflows/events
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for event-driven observability, lifecycle events, executor events, and streaming event consumption.
+
+- id: mcp-introduction
+  title: Model Context Protocol Introduction
+  kind: official-spec-doc
+  component: mcp
+  url: https://modelcontextprotocol.io/introduction
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for MCP positioning as an open standard for connecting AI applications to external context and tools.
+
+- id: mcp-architecture
+  title: MCP Architecture Overview
+  kind: official-spec-doc
+  component: mcp
+  url: https://modelcontextprotocol.io/docs/learn/architecture
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for host-client-server architecture, data and transport layers, and transport mechanisms.
+
+- id: mcp-server-concepts
+  title: Understanding MCP Servers
+  kind: official-spec-doc
+  component: mcp
+  url: https://modelcontextprotocol.io/docs/learn/server-concepts
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for tools, resources, prompts, and server capability exposure.
+
+- id: mcp-resources
+  title: MCP Resources
+  kind: official-spec-doc
+  component: mcp
+  url: https://modelcontextprotocol.io/docs/concepts/resources
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for resource semantics, URI identity, and application-driven context inclusion.
+
+- id: mcp-prompts
+  title: MCP Prompts
+  kind: official-spec-doc
+  component: mcp
+  url: https://modelcontextprotocol.io/docs/concepts/prompts
+  version_scope: "MCP docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for prompt templates, argumentized retrieval, embedded resources, and user-controlled prompt discovery.
+
+- id: autogen-agentchat-docs
+  title: AutoGen AgentChat
+  kind: official-doc
+  component: autogen
+  url: https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/index.html
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for AgentChat positioning as a high-level API built on autogen-core.
+
+- id: autogen-teams-docs
+  title: AutoGen Teams
+  kind: official-doc
+  component: autogen
+  url: https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for team presets, RoundRobinGroupChat, multi-agent guidance, reset, and resume behavior.
+
+- id: autogen-human-in-the-loop-docs
+  title: AutoGen Human-in-the-Loop
+  kind: official-doc
+  component: autogen
+  url: https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/human-in-the-loop.html
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for UserProxyAgent, blocking feedback semantics, and human interaction patterns.
+
+- id: autogen-tracing-docs
+  title: AutoGen Tracing and Observability
+  kind: official-doc
+  component: autogen
+  url: https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tracing.html
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for built-in tracing, OpenTelemetry support, and telemetry backends.
+
+- id: autogen-workbench-docs
+  title: AutoGen Workbench and MCP
+  kind: official-doc
+  component: autogen
+  url: https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/components/workbench.html
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for Workbench semantics, shared tools and resources, and McpWorkbench integration.
+
+- id: autogen-runtime-docs
+  title: AutoGen Agent Runtime Environments
+  kind: official-doc
+  component: autogen
+  url: https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/core-concepts/architecture.html
+  version_scope: "AutoGen stable docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for standalone versus distributed runtime, common APIs, identity, lifecycle, and security boundaries.
+
+- id: crewai-introduction-docs
+  title: CrewAI Introduction
+  kind: official-doc
+  component: crewai
+  url: https://docs.crewai.com/en/introduction
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for overall CrewAI positioning, Crews versus Flows, and production-ready framing.
+
+- id: crewai-crews-docs
+  title: CrewAI Crews
+  kind: official-doc
+  component: crewai
+  url: https://docs.crewai.com/en/concepts/crews
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for Crew definition, processes, memory, checkpointing, and usage metrics.
+
+- id: crewai-flows-docs
+  title: CrewAI Flows
+  kind: official-doc
+  component: crewai
+  url: https://docs.crewai.com/en/concepts/flows
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for event-driven workflows, state management, persistence, and flow control semantics.
+
+- id: crewai-processes-docs
+  title: CrewAI Processes
+  kind: official-doc
+  component: crewai
+  url: https://docs.crewai.com/en/concepts/processes
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for sequential versus hierarchical processes and manager requirements.
+
+- id: crewai-memory-docs
+  title: CrewAI Memory
+  kind: official-doc
+  component: crewai
+  url: https://docs.crewai.com/en/concepts/memory
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for unified memory system, recall semantics, and memory usage modes.
+
+- id: crewai-tracing-docs
+  title: CrewAI Tracing
+  kind: official-doc
+  component: crewai
+  url: https://docs.crewai.com/en/observability/tracing
+  version_scope: "CrewAI docs v1.14.x as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for built-in tracing, AMP observability, tracing enablement, and trace content.
+
+- id: semantic-kernel-introduction
+  title: Introduction to Semantic Kernel
+  kind: official-doc
+  component: semantic-kernel
+  url: https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/semantic-functions
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for Semantic Kernel's lightweight middleware positioning and enterprise framing.
+
+- id: semantic-kernel-kernel-docs
+  title: Understanding the Kernel in Semantic Kernel
+  kind: official-doc
+  component: semantic-kernel
+  url: https://learn.microsoft.com/en-us/semantic-kernel/concepts/kernel
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for the kernel as the central DI container and runtime hub.
+
+- id: semantic-kernel-plugins-docs
+  title: Plugins in Semantic Kernel
+  kind: official-doc
+  component: semantic-kernel
+  url: https://learn.microsoft.com/en-us/semantic-kernel/concepts/plugins/
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for plugin semantics, function calling, dependency injection, and import modes including MCP.
+
+- id: semantic-kernel-agent-framework-docs
+  title: Semantic Kernel Agent Framework
+  kind: official-doc
+  component: semantic-kernel
+  url: https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for Agent Framework positioning, collaboration, and agent capabilities.
+
+- id: semantic-kernel-agent-orchestration-docs
+  title: Semantic Kernel Agent Orchestration
+  kind: official-doc
+  component: semantic-kernel
+  url: https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/agent-orchestration/
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for orchestration patterns, unified interface, and experimental status.
+
+- id: semantic-kernel-process-framework-docs
+  title: Semantic Kernel Process Framework Core Components
+  kind: official-doc
+  component: semantic-kernel
+  url: https://learn.microsoft.com/en-us/semantic-kernel/frameworks/process/process-core-components
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for process and step semantics, statefulness, pause-resume, and event-driven flow.
+
+- id: semantic-kernel-observability-docs
+  title: Semantic Kernel Observability
+  kind: official-doc
+  component: semantic-kernel
+  url: https://learn.microsoft.com/en-us/semantic-kernel/concepts/enterprise-readiness/observability/
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for logs, metrics, traces, and OpenTelemetry compatibility.
+
+- id: a2a-overview-docs
+  title: Agent2Agent (A2A) Protocol Overview
+  kind: official-doc
+  component: a2a
+  url: https://a2a-protocol.org/dev/specification/
+  version_scope: "A2A docs and current specification overview as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for A2A positioning, collaboration framing, and high-level protocol goals.
+
+- id: a2a-spec-docs
+  title: Agent2Agent (A2A) Protocol Specification
+  kind: official-spec-doc
+  component: a2a
+  url: https://a2a-protocol.org/dev/specification/
+  version_scope: "A2A specification latest released overview as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for JSON-RPC, HTTP transport, tasks, task status, agent card structure, and authentication rules.
+
+- id: a2a-agent-discovery-docs
+  title: Agent Discovery in A2A
+  kind: official-doc
+  component: a2a
+  url: https://a2a-protocol.org/latest/topics/agent-discovery/
+  version_scope: "A2A docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for Agent Card purpose, recommended discovery path, capabilities, and auth metadata.
+
+- id: a2a-and-mcp-docs
+  title: A2A and MCP
+  kind: official-doc
+  component: a2a
+  url: https://a2a-protocol.org/latest/topics/a2a-and-mcp/
+  version_scope: "A2A docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for the boundary between tool protocols and agent-to-agent protocols and the recommendation that MCP is for tools while A2A is for agents.
+
+- id: a2a-enterprise-docs
+  title: A2A Enterprise-Ready Features
+  kind: official-doc
+  component: a2a
+  url: https://a2a-protocol.org/latest/topics/enterprise-ready/
+  version_scope: "A2A docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for TLS, authentication, authorization, enterprise integration, and security guidance.
+
+- id: a2a-google-blog
+  title: Announcing the Agent2Agent Protocol (A2A)
+  kind: official-blog
+  component: a2a
+  url: https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/
+  version_scope: "Google Developers Blog as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for launch context, design principles, and long-running task framing.
+
+- id: rag-paper
+  title: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2005.11401
+  version_scope: "NeurIPS 2020 paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for the original RAG formulation, parametric versus non-parametric memory, and retriever-generator architecture.
+
+- id: react-paper
+  title: ReAct - Synergizing Reasoning and Acting in Language Models
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2210.03629
+  version_scope: "ICLR 2023 paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for the interleaved reasoning-and-acting loop and as a contrast to separated planner-executor structures.
+
+- id: self-refine-paper
+  title: Self-Refine - Iterative Refinement with Self-Feedback
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2303.17651
+  version_scope: "Self-Refine paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for iterative feedback and refinement by the same LLM without extra training.
+
+- id: reflexion-paper
+  title: Reflexion - Language Agents with Verbal Reinforcement Learning
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2303.11366
+  version_scope: "Reflexion paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for verbal reinforcement, episodic memory, and reflection-driven improvement.
+
+- id: memgpt-paper
+  title: MemGPT - Towards LLMs as Operating Systems
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2310.08560
+  version_scope: "MemGPT paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for virtual context management, memory tiers, and OS-inspired memory architecture.
+
+- id: generative-agents-paper
+  title: Generative Agents - Interactive Simulacra of Human Behavior
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2304.03442
+  version_scope: "Generative Agents paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for memory stream, reflection, planning, and retrieval-driven memory architecture.
+
+- id: langgraph-thinking-docs
+  title: Thinking in LangGraph
+  kind: official-doc
+  component: agent-patterns
+  url: https://docs.langchain.com/oss/python/langgraph/thinking-in-langgraph
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for decomposing agent workflows into discrete steps, state design, action nodes, and retry/error patterns.
+
+- id: langgraph-durable-execution-docs
+  title: LangGraph Durable Execution
+  kind: official-doc
+  component: agent-patterns
+  url: https://docs.langchain.com/oss/python/langgraph/durable-execution
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  trust_level: primary
+  notes: Use for checkpointing, pause-resume, idempotency, and long-running workflow design.
+
+- id: hyde-paper
+  title: Precise Zero-Shot Dense Retrieval without Relevance Labels
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2212.10496
+  version_scope: "ACL 2023 HyDE paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for query transformation through hypothetical document generation in zero-shot dense retrieval.
+
+- id: colbertv2-paper
+  title: ColBERTv2 - Effective and Efficient Retrieval via Lightweight Late Interaction
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2112.01488
+  version_scope: "NAACL 2022 paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for reranking, late interaction, and retrieval precision versus storage tradeoffs.
+
+- id: memorybank-paper
+  title: MemoryBank - Enhancing Large Language Models with Long-Term Memory
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2305.10250
+  version_scope: "MemoryBank paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for long-term memory updating, forgetting curves, and selective memory preservation.
+
+- id: longmem-paper
+  title: Augmenting Language Models with Long-Term Memory
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2306.07174
+  version_scope: "LongMem paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for decoupled long-term memory architecture and retrieval over unlimited-length history.
+
+- id: openai-file-search-docs
+  title: OpenAI File Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/tools-file-search
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for hybrid semantic and keyword retrieval, file citations, result inclusion, and metadata filtering.
+
+- id: openai-retrieval-guide
+  title: OpenAI Retrieval Guide
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/retrieval
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for vector stores, automatic chunking and indexing, query rewriting, attribute filtering, ranking options, and chunking defaults.
+
+- id: dpr-paper
+  title: Dense Passage Retrieval for Open-Domain Question Answering
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2004.04906
+  version_scope: "DPR paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for dense retrieval, dual-encoder indexing logic, and retrieval accuracy comparisons against BM25.
+
+- id: lost-in-the-middle-paper
+  title: Lost in the Middle - How Language Models Use Long Contexts
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2307.03172
+  version_scope: "Lost in the Middle paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for long-context position effects and why chunk packing still matters even with long-context models.
+
+- id: azure-vector-query-filters
+  title: Vector Query Filters - Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/vector-search-filters
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for preFilter, postFilter, strictPostFilter, HNSW-stage filtering behavior, and recall-latency tradeoffs.
+
+- id: azure-agentic-retrieval-overview
+  title: Agentic Retrieval Overview - Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for query decomposition, parallel subquery execution, semantic reranking, grounding data, and activity plan output.
+
+- id: azure-rag-evaluators
+  title: Retrieval-Augmented Generation (RAG) Evaluators - Microsoft Foundry
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/rag-evaluators
+  version_scope: "Microsoft Foundry docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for process evaluation versus system evaluation, retrieval metrics, and parameter optimization guidance for RAG.
+
+- id: alce-paper
+  title: Enabling Large Language Models to Generate Text with Citations
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2305.14627
+  version_scope: "ALCE paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for automatic citation evaluation, citation quality metrics, and the gap between answer quality and citation support.
+
+- id: attribute-first-paper
+  title: Attribute First, then Generate - Locally-attributable Grounded Text Generation
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2403.17104
+  version_scope: "ACL 2024 paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for evidence selection before generation, sentence planning, and fine-grained attribution.
+
+- id: rarr-paper
+  title: RARR - Researching and Revising What Language Models Say, Using Language Models
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2210.08726
+  version_scope: "ACL 2023 paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for retrieval-backed revision, attribution repair, and post-editing unsupported claims.
+
+- id: azure-indexer-overview
+  title: Indexers in Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/search-indexer-overview
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for pull model ingestion, change detection, indexer scheduling, and when to prefer push ingestion.
+
+- id: azure-create-indexer
+  title: Create an Indexer - Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/search-how-to-create-indexers
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for internal high-water marks, incremental indexing, and scheduling dependencies on change detection.
+
+- id: azure-run-reset-indexers
+  title: Run or Reset Indexers - Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/search-howto-run-reset-indexers
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for run versus reset behavior, full reindex semantics, partial reindex options, and concurrency/runtime boundaries.
+
+- id: azure-change-delete-detection
+  title: Change and Delete Detection Using Indexers for Azure Storage
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/search-how-to-index-azure-blob-changed-deleted
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for incremental freshness, deletion detection, soft delete strategy, and LastModified-based reindex behavior.
+
+- id: azure-update-rebuild-index
+  title: Update or Rebuild an Index - Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/search-howto-reindex
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for content updates, mergeOrUpload semantics, schema changes requiring rebuild, alias-based cutover, and null defaults for newly added fields.
+
+- id: azure-monitor-indexers
+  title: Monitor Indexer Status and Results - Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/search-monitor-indexers
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for execution history, start-end times, warnings, errors, and initial/final tracking state in debugging workflows.
+
+- id: azure-indexer-troubleshooting
+  title: Troubleshooting Common Indexer Errors and Warnings in Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/cognitive-search-common-errors-warnings
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for transient versus persistent failures, scheduling recommendations, maxFailedItems behavior, and debugging indexer errors.
+
+- id: azure-bm25-scoring
+  title: Relevance in Keyword Search (BM25 Scoring) - Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/index-similarity-and-scoring
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for BM25 score interpretation, featuresMode, and field-level score debugging.
+
+- id: beir-paper
+  title: BEIR - A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2104.08663
+  version_scope: "BEIR paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for heterogeneous offline retrieval evaluation, zero-shot generalization, and cost-performance tradeoffs across retrieval families.
+
+- id: ircot-paper
+  title: Interleaving Retrieval with Chain-of-Thought Reasoning for Knowledge-Intensive Multi-Step Questions
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2212.10509
+  version_scope: "ACL 2023 paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for multi-hop retrieval, interleaving retrieval with reasoning steps, and limits of one-shot retrieve-and-read.
+
+- id: self-rag-paper
+  title: Self-RAG - Learning to Retrieve, Generate, and Critique through Self-Reflection
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2310.11511
+  version_scope: "ICLR 2024 paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for adaptive on-demand retrieval, reflection tokens, and retrieval-critique loops.
+
+- id: graphrag-paper
+  title: From Local to Global - A Graph RAG Approach to Query-Focused Summarization
+  kind: research-paper
+  component: agent-patterns
+  url: https://arxiv.org/abs/2404.16130
+  version_scope: "GraphRAG paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for graph-based indexing, community summaries, and global sensemaking questions over corpora.
+
+- id: graphrag-local-search-docs
+  title: GraphRAG Local Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://microsoft.github.io/graphrag/query/local_search/
+  version_scope: "GraphRAG docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for entity-based reasoning, mixed structured-plus-unstructured context, and prioritized local context building.
+
+- id: graphrag-global-search-docs
+  title: GraphRAG Global Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://microsoft.github.io/graphrag/query/global_search/
+  version_scope: "GraphRAG docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for map-reduce over community reports, whole-dataset reasoning, and hierarchy tradeoffs.
+
+- id: graphrag-drift-search-docs
+  title: GraphRAG DRIFT Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://microsoft.github.io/graphrag/query/drift_search/
+  version_scope: "GraphRAG docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for combining global and local search, follow-up question expansion, and quality-cost balancing.
+
+- id: azure-security-filter-pattern
+  title: Security Filter Pattern - Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/search-security-trimming-for-azure-search
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for filter-based security trimming, identity fields, and `search.in`-based permission filtering.
+
+- id: azure-document-level-access
+  title: Document-Level Access Control - Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for token-based permission enforcement, Purview sensitivity labels, and query-time authorization.
+
+- id: azure-query-time-acl-rbac
+  title: Query-Time ACL and RBAC Enforcement - Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/search-query-access-control-rbac-enforcement
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for indexing permission metadata, query-time internal security filters, ACL limits, and authorization semantics.
+
+- id: azure-multitenant-saas-search
+  title: Design Patterns for Multitenant SaaS Applications and Azure AI Search
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/azure/search/search-modeling-multitenant-saas-applications
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for index-per-tenant versus service-per-tenant versus hybrid isolation patterns and relevance tradeoffs in shared indexes.
+
+- id: openai-prompt-caching-guide
+  title: Prompt Caching - OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/prompt-caching
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for exact-prefix caching, 1024-token threshold, cache hit metrics, retention windows, and prompt structuring guidance.
+
+- id: openai-latency-optimization-guide
+  title: Latency Optimization - OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/latency-optimization
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for latency principles, fewer requests, parallelization, smaller-model tradeoffs, and token reduction heuristics.
+
+- id: openai-cost-optimization-guide
+  title: Cost Optimization - OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/cost-optimization
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for linking request count, token count, model size, and async processing to cost reduction.
+
+- id: openai-batch-guide
+  title: Batch API - OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/batch
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for 50 percent lower costs, higher async throughput, and 24-hour offline processing semantics.
+
+- id: openai-flex-processing-guide
+  title: Flex Processing - OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/flex-processing
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for lower-cost slower-tier processing and non-production asynchronous workload placement.
+
+- id: openai-computer-use-guide
+  title: Computer use - OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/tools-computer-use
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for environment actions, action-loop semantics, screenshots, and human-in-the-loop safety guidance.
+
+- id: openai-agent-evals-guide
+  title: Evaluate agent workflows - OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/agent-evals
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for trace grading, datasets, eval runs, workflow-level debugging, and regression detection.
+
+- id: openai-evaluation-best-practices
+  title: Evaluation best practices - OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/evaluation-best-practices
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for eval-driven development, continuous evaluation, task-specific evals, and anti-patterns such as vibe-based evaluation.
+
+- id: openai-graders-guide
+  title: Graders - OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/graders
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for structured scoring, grader types, and 0-to-1 scoring semantics.
+
+- id: openai-trace-grading-guide
+  title: Trace grading - OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/trace-grading
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for trace-level labels and scores, regression detection, and why trace evals provide more insight than black-box evaluation.
+
+- id: langgraph-subgraphs-docs
+  title: LangGraph Subgraphs
+  kind: official-doc
+  component: agent-patterns
+  url: https://docs.langchain.com/oss/python/langgraph/use-subgraphs
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for multi-agent subgraph orchestration, private versus shared state, and per-invocation versus per-thread persistence.
+
+- id: microsoft-agent-framework-checkpoints
+  title: Microsoft Agent Framework Workflows - Checkpoints
+  kind: official-doc
+  component: agent-patterns
+  url: https://learn.microsoft.com/en-us/agent-framework/workflows/checkpoints
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for superstep checkpoints, shared state capture, and pause-resume semantics in long-running workflows.
+
+- id: openai-background-mode-guide
+  title: Background mode - OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/background
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for asynchronous long-running tasks, polling states, cancellation, and resumable background streaming.
+
+- id: openai-data-controls-guide
+  title: Data controls in the OpenAI platform
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/your-data
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for retention periods, Zero Data Retention behavior, endpoint-specific application-state storage, and third-party tool retention boundaries.
+
+- id: presidio-home
+  title: Presidio - Data Protection and De-identification SDK
+  kind: official-doc
+  component: agent-patterns
+  url: https://microsoft.github.io/presidio/
+  version_scope: "Microsoft Presidio docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for PII detection and anonymization goals, supported detection modes, and the explicit warning that automated detection is not exhaustive.
+
+- id: presidio-telemetry-redaction
+  title: Redacting Telemetry with Presidio
+  kind: official-doc
+  component: agent-patterns
+  url: https://microsoft.github.io/presidio/samples/deployments/redacting-telemetry/
+  version_scope: "Microsoft Presidio docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for practical client-side PII masking before exporting logs or traces.
+
+- id: openai-structured-outputs-guide
+  title: Structured model outputs | OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://platform.openai.com/docs/guides/structured-outputs
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for schema adherence versus JSON mode, explicit refusals, supported schema constraints, and validation boundaries.
+
+- id: openai-agents-sdk-results
+  title: OpenAI Agents SDK - Results
+  kind: official-doc
+  component: agent-patterns
+  url: https://openai.github.io/openai-agents-python/results/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for final_output semantics, typed outputs, new_items, interruptions, last_response_id, and to_state snapshots.
+
+- id: openai-agents-sdk-agent-ref
+  title: OpenAI Agents SDK - Agent Reference
+  kind: official-doc
+  component: agent-patterns
+  url: https://openai.github.io/openai-agents-python/ref/agent/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for output_type defaults, dataclass or Pydantic or TypedDict outputs, strict_json_schema configuration, and custom output schema hooks.
+
+- id: openai-agents-sdk-function-schema
+  title: OpenAI Agents SDK - Function Schema
+  kind: official-doc
+  component: agent-patterns
+  url: https://openai.github.io/openai-agents-python/ref/function_schema/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for tool parameter schema generation, strict_json_schema defaults, and docstring-derived function metadata.
+
+- id: openai-agents-sdk-strict-schema
+  title: OpenAI Agents SDK - Strict Schema
+  kind: official-doc
+  component: agent-patterns
+  url: https://openai.github.io/openai-agents-python/ref/strict_schema/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for ensuring JSON schema conforms to the strict standard expected by the OpenAI API.
+
+- id: langgraph-use-graph-api-docs
+  title: LangGraph Use the Graph API
+  kind: official-doc
+  component: agent-patterns
+  url: https://docs.langchain.com/oss/python/langgraph/use-graph-api
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for retry policies, runtime.execution_info, retry-aware fallback behavior, and node-level execution identity.
+
+- id: langgraph-use-functional-api-docs
+  title: LangGraph Use the Functional API
+  kind: official-doc
+  component: agent-patterns
+  url: https://docs.langchain.com/oss/python/langgraph/use-functional-api
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for task retry policy, CachePolicy TTL behavior, cached-result reuse, and resuming after errors.
+
+- id: langgraph-double-texting-docs
+  title: LangGraph Platform Double Texting
+  kind: official-doc
+  component: agent-patterns
+  url: https://docs.langchain.com/langgraph-platform/double-texting
+  version_scope: "LangGraph Platform docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for enqueue, reject, interrupt, and rollback multitask strategies on per-thread concurrent runs.
+
+- id: langgraph-use-threads-docs
+  title: LangGraph Platform Use Threads
+  kind: official-doc
+  component: agent-patterns
+  url: https://docs.langchain.com/langgraph-platform/use-threads
+  version_scope: "LangGraph Platform docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for thread persistence semantics, per-thread state across runs, copying threads, and thread status values.
+
+- id: langgraph-interrupt-concurrent-docs
+  title: LangGraph Platform Interrupt Concurrent
+  kind: official-doc
+  component: agent-patterns
+  url: https://docs.langchain.com/langgraph-platform/interrupt-concurrent
+  version_scope: "LangGraph Platform docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for interrupt-based multitask strategy, interrupted run status retention, and mixed old-plus-new state behavior.
+
+- id: langgraph-reject-concurrent-docs
+  title: LangGraph Platform Reject Concurrent
+  kind: official-doc
+  component: agent-patterns
+  url: https://docs.langchain.com/langgraph-platform/reject-concurrent
+  version_scope: "LangGraph Platform docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for 409 conflict behavior and explicit rejection of overlapping runs on the same thread.
+
+- id: langgraph-interrupts-docs
+  title: LangGraph Interrupts
+  kind: official-doc
+  component: agent-patterns
+  url: https://docs.langchain.com/oss/python/langgraph/interrupts
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for Command(resume), node re-execution semantics, idempotence before interrupt, and persistence-backed pause-resume behavior.
+
+- id: openai-models-guide
+  title: Models | OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/models
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for model family positioning, flagship versus smaller variants, and choosing models by quality, latency, and cost.
+
+- id: openai-compare-models-guide
+  title: Compare models | OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/models/compare
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for model-specific supported features, context windows, pricing, and rate-limit differences.
+
+- id: openai-agents-sdk-models
+  title: OpenAI Agents SDK - Models
+  kind: official-doc
+  component: agent-patterns
+  url: https://openai.github.io/openai-agents-python/models/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for mixing models in one workflow, provider selection, default model behavior, and model-shape compatibility guidance.
+
+- id: openai-safety-best-practices
+  title: Safety best practices | OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/safety-best-practices
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for moderation, human oversight, constrained inputs, and prompt-injection risk reduction guidance.
+
+- id: openai-agents-sdk-mcp
+  title: OpenAI Agents SDK - Model Context Protocol
+  kind: official-doc
+  component: agent-patterns
+  url: https://openai.github.io/openai-agents-python/mcp/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for tool filtering, approval policies, local versus hosted MCP boundaries, and least-privilege exposure of tools.
+
+- id: openai-conversation-state-guide
+  title: Conversation state | OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/conversation-state
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for conversations, previous_response_id chaining, retention boundaries, and token-billing implications of threaded state.
+
+- id: openai-compaction-guide
+  title: Compaction | OpenAI API
+  kind: official-doc
+  component: agent-patterns
+  url: https://developers.openai.com/api/docs/guides/compaction
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for server-side and standalone compaction, compaction items, pruning boundaries, and long-context state carry-forward.
+
+- id: langgraph-functional-api-overview-docs
+  title: LangGraph Functional API Overview
+  kind: official-doc
+  component: agent-patterns
+  url: https://docs.langchain.com/oss/python/langgraph/functional-api
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for task encapsulation of side effects, idempotent API calls, checkpoint-aware resumption, and functional workflow semantics.
+
+- id: langgraph-graph-api-overview-docs
+  title: LangGraph Graph API Overview
+  kind: official-doc
+  component: agent-patterns
+  url: https://docs.langchain.com/oss/python/langgraph/graph-api
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for RemainingSteps, current step counters, proactive recursion handling, recursion limits, and early-exit or fallback routing.
+
+- id: openai-agents-sdk-human-in-the-loop
+  title: OpenAI Agents SDK - Human-in-the-loop
+  kind: official-doc
+  component: agent-patterns
+  url: https://openai.github.io/openai-agents-python/human_in_the_loop/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for approval pause-resume semantics, run-wide approval surfaces, nested approvals, and sticky approval decisions.
+
+- id: openai-agents-sdk-run-state
+  title: OpenAI Agents SDK - Run State
+  kind: official-doc
+  component: agent-patterns
+  url: https://openai.github.io/openai-agents-python/ref/run_state/
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  trust_level: primary
+  notes: Use for durable pause-resume boundaries, approval state serialization, interrupted-run snapshots, and context serialization warnings.
+
+- id: n8n-ai-workflow-docs
+  title: n8n Docs - Tutorial Build an AI Workflow
+  kind: official-doc
+  component: n8n
+  url: https://docs.n8n.io/advanced-ai/intro-tutorial/
+  version_scope: "n8n docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for n8n AI Agent node, Chat Trigger, chat model attachment, logs, prompt options, and memory/persistence tutorial semantics.
+
+- id: n8n-error-handling-docs
+  title: n8n Docs - Error Handling
+  kind: official-doc
+  component: n8n
+  url: https://docs.n8n.io/flow-logic/error-handling/
+  version_scope: "n8n docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for n8n workflow-level error handling concepts and failure routing.
+
+- id: n8n-node-creation-docs
+  title: n8n Docs - Creating Nodes Overview
+  kind: official-doc
+  component: n8n
+  url: https://docs.n8n.io/integrations/creating-nodes/overview/
+  version_scope: "n8n docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for custom node development, node planning, node building styles, testing, and deployment references.
+
+- id: pocketflow-docs
+  title: PocketFlow Documentation
+  kind: official-doc
+  component: pocketflow
+  url: https://the-pocket.github.io/PocketFlow/
+  version_scope: "PocketFlow docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for PocketFlow positioning as a minimalist LLM framework and its core abstraction around Node, Flow, communication, batch, async, parallel, and design patterns.
+
+- id: pocketflow-github
+  title: PocketFlow GitHub Repository
+  kind: official-repository
+  component: pocketflow
+  url: https://github.com/The-Pocket/PocketFlow
+  version_scope: "PocketFlow GitHub repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for repository-level claims such as 100-line minimalist framework positioning, core graph abstraction, supported patterns, and cookbook examples.
+
+- id: generic-agent-github
+  title: GenericAgent GitHub Repository
+  kind: official-repository
+  component: generic-agent
+  url: https://github.com/lsdefine/GenericAgent
+  version_scope: "GenericAgent GitHub repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for GenericAgent positioning, minimal self-evolving autonomous agent framework, layered memory, atomic toolset, autonomous execution loop, and self-evolution claims.
+
+- id: openclaw-site
+  title: OpenClaw Official Site
+  kind: official-site
+  component: openclaw
+  url: https://openclaw.ai/
+  version_scope: "OpenClaw official site as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for OpenClaw public positioning as a personal AI assistant connected to chat applications and external actions.
+
+- id: openclaw-github
+  title: OpenClaw GitHub Repository
+  kind: official-repository
+  component: openclaw
+  url: https://github.com/openclaw/openclaw
+  version_scope: "OpenClaw GitHub repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for OpenClaw source-level positioning and release or installation references.
+
+- id: openclaw-security-advisory-ghsa-m3mh-3mpg-37hw
+  title: OpenClaw GitHub Security Advisory GHSA-m3mh-3mpg-37hw
+  kind: official-security-advisory
+  component: openclaw
+  url: https://github.com/openclaw/openclaw/security/advisories/GHSA-m3mh-3mpg-37hw
+  version_scope: "OpenClaw GitHub advisory as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for OpenClaw plugin or hook installation security-boundary discussion and untrusted code execution risk framing.
+
+- id: who-ai-health-ethics-governance
+  title: WHO - Ethics and Governance of Artificial Intelligence for Health
+  kind: official-guideline
+  component: ai-health-safety
+  url: https://www.who.int/publications/i/item/9789240029200
+  version_scope: "WHO guidance as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for health AI ethics and governance framing, including human rights, accountability, risk, and deployment governance.
+
+- id: lifeline-988-official
+  title: 988 Suicide and Crisis Lifeline
+  kind: official-service
+  component: mental-health-safety
+  url: https://988lifeline.org/
+  version_scope: "988 Lifeline website as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for crisis-support escalation framing in US contexts, including call, text, and chat availability. Do not turn this into clinical advice.
+
+- id: roo-code-docs
+  title: Roo Code Documentation
+  kind: official-doc
+  component: ai-coding-workflow
+  url: https://docs.roocode.com/
+  version_scope: "Roo Code docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for Roo Code product positioning, VS Code extension, Cloud Agents, file system access, terminal control, multi-step workflows, and announced product sunset on 2026-05-15.
+
+- id: deeplearning-ai-agentic-ai-course
+  title: DeepLearning.AI - Agentic AI
+  kind: official-course
+  component: agentic-ai
+  url: https://www.deeplearning.ai/courses/agentic-ai
+  version_scope: "DeepLearning.AI course page as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for course-level framing around agentic workflows, reflection, tool use, planning, multi-agent workflows, deployment, and evaluation.
+
+- id: deeplearning-ai-agent-skills-course
+  title: DeepLearning.AI - Agent Skills with Anthropic
+  kind: official-course
+  component: agent-skills
+  url: https://www.deeplearning.ai/short-courses/agent-skills-with-anthropic/
+  version_scope: "DeepLearning.AI course page as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for official course framing around why to use skills, skills vs tools/MCP/subagents, custom skills, Claude API, Claude Code, and Claude Agent SDK.
+
+- id: anthropic-agent-skills-docs
+  title: Claude API Docs - Agent Skills
+  kind: official-doc
+  component: agent-skills
+  url: https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview
+  version_scope: "Anthropic docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for Agent Skills as reusable capability packages with instructions, scripts, resources, triggering, and security considerations.
+
+- id: anthropic-skills-explained-blog
+  title: Claude Blog - Skills Explained
+  kind: official-blog
+  component: agent-skills
+  url: https://claude.com/blog/skills-explained
+  version_scope: "Claude official blog as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for conceptual comparison among Skills, prompts, Projects, MCP, and subagents.
+
+- id: metagpt-github
+  title: MetaGPT GitHub Repository
+  kind: official-repository
+  component: metagpt
+  url: https://github.com/geekan/MetaGPT
+  version_scope: "MetaGPT GitHub repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for MetaGPT repository positioning and multi-agent software-company style collaboration framing.
+
+- id: lagent-github
+  title: Lagent GitHub Repository
+  kind: official-repository
+  component: lagent
+  url: https://github.com/InternLM/lagent
+  version_scope: "Lagent GitHub repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for Lagent as a lightweight framework for building LLM-based agents and related component-level framework claims.
+
+- id: deepseek-r1-github
+  title: DeepSeek-R1 GitHub Repository
+  kind: official-repository
+  component: deepseek
+  url: https://github.com/deepseek-ai/DeepSeek-R1
+  version_scope: "DeepSeek-R1 repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for repository-level claims around DeepSeek-R1, DeepSeek-R1-Zero, reinforcement-learning-based reasoning, cold-start data, and distillation. Avoid benchmark or deployment claims unless quoted from primary sources.
+
+- id: deepseek-api-docs
+  title: DeepSeek API Docs
+  kind: official-doc
+  component: deepseek
+  url: https://api-docs.deepseek.com/
+  version_scope: "DeepSeek API docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  trust_level: primary
+  notes: Use for current DeepSeek API surface, OpenAI/Anthropic-compatible access notes, model names, and deprecation notices.

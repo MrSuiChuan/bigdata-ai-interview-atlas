@@ -1,0 +1,9 @@
+{
+  "label": "Kafka",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "title": "Kafka",
+    "description": "Kafka 知识库：覆盖 Topic、Partition、Producer、Consumer、复制、事务、保留策略、性能调优与生产排障。"
+  }
+}

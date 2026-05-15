@@ -1,0 +1,2245 @@
+- id: spark-claim-0001
+  domain: bigdata
+  component: spark
+  statement: The Apache Spark documentation page lists SQL and DataFrames, Spark Streaming, MLlib, and GraphX as built-in libraries.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark documentation page as verified on 2026-04-22; latest stable listed is Spark 4.1.1"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-docs-home
+  notes: Useful when explaining why Spark is often described as a unified analytics engine rather than a single-purpose batch framework.
+
+- id: spark-claim-0002
+  domain: bigdata
+  component: spark
+  statement: Spark positions itself as a unified analytics engine for large-scale data processing, providing high-level APIs in Java, Scala, Python, and R plus an optimized engine that supports general execution graphs.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-overview-doc
+  notes: This is the best official anchor for explaining why Spark is more than an API bundle.
+
+- id: spark-claim-0003
+  domain: bigdata
+  component: spark
+  statement: Spark 4.1.1 overview documentation describes the RDD Programming Guide as core but old API, Spark SQL/DataFrames/Datasets as newer than RDDs, Structured Streaming as newer than DStreams, and Spark Streaming based on DStreams as old API.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-overview-doc
+  notes: This version-aware wording is useful when guiding interview answers toward modern Spark APIs.
+
+- id: spark-claim-0004
+  domain: bigdata
+  component: spark
+  statement: Every Spark application has a driver program, and Spark's core abstraction RDD is a collection partitioned across cluster nodes that can be operated on in parallel, persisted in memory, and automatically recovered after node failures.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-rdd-guide
+  notes: This claim ties together driver, partitioning, persistence, and fault tolerance in one source-backed view.
+
+- id: spark-claim-0005
+  domain: bigdata
+  component: spark
+  statement: All Spark transformations are lazy; they record lineage and are computed only when an action requires a result.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-rdd-guide
+    - spark-dataset-javadoc
+  notes: This is the most important entry point for explaining optimization and execution timing in Spark.
+
+- id: spark-claim-0006
+  domain: bigdata
+  component: spark
+  statement: "Internally, each RDD is characterized by five main properties: partitions, a function to compute each split, dependencies on other RDDs, an optional partitioner, and optional preferred locations."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-rdd-scaladoc
+  notes: This is the official low-level definition that underpins Spark scheduling and data locality discussions.
+
+- id: spark-claim-0007
+  domain: bigdata
+  component: spark
+  statement: Spark SQL interfaces provide Spark with more information about data structure and computation than the basic RDD API, allowing Spark SQL to perform extra optimizations internally.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-sql-guide
+  notes: This is the source-backed reason modern Spark answers often start with DataFrame and Dataset rather than raw RDDs.
+
+- id: spark-claim-0008
+  domain: bigdata
+  component: spark
+  statement: When computing a result, Spark uses the same execution engine regardless of which Spark SQL API or language is used to express the computation.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-sql-guide
+  notes: This is the official basis for explaining API unification rather than presenting SQL and DataFrame as separate engines.
+
+- id: spark-claim-0009
+  domain: bigdata
+  component: spark
+  statement: Dataset was added in Spark 1.6 to combine RDD benefits such as strong typing and lambda-style programming with Spark SQL's optimized execution engine; the typed Dataset API is available in Scala and Java, while Python does not support the Dataset API.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-sql-guide
+  notes: This is an important API-boundary fact that often gets lost in generic Spark explanations.
+
+- id: spark-claim-0010
+  domain: bigdata
+  component: spark
+  statement: A DataFrame is a Dataset organized into named columns, conceptually similar to a relational table or an R/Python dataframe but with richer optimizations under the hood.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-sql-guide
+  notes: This is the best concise definition for modern Spark interviews.
+
+- id: spark-claim-0011
+  domain: bigdata
+  component: spark
+  statement: Dataset operations are divided into transformations and actions; internally a Dataset represents a logical plan, and when an action is invoked Spark optimizes the logical plan and generates a physical plan for efficient distributed execution.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-dataset-javadoc
+  notes: This is the cleanest official articulation of Spark's plan-based execution model at the Dataset layer.
+
+- id: spark-claim-0012
+  domain: bigdata
+  component: spark
+  statement: Within a Spark application, a job is a Spark action and the tasks required to evaluate that action; by default jobs are scheduled in FIFO order and each job is divided into stages.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-job-scheduling
+  notes: This is the official grounding for driver-job-stage-task explanations.
+
+- id: spark-claim-0013
+  domain: bigdata
+  component: spark
+  statement: Spark can also use fair sharing within an application, assigning tasks between jobs in a round-robin fashion so short jobs can receive resources without waiting for long jobs to finish.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-job-scheduling
+  notes: This is important when discussing interactive or multi-tenant Spark applications.
+
+- id: spark-claim-0014
+  domain: bigdata
+  component: spark
+  statement: Shuffle redistributes data across partitions and executors, making it a complex and costly operation involving disk I/O, data serialization, and network I/O.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-rdd-guide
+  notes: This is the official starting point for discussing Spark performance bottlenecks.
+
+- id: spark-claim-0015
+  domain: bigdata
+  component: spark
+  statement: Spark applications can bottleneck on CPU, network bandwidth, or memory, and if data fits in memory the bottleneck is often network bandwidth; serialization tuning and storing RDDs in serialized form can reduce overhead.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-tuning-guide
+  notes: This is a source-backed way to connect tuning choices to resource bottlenecks.
+
+- id: spark-claim-0016
+  domain: bigdata
+  component: spark
+  statement: Broadcast variables keep a read-only value cached on each machine instead of shipping it with every task, and accumulators are add-only variables whose value can only be read by the driver.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - spark-rdd-guide
+  notes: Useful when answering Spark shared-state questions without hand-waving.
+
+- id: spark-claim-0017
+  domain: bigdata
+  component: spark
+  statement: Inside a given Spark application (SparkContext instance), multiple parallel jobs can run simultaneously if they are submitted from separate threads, and Spark's scheduler is thread-safe.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-job-scheduling
+  notes: Useful when explaining service-style Spark applications and why FIFO versus FAIR matters only after concurrency exists inside the same application.
+
+- id: spark-claim-0018
+  domain: bigdata
+  component: spark
+  statement: By default, each transformed RDD may be recomputed every time an action runs; using persist or cache keeps data around for faster reuse and can also place data on disk or replicate it across nodes.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-rdd-guide
+  notes: This is the clean official basis for explaining why cache is an optimization choice layered on top of lineage, not Spark's default behavior.
+
+- id: spark-claim-0019
+  domain: bigdata
+  component: spark
+  statement: For RDDs, cache() is shorthand for persist(StorageLevel.MEMORY_ONLY), meaning the default RDD cache keeps deserialized objects in memory.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-rdd-guide
+  notes: This boundary is often confused with Dataset/DataFrame cache defaults.
+
+- id: spark-claim-0020
+  domain: bigdata
+  component: spark
+  statement: For Datasets and DataFrames, cache() persists with the default storage level MEMORY_AND_DISK.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-dataset-javadoc
+  notes: Important to distinguish from the RDD cache default in modern Spark interviews.
+
+- id: spark-claim-0021
+  domain: bigdata
+  component: spark
+  statement: "Spark's cache for persisted RDDs is fault-tolerant: if any partition of a persisted RDD is lost, Spark automatically recomputes it from the transformations that originally created it."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-rdd-guide
+  notes: This is the official link between persistence and lineage-based recovery.
+
+- id: spark-claim-0022
+  domain: bigdata
+  component: spark
+  statement: Replicated storage levels such as MEMORY_ONLY_2 or MEMORY_AND_DISK_2 are recommended when fast fault recovery matters, because they let tasks continue without waiting to recompute a lost partition.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-rdd-guide
+  notes: Good for distinguishing full fault tolerance from fast fault recovery.
+
+- id: spark-claim-0023
+  domain: bigdata
+  component: spark
+  statement: Spark monitors cache usage on each node and evicts old partitions in least-recently-used order; RDD.unpersist() removes cached data manually and does not block by default.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-rdd-guide
+  notes: Useful when explaining why cache is not a permanent residency guarantee.
+
+- id: spark-claim-0024
+  domain: bigdata
+  component: spark
+  statement: Spark automatically persists some intermediate data in shuffle operations to avoid recomputing the entire input if a node fails during the shuffle, but users should still persist the resulting RDD if it will be reused.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-rdd-guide
+  notes: This helps separate automatic shuffle durability from user-level cache strategy.
+
+- id: spark-claim-0025
+  domain: bigdata
+  component: spark
+  statement: "Spark supports two types of shared variables in parallel operations: broadcast variables and accumulators; general read-write shared variables across tasks are not the shared-state model Spark is designed around."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-rdd-guide
+  notes: Good anchor for explaining why closure-side mutable state often behaves unexpectedly in cluster mode.
+
+- id: spark-claim-0026
+  domain: bigdata
+  component: spark
+  statement: After a broadcast variable is created, cluster-side code should use the broadcast value instead of the original object so that the object is not shipped repeatedly, and the original value should not be modified afterward.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-rdd-guide
+  notes: This makes the broadcast contract much more precise than the vague statement that 'broadcast can improve performance'.
+
+- id: spark-claim-0027
+  domain: bigdata
+  component: spark
+  statement: Accumulators are add-only variables based on associative and commutative updates; tasks can add to them but cannot read them, and only the driver can read the value.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-rdd-guide
+  notes: This is the core semantic boundary that separates accumulators from general shared mutable state.
+
+- id: spark-claim-0028
+  domain: bigdata
+  component: spark
+  statement: For accumulator updates performed inside actions, Spark guarantees that each task's update is applied only once, but in transformations a task's update may be applied more than once if tasks or job stages are re-executed.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-rdd-guide
+  notes: Very important interview boundary when candidates treat accumulators as exact business counters.
+
+- id: spark-claim-0029
+  domain: bigdata
+  component: spark
+  statement: Dataset checkpoint truncates the logical plan, is especially useful in iterative algorithms where the plan may grow exponentially, and writes data into the checkpoint directory configured via SparkContext#setCheckpointDir.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-dataset-javadoc
+  notes: This is the official reason checkpoint exists beyond simple caching.
+
+- id: spark-claim-0030
+  domain: bigdata
+  component: spark
+  statement: Dataset localCheckpoint writes data to executor storage; it can be faster than full checkpoint, but it is unreliable and may compromise job completion.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-dataset-javadoc
+  notes: This is a critical production boundary because many simplified explanations present local checkpoint as just a faster checkpoint.
+
+- id: spark-claim-0031
+  domain: bigdata
+  component: spark
+  statement: When Dataset checkpoint or localCheckpoint uses eager=false, the data finally checkpointed after the first action may differ from the data used during that job because of non-determinism and retries; eager=true is required for a deterministic snapshot.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-dataset-javadoc
+  notes: This is one of the highest-value 'principle' facts in Spark because it exposes plan truncation versus snapshot semantics.
+
+- id: spark-claim-0032
+  domain: bigdata
+  component: spark
+  statement: collect(), collectAsList(), take(), and tail() move data into the application's driver process, and doing so on a very large result can crash the driver with OutOfMemoryError.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-dataset-javadoc
+  notes: This is the sharpest official way to explain why driver boundaries matter.
+
+- id: spark-claim-0033
+  domain: bigdata
+  component: spark
+  statement: coalesce(numPartitions) to fewer partitions creates a narrow dependency without shuffle, but drastic coalesce such as 1 can push execution onto fewer nodes; repartition adds a shuffle but preserves upstream parallel execution.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-dataset-javadoc
+  notes: Excellent for scenario questions about small-file merge, downstream write concurrency, and skewed single-node bottlenecks.
+
+- id: spark-claim-0034
+  domain: bigdata
+  component: spark
+  statement: Spark memory is split conceptually into execution and storage; they share a unified region M, execution may evict storage down to threshold R, and storage may not evict execution.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-tuning-guide
+  notes: This is the cleanest official summary of Spark's unified memory manager.
+
+- id: spark-claim-0035
+  domain: bigdata
+  component: spark
+  statement: Spark uses Java serialization by default; Kryo is often significantly faster and more compact, but requires class registration for best performance and is recommended for many network-intensive applications.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-tuning-guide
+  notes: This is one of the most actionable official tuning facts for interviews and real jobs.
+
+- id: spark-claim-0036
+  domain: bigdata
+  component: spark
+  statement: If data fits in memory, Spark jobs are often bottlenecked by network bandwidth rather than CPU, and storing data in serialized form can reduce memory usage.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-tuning-guide
+  notes: Useful when explaining why Spark tuning is not just 'add executors' or 'raise CPU'.
+
+- id: spark-claim-0037
+  domain: bigdata
+  component: spark
+  statement: Spark defines locality levels PROCESS_LOCAL, NODE_LOCAL, NO_PREF, RACK_LOCAL, and ANY; it prefers better locality and waits before falling back to worse locality.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-tuning-guide
+  notes: Important for explaining why some jobs look idle before suddenly scheduling far-away tasks.
+
+- id: spark-claim-0038
+  domain: bigdata
+  component: spark
+  statement: Reduce-side task OutOfMemoryError can come from an individual task's working set rather than total dataset size; increasing parallelism reduces each task's input size, and Spark recommends starting around 2-3 tasks per CPU core.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-tuning-guide
+  notes: High-value scenario fact for groupByKey, join, sortByKey, and skew-related troubleshooting.
+
+- id: spark-claim-0039
+  domain: bigdata
+  component: spark
+  statement: Dynamic Resource Allocation is disabled by default; to remove executors safely Spark requires dynamic allocation to be enabled together with external shuffle service, shuffle tracking, decommission-based shuffle block handling, or another reliable shuffle storage mechanism.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-job-scheduling
+  notes: This explains why dynamic allocation and shuffle durability are operationally coupled.
+
+- id: spark-claim-0040
+  domain: bigdata
+  component: spark
+  statement: Dataset explain() prints the physical plan, while explain(true) and explain("extended") print logical and physical plans for debugging.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-dataset-javadoc
+  notes: This anchors interview answers about plan inspection to a concrete official API boundary.
+
+- id: spark-claim-0041
+  domain: bigdata
+  component: spark
+  statement: Structured Streaming is a scalable and fault-tolerant stream processing engine built on the Spark SQL engine, and users express streaming computations with the same DataFrame or Dataset APIs used for batch computations.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-guide
+  notes: This is the official anchor for positioning Structured Streaming as incremental execution on top of Spark SQL rather than a separate engine.
+
+- id: spark-claim-0042
+  domain: bigdata
+  component: spark
+  statement: Structured Streaming documentation states that the system ensures end-to-end exactly-once fault-tolerance guarantees through checkpointing and Write-Ahead Logs.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-guide
+  notes: This is the cleanest official framing for Structured Streaming's default reliability story.
+
+- id: spark-claim-0043
+  domain: bigdata
+  component: spark
+  statement: By default, Structured Streaming processes queries using a micro-batch engine that executes data streams as a series of small batch jobs, achieving end-to-end latencies as low as 100 milliseconds with exactly-once fault-tolerance guarantees.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-guide
+  notes: High-value official fact for micro-batch versus continuous-processing comparisons.
+
+- id: spark-claim-0044
+  domain: bigdata
+  component: spark
+  statement: Spark Structured Streaming also supports Continuous Processing, a low-latency mode that can achieve end-to-end latencies as low as 1 millisecond with at-least-once guarantees.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-guide
+  notes: This is the most important official semantic boundary between micro-batch and continuous modes.
+
+- id: spark-claim-0045
+  domain: bigdata
+  component: spark
+  statement: Spark applications run as independent sets of processes coordinated by the SparkContext in the driver program; each application gets its own executor processes for the whole application, which isolates applications from each other on both scheduling and executor sides.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-cluster-overview
+  notes: This is the best official statement for multi-application isolation and why executors are not shared between applications.
+
+- id: spark-claim-0046
+  domain: bigdata
+  component: spark
+  statement: SparkContext can connect to several cluster managers, including Spark's standalone cluster manager, YARN, and Kubernetes; once connected it acquires executors on cluster nodes, sends application code to them, and then sends tasks for execution.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-cluster-overview
+  notes: Useful as the official deployment-neutral execution chain.
+
+- id: spark-claim-0047
+  domain: bigdata
+  component: spark
+  statement: The spark-submit script launches applications on clusters through a uniform interface across Spark-supported cluster managers, and its deploy mode decides whether the driver runs on worker nodes in cluster mode or locally as an external client in client mode.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-submitting-applications
+  notes: This is the cleanest official summary of submit-time deployment semantics.
+
+- id: spark-claim-0048
+  domain: bigdata
+  component: spark
+  statement: On YARN, cluster mode runs the Spark driver inside an ApplicationMaster process managed on the cluster, while client mode keeps the driver in the client process and uses the ApplicationMaster only for requesting resources.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-running-on-yarn
+  notes: This is the sharpest official YARN deployment boundary for interview answers.
+
+- id: spark-claim-0049
+  domain: bigdata
+  component: spark
+  statement: Spark SQL includes a cost-based optimizer, columnar storage, and code generation to make queries fast.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark SQL site as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-sql-site
+  notes: This is a concise official statement for modern Spark SQL's optimization and execution pillars.
+
+- id: spark-claim-0050
+  domain: bigdata
+  component: spark
+  statement: The Spark SQL paper states that Spark SQL introduces a novel extensible optimizer called Catalyst, and Catalyst offers a general framework for transforming trees used for analysis, planning, and runtime code generation.
+  status: reviewed
+  confidence: high
+  version_scope: "SIGMOD 2015 paper as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-sql-paper
+  notes: This is the strongest primary-source description of Catalyst internals.
+
+- id: spark-claim-0051
+  domain: bigdata
+  component: spark
+  statement: Spark 1.6.0 release notes state that the spark.sql.tungsten.enabled flag was removed and Tungsten mode and code generation are always enabled.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 1.6.0 release notes as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-release-1-6-0
+  notes: Historical but still important when explaining Tungsten as execution-path optimization rather than an optional switch in modern Spark.
+
+- id: spark-claim-0052
+  domain: bigdata
+  component: spark
+  statement: Spark 2.0.0 release notes highlight off-heap memory management for caching and runtime execution, whole-stage code generation for substantial SQL/DataFrame speedups, and many improvements in the Catalyst query optimizer.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 2.0.0 release notes as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-release-2-0-0
+  notes: This is the strongest primary-source bundle for describing the practical execution effects usually associated with Tungsten and SQL runtime improvements.
+
+- id: spark-claim-0053
+  domain: bigdata
+  component: spark
+  statement: Spark SQL planning quality depends on statistics from data sources, catalogs, and runtime execution; missing or inaccurate statistics hinder Spark's ability to select an optimal plan and can lead to poor query performance.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: This is the right official basis for explaining CBO and AQE inputs without hand-waving.
+
+- id: spark-claim-0054
+  domain: bigdata
+  component: spark
+  statement: Spark SQL automatically considers broadcast joins when a table is under spark.sql.autoBroadcastJoinThreshold, whose default is 10485760 bytes (10 MB); explicit join strategy hints include BROADCAST, MERGE, SHUFFLE_HASH, and SHUFFLE_REPLICATE_NL.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: Useful for turning vague join-tuning answers into concrete planner boundaries.
+
+- id: spark-claim-0055
+  domain: bigdata
+  component: spark
+  statement: Adaptive Query Execution (AQE) is an optimization technique in Spark SQL that uses runtime statistics to choose a more efficient execution plan, re-optimizes queries during execution, and is enabled by default since Spark 3.2.0.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: This is the core official definition of AQE.
+
+- id: spark-claim-0056
+  domain: bigdata
+  component: spark
+  statement: When AQE is enabled, Spark can coalesce post-shuffle partitions based on map output statistics, reducing the need to pre-tune shuffle partition counts exactly.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: Important for explaining why static partition tuning is less absolute under AQE.
+
+- id: spark-claim-0057
+  domain: bigdata
+  component: spark
+  statement: AQE can convert sort-merge join to broadcast hash join or shuffled hash join based on runtime statistics, and can dynamically optimize skewed sort-merge joins by splitting and replicating skewed tasks when needed.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: High-value official statement for join and skew optimization answers.
+
+- id: spark-claim-0058
+  domain: bigdata
+  component: spark
+  statement: Storage Partition Join is a Spark SQL optimization that uses existing storage layout to avoid the shuffle phase, generalizing bucket join ideas to compatible V2 data sources.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: Useful for advanced SQL/deployment design answers that link table layout to shuffle avoidance.
+
+- id: spark-claim-0059
+  domain: bigdata
+  component: spark
+  statement: In Structured Streaming, Append mode is the default output mode; it writes only rows newly added to the Result Table since the last trigger, is supported only when those rows will not change later, and therefore outputs each row only once assuming a fault-tolerant sink.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: This is the sharpest official definition of Append mode and its semantic boundary.
+
+- id: spark-claim-0060
+  domain: bigdata
+  component: spark
+  statement: In Structured Streaming, Complete mode outputs the whole Result Table after every trigger and is supported for aggregation queries.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: Useful for distinguishing output semantics from trigger semantics.
+
+- id: spark-claim-0061
+  domain: bigdata
+  component: spark
+  statement: In Structured Streaming, Update mode outputs only rows in the Result Table that were updated since the last trigger.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: This is the cleanest official definition of Update mode.
+
+- id: spark-claim-0062
+  domain: bigdata
+  component: spark
+  statement: Using withWatermark on a non-streaming Dataset is a no-op and is ignored directly because watermarking should not affect batch queries.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: Important to stop people from treating watermark as a general batch-time optimization switch.
+
+- id: spark-claim-0063
+  domain: bigdata
+  component: spark
+  statement: For queries with multiple input streams, Structured Streaming tracks the maximum event time seen in each input, computes per-input watermarks, and chooses a single global watermark for stateful operations; by default it chooses the minimum to avoid dropping lagging-stream data, while setting spark.sql.streaming.multipleWatermarkPolicy=max moves faster but may aggressively drop slower-stream data.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: This is one of the most valuable principle-level facts for multi-stream joins and unions.
+
+- id: spark-claim-0064
+  domain: bigdata
+  component: spark
+  statement: Chaining multiple stateful operations on streaming Datasets is not supported with Update and Complete mode, and in Append mode mapGroupsWithState or flatMapGroupsWithState followed by another stateful operation is also not supported.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: A critical boundary for production query design.
+
+- id: spark-claim-0065
+  domain: bigdata
+  component: spark
+  statement: In Structured Streaming's built-in sinks, the file sink supports Append mode with exactly-once semantics, while the Kafka sink is fault-tolerant but provides at-least-once semantics.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: This prevents people from over-generalizing Structured Streaming's exactly-once statement to every sink.
+
+- id: spark-claim-0066
+  domain: bigdata
+  component: spark
+  statement: For sinks where end-to-end fault tolerance can be guaranteed, checkpointLocation should be a path in an HDFS-compatible fault-tolerant file system, and Structured Streaming stores progress information such as processed offset ranges per trigger and running aggregates there for recovery.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: This is the operational boundary behind checkpointing and restart recovery.
+
+- id: spark-claim-0067
+  domain: bigdata
+  component: spark
+  statement: Stream-static joins in Structured Streaming are not stateful, so no state management is necessary, although some stream-static outer joins are not supported.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: Useful for separating stream-static from stream-stream reasoning.
+
+- id: spark-claim-0068
+  domain: bigdata
+  component: spark
+  statement: Stream-stream joins buffer past input as streaming state, and to avoid unbounded state users must define watermarks on both inputs and additional event-time constraints such that indefinitely old input can be cleared from state.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: This is the core principle behind stream-stream join state control.
+
+- id: spark-claim-0069
+  domain: bigdata
+  component: spark
+  statement: "Structured Streaming state store is a versioned key-value store for stateful operations, and Spark provides two built-in implementations: the default HDFS-backed state store provider and the RocksDB state store provider."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: This is the right official abstraction for discussing stateful execution internals.
+
+- id: spark-claim-0070
+  domain: bigdata
+  component: spark
+  statement: RocksDB state store moves state management out of JVM memory into native memory and local disk, and Structured Streaming automatically saves the changes to the configured checkpoint location with the same full fault-tolerance guarantees as the default state store.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: High-value production fact for large-state streaming jobs.
+
+- id: spark-claim-0071
+  domain: bigdata
+  component: spark
+  statement: Stateful Structured Streaming operations rely on Spark's preferred location feature to keep the state store provider on the same executor across batches; if the state store moves, Spark must load checkpointed state on the new executor and latency can increase.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: This connects locality tuning to streaming state performance.
+
+- id: spark-claim-0072
+  domain: bigdata
+  component: spark
+  statement: Each Spark application gets its own executor processes for the duration of the whole application, and therefore data cannot be shared across different Spark applications without writing it to an external storage system.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-cluster-overview
+  notes: This sharpens application isolation into a concrete data-sharing boundary.
+
+- id: spark-claim-0073
+  domain: bigdata
+  component: spark
+  statement: The driver program must be network addressable from worker nodes and, because it schedules tasks on the cluster, should run close to those worker nodes, preferably on the same local area network.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-cluster-overview
+  notes: Critical deployment boundary for client mode and remote submissions.
+
+- id: spark-claim-0074
+  domain: bigdata
+  component: spark
+  statement: In Spark standalone cluster mode, passing --supervise to spark-submit enables automatic restart of the application if it exits with a non-zero exit code.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-standalone-mode
+  notes: Useful for explaining standalone-specific recovery behavior.
+
+- id: spark-claim-0075
+  domain: bigdata
+  component: spark
+  statement: Spark SQL join strategy hints are prioritized in the order BROADCAST, MERGE, SHUFFLE_HASH, SHUFFLE_REPLICATE_NL, but Spark is not guaranteed to choose the hinted strategy because some strategies do not support all join types.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: Important for separating planner guidance from hard execution guarantees.
+
+- id: spark-claim-0076
+  domain: bigdata
+  component: spark
+  statement: When Storage Partition Join is performed, the physical query plan will not contain Exchange nodes prior to the join.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: This gives a concrete EXPLAIN-level signal for verifying shuffle elimination.
+
+- id: spark-claim-0077
+  domain: bigdata
+  component: spark
+  statement: Spark SQL can cache tables using an in-memory columnar format, scan only required columns, and automatically tune compression to minimize memory usage and GC pressure.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: This is the most direct official anchor for columnar caching behavior.
+
+- id: spark-claim-0078
+  domain: bigdata
+  component: spark
+  statement: The DAGScheduler is Spark's high-level stage-oriented scheduling layer; for each job it computes a DAG of stages, tracks which RDDs and stage outputs are materialized, finds a minimal schedule, and submits stages as TaskSets to an underlying TaskScheduler.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 source as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dagscheduler-source
+  notes: Core claim for distinguishing high-level stage planning from low-level task execution.
+
+- id: spark-claim-0079
+  domain: bigdata
+  component: spark
+  statement: Spark stages are created by breaking the RDD graph at shuffle boundaries; narrow dependencies such as map and filter are pipelined into one stage, while shuffle dependencies require multiple stages, and each stage contains tasks computing the same function on partitions of the same RDD.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 source as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dagscheduler-source
+  notes: This is the strongest official statement for stage cuts, pipelining, and stage-level task identity.
+
+- id: spark-claim-0080
+  domain: bigdata
+  component: spark
+  statement: The DAGScheduler computes preferred locations for each task based on current cache status, underlying RDD preferred locations, or cached and shuffle data locations, and passes those preferred locations to the low-level TaskScheduler.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 source as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dagscheduler-source
+  notes: Important for explaining how locality preferences originate in Spark's scheduler stack.
+
+- id: spark-claim-0081
+  domain: bigdata
+  component: spark
+  statement: TaskScheduler is Spark's low-level task scheduler for a single SparkContext; it receives TaskSets from the DAGScheduler for each stage and is responsible for sending tasks to the cluster, running them, retrying failures, mitigating stragglers, and returning events to the DAGScheduler.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 source as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-taskscheduler-source
+  notes: Core claim for the control boundary between stage planning and low-level task execution.
+
+- id: spark-claim-0082
+  domain: bigdata
+  component: spark
+  statement: In Spark's unified memory model, spark.memory.fraction defines M as a fraction of (JVM heap - 300 MiB) with default 0.6, and spark.memory.storageFraction defines R as a fraction of M with default 0.5.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-tuning-guide
+  notes: Important for turning the abstract M and R model into concrete sizing defaults.
+
+- id: spark-claim-0083
+  domain: bigdata
+  component: spark
+  statement: If the JVM OldGen is close to full, Spark's tuning guide recommends reducing spark.memory.fraction; it is better to cache fewer objects than to slow down task execution with excessive garbage collection.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-tuning-guide
+  notes: High-value official guidance for explaining why cache pressure and execution speed trade off directly.
+
+- id: spark-claim-0084
+  domain: bigdata
+  component: spark
+  statement: Spark 1.6.0 release notes describe Unified Memory Management as shared memory for execution and caching instead of exclusive division of the regions.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 1.6.0 release notes as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-release-1-6-0
+  notes: Useful historical anchor for why modern Spark memory discussions use shared regions rather than fixed partitions.
+
+- id: spark-claim-0085
+  domain: bigdata
+  component: spark
+  statement: Spark 1.6.0 release notes report significant, up to 14x, speedups for in-memory columnar cache performance on DataFrames or SQL queries with complex types.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 1.6.0 release notes as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-release-1-6-0
+  notes: Useful for linking columnar layout choices to practical SQL runtime gains.
+
+- id: spark-claim-0086
+  domain: bigdata
+  component: spark
+  statement: Spark 1.6.0 release notes state that SQL execution can be configured to occur using off-heap memory to avoid garbage-collection overhead.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 1.6.0 release notes as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-release-1-6-0
+  notes: Important for explaining Tungsten-era runtime execution beyond optimizer rules alone.
+
+- id: spark-claim-0087
+  domain: bigdata
+  component: spark
+  statement: Spark 2.0.0 release notes report substantial 2-10x SQL and DataFrame speedups from whole-stage code generation and improved Parquet scan throughput through vectorization.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 2.0.0 release notes as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-release-2-0-0
+  notes: Core historical anchor for explaining why Spark SQL runtime speedups are tied to generated code and vectorized scans.
+
+- id: spark-claim-0088
+  domain: bigdata
+  component: spark
+  statement: To execute jobs, Spark breaks up the processing of RDD operations into tasks executed by executors; before execution Spark computes each task's closure, serializes that closure, and sends it to each executor.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-rdd-guide
+  notes: Core claim for closure shipping and executor code visibility.
+
+- id: spark-claim-0089
+  domain: bigdata
+  component: spark
+  statement: Variables captured in a task closure become copies on executors, so updates to them do not update the driver's copy; in local mode, code may sometimes appear to work because execution can happen in the same JVM as the driver.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-rdd-guide
+  notes: High-value boundary for local-versus-cluster behavior differences.
+
+- id: spark-claim-0090
+  domain: bigdata
+  component: spark
+  statement: Spark does not define or guarantee the behavior of mutations to objects referenced from outside closures, and for well-defined distributed updates users should use an Accumulator instead.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-rdd-guide
+  notes: Important for explaining why mutable closure state is a correctness trap, not merely a style issue.
+
+- id: spark-claim-0091
+  domain: bigdata
+  component: spark
+  statement: When using spark-submit, the application jar and any jars listed with --jars are automatically transferred to the cluster and included on both driver and executor classpaths.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-submitting-applications
+  notes: Core claim for code and dependency dissemination boundaries.
+
+- id: spark-claim-0092
+  domain: bigdata
+  component: spark
+  statement: In Spark dependency dissemination, absolute paths and file:/ URIs are served by the driver's HTTP file server and pulled by each executor, while local:/ expects the file to already exist on every worker node and incurs no network I/O.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-submitting-applications
+  notes: Important for explaining why some dependency paths overload the driver while others do not.
+
+- id: spark-claim-0093
+  domain: bigdata
+  component: spark
+  statement: JARs and files are copied to the working directory for each SparkContext on executor nodes; this can consume significant space over time and should be cleaned, with YARN doing this automatically and Standalone requiring configuration.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-submitting-applications
+  notes: Useful for operational answers about dependency distribution side effects.
+
+- id: spark-claim-0094
+  domain: bigdata
+  component: spark
+  statement: For Python applications, spark-submit distributes .py, .zip, or .egg files to executors through the --py-files option.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-submitting-applications
+  notes: Important for Python Spark dependency visibility and packaging boundaries.
+
+- id: spark-claim-0095
+  domain: bigdata
+  component: spark
+  statement: Dataset.toLocalIterator() returns an iterator over all rows, consumes as much memory as the largest partition, results in multiple Spark jobs, and if the input Dataset comes from a wide transformation it should be cached first to avoid recomputation.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dataset-javadoc
+  notes: Core claim for distinguishing toLocalIterator from collect while preserving driver-memory and recomputation boundaries.
+
+- id: spark-claim-0096
+  domain: bigdata
+  component: spark
+  statement: The DAGScheduler submits stages as TaskSets to a TaskScheduler and can schedule tasks on cluster nodes where the data needed by those tasks is already present, such as map output files from previous stages, though those tasks may later fail if the data becomes unavailable.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 source as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dagscheduler-source
+  notes: This is the right official anchor for explaining why reduce tasks depend on prior shuffle outputs as physical artifacts rather than abstract lineage alone.
+
+- id: spark-claim-0097
+  domain: bigdata
+  component: spark
+  statement: The DAGScheduler remembers which ShuffleMapStages have already produced output files so it can avoid recomputing the map side of a shuffle.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 source as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dagscheduler-source
+  notes: Key claim for why successful shuffle map output is treated as reusable stage materialization.
+
+- id: spark-claim-0098
+  domain: bigdata
+  component: spark
+  statement: The DAGScheduler handles failures due to shuffle output files being lost, in which case old stages may need to be resubmitted to recompute the lost data.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 source as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dagscheduler-source
+  notes: This is the core recovery boundary behind fetch-failure questions.
+
+- id: spark-claim-0099
+  domain: bigdata
+  component: spark
+  statement: If a task fails because a map output file from a previous stage was lost, the DAGScheduler detects the failure through a CompletionEvent carrying FetchFailed or ExecutorLost information and resubmits the lost stage.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 source as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dagscheduler-source
+  notes: High-value claim for distinguishing fetch failure from ordinary task retry.
+
+- id: spark-claim-0100
+  domain: bigdata
+  component: spark
+  statement: After detecting shuffle-data loss, the DAGScheduler waits a short time to see whether other nodes or tasks also fail and then resubmits TaskSets for any lost stages so missing tasks can be recomputed together.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 source as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dagscheduler-source
+  notes: Useful for explaining why fetch-failure recovery is often stage-level and slightly delayed rather than immediate per-task retry.
+
+- id: spark-claim-0101
+  domain: bigdata
+  component: spark
+  statement: Spark stages are often shared across multiple jobs, so recovering from shuffle-data loss may require the DAGScheduler to create Stage objects for old, already-finished stages that had previously been cleaned from memory.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 source as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dagscheduler-source
+  notes: Important for explaining why finished stages are not permanently immune from recovery work.
+
+- id: spark-claim-0102
+  domain: bigdata
+  component: spark
+  statement: When an external shuffle service is used and only an executor is lost, the DAGScheduler may defer unregistering shuffle outputs until a fetch failure is seen, because executor loss does not necessarily imply that its shuffle files were lost.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 source as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dagscheduler-source
+  notes: This is the subtle but valuable boundary for explaining executor loss versus shuffle-data loss.
+
+- id: spark-claim-0103
+  domain: bigdata
+  component: spark
+  statement: When the BROADCAST hint is used on one join side, Spark prioritizes a broadcast join for that side even if the side's statistics are above spark.sql.autoBroadcastJoinThreshold, using broadcast hash join or broadcast nested loop join depending on whether there is an equi-join key.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: Critical for separating threshold-based auto broadcast from explicit hint-driven planning.
+
+- id: spark-claim-0104
+  domain: bigdata
+  component: spark
+  statement: When both sides of a join carry the BROADCAST hint or the SHUFFLE_HASH hint, Spark chooses the build side based on join type and relation sizes.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: Useful for explaining that hints influence strategy but do not fully determine build-side ownership.
+
+- id: spark-claim-0105
+  domain: bigdata
+  component: spark
+  statement: With adaptive query execution enabled, Spark can use local shuffle reader after converting a sort-merge join to a broadcast-hash join, because the shuffle partitioning may no longer be needed.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: Good for explaining why AQE join rewriting is not only about operator names but also about data-read locality after the rewrite.
+
+- id: spark-claim-0106
+  domain: bigdata
+  component: spark
+  statement: If spark.sql.adaptive.maxShuffledHashJoinLocalMapThreshold is not smaller than spark.sql.adaptive.advisoryPartitionSizeInBytes and all partition sizes are not larger than that threshold, adaptive join selection prefers shuffled hash join over sort-merge join regardless of spark.sql.join.preferSortMergeJoin.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: This is the most concrete official condition for why AQE can move from sort-merge join to shuffled hash join.
+
+- id: spark-claim-0107
+  domain: bigdata
+  component: spark
+  statement: Spark SQL file-source reads use spark.sql.files.maxPartitionBytes, whose default is 128 MB, as the maximum number of bytes to pack into a single partition.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: This is the primary read-side split-size boundary for file-based sources such as Parquet, JSON, and ORC.
+
+- id: spark-claim-0108
+  domain: bigdata
+  component: spark
+  statement: spark.sql.files.openCostInBytes estimates the cost of opening a file and is used when putting multiple files into a partition; Spark recommends over-estimating this value so partitions with many small files are treated more realistically.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: Essential for explaining why small-file planning is about file-open overhead as well as raw bytes.
+
+- id: spark-claim-0109
+  domain: bigdata
+  component: spark
+  statement: spark.sql.files.minPartitionNum is a suggested, not guaranteed, minimum number of split file partitions, and when unset its default comes from spark.sql.leafNodeDefaultParallelism.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: Useful for explaining why Spark file-scan partition counts are planner suggestions rather than hard guarantees.
+
+- id: spark-claim-0110
+  domain: bigdata
+  component: spark
+  statement: spark.sql.files.maxPartitionNum is a suggested, not guaranteed, maximum number of split file partitions, and if the initial partition count exceeds it Spark rescales partitions toward that value.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: Helpful when answering how to prevent pathological split counts during file scans.
+
+- id: spark-claim-0111
+  domain: bigdata
+  component: spark
+  statement: spark.sql.files.maxRecordsPerFile limits how many records Spark writes to a single output file, and when the value is zero or negative there is no limit.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: This is the cleanest official write-side file-size control boundary available in Spark configs.
+
+- id: spark-claim-0112
+  domain: bigdata
+  component: spark
+  statement: Coalesce hints in Spark SQL control the number of output files similarly to Dataset coalesce, repartition, and repartitionByRange; COALESCE only accepts a partition count, REPARTITION accepts partition count, columns, or both/neither, REPARTITION_BY_RANGE requires columns with optional partition count, and REBALANCE also accepts an initial partition count and/or columns.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: Important for connecting Dataset partition APIs with SQL-side output-layout controls.
+
+- id: spark-claim-0113
+  domain: bigdata
+  component: spark
+  statement: When spark.sql.adaptive.coalescePartitions.enabled is true and adaptive execution is enabled, Spark coalesces contiguous shuffle partitions according to spark.sql.adaptive.advisoryPartitionSizeInBytes to avoid too many small tasks.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: This makes AQE partition coalescing concrete rather than a vague statement about runtime adjustment.
+
+- id: spark-claim-0114
+  domain: bigdata
+  component: spark
+  statement: Dataset.repartitionByRange creates a range-partitioned Dataset, but rows are not sorted within each resulting partition, and Spark uses sampling to estimate ranges so the output can vary across runs.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dataset-javadoc
+  notes: Valuable for distinguishing range partitioning from full in-partition ordering.
+
+- id: spark-claim-0115
+  domain: bigdata
+  component: spark
+  statement: "Dataset.explain(mode) supports five named modes: simple prints only the physical plan, extended prints both logical and physical plans, codegen prints the physical plan and generated code if available, cost prints a logical plan and statistics if available, and formatted splits output into a physical plan outline plus node details."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-dataset-javadoc
+  notes: This is the authoritative API boundary for using explain modes as a diagnosis tool rather than a single debugging command.
+
+- id: spark-claim-0116
+  domain: bigdata
+  component: spark
+  statement: Spark SQL performance tuning documentation recommends inspecting query-plan estimates via EXPLAIN COST or DataFrame.explain(mode=\"cost\"), and inspecting runtime statistics in the SQL UI Details section where they appear as Statistics(..., isRuntime=true).
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: Crucial for connecting compile-time estimates with runtime evidence in interviews and production diagnosis.
+
+- id: spark-claim-0117
+  domain: bigdata
+  component: spark
+  statement: spark.sql.ui.explainMode configures the query explain mode used in the Spark SQL UI, accepts simple, extended, codegen, cost, or formatted, and defaults to formatted.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: Useful for explaining that plan observability is not limited to calling explain() manually.
+
+- id: spark-claim-0118
+  domain: bigdata
+  component: spark
+  statement: Spark SQL performance tuning documentation recommends inspecting table or column statistics with DESCRIBE EXTENDED, because Spark's plan quality depends on estimates derived from data-source, catalog, and runtime statistics.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-sql-performance-tuning
+  notes: This gives a concrete operator-facing way to inspect what the optimizer actually knows.
+
+- id: spark-claim-0119
+  domain: bigdata
+  component: spark
+  statement: spark.sql.cbo.enabled is false by default and enables the cost-based optimizer for estimation of plan statistics when set to true.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: This is the primary configuration switch for CBO behavior.
+
+- id: spark-claim-0120
+  domain: bigdata
+  component: spark
+  statement: spark.sql.cbo.planStats.enabled is false by default, and when true the logical plan fetches row counts and column statistics from the catalog.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: Important for separating “CBO opened” from “catalog statistics actually used”.
+
+- id: spark-claim-0121
+  domain: bigdata
+  component: spark
+  statement: spark.sql.statistics.histogram.enabled is false by default; when enabled Spark generates equi-height histograms for column statistics to improve estimation accuracy, but doing so incurs extra cost and an extra table scan.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: High-value fact for explaining why better cardinality estimation is never free.
+
+- id: spark-claim-0122
+  domain: bigdata
+  component: spark
+  statement: spark.sql.statistics.size.autoUpdate.enabled is false by default and automatically updates table size when table data changes, but this can be expensive and slow down data-change commands when tables have many files.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: Useful for explaining stale statistics versus write-path overhead trade-offs.
+
+- id: spark-claim-0123
+  domain: bigdata
+  component: spark
+  statement: spark.sql.inMemoryColumnarStorage.batchSize defaults to 10000 and controls columnar caching batch size; larger batch sizes can improve memory utilization and compression but also increase the risk of OOM while caching data.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: Important runtime-footprint boundary for cached columnar data.
+
+- id: spark-claim-0124
+  domain: bigdata
+  component: spark
+  statement: spark.sql.inMemoryColumnarStorage.compressed defaults to true, and when enabled Spark SQL automatically selects a compression codec for each cached column based on data statistics.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: This is the explicit config-level source for why cached columnar data is both statistics-aware and GC-conscious.
+
+- id: spark-claim-0125
+  domain: bigdata
+  component: spark
+  statement: spark.sql.inMemoryColumnarStorage.enableVectorizedReader defaults to true and enables a vectorized reader for columnar caching.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: Useful for connecting cached columnar layout with vectorized runtime consumption.
+
+- id: spark-claim-0126
+  domain: bigdata
+  component: spark
+  statement: spark.sql.defaultCacheStorageLevel defaults to MEMORY_AND_DISK and is the default storage level for dataset.cache(), catalog.cacheTable(), and SQL CACHE TABLE.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: This extends the cache-default story from Dataset API to the SQL and catalog layers.
+
+- id: spark-claim-0127
+  domain: bigdata
+  component: spark
+  statement: spark.sql.optimizer.dynamicPartitionPruning.enabled defaults to true, and when enabled Spark generates predicates for partition columns used as join keys.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: This is a compact official boundary for runtime pruning on partitioned tables in join scenarios.
+
+- id: spark-claim-0128
+  domain: bigdata
+  component: spark
+  statement: spark.sql.maxPlanStringLength defaults to a very large value, and lowering it can prevent overly long plan strings from consuming too much memory or causing OutOfMemory errors in the driver or UI processes.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: This is a practical observability claim for handling massive plans without destabilizing the UI or driver.
+
+- id: spark-claim-0129
+  domain: bigdata
+  component: spark
+  statement: spark.sql.maxSinglePartitionBytes defaults to 128 MB, and if a partition would exceed that size the planner introduces a shuffle to improve parallelism.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-configuration-doc
+  notes: Useful for relating runtime footprint control to planner-inserted shuffles.
+
+- id: spark-claim-0130
+  domain: bigdata
+  component: spark
+  statement: For watermarking to clean aggregation state in Structured Streaming, the output mode must be Append or Update, the aggregation must use the event-time column or a window on it, withWatermark must be defined on the same timestamp column used in the aggregation, and withWatermark must be called before the aggregation.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: This is the cleanest official boundary for when watermarking actually enables state eviction rather than just being written in code.
+
+- id: spark-claim-0131
+  domain: bigdata
+  component: spark
+  statement: In Structured Streaming aggregation with watermarking, a watermark delay such as 2 hours guarantees that the engine will never drop any data that is less than 2 hours delayed, but data delayed by more than that threshold may or may not get processed.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: Important for expressing watermark as a guarantee boundary rather than a deterministic drop rule for all older data.
+
+- id: spark-claim-0132
+  domain: bigdata
+  component: spark
+  statement: In stream-stream joins, watermark plus event-time constraints are optional for inner joins but mandatory for outer joins and semi joins, because the engine must know when an input row can no longer match future input in order to emit correct NULL or unmatched-side results and evict old state.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: High-value claim for separating semantic correctness from mere state-size optimization.
+
+- id: spark-claim-0133
+  domain: bigdata
+  component: spark
+  statement: Trigger settings determine whether a Structured Streaming query runs as micro-batch processing or continuous processing; by default the query runs in micro-batch mode and starts each new micro-batch as soon as the previous one completes.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: Useful for explaining why trigger choice changes the execution model rather than just the schedule interval.
+
+- id: spark-claim-0134
+  domain: bigdata
+  component: spark
+  statement: Available-now micro-batch processes all available data and then stops, may split that work into multiple micro-batches for better scalability, guarantees that all available data at execution time gets processed before termination, advances watermark per batch, and can run a no-data batch before termination if the last batch advances the watermark.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: This is the strongest official statement for why AvailableNow is more than a prettier Trigger.Once.
+
+- id: spark-claim-0135
+  domain: bigdata
+  component: spark
+  statement: If any source in a query does not support Trigger.AvailableNow, Spark deactivates that trigger and falls back to a one-time micro-batch.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: Important for explaining why planned execution behavior can silently degrade when source support is uneven.
+
+- id: spark-claim-0136
+  domain: bigdata
+  component: spark
+  statement: By default foreachBatch provides only at-least-once write guarantees, but users can use the provided batchId to deduplicate outputs and obtain exactly-once guarantees at the application level.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: This is one of the highest-value custom-sink facts in Structured Streaming.
+
+- id: spark-claim-0137
+  domain: bigdata
+  component: spark
+  statement: foreachBatch does not work with continuous processing mode because it fundamentally relies on the micro-batch execution of a streaming query; continuous-mode custom writes should use foreach instead.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: Useful for preventing incorrect combinations of low-latency mode and micro-batch-oriented custom sinks.
+
+- id: spark-claim-0138
+  domain: bigdata
+  component: spark
+  statement: If foreachBatch is used with a stateful streaming query and multiple DataFrame actions are performed on the same micro-batch DataFrame, the query is evaluated multiple times and state may be reloaded multiple times within the same batch, so Spark recommends persist and unpersist inside foreachBatch to avoid recomputation.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: Critical production detail for avoiding self-inflicted latency in stateful pipelines.
+
+- id: spark-claim-0139
+  domain: bigdata
+  component: spark
+  statement: Between restarts from the same checkpoint location, changing the number or type of input sources in a Structured Streaming query is not allowed.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: Core claim for restart compatibility boundaries.
+
+- id: spark-claim-0140
+  domain: bigdata
+  component: spark
+  statement: Structured Streaming restores checkpointed state after restart under the assumption that the schema of state data remains the same, so changes to stateful operations such as streaming aggregation grouping keys or aggregates, deduplication columns, and stream-stream join schema, equi-join columns, or join type are not allowed or are ill-defined between restarts from the same checkpoint.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: High-value recovery-semantics claim for evolving production queries safely.
+
+- id: spark-claim-0141
+  domain: bigdata
+  component: spark
+  statement: In Structured Streaming, preferred location for a state store provider is not a hard requirement; Spark may still schedule tasks on other executors, in which case it loads checkpointed state on the new executor, and a maintenance task later unloads inactive state store providers from previous executors.
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - spark-structured-streaming-apis
+  notes: This extends the locality story with the operational boundary that locality is best-effort, not absolute.
+
+- id: spark-claim-0142
+  domain: bigdata
+  component: spark
+  statement: "Spark dynamic allocation can request executors when pending tasks build up and remove executors that stay idle, so it changes executor lifecycle rather than the semantics of a stage or task."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-job-scheduling
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0143
+  domain: bigdata
+  component: spark
+  statement: "Spark dynamic allocation requires a strategy for preserving shuffle data after executors are removed, such as an external shuffle service or shuffle tracking, depending on deployment and configuration."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-job-scheduling
+    - spark-configuration-doc
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0144
+  domain: bigdata
+  component: spark
+  statement: "Spark decommissioning is designed to reduce the impact of planned executor or node removal by migrating or preserving relevant blocks where supported, but it is not a replacement for durable external storage."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-configuration-doc
+    - spark-job-scheduling
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0145
+  domain: bigdata
+  component: spark
+  statement: "Spark Connect decouples client applications from the Spark driver by sending unresolved logical plans from the client to a remote Spark server."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-connect-overview
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0146
+  domain: bigdata
+  component: spark
+  statement: "Spark Connect uses gRPC as the protocol layer between client and server, and can use Arrow-oriented result transfer for efficient data exchange."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-connect-overview
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0147
+  domain: bigdata
+  component: spark
+  statement: "Spark Connect changes application access and deployment boundaries, but server-side analysis, optimization and execution still depend on Spark SQL and the Spark runtime."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-connect-overview
+    - spark-sql-guide
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0148
+  domain: bigdata
+  component: spark
+  statement: "Spark monitoring documentation describes application Web UIs and a History Server that reconstructs completed applications from event logs."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-monitoring-doc
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0149
+  domain: bigdata
+  component: spark
+  statement: "Spark exposes monitoring information through Web UI pages, REST APIs, metrics and event logs, which should be combined for production diagnosis."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-monitoring-doc
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0150
+  domain: bigdata
+  component: spark
+  statement: "Spark event logs are the durable evidence source for post-run analysis, so production deployments need retention, access control and storage planning for them."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-monitoring-doc
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0151
+  domain: bigdata
+  component: spark
+  statement: "PySpark execution crosses the JVM and Python boundary, so Python UDF and Pandas UDF workloads can introduce serialization, process and memory overhead beyond the physical Spark plan."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-pyspark-user-guide
+    - spark-arrow-pandas-doc
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0152
+  domain: bigdata
+  component: spark
+  statement: "Apache Arrow support in PySpark is intended to make columnar data transfer between Spark and Python/Pandas more efficient, but it does not remove driver memory limits for collecting large results."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-arrow-pandas-doc
+    - spark-dataset-javadoc
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0153
+  domain: bigdata
+  component: spark
+  statement: "Pandas UDFs process data in batches through the Python worker boundary, so diagnosis should consider Arrow batches, Python worker memory and Catalyst optimization barriers."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-arrow-pandas-doc
+    - spark-sql-guide
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0154
+  domain: bigdata
+  component: spark
+  statement: "Spark security documentation covers authentication, authorization, encryption and UI access controls, but underlying storage and cluster-manager permissions remain separate boundaries."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-security-doc
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0155
+  domain: bigdata
+  component: spark
+  statement: "Spark supports redaction of sensitive configuration information so credentials and tokens are not exposed directly through logs or user interfaces."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-security-doc
+    - spark-configuration-doc
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0156
+  domain: bigdata
+  component: spark
+  statement: "Spark UI and History Server can expose execution metadata, configuration and SQL details, so access control and event-log protection are part of production security."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-security-doc
+    - spark-monitoring-doc
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0157
+  domain: bigdata
+  component: spark
+  statement: "Spark network and I/O encryption settings protect Spark internal communication and local data paths only when they are configured consistently with the deployment environment."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-05"
+  last_verified_at: "2026-05-05"
+  source_ids:
+    - spark-security-doc
+    - spark-configuration-doc
+  notes: Added during Spark content deepening to cover modern production boundaries.
+
+- id: spark-claim-0158
+  domain: bigdata
+  component: spark
+  statement: "Spark SQL data sources define a DataFrame load/save abstraction across files, Hive tables, JDBC and other formats, but each source still has its own schema, partition and option semantics."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-sql-data-sources
+    - spark-sql-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0159
+  domain: bigdata
+  component: spark
+  statement: "Spark save modes and table writes describe client-visible write intent, while atomicity and overwrite behavior still depend on the data source, catalog, filesystem and table format."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-sql-data-sources
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0160
+  domain: bigdata
+  component: spark
+  statement: "File source options such as partition discovery, corrupt-file handling and schema merging affect both correctness and scan cost, so they must be treated as data-source behavior rather than optimizer magic."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-sql-data-sources
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0161
+  domain: bigdata
+  component: spark
+  statement: "Spark SQL can interact with Hive tables and JDBC sources, but metastore, external database isolation and connector pushdown remain external dependency boundaries."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-sql-data-sources
+    - spark-sql-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0162
+  domain: bigdata
+  component: spark
+  statement: "Spark SQL reference documents ANSI compliance, data types, null semantics, name resolution, functions, DDL and DML, which are semantic boundaries separate from physical optimization."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-sql-reference
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0163
+  domain: bigdata
+  component: spark
+  statement: "ANSI mode and type coercion changes can turn previously tolerated runtime behavior into failures or different results, so SQL compatibility needs explicit verification during upgrades."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-sql-reference
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0164
+  domain: bigdata
+  component: spark
+  statement: "Null semantics and name resolution influence query results before physical planning, so incorrect SQL answers cannot always be fixed by AQE or join tuning."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-sql-reference
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0165
+  domain: bigdata
+  component: spark
+  statement: "UDF, UDAF and Hive UDF integration expand SQL expressiveness but may reduce optimizer visibility and introduce language/runtime boundaries."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-sql-reference
+    - spark-sql-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0166
+  domain: bigdata
+  component: spark
+  statement: "Spark dynamic allocation requires a shuffle-data survival strategy such as external shuffle service, shuffle tracking, decommission shuffle block migration or reliable shuffle storage."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-job-scheduling
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0167
+  domain: bigdata
+  component: spark
+  statement: "Spark scheduling must distinguish resources across applications from scheduling within one SparkContext, because cluster managers and fair scheduler pools solve different contention problems."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-job-scheduling
+    - spark-cluster-overview
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0168
+  domain: bigdata
+  component: spark
+  statement: "Hardware provisioning guidance treats local disks, memory, network and CPU as separate bottleneck surfaces, not as a single executor-size parameter."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-hardware-provisioning
+    - spark-tuning-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0169
+  domain: bigdata
+  component: spark
+  statement: "Advanced resource features such as stage-level needs, barrier-style coordination and accelerator resources must be validated against the selected cluster manager and deployment mode."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-configuration-doc
+    - spark-job-scheduling
+    - spark-running-on-kubernetes
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0170
+  domain: bigdata
+  component: spark
+  statement: "Spark Streaming DStreams is the previous-generation streaming engine and official guidance points new streaming pipelines toward Structured Streaming."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-streaming-dstreams-guide
+    - spark-structured-streaming-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0171
+  domain: bigdata
+  component: spark
+  statement: "DStreams represent streaming computation as a sequence of RDDs produced at batch intervals, so their state, checkpoint and receiver model differ from Structured Streaming tables and queries."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-streaming-dstreams-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0172
+  domain: bigdata
+  component: spark
+  statement: "DStream applications have StreamingContext lifecycle constraints, including start/stop behavior and one active StreamingContext per JVM boundary."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-streaming-dstreams-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0173
+  domain: bigdata
+  component: spark
+  statement: "Migrating from DStreams to Structured Streaming requires rechecking source semantics, state, output operations and checkpoint compatibility rather than only rewriting API calls."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-streaming-dstreams-guide
+    - spark-structured-streaming-apis
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0174
+  domain: bigdata
+  component: spark
+  statement: "MLlib is Spark machine learning library and the DataFrame-based spark.ml API is the primary machine learning API, while the RDD-based spark.mllib API is in maintenance mode."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-mllib-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0175
+  domain: bigdata
+  component: spark
+  statement: "MLlib pipelines combine feature transformation, estimators, models, evaluators and persistence, but model quality still depends on data leakage control and evaluation design outside Spark execution."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-mllib-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0176
+  domain: bigdata
+  component: spark
+  statement: "GraphX extends Spark with a property graph abstraction backed by vertex and edge RDDs, exposing graph operators and a Pregel-style iterative API."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-graphx-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0177
+  domain: bigdata
+  component: spark
+  statement: "SparkR is deprecated from Apache Spark 4.0.0 and should be treated as a compatibility and boundary topic rather than a growth-direction API."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-sparkr-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0178
+  domain: bigdata
+  component: spark
+  statement: "Spark Declarative Pipelines introduces declarative flows, datasets and pipeline projects for batch and streaming ETL, shifting author focus from execution mechanics to dataset definitions."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-declarative-pipelines-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0179
+  domain: bigdata
+  component: spark
+  statement: "Spark Declarative Pipelines dry-run and pipeline spec files support validation and orchestration, but storage, catalog and checkpoint locations remain deployment responsibilities."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-declarative-pipelines-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0180
+  domain: bigdata
+  component: spark
+  statement: "Production Spark troubleshooting should start by classifying the symptom as driver, executor, scheduler, shuffle, data source, SQL plan, streaming state or external dependency before changing parameters."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-monitoring-doc
+    - spark-tuning-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0181
+  domain: bigdata
+  component: spark
+  statement: "Driver OOM, executor OOM, fetch failure, skew, slow sink commit and streaming backlog leave different evidence in Spark UI, event logs, executor logs, storage layout and external system metrics."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-monitoring-doc
+    - spark-tuning-guide
+    - spark-structured-streaming-apis
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0182
+  domain: bigdata
+  component: spark
+  statement: "A successful Spark action or streaming batch does not automatically prove downstream business exactly-once semantics because external writes and idempotency are outside Spark core guarantees."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-structured-streaming-apis
+    - spark-sql-data-sources
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0183
+  domain: bigdata
+  component: spark
+  statement: "Spark production case analysis should preserve query plan, event log, configuration, input layout and output commit evidence so that fixes can be verified rather than guessed."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-monitoring-doc
+    - spark-sql-performance-tuning
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0184
+  domain: bigdata
+  component: spark
+  statement: "Spark SQL writes and declarative pipelines can both define target datasets, but write semantics, checkpointing and orchestration responsibilities are different and should not be conflated."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-sql-data-sources
+    - spark-declarative-pipelines-guide
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.
+
+- id: spark-claim-0185
+  domain: bigdata
+  component: spark
+  statement: "External connectors such as Kafka, JDBC, Hive and file formats should be analyzed through source options, pushdown ability, parallelism, schema handling and external consistency guarantees."
+  status: reviewed
+  confidence: high
+  version_scope: "Spark 4.1.1 docs as verified on 2026-05-06"
+  last_verified_at: "2026-05-06"
+  source_ids:
+    - spark-sql-data-sources
+    - spark-structured-streaming-apis
+  notes: Added during Spark completeness pass to cover official edge topics and production boundaries.

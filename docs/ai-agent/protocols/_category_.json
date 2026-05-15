@@ -1,0 +1,9 @@
+﻿{
+  "label": "协议",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "title": "AI Agent 协议",
+    "description": "面向工具、资源和跨系统协作的开放互操作协议。"
+  }
+}

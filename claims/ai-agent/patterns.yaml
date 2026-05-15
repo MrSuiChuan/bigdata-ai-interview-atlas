@@ -1,0 +1,3947 @@
+- id: pattern-claim-0001
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The original RAG paper defines a hybrid model that combines parametric memory in model weights with non-parametric memory stored in an external index.
+  status: reviewed
+  confidence: high
+  version_scope: "NeurIPS 2020 RAG paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - rag-paper
+  notes: Core claim for explaining what RAG fundamentally changes.
+
+- id: pattern-claim-0002
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In the RAG formulation, the retriever provides passages that condition generation, allowing the model to use external knowledge during response generation.
+  status: reviewed
+  confidence: high
+  version_scope: "NeurIPS 2020 RAG paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - rag-paper
+  notes: Useful for answering how retrieval changes generation behavior.
+
+- id: pattern-claim-0003
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The RAG paper highlights that non-parametric memory can be replaced to update knowledge without changing model parameters.
+  status: reviewed
+  confidence: high
+  version_scope: "NeurIPS 2020 RAG paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - rag-paper
+  notes: Important for RAG versus fine-tuning comparisons.
+
+- id: pattern-claim-0004
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    ReAct interleaves reasoning traces with actions, which is a different control style from a planner-executor system that separates planning from execution phases.
+  status: reviewed
+  confidence: high
+  version_scope: "ReAct paper and framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - react-paper
+    - langgraph-thinking-docs
+  notes: Synthesized comparison for planner-executor interviews.
+
+- id: pattern-claim-0005
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph's thinking guidance recommends decomposing agent systems into discrete steps with explicit state and clear decision points, which aligns with planner-executor-style separation.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - langgraph-thinking-docs
+  notes: Framework-backed claim for explicit planning and execution structure.
+
+- id: pattern-claim-0006
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    CrewAI guidance to use Flows as the production skeleton and place more autonomous Crew behavior inside them is an example of separating control flow from open-ended execution.
+  status: reviewed
+  confidence: high
+  version_scope: "CrewAI docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - crewai-introduction-docs
+    - crewai-flows-docs
+  notes: Synthesized planner-executor style claim using official CrewAI guidance.
+
+- id: pattern-claim-0007
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Semantic Kernel's Process Framework is designed around stateful, event-driven, step-based orchestration with pause and resume, which is another form of explicit execution control distinct from free-form agent loops.
+  status: reviewed
+  confidence: high
+  version_scope: "Semantic Kernel docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - semantic-kernel-process-framework-docs
+  notes: Useful for showing planner-executor and deterministic flow patterns in enterprise frameworks.
+
+- id: pattern-claim-0008
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Self-Refine is an iterative pattern in which the same large language model first generates an output, then produces feedback on that output, and then refines it in repeated loops.
+  status: reviewed
+  confidence: high
+  version_scope: "Self-Refine paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - self-refine-paper
+  notes: Core claim for self-refinement loops.
+
+- id: pattern-claim-0009
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The Self-Refine paper emphasizes that iterative self-feedback can improve outputs without additional training data or extra model training.
+  status: reviewed
+  confidence: high
+  version_scope: "Self-Refine paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - self-refine-paper
+  notes: Important contrast against fine-tuning-based improvement.
+
+- id: pattern-claim-0010
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Reflexion introduces verbal reinforcement learning, where an agent stores natural language reflections in episodic memory to improve later decisions.
+  status: reviewed
+  confidence: high
+  version_scope: "Reflexion paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - reflexion-paper
+  notes: Core claim for reflection with memory.
+
+- id: pattern-claim-0011
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In Generative Agents, higher-level reflections are synthesized from lower-level memory observations and then used to influence future planning and behavior.
+  status: reviewed
+  confidence: high
+  version_scope: "Generative Agents paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - generative-agents-paper
+  notes: Good for explaining why reflection is not just a second answer pass.
+
+- id: pattern-claim-0012
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Reflection patterns are most useful when the system preserves feedback or reflections across steps; otherwise they collapse into a simple rewrite pass instead of an adaptive loop.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from primary papers as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - self-refine-paper
+    - reflexion-paper
+    - generative-agents-paper
+  notes: Synthesized claim for interview distinction between reflection and one-shot editing.
+
+- id: pattern-claim-0013
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    MemGPT frames long-term agent memory as a virtual context management problem, using tiered memory ideas inspired by operating systems.
+  status: reviewed
+  confidence: high
+  version_scope: "MemGPT paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - memgpt-paper
+  notes: Core claim for memory architecture interviews.
+
+- id: pattern-claim-0014
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The Generative Agents architecture uses a memory stream, a retrieval function over memory, reflection, and planning as distinct but connected components.
+  status: reviewed
+  confidence: high
+  version_scope: "Generative Agents paper as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - generative-agents-paper
+  notes: Strong foundation for layered memory architecture explanations.
+
+- id: pattern-claim-0015
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph durable execution guidance requires checkpoints and idempotent side effects so long-running workflows can pause, resume, and recover safely.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - langgraph-durable-execution-docs
+  notes: Useful for operational memory and state design boundaries.
+
+- id: pattern-claim-0016
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI Sessions automatically preserve conversation history across runs, which is a form of short-term runtime memory rather than a full long-term memory architecture.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-sessions
+  notes: Important for short-term versus long-term memory distinctions.
+
+- id: pattern-claim-0017
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A practical memory architecture for agents usually needs at least two layers: short-term execution context and longer-term retrievable memory or state.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from primary papers and official docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - memgpt-paper
+    - generative-agents-paper
+    - openai-agents-sdk-sessions
+    - langgraph-persistence-docs
+  notes: Synthesized claim for modern memory architecture explanations.
+
+- id: pattern-claim-0018
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In agent design, RAG solves knowledge grounding and context freshness, while memory architecture solves continuity, personalization, and state persistence across time.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from primary papers and official docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - rag-paper
+    - memgpt-paper
+    - generative-agents-paper
+    - openai-agents-sdk-sessions
+  notes: High-value distinction for RAG versus memory interview questions.
+
+- id: pattern-claim-0019
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    HyDE first asks a language model to generate a hypothetical relevant document for the query and then encodes that generated document with an unsupervised dense encoder to retrieve similar real documents.
+  status: reviewed
+  confidence: high
+  version_scope: "HyDE paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hyde-paper
+  notes: Core claim for explaining why HyDE is a retrieval-side query transformation method.
+
+- id: pattern-claim-0020
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The HyDE paper notes that the generated hypothetical document may contain false details, but the dense retrieval bottleneck helps ground retrieval toward real corpus neighbors instead of using the generated text as final evidence.
+  status: reviewed
+  confidence: high
+  version_scope: "HyDE paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hyde-paper
+  notes: Important boundary claim so HyDE is not confused with direct answer generation.
+
+- id: pattern-claim-0021
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In agentic RAG systems, query rewrite and HyDE should be treated as retrieval-side query transformation stages that improve candidate recall; they are not evidence and do not replace retrieval over the source corpus.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from primary papers as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - hyde-paper
+    - rag-paper
+  notes: Synthesized claim for interview answers about query transformation boundaries.
+
+- id: pattern-claim-0022
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    ColBERTv2 keeps token-level late interaction instead of collapsing each query or document into a single vector, which improves fine-grained relevance matching for high-precision retrieval and reranking.
+  status: reviewed
+  confidence: high
+  version_scope: "ColBERTv2 paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - colbertv2-paper
+  notes: Core claim for explaining retriever versus reranker precision differences.
+
+- id: pattern-claim-0023
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    ColBERTv2 combines late interaction with residual compression and denoised supervision to reduce index space while preserving much of the effectiveness of token-level retrieval.
+  status: reviewed
+  confidence: high
+  version_scope: "ColBERTv2 paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - colbertv2-paper
+  notes: Useful for answering why late-interaction retrieval is often reserved for precision stages.
+
+- id: pattern-claim-0024
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI File Search uses both vector and keyword search to retrieve relevant content from files and can surface citations to supporting files in responses.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-file-search-docs
+  notes: Core official-doc claim for hybrid retrieval and citations.
+
+- id: pattern-claim-0025
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A practical grounding pipeline often separates coarse recall from precision ordering: a retriever or hybrid search stage expands candidate coverage, and a reranker or late-interaction stage improves final ordering before generation.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from primary papers and official docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - rag-paper
+    - colbertv2-paper
+    - openai-file-search-docs
+  notes: High-value synthesized claim for two-stage retrieval explanations.
+
+- id: pattern-claim-0026
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Grounding and citation are related but different concerns: retrieval brings external evidence into the generation process, while citation exposes which source documents support the final answer for auditability.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from primary papers and official docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - rag-paper
+    - openai-file-search-docs
+  notes: Synthesized claim for distinguishing evidence use from evidence exposure.
+
+- id: pattern-claim-0027
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    MemoryBank models long-term memory with an Ebbinghaus-forgetting-curve-inspired mechanism, updating memory strength using factors such as time and significance instead of treating all memories equally.
+  status: reviewed
+  confidence: high
+  version_scope: "MemoryBank paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - memorybank-paper
+  notes: Important source-backed claim for selective retention and forgetting.
+
+- id: pattern-claim-0028
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LongMem decouples long-term memory from the frozen backbone model and retrieves relevant historical information from a memory bank, aiming to extend usable history beyond the normal context window.
+  status: reviewed
+  confidence: high
+  version_scope: "LongMem paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - longmem-paper
+  notes: Core claim for long-term memory architecture and retrieval over long history.
+
+- id: pattern-claim-0029
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A practical long-term memory write policy should be selective, promoting stable preferences, summaries, reflections, or high-value events rather than appending every raw turn into the same memory store.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from primary papers as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - memorybank-paper
+    - generative-agents-paper
+    - memgpt-paper
+  notes: Synthesized claim for explaining memory write policy in interviews.
+
+- id: pattern-claim-0030
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A practical memory read policy should distinguish between current execution context, long-term user or task memory, and fresh external knowledge, because these layers answer different questions at inference time.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from primary papers and official docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - longmem-paper
+    - memgpt-paper
+    - openai-agents-sdk-sessions
+    - rag-paper
+  notes: Synthesized claim for read-path selection and memory-layer boundaries.
+
+- id: pattern-claim-0031
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Retrieval guide states that the default chunking settings are 800 tokens per chunk with 400-token overlap, and the configurable chunk size range is 100 to 4096 tokens with overlap not exceeding half the chunk size.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-retrieval-guide
+  notes: Useful for explaining that chunking has explicit operational constraints rather than being an unbounded free choice.
+
+- id: pattern-claim-0032
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Lost in the Middle finds that language model performance can degrade significantly when relevant information is placed in the middle of long contexts, with stronger performance often observed when the information appears near the beginning or end.
+  status: reviewed
+  confidence: high
+  version_scope: "Lost in the Middle paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - lost-in-the-middle-paper
+  notes: Core claim for why long context does not eliminate chunking and packing concerns.
+
+- id: pattern-claim-0033
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A practical chunking and context-packing strategy should keep evidence units semantically coherent and avoid burying answer-bearing facts deep inside oversized chunks, because longer chunks and longer context windows do not automatically improve evidence use.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs and primary papers as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-retrieval-guide
+    - lost-in-the-middle-paper
+  notes: Synthesized claim connecting chunk-size choices with downstream answerability.
+
+- id: pattern-claim-0034
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Retrieval guide says that when a file is added to a vector store it is automatically chunked, embedded, and indexed.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-retrieval-guide
+  notes: Core claim for ingestion and indexing flow in modern retrieval systems.
+
+- id: pattern-claim-0035
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The DPR paper describes dense retrieval with a simple dual-encoder framework in which question and passage embeddings are learned and used for retrieval.
+  status: reviewed
+  confidence: high
+  version_scope: "DPR paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - dpr-paper
+  notes: Foundation claim for dense indexing and dense retrieval explanations.
+
+- id: pattern-claim-0036
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The DPR paper reports that its dense retriever outperforms a strong Lucene-BM25 baseline by 9% to 19% absolute in top-20 passage retrieval accuracy across open-domain QA datasets.
+  status: reviewed
+  confidence: high
+  version_scope: "DPR paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - dpr-paper
+  notes: Useful for explaining why dense indexing and retrieval changed modern RAG stacks.
+
+- id: pattern-claim-0037
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In RAG systems, indexing and chunk design effectively set the ceiling on candidate recall, because the generator cannot use evidence that was never made retrievable or never retrieved into the candidate set.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs and primary papers as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-retrieval-guide
+    - dpr-paper
+    - rag-paper
+  notes: High-value synthesized claim for connecting ingestion and retrieval to end-task answer quality.
+
+- id: pattern-claim-0038
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Retrieval guide says that attribute filtering can target files based on their attributes before performing semantic search, and supports comparison operators plus compound and/or filters.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-retrieval-guide
+  notes: Core claim for metadata-scoped retrieval.
+
+- id: pattern-claim-0039
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search documents that `vectorFilterMode` determines where filtering is applied relative to vector query execution and that this choice affects latency, recall, and throughput.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-vector-query-filters
+  notes: Core claim for filter placement tradeoffs in ANN-based search.
+
+- id: pattern-claim-0040
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search recommends `preFilter` as the default because it favors recall and quality, while `postFilter` and especially `strictPostFilter` can create false negatives under highly selective filters or small `k` values.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-vector-query-filters
+  notes: Important for interview answers about correctness versus latency in filtered vector search.
+
+- id: pattern-claim-0041
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search describes agentic retrieval as a multi-query pipeline that uses an LLM to break a complex query into smaller, focused subqueries for better coverage over indexed content.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-agentic-retrieval-overview
+  notes: Core claim for query decomposition and planning in advanced retrieval systems.
+
+- id: pattern-claim-0042
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search says agentic retrieval runs subqueries in parallel, semantically reranks matches, and returns grounding data, source references, and an activity or query plan in the response.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-agentic-retrieval-overview
+  notes: Useful for explaining why routing and decomposition are orchestration concerns rather than just query rewriting.
+
+- id: pattern-claim-0043
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Retrieval guide provides `rewrite_query=true` for automatically rewriting a single search query and exposes the rewritten query in the `search_query` field of the result.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-retrieval-guide
+  notes: Important boundary claim for separating rewrite from routing and decomposition.
+
+- id: pattern-claim-0044
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In retrieval system design, query routing and metadata filtering solve different problems: routing chooses which retrieval path, corpus, or multi-query plan to invoke, while filtering narrows candidate scope within a chosen retrieval path.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-agentic-retrieval-overview
+    - azure-vector-query-filters
+    - openai-retrieval-guide
+  notes: Synthesized claim for high-quality interview distinctions.
+
+- id: pattern-claim-0045
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Microsoft Foundry RAG evaluators explicitly distinguish process evaluation of retrieval from system evaluation of final response quality.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Foundry docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-rag-evaluators
+  notes: Foundation claim for why answer scoring alone is insufficient in RAG.
+
+- id: pattern-claim-0046
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Microsoft Foundry recommends the `document_retrieval` evaluator as the most precise way to evaluate retrieval quality when you have query relevance labels, reporting metrics such as Fidelity, NDCG, XDCG, Max Relevance, and Holes.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Foundry docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-rag-evaluators
+  notes: Core claim for retrieval metrics and parameter-sweep optimization.
+
+- id: pattern-claim-0047
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Microsoft Foundry documents a separate `retrieval` evaluator for cases without ground truth labels, using an LLM judge to assess how relevant the retrieved context is to the query.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Foundry docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-rag-evaluators
+  notes: Useful for explaining what can be measured when qrels are unavailable.
+
+- id: pattern-claim-0048
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Retrieval guide says ranking can be tuned with `score_threshold`, and hybrid retrieval can further tune reciprocal-rank-fusion weights between semantic embedding matches and sparse keyword matches.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-retrieval-guide
+  notes: Important for retrieval tuning and evaluation discussions.
+
+- id: pattern-claim-0049
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI File Search responses contain a `file_search_call` output item plus a `message` output item whose output text can include file citation annotations.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-file-search-docs
+  notes: Core claim for distinguishing search execution metadata from answer text with citations.
+
+- id: pattern-claim-0050
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI File Search does not return raw search results by default even when file citation annotations are present in the answer; to include search results you must request `include=[\"file_search_call.results\"]`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-file-search-docs
+  notes: Important for explaining why citations do not automatically expose the retrieved evidence payload.
+
+- id: pattern-claim-0051
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Retrieval guide recommends synthesizing a grounded response by supplying both the original query and the retrieved results to a model, rather than treating retrieval as the final answer itself.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-retrieval-guide
+  notes: Core claim for separating retrieval, evidence formatting, and answer synthesis.
+
+- id: pattern-claim-0052
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The ALCE paper introduces automatic evaluation for citation-enabled long-form QA along three dimensions: fluency, correctness, and citation quality.
+  status: reviewed
+  confidence: high
+  version_scope: "ALCE paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - alce-paper
+  notes: Foundation claim for why citation quality needs its own metric family.
+
+- id: pattern-claim-0053
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The ALCE paper reports that on the ELI5 dataset even the best evaluated systems lacked complete citation support 50% of the time, showing that good-looking answers can still be weakly supported.
+  status: reviewed
+  confidence: high
+  version_scope: "ALCE paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - alce-paper
+  notes: High-value claim for distinguishing answer plausibility from citation completeness.
+
+- id: pattern-claim-0054
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Attribute First, then Generate decomposes attributed generation into content selection, sentence planning, and sequential sentence generation so that selected source segments act as fine-grained attributions.
+  status: reviewed
+  confidence: high
+  version_scope: "ACL 2024 paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - attribute-first-paper
+  notes: Core claim for evidence selection before answer synthesis.
+
+- id: pattern-claim-0055
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    RARR proposes a retrofit attribution-and-revision pipeline that automatically finds attribution for generated output and post-edits unsupported content while preserving the original output as much as possible.
+  status: reviewed
+  confidence: high
+  version_scope: "ACL 2023 paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - rarr-paper
+  notes: Useful for explaining revision passes after initial answer synthesis.
+
+- id: pattern-claim-0056
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search indexers can run as often as every five minutes, but more frequent updates preclude indexers and instead require a push model that keeps the external source and search index synchronized.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-indexer-overview
+  notes: Important for freshness strategy and pull-versus-push ingestion boundaries.
+
+- id: pattern-claim-0057
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search indexers keep an internal high-water mark of the last processed content, and scheduled incremental indexing depends on change detection in the underlying data source.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-create-indexer
+    - azure-run-reset-indexers
+  notes: Core claim for incremental indexing behavior and freshness expectations.
+
+- id: pattern-claim-0058
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In Azure AI Search, reset is a passive operation that clears the high-water mark; you must follow reset with a run command to trigger a full reindex of existing and new documents.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-run-reset-indexers
+  notes: Important for explaining why reindex strategy is not just “click reset”.
+
+- id: pattern-claim-0059
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search does not automatically detect deletions in data sources; deletion detection requires a soft-delete strategy, and undeleted blobs may need their `LastModified` timestamp updated before they are reindexed.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-change-delete-detection
+  notes: Core claim for freshness correctness and reindex edge cases.
+
+- id: pattern-claim-0060
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search recommends side-by-side index creation plus alias-based cutover for production schema changes, because many changes to field names, types, analyzers, and index attributes require dropping and rebuilding the index.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-update-rebuild-index
+  notes: High-value claim for reindex strategy and production-safe migrations.
+
+- id: pattern-claim-0061
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    When a new field is added to an existing Azure AI Search index without rebuilding, existing documents receive null for that field until the next indexing job or document update populates it.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-update-rebuild-index
+  notes: Important for understanding partial schema evolution and freshness gaps after schema changes.
+
+- id: pattern-claim-0062
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search monitoring exposes execution history, start and end times, errors, warnings, and initial and final tracking state for recent indexer runs.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-monitor-indexers
+  notes: Core claim for retrieval ingestion debugging workflow.
+
+- id: pattern-claim-0063
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search troubleshooting guidance distinguishes transient errors from persistent ones, recommends scheduled reruns to clear transient failures, and notes that indexing can succeed with warnings or skipped documents if failures stay under configured tolerances.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-indexer-troubleshooting
+    - azure-monitor-indexers
+  notes: Useful for constructing a practical retrieval debugging playbook.
+
+- id: pattern-claim-0064
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search's `featuresMode` can expose field-level BM25 score details, which helps debug why one document ranked above another in keyword search.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-bm25-scoring
+  notes: Important for ranking-debug and relevance-analysis explanations.
+
+- id: pattern-claim-0065
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The BEIR benchmark evaluates retrieval on 18 publicly available datasets spanning diverse tasks and domains, and reports that BM25 is a robust zero-shot baseline while reranking and late-interaction systems achieve the best average zero-shot results at higher computational cost.
+  status: reviewed
+  confidence: high
+  version_scope: "BEIR paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - beir-paper
+  notes: Core claim for offline benchmark diversity and retrieval cost-quality tradeoffs.
+
+- id: pattern-claim-0066
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The IRCoT paper argues that one-step retrieve-and-read is insufficient for multi-step question answering because what should be retrieved depends on what has already been derived, and what is derived depends on what was previously retrieved.
+  status: reviewed
+  confidence: high
+  version_scope: "ACL 2023 paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - ircot-paper
+  notes: Foundation claim for iterative retrieval instead of one-shot retrieval.
+
+- id: pattern-claim-0067
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    IRCoT interleaves retrieval with chain-of-thought steps and reports substantial gains, improving retrieval by up to 21 points and downstream QA by up to 15 points on four multi-step QA datasets.
+  status: reviewed
+  confidence: high
+  version_scope: "ACL 2023 paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - ircot-paper
+  notes: Strong claim for why multi-hop retrieval is not just a prompt style preference.
+
+- id: pattern-claim-0068
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Self-RAG trains a model to adaptively retrieve passages on demand and to critique retrieved passages and its own generations using reflection tokens.
+  status: reviewed
+  confidence: high
+  version_scope: "Self-RAG paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - self-rag-paper
+  notes: Core claim for adaptive iterative retrieval and self-critique loops.
+
+- id: pattern-claim-0069
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The GraphRAG paper says baseline RAG performs poorly on global questions over an entire corpus, while GraphRAG builds an entity knowledge graph plus community summaries to support query-focused summarization at corpus scale.
+  status: reviewed
+  confidence: high
+  version_scope: "GraphRAG paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - graphrag-paper
+  notes: Core claim for graph-based retrieval on global sensemaking questions.
+
+- id: pattern-claim-0070
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    GraphRAG local search combines structured knowledge-graph data with unstructured document text, identifies semantically related entities, and prioritizes filtered entities, relationships, reports, and text units to fit a single response context window.
+  status: reviewed
+  confidence: high
+  version_scope: "GraphRAG docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - graphrag-local-search-docs
+  notes: Important for explaining graph retrieval as a context-building pipeline rather than just graph traversal.
+
+- id: pattern-claim-0071
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    GraphRAG global search uses community reports in a map-reduce style workflow, and lower community hierarchy levels can yield more thorough responses but require more time and LLM resources because of the higher report volume.
+  status: reviewed
+  confidence: high
+  version_scope: "GraphRAG docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - graphrag-global-search-docs
+  notes: Useful for discussing quality-versus-cost tradeoffs in graph-based global retrieval.
+
+- id: pattern-claim-0072
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    GraphRAG DRIFT Search combines characteristics of both global and local search, beginning from semantically relevant community reports and refining the search with follow-up questions to balance computational costs with response quality.
+  status: reviewed
+  confidence: high
+  version_scope: "GraphRAG docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - graphrag-drift-search-docs
+  notes: Good boundary claim for iterative graph retrieval beyond one-shot local search.
+
+- id: pattern-claim-0073
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search document-level access control trims result sets at query time by validating user identity and permission metadata that was ingested into the index, and can enforce access using Microsoft Entra tokens and Purview label metadata.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-document-level-access
+  notes: Core claim for permission-aware retrieval in enterprise RAG.
+
+- id: pattern-claim-0074
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Query-time ACL and RBAC enforcement in Azure AI Search depends on permission metadata being ingested into filterable string fields during indexing; for data sources without built-in permission ingestion, the application must push both content and permission metadata itself.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-query-time-acl-rbac
+  notes: Important for explaining why authorization starts at ingestion, not only at query time.
+
+- id: pattern-claim-0075
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search's security filter pattern uses a string identity field and the `search.in` filter function for document trimming; the docs note that `search.in` can keep response times subsecond where long disjunctions of equality checks can add many seconds.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-security-filter-pattern
+  notes: High-value claim for permission-aware filtering at scale.
+
+- id: pattern-claim-0076
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search documents three common multitenancy patterns: one index per tenant, one service per tenant, and a hybrid of both, with the tradeoff between cost efficiency and isolation strength.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-multitenant-saas-search
+  notes: Foundation claim for tenant-isolation architecture discussions.
+
+- id: pattern-claim-0077
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Using a single shared index with tenant filters can affect relevance because Azure AI Search computes relevance statistics at the index level rather than the tenant level.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-multitenant-saas-search
+  notes: Important tradeoff for shared-index multitenant retrieval.
+
+- id: pattern-claim-0078
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's cost optimization guide states that cost and latency are typically interconnected, and recommends reducing requests, minimizing tokens, and selecting smaller models as core optimization levers.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-cost-optimization-guide
+  notes: Foundation claim for cost-latency budgeting.
+
+- id: pattern-claim-0079
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's latency optimization guide lists seven principles including processing tokens faster, generating fewer tokens, making fewer requests, parallelizing independent work, and not defaulting to an LLM when unnecessary.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-latency-optimization-guide
+  notes: Useful for turning latency advice into a system design framework.
+
+- id: pattern-claim-0080
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The latency optimization guide says generating tokens is usually the highest latency step, and as a rule of thumb cutting 50% of output tokens may cut about 50% of latency, while cutting 50% of prompt tokens often improves latency only modestly unless contexts are very large.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-latency-optimization-guide
+  notes: Important for latency budgeting between retrieval context and final generation.
+
+- id: pattern-claim-0081
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI Prompt Caching works automatically for prompts that are 1024 tokens or longer, relies on exact prefix matches, and the docs say it can reduce latency by up to 80% and input token costs by up to 90%.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-prompt-caching-guide
+  notes: Core claim for prompt-prefix-aware cache strategy.
+
+- id: pattern-claim-0082
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI Prompt Caching guidance recommends placing static instructions and examples at the beginning and dynamic user-specific content at the end, and using `prompt_cache_key` consistently when many requests share long common prefixes.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-prompt-caching-guide
+  notes: High-value practical guidance for RAG cache design.
+
+- id: pattern-claim-0083
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's Batch API offers 50% lower costs than synchronous APIs, uses a separate pool of higher rate limits, and completes each batch within 24 hours.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-batch-guide
+  notes: Important for offline indexing, evals, and asynchronous RAG pipelines.
+
+- id: pattern-claim-0084
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI Flex processing provides lower-cost requests at Batch-rate pricing in exchange for slower response times and occasional resource unavailability, and is intended for lower-priority or asynchronous workloads rather than latency-sensitive production paths.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-flex-processing-guide
+    - openai-cost-optimization-guide
+  notes: Useful for tiering RAG workloads by latency sensitivity.
+
+- id: pattern-claim-0085
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK tools documentation groups tools into five categories: hosted OpenAI tools, local/runtime execution tools, function tools, agents as tools, and the experimental Codex tool.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tools
+  notes: Foundation claim for tool-augmented agent architecture.
+
+- id: pattern-claim-0086
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In the OpenAI Agents SDK, `ComputerTool` and `ApplyPatchTool` always require local implementations, while `ShellTool` can run either locally or in an OpenAI-hosted container.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tools
+  notes: Useful for distinguishing local environment actions from hosted tool execution.
+
+- id: pattern-claim-0087
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI computer use guide defines a built-in loop in which you send a task with the `computer` tool enabled, inspect the returned `computer_call`, execute each action in order, send back a screenshot as `computer_call_output`, and repeat until no further `computer_call` is returned.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-computer-use-guide
+  notes: Core claim for environment-action execution semantics.
+
+- id: pattern-claim-0088
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI computer use guide recommends running computer use in an isolated browser or container, maintaining allow lists of domains and actions, and keeping a human in the loop for purchases, authenticated flows, destructive actions, or anything hard to reverse.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-computer-use-guide
+  notes: Core safety claim for environment actions and browser-use style agents.
+
+- id: pattern-claim-0089
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The Agents SDK guardrails documentation says input guardrails run only for the first agent in a chain, output guardrails run only for the final agent output, and tool guardrails run only on custom function-tool invocations rather than hosted tools, built-in execution tools, or handoffs.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-guardrails
+  notes: Important for explaining actual guardrail coverage boundaries.
+
+- id: pattern-claim-0090
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The Agents SDK supports parallel and blocking execution modes for input guardrails: parallel mode optimizes latency but may allow token consumption or tool execution before cancellation, while blocking mode prevents those side effects if the tripwire fires.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-guardrails
+  notes: High-value claim for latency-safety tradeoffs in guardrail design.
+
+- id: pattern-claim-0091
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK includes built-in tracing that records LLM generations, tool calls, handoffs, guardrails, and custom events, and structures them into traces and spans for end-to-end workflow analysis.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: Core claim for observability and workflow diagnosis.
+
+- id: pattern-claim-0092
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph interrupts pause execution at specific points, persist graph state through the persistence layer, and wait indefinitely until resumed, making them suitable for approval workflows, review-and-edit flows, and interrupting tool calls before execution.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-human-in-the-loop-docs
+  notes: Foundation claim for human-in-the-loop escalation design.
+
+- id: pattern-claim-0093
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    For high-impact environment actions, a practical safety-escalation pattern is to combine pre-execution guardrails with explicit human approval checkpoints, because not every risky action can be safely blocked through static tool policies alone.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-computer-use-guide
+    - openai-agents-sdk-guardrails
+    - langgraph-human-in-the-loop-docs
+  notes: Synthesized claim for approval gates and escalation boundaries.
+
+- id: pattern-claim-0094
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI guide for evaluating agent workflows says trace grading is the fastest way to identify workflow-level issues, and it recommends moving to datasets and eval runs once you need repeatability and larger-scale comparisons.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agent-evals-guide
+  notes: Core claim for staging evaluation maturity from debugging to repeatable regression testing.
+
+- id: pattern-claim-0095
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI trace grading guide defines trace grading as assigning structured scores or labels to an agent's end-to-end trace, and says trace evals provide more information than black-box evaluations for understanding regressions and failure modes.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-trace-grading-guide
+  notes: Important for workflow-level error analysis and regression prevention.
+
+- id: pattern-claim-0096
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's evaluation best practices recommend eval-driven development, task-specific evals, logging everything, continuous evaluation on every change, and avoiding vibe-based evaluation in favor of metrics calibrated with human judgment.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-evaluation-best-practices
+  notes: Core claim for sustainable eval and regression workflows.
+
+- id: pattern-claim-0097
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's graders guide says graders return scores from 0 to 1 and supports several grader types including string check, text similarity, score model graders, and Python code execution; multigraders can combine sub-grades into an overall score.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-graders-guide
+  notes: Useful for discussing task-success metrics beyond binary pass/fail.
+
+- id: pattern-claim-0098
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A practical agent regression-prevention workflow should rerun trace-based and dataset-based evals whenever prompts, models, tool surfaces, routing logic, or guardrails change, because each of those can alter task success without changing the user-visible interface.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agent-evals-guide
+    - openai-evaluation-best-practices
+    - openai-trace-grading-guide
+  notes: Synthesized claim for continuous regression prevention.
+
+- id: pattern-claim-0099
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI Agents SDK handoffs allow an agent to delegate tasks to another agent, are represented as tools to the LLM, and can be customized with `input_type`, `input_filter`, and nested handoff history settings.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-handoffs
+  notes: Core claim for delegation and handoff semantics in multi-agent systems.
+
+- id: pattern-claim-0100
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In the Agents SDK, a handoff transfers control to the receiving agent, which by default sees the prior conversation history, whereas `Agent.as_tool()` lets a central orchestrator call a specialist agent and keep control after the nested run completes.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-handoffs
+    - openai-agents-sdk-tools
+  notes: High-value distinction for handoffs versus agents-as-tools.
+
+- id: pattern-claim-0101
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    When session memory is enabled in the Agents SDK, the runner prepends stored conversation history before each run and automatically stores all new items after each run; Redis-backed sessions are recommended for shared, low-latency session memory.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-sessions
+  notes: Core claim for shared state and coordination memory.
+
+- id: pattern-claim-0102
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph subgraphs support both private and shared state patterns: subgraphs can keep private state with state-mapping wrappers, or share parent-state keys directly; per-invocation persistence is recommended for most multi-agent tool subagents, while per-thread persistence is appropriate when a subagent needs multi-turn memory.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-subgraphs-docs
+  notes: Important for multi-agent shared-state design and isolation boundaries.
+
+- id: pattern-claim-0103
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    AutoGen Teams provides explicit team orchestration patterns such as `RoundRobinGroupChat`, where multiple agents cooperate under termination conditions instead of relying on a single monolithic agent loop.
+  status: reviewed
+  confidence: high
+  version_scope: "AutoGen docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - autogen-teams-docs
+  notes: Useful for structured multi-agent coordination patterns.
+
+- id: pattern-claim-0104
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's data controls guide states that the Responses API has a 30-day application-state retention period by default or when `store=true`, while background mode stores response data to disk for roughly 10 minutes to enable polling.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-data-controls-guide
+    - openai-background-mode-guide
+  notes: Core claim for retention policy and background-task storage boundaries.
+
+- id: pattern-claim-0105
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's data controls guide says that under Zero Data Retention, the `store` parameter for `/v1/responses` is always treated as `false`, but some capabilities may still store application state, and data sent to remote MCP servers is subject to those third-party services' retention policies.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-data-controls-guide
+  notes: Important for memory-safety boundaries across first-party and third-party surfaces.
+
+- id: pattern-claim-0106
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The Agents SDK tracing docs state that tracing is unavailable for organizations operating under a Zero Data Retention policy using OpenAI's APIs.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: Important tradeoff between observability and strict retention controls.
+
+- id: pattern-claim-0107
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The Agents SDK sessions docs provide `EncryptedSession` as an encryption-plus-TTL wrapper over other backends, and recommend it when you want transparent encryption with expiration rather than plain persistent storage.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-sessions
+  notes: Practical claim for retention-aware session memory design.
+
+- id: pattern-claim-0108
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Microsoft Presidio positions itself as a PII detection and anonymization toolkit, but explicitly warns that automated detection does not guarantee all sensitive information will be found and that additional protections should be employed.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Presidio docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - presidio-home
+  notes: Core claim for why PII governance cannot rely on a single automated detector.
+
+- id: pattern-claim-0109
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The Presidio telemetry redaction sample demonstrates client-side PII masking before logs are exported to observability systems, showing a practical pattern for keeping sensitive data out of traces and logs by default.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Presidio docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - presidio-telemetry-redaction
+  notes: Useful for privacy-preserving observability design.
+
+- id: pattern-claim-0110
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI background mode runs long-running tasks asynchronously, returns response states like `queued` and `in_progress`, and supports polling, cancellation, and resumable streaming via sequence-number cursors.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-background-mode-guide
+  notes: Foundation claim for queue-like offloading and long-running response handling.
+
+- id: pattern-claim-0111
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph durable execution requires a checkpointer, a thread identifier, and deterministic/idempotent task design so workflows can replay safely from checkpoints after pauses or failures.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-durable-execution-docs
+    - langgraph-persistence-docs
+  notes: Core claim for checkpoint recovery and long-running workflow design.
+
+- id: pattern-claim-0112
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Microsoft Agent Framework workflows create checkpoints at the end of each superstep, capturing executor state, pending messages, pending requests and responses, and shared states for pause-resume and failure recovery.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - microsoft-agent-framework-checkpoints
+  notes: Important for deployment topology and workflow-recovery explanations.
+
+- id: pattern-claim-0113
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's Structured Outputs guide states that Structured Outputs reliably matches model output to a supplied schema, whereas JSON mode only guarantees valid JSON and does not guarantee schema adherence.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-structured-outputs-guide
+  notes: Core claim for schema contracts versus plain JSON mode.
+
+- id: pattern-claim-0114
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The Structured Outputs guide says that when using JSON mode you must explicitly instruct the model to produce JSON and include the string `JSON` somewhere in context; if schema adherence is required, you should use Structured Outputs or otherwise validate and potentially retry.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-structured-outputs-guide
+  notes: Important boundary for JSON mode versus validation-repair loops.
+
+- id: pattern-claim-0115
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In the OpenAI Agents SDK, `output_type` defaults to `str` when not provided, and in most cases you should pass a regular Python type such as a dataclass, Pydantic model, or TypedDict; providing `output_type` tells the model to use structured outputs.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-agent-ref
+  notes: Core claim for typed agent boundaries.
+
+- id: pattern-claim-0116
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK agent reference says you can opt into non-strict output schemas with `AgentOutputSchema(..., strict_json_schema=False)`, and can provide a custom output schema by subclassing `AgentOutputSchemaBase`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-agent-ref
+  notes: Useful for discussing when strict schema contracts may need to be relaxed or customized.
+
+- id: pattern-claim-0117
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI Agents SDK results expose shared result surfaces such as `final_output`, `new_items`, `last_agent`, `raw_responses`, and `to_state()`; `final_output` is a typed object when the last agent has an `output_type`, a string otherwise, and `None` if the run stops before producing a final output.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-results
+  notes: Important for result-surface design and resumable workflows.
+
+- id: pattern-claim-0118
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK function schema reference sets `strict_json_schema=True` by default and strongly recommends it, and the strict schema helper mutates JSON schemas to conform to the strict standard expected by the OpenAI API.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-function-schema
+    - openai-agents-sdk-strict-schema
+  notes: High-value claim for tool parameter contracts and schema correctness.
+
+- id: pattern-claim-0119
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph's thinking guide separates errors into transient errors, LLM-recoverable errors, user-fixable errors, and unexpected errors, and recommends retry, loop-back with context, interrupt for human input, and bubble-up debugging respectively.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-thinking-docs
+  notes: Core claim for error taxonomy in agent workflows.
+
+- id: pattern-claim-0120
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph's Graph API lets you assign node-level `RetryPolicy` objects for APIs, databases, or LLM calls, and its default retry behavior retries many exceptions but excludes a set of common developer and programming errors.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-use-graph-api-docs
+  notes: Useful for explaining why retries should be selective instead of universal.
+
+- id: pattern-claim-0121
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph exposes `runtime.execution_info` inside nodes, including thread, run, checkpoint, task, and retry-attempt information, and this execution info is available even when no explicit retry policy is configured.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-use-graph-api-docs
+  notes: Important for retry-aware observability and adaptive fallback behavior.
+
+- id: pattern-claim-0122
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph's Graph API documentation shows a pattern where a node inspects `node_attempt` and switches to a fallback path after the first failed attempt, rather than retrying the identical primary path forever.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-use-graph-api-docs
+  notes: Good source-backed claim for fallback-after-retry design.
+
+- id: pattern-claim-0123
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph's Functional API supports task caching with `CachePolicy(ttl=...)`, and repeated calls can return cached results marked with cached metadata rather than recomputing the same task output immediately.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-use-functional-api-docs
+  notes: Important for separating performance optimization from correctness logic.
+
+- id: pattern-claim-0124
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph Platform's double-texting guide says enqueue is the default multitask strategy on Agent Server, meaning new runs on the same thread are queued and executed sequentially after prior runs complete.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph Platform docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-double-texting-docs
+  notes: Core claim for per-thread serialization semantics.
+
+- id: pattern-claim-0125
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph Platform also documents a reject strategy for overlapping runs on the same thread, and the reject-concurrent guide returns a `409 Conflict` instead of allowing concurrent execution.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph Platform docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-double-texting-docs
+    - langgraph-reject-concurrent-docs
+  notes: Useful for explaining explicit admission-control policies on a conversation thread.
+
+- id: pattern-claim-0126
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Under the interrupt double-texting strategy, LangGraph keeps the first run in the database with status `interrupted`, preserves progress up to the interruption point, inserts the new user input, and warns that partial tool calls may need to be handled or removed.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph Platform docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-double-texting-docs
+    - langgraph-interrupt-concurrent-docs
+  notes: Important for explaining why interrupt is not the same as rollback.
+
+- id: pattern-claim-0127
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph's rollback double-texting strategy reverts all prior progress, including the initial run input, and treats the new input as a fresh run from the initial state.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph Platform docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-double-texting-docs
+  notes: Useful contrast with interrupt and enqueue semantics.
+
+- id: pattern-claim-0128
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph Platform threads are persistent conversation containers whose state is updated across runs, and thread status can be queried with values including `idle`, `busy`, `interrupted`, and `error`.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph Platform docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-use-threads-docs
+  notes: Foundation claim for thread consistency and operational status handling.
+
+- id: pattern-claim-0129
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph interrupts persist graph state and resume via `Command(resume=...)`, where the resume value becomes the return value of `interrupt()` inside the paused node; because the node re-executes from the beginning when resumed, operations before `interrupt()` should be idempotent.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-interrupts-docs
+  notes: Critical for approval-loop correctness and concurrency-safe node design.
+
+- id: pattern-claim-0130
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's models guide recommends starting with a flagship model for complex reasoning and coding, and choosing smaller variants when optimizing for latency and cost.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-models-guide
+  notes: Core claim for tiered inference and routing by task complexity.
+
+- id: pattern-claim-0131
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's compare-models guide exposes per-model differences in supported features, context windows, pricing, and rate limits, so model routing decisions should account for capability and throughput constraints rather than only headline quality.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-compare-models-guide
+  notes: Important for feature-aware and quota-aware routing.
+
+- id: pattern-claim-0132
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK models guide says you can mix models or providers across agents by selecting providers per run or per agent, and it explicitly advises reviewing feature differences when doing so.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-models
+  notes: Core claim for orchestrated routing instead of one-model-for-everything design.
+
+- id: pattern-claim-0133
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK recommends using a single model shape for each workflow because the Responses and Chat Completions shapes support different sets of features and tools; if you mix them, you must ensure the features you rely on are available on both.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-models
+  notes: Important boundary for graceful degradation and fallback compatibility.
+
+- id: pattern-claim-0134
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's latency and cost optimization guides say smaller models usually run faster and cheaper, and recommend reducing requests, minimizing tokens, and selecting a smaller model when accuracy remains acceptable.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-latency-optimization-guide
+    - openai-cost-optimization-guide
+  notes: Useful for explaining why routing is often an optimization problem rather than a pure modeling problem.
+
+- id: pattern-claim-0135
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's Flex processing guide offers lower-cost requests in exchange for slower response times and occasional resource unavailability, while the Batch API offers 50 percent lower costs, a separate higher-rate-limit pool, and up to 24-hour turnaround for asynchronous work.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-flex-processing-guide
+    - openai-batch-guide
+  notes: Important for asynchronous or degraded execution tiers outside the interactive path.
+
+- id: pattern-claim-0136
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's safety best practices guide recommends moderation and human oversight, and says constraining user input and narrowing output ranges can help reduce prompt-injection risk.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-safety-best-practices
+  notes: Core claim for prompt-injection mitigation beyond prompt wording alone.
+
+- id: pattern-claim-0137
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The computer use guide says page content should be treated as untrusted input, and recommends running computer-use agents in an isolated browser or VM with environment isolation and restricted local access.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-computer-use-guide
+  notes: Important for understanding indirect prompt injection through rendered content.
+
+- id: pattern-claim-0138
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The computer use guide recommends keeping an allow list of domains and actions and keeping a human in the loop for purchases, authenticated flows, destructive actions, or anything hard to reverse.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-computer-use-guide
+  notes: High-value claim for least privilege and side-effect boundaries.
+
+- id: pattern-claim-0139
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK MCP guide supports `tool_filter` so only a subset of tools is exposed, and when both allow-list and block-list filters are supplied it applies the allow-list first and then removes blocked tools.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-mcp
+  notes: Core claim for least-privilege tool exposure.
+
+- id: pattern-claim-0140
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK MCP guide lets you require approval for all tools or specific tools via `require_approval`, including human or programmatic approval callbacks before execution.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-mcp
+  notes: Important for approval boundaries on sensitive tool actions.
+
+- id: pattern-claim-0141
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's conversation-state guide presents durable conversations and `previous_response_id` chaining as server-managed continuation mechanisms, with `previous_response_id` enabling threaded continuation by passing only the new turn.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-conversation-state-guide
+  notes: Foundation claim for stateful resume strategies.
+
+- id: pattern-claim-0142
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The conversation-state guide says response objects are saved for 30 days by default, conversation items are not subject to that 30-day TTL, and even when using `previous_response_id` all previous input tokens in the chain are billed as input tokens.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-conversation-state-guide
+  notes: Important for understanding the cost and retention implications of threaded continuation.
+
+- id: pattern-claim-0143
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's compaction guide says server-side compaction reduces context size while preserving key prior state and reasoning in an opaque encrypted compaction item, helping balance quality, cost, and latency as conversations grow.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-compaction-guide
+  notes: Core claim for compaction as a state-carrying context-management technique.
+
+- id: pattern-claim-0144
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The compaction guide says that with stateless input-array chaining you can drop items before the most recent compaction item to reduce latency, but if you use `previous_response_id` chaining you should not manually prune.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-compaction-guide
+  notes: High-value boundary for transcript trimming versus server-managed continuation.
+
+- id: pattern-claim-0145
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The Agents SDK sessions guide says sessions provide client-side memory across runs and cannot be combined with `conversation_id`, `previous_response_id`, or `auto_previous_response_id`; if a run pauses for approval, resuming with the same session continues the stored conversation history.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-sessions
+  notes: Important for continuation-mechanism exclusivity and stateful resume.
+
+- id: pattern-claim-0146
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The Agents SDK results guide distinguishes replay-ready local transcript continuation via `to_input_list()`, resumable paused-run snapshots via `to_state()`, and server-managed continuation via `last_response_id` passed back as `previous_response_id`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-results
+  notes: Core claim for choosing the right continuation surface.
+
+- id: pattern-claim-0147
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph durable execution requires wrapping non-deterministic operations and operations with side effects inside tasks or nodes so that when a workflow resumes, those operations are not repeated and their recorded results can be retrieved from the persistence layer instead.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-durable-execution-docs
+  notes: Core claim for replay-safe tool and side-effect handling.
+
+- id: pattern-claim-0148
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph's durable execution guidance says that if a node contains multiple side effects, each side effect should be wrapped in a separate task, and if a task starts but fails before completing successfully, workflow resumption may re-run that task, so idempotency keys or existing-result checks are needed to avoid duplication.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-durable-execution-docs
+  notes: Important for explaining partial-failure recovery of side-effectful steps.
+
+- id: pattern-claim-0149
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph interrupts restart the entire paused node from the beginning when resumed, so side effects performed before `interrupt()` should be idempotent, moved after the interrupt, or separated into different nodes.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-interrupts-docs
+  notes: Critical claim for approval flows and side-effect safety.
+
+- id: pattern-claim-0150
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph's Functional API overview says API calls should be placed inside task functions for checkpointing and designed to be idempotent; when execution resumes, completed task results are reused instead of re-running those tasks.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-functional-api-overview-docs
+  notes: Strong source-backed claim for safe tool encapsulation.
+
+- id: pattern-claim-0151
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    For high-impact environment actions, the safest recovery pattern is often to put approval before execution and keep the external operation idempotent, because durable replay preserves workflow consistency but does not automatically undo irreversible real-world side effects.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-durable-execution-docs
+    - langgraph-interrupts-docs
+    - openai-computer-use-guide
+  notes: Synthesized engineering conclusion for side-effect recovery boundaries.
+
+- id: pattern-claim-0152
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's latency optimization guide organizes latency work into seven principles: process tokens faster, generate fewer tokens, use fewer input tokens, make fewer requests, parallelize, make users wait less, and do not default to an LLM.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-latency-optimization-guide
+  notes: Core claim for budget-aware reasoning and graph-shape control.
+
+- id: pattern-claim-0153
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's latency and cost optimization guides recommend reducing request count, minimizing tokens, parallelizing independent work, and selecting a smaller model when acceptable, which means planning depth should be treated as an explicit budget decision rather than as an unbounded default.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-latency-optimization-guide
+    - openai-cost-optimization-guide
+  notes: Synthesized claim for budget-aware planning depth and request shaping.
+
+- id: pattern-claim-0154
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph's Graph API overview and use-graph-api docs explain that loops need a termination condition or a configured recursion limit; if that limit is exceeded, LangGraph raises a `GraphRecursionError`.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-graph-api-overview-docs
+    - langgraph-use-graph-api-docs
+  notes: Foundation claim for bounded planning loops.
+
+- id: pattern-claim-0155
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph provides a current step counter and a `RemainingSteps` managed value so a graph can proactively end early or route to a fallback path before hitting the recursion limit, enabling graceful degradation inside graph logic.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-graph-api-overview-docs
+    - langgraph-use-graph-api-docs
+  notes: High-value claim for early-exit design.
+
+- id: pattern-claim-0156
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's latency optimization guide says developers should not default to an LLM for highly constrained outputs and lists hard-coded responses, pre-computing, UI rendering, and traditional optimization techniques such as caching and hash maps as alternatives.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-latency-optimization-guide
+  notes: Important for deciding when to stop reasoning and switch to deterministic logic.
+
+- id: pattern-claim-0157
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Retrieval freshness is often an ingestion-side problem rather than a query-side ranking problem: Azure AI Search indexers rely on change detection and high-water marks for incremental updates, while deletion correctness depends on explicit soft-delete detection.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-create-indexer
+    - azure-run-reset-indexers
+    - azure-change-delete-detection
+  notes: Synthesized claim for separating corpus freshness from retrieval ranking.
+
+- id: pattern-claim-0158
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Azure AI Search recommends side-by-side index creation plus alias-based cutover for many production schema changes, which means knowledge freshness and retrieval correctness can require rebuild workflows rather than only incremental updates after schema evolution.
+  status: reviewed
+  confidence: high
+  version_scope: "Azure AI Search docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - azure-update-rebuild-index
+  notes: Important for freshness and correctness during schema changes.
+
+- id: pattern-claim-0159
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI File Search can surface citations to supporting files, but raw search results are not returned by default, so citation visibility and evidence inspectability are distinct concerns that may require explicitly including search results.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-file-search-docs
+  notes: Useful for trust-ranking and evidence-audit discussions.
+
+- id: pattern-claim-0160
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Attribute First, then Generate separates content selection, sentence planning, and sequential sentence generation, which means source trust ranking and evidence selection should happen before final answer synthesis rather than only after generation.
+  status: reviewed
+  confidence: high
+  version_scope: "Attribute First paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - attribute-first-paper
+  notes: Core claim for pre-generation trust and attribution design.
+
+- id: pattern-claim-0161
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    RARR automatically researches attribution for generated output and revises unsupported content while preserving the original output as much as possible, showing that conflict resolution can be implemented as a post-generation revision stage instead of only at retrieval time.
+  status: reviewed
+  confidence: high
+  version_scope: "RARR paper as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - rarr-paper
+  notes: Core claim for post-hoc evidence conflict handling.
+
+- id: pattern-claim-0162
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK human-in-the-loop guide says sensitive tool calls can pause execution until a person approves or rejects them, with pending approvals surfaced as interruptions and `RunState` used to serialize and resume the run after decisions are made.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-human-in-the-loop
+    - openai-agents-sdk-run-state
+  notes: Core claim for approval-flow pause-resume semantics.
+
+- id: pattern-claim-0163
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's HITL guide says the approval surface is run-wide rather than limited to the current top-level agent, so approvals raised after handoffs or inside nested `Agent.as_tool()` executions still surface on the outer run and are resumed from the original top-level run.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-human-in-the-loop
+  notes: Important for escalation semantics in nested or delegated workflows.
+
+- id: pattern-claim-0164
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK human-in-the-loop guide allows `needs_approval` to be either always-on or decided per call by an async function, and approval requirements can apply to function tools, `Agent.as_tool()`, shell/apply-patch tools, and MCP tools.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-human-in-the-loop
+    - openai-agents-sdk-mcp
+  notes: Core claim for policy-based approval rules rather than binary global gating.
+
+- id: pattern-claim-0165
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph interrupts allow a human to review and edit graph state before continuing, and the resume value supplied via `Command(resume=...)` becomes the return value of `interrupt()` inside the paused node.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-interrupts-docs
+  notes: Important for understanding edit-and-continue semantics, not only approve/deny semantics.
+
+- id: pattern-claim-0166
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph supports interrupts directly inside tools, allowing human review and editing of the tool call before execution, so override semantics can live with the tool itself rather than only in outer orchestration code.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-interrupts-docs
+  notes: Useful for tool-local approval and override patterns.
+
+- id: pattern-claim-0167
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    AutoGen's human-in-the-loop documentation shows that teams can deliberately stop after a maximum number of turns or on termination conditions, preserve internal state in persistent sessions, and resume later with user feedback, which makes human override a structured control-loop boundary rather than an ad hoc interruption.
+  status: reviewed
+  confidence: high
+  version_scope: "AutoGen docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - autogen-human-in-the-loop-docs
+  notes: Useful for turn-based feedback and resume semantics in multi-agent teams.
+
+- id: pattern-claim-0168
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph persistence saves graph state as checkpoints at every step of execution and organizes them into threads, making resumed execution depend on previously serialized state rather than only on current code.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-persistence-docs
+  notes: Foundation claim for why schema evolution must account for old checkpoints.
+
+- id: pattern-claim-0169
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph's graph migrations guidance says that for threads already at the end of the graph, you can change the entire topology, including adding, removing, or renaming nodes and edges.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-graph-api-overview-docs
+  notes: Core claim for migration freedom after runs are complete.
+
+- id: pattern-claim-0170
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    For threads currently interrupted, LangGraph supports topology changes other than renaming or removing nodes, because an interrupted thread may be about to enter a node that would no longer exist.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-graph-api-overview-docs
+  notes: Important for migration safety with paused runs.
+
+- id: pattern-claim-0171
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph's graph migrations guidance says adding or removing state keys is fully backwards and forwards compatible for existing threads.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-graph-api-overview-docs
+  notes: Core claim for additive or subtractive state-schema evolution.
+
+- id: pattern-claim-0172
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph warns that renamed state keys lose their saved state in existing threads, and incompatible state-type changes can cause issues in threads whose checkpoints were created before the change.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-graph-api-overview-docs
+  notes: Important for backwards compatibility and migration risk.
+
+- id: pattern-claim-0173
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A migration-safe rollout for stateful agent workflows should either preserve compatibility with old checkpoints or drain interrupted threads before introducing breaking topology or schema changes, because persistence makes prior run state part of the live execution contract.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-persistence-docs
+    - langgraph-graph-api-overview-docs
+  notes: Synthesized engineering conclusion for migration safety.
+
+- id: pattern-claim-0174
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's evaluate-agent-workflows guide positions traces, graders, datasets, and eval runs as different evaluation surfaces: start with trace grading while debugging behavior, then move to repeatable datasets and eval runs once you know what good looks like.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agent-evals-guide
+  notes: Core claim for multi-stage evaluation maturity.
+
+- id: pattern-claim-0175
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's evaluation best practices recommend logging everything so logs can be mined for eval cases, using production or historical data when collecting datasets, continuously evaluating on every change, and calibrating automated scoring with human feedback.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-evaluation-best-practices
+  notes: High-value claim for converting operational feedback into eval growth.
+
+- id: pattern-claim-0176
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The trace grading guide defines trace grading as assigning structured scores or labels to an agent's end-to-end trace and says trace evals provide more data than black-box evaluation for understanding why an agent succeeds or fails.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-trace-grading-guide
+  notes: Important for workflow-level diagnosis rather than final-answer-only scoring.
+
+- id: pattern-claim-0177
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's graders guide says a multigrader combines the outputs of multiple graders into a single score, which is useful when task success depends on multiple conditions being true at the same time.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-graders-guide
+  notes: Useful for multi-dimensional online scorecards.
+
+- id: pattern-claim-0178
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK tracing docs say tracing can be used to debug, visualize, and monitor workflows during development and in production, and long-running workers can call `flush_traces()` when immediate delivery of buffered traces is needed.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: Important for timely online feedback loops and production observability feeding evaluation.
+
+- id: pattern-claim-0179
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A practical closed-loop improvement system ties together production traces, mined log cases, human-calibrated graders, and repeatable eval runs, so new failure modes discovered online become part of the regression suite instead of remaining one-off incidents.
+  status: reviewed
+  confidence: high
+  version_scope: "Synthesized from official docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agent-evals-guide
+    - openai-evaluation-best-practices
+    - openai-trace-grading-guide
+    - openai-graders-guide
+    - openai-agents-sdk-tracing
+  notes: Synthesized claim for continuous improvement flywheels.
+
+- id: pattern-claim-0180
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    MCP server concepts define three distinct capability types with different control loci: tools are model-controlled functions, resources are application-driven read-only context sources, and prompts are user-controlled reusable templates.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - mcp-server-concepts
+  notes: Core claim for separating execution authority from capability taxonomy.
+
+- id: pattern-claim-0181
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    MCP tools are schema-defined single operations validated with JSON Schema, discovered via `tools/list`, executed via `tools/call`, and may require user consent before execution.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - mcp-server-concepts
+  notes: Core claim for tool contracts and execution semantics.
+
+- id: pattern-claim-0182
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    MCP resources expose contextual data through unique URIs and MIME types, support direct resources and resource templates, and are retrieved through application-driven operations such as listing, reading, and subscribing.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - mcp-server-concepts
+    - mcp-resources
+  notes: Important for distinguishing passive context access from tool execution.
+
+- id: pattern-claim-0183
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    MCP prompts are explicit, user-controlled templates discovered through `prompts/list` and materialized through `prompts/get`, and they can reference available tools and resources to scaffold workflows.
+  status: reviewed
+  confidence: high
+  version_scope: "MCP docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - mcp-server-concepts
+    - mcp-prompts
+  notes: Core claim for separating reusable workflow scaffolds from autonomous tool use.
+
+- id: pattern-claim-0184
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK says MCP integration choice depends first on where tool calls execute: `HostedMCPTool` lets the Responses API call a publicly reachable MCP server on the model's behalf, while Streamable HTTP, SSE, and stdio servers are connected to directly by your process.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-mcp
+  notes: Important for remote-versus-local execution boundary design.
+
+- id: pattern-claim-0185
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Hosted MCP tools push the tool round-trip into OpenAI's infrastructure and expose remote server tools automatically, rather than requiring the Python process to list and invoke tools through `mcp_servers`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-mcp
+  notes: High-value claim for explaining hosted MCP execution authority.
+
+- id: pattern-claim-0186
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Across local MCP transports, the OpenAI Agents SDK supports static and dynamic tool filtering, reusable prompt access, optional `list_tools()` caching, and approval policies ranging from always/never to per-tool maps or grouped allowlists.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-mcp
+  notes: Core claim for least-privilege exposure and operational control over MCP capabilities.
+
+- id: pattern-claim-0187
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A2A is designed for peer agent collaboration around shared tasks and conversational context, while MCP is for tools and resources; the A2A documentation explicitly recommends A2A for inter-agent collaboration and MCP for internal capability use.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - a2a-and-mcp-docs
+  notes: Core claim for protocol-boundary reasoning between agent collaboration and tool integration.
+
+- id: pattern-claim-0188
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The A2A specification is async-first and enterprise-oriented, building on HTTP, JSON-RPC 2.0, and Server-Sent Events to support long-running tasks and human-in-the-loop interactions.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - a2a-spec-docs
+  notes: Important for understanding why A2A is more than a synchronous RPC wrapper.
+
+- id: pattern-claim-0189
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A2A recommends publishing an Agent Card at `https://{domain}/.well-known/agent-card.json`; the card advertises identity, service URL, capabilities, authentication schemes, and skill metadata such as input/output modes and examples.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - a2a-agent-discovery-docs
+  notes: Core claim for agent discovery and remote contract advertisement.
+
+- id: pattern-claim-0190
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The A2A agent discovery guidance recommends authenticated extended agent cards or access-controlled card endpoints when cards contain sensitive information, rather than assuming all discovery metadata should be public.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - a2a-agent-discovery-docs
+    - a2a-enterprise-docs
+  notes: Important for discovery security and staged disclosure.
+
+- id: pattern-claim-0191
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In A2A, `TaskStatus` contains a `state`, optional `message`, and optional timestamp, and task lifecycle states include submitted, working, completed, failed, canceled, input-required, and rejected.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - a2a-spec-docs
+  notes: Core claim for remote task lifecycle reasoning.
+
+- id: pattern-claim-0192
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A2A treats `input-required` as an interrupted state: when more information is needed, the client continues the same interaction by sending a new message with the same `taskId` and `contextId`.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - a2a-spec-docs
+  notes: Important for multi-turn continuation semantics on remote agent tasks.
+
+- id: pattern-claim-0193
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A2A task subscriptions are only valid for non-terminal tasks; the stream must begin with the current `Task`, may then emit status or artifact updates, and must terminate when the task reaches a terminal state.
+  status: reviewed
+  confidence: high
+  version_scope: "A2A docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - a2a-spec-docs
+  notes: Core claim for streaming task lifecycle and race-free subscription semantics.
+
+- id: pattern-claim-0194
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI background mode runs long tasks asynchronously with `background=true`; clients should poll while the response remains in `queued` or `in_progress`, and cancellation is supported through the cancel endpoint with idempotent repeat cancels.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-background-mode-guide
+  notes: Core claim for asynchronous response lifecycle management.
+
+- id: pattern-claim-0195
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Background responses can also be streamed when created with both `background=true` and `stream=true`, using per-event `sequence_number` cursors for potential stream resumption, but background mode stores response data for roughly 10 minutes, requires `store=true`, and is not ZDR compatible.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-background-mode-guide
+  notes: Important for choosing between reliability, resumability, and data-retention constraints.
+
+- id: pattern-claim-0196
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The Conversations API persists conversation state as a durable object that can continue across sessions, devices, or jobs, while `previous_response_id` chaining continues the same response history but still bills all previous input tokens in the chain as input.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-conversation-state-guide
+  notes: Core claim for separating continuity semantics from billing semantics.
+
+- id: pattern-claim-0197
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In the OpenAI Agents SDK, a session automatically prepends retrieved history before each run, stores all newly generated items after each run, requires the same session instance or backing store when resuming interrupted runs, and allows custom history/new-input merging through `RunConfig.session_input_callback`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-sessions
+  notes: Important for session-backed continuity and merge control in multi-run agents.
+
+- id: pattern-claim-0198
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI compaction supports two distinct modes: server-side compaction, which automatically emits an encrypted opaque compaction item when a threshold is crossed and should not be manually pruned when using `previous_response_id`, and a standalone `/responses/compact` flow whose returned window is the canonical next context and is stateless plus ZDR-friendly.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-compaction-guide
+  notes: Core claim for compaction boundary design and state-authority decisions.
+
+- id: pattern-claim-0199
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK `FuncSchema` captures both a Pydantic parameter model and a JSON schema derived from that model, then uses validated data to produce call-ready `(args, kwargs)` for the original Python function.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-function-schema
+  notes: Core claim for treating tool schemas as executable contracts, not just descriptions.
+
+- id: pattern-claim-0200
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `function_schema()` can auto-detect docstring style and extract the function description plus per-parameter descriptions from the docstring, while also allowing explicit name and description overrides.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-function-schema
+  notes: Important for explaining why documentation quality changes model tool-use quality.
+
+- id: pattern-claim-0201
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In the OpenAI Agents SDK, `strict_json_schema` defaults to `True` and is strongly recommended because it increases the likelihood of correct JSON input, while `ensure_strict_json_schema()` mutates a schema to conform to the strict standard the OpenAI API expects.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-function-schema
+    - openai-agents-sdk-strict-schema
+  notes: Core claim for strict schema enforcement and tool-call reliability.
+
+- id: pattern-claim-0202
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A tool function can take `RunContextWrapper` context, but the context parameter must be the first argument and is skipped from the tool schema exposed to the model.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-function-schema
+  notes: Important for separating runtime-only context from model-visible arguments.
+
+- id: pattern-claim-0203
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK raises a `UserError` if `RunContextWrapper` or `ToolContext` appears in any non-first parameter position, enforcing a single well-defined context boundary for tool schemas.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-function-schema
+  notes: Useful for explaining why hidden runtime parameters cannot be scattered through the schema.
+
+- id: pattern-claim-0204
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `FuncSchema.to_call_args()` preserves Python calling semantics by converting validated model data into positional and keyword arguments, extending `*args`, updating `**kwargs`, and treating parameters after `*args` as keyword arguments.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-function-schema
+  notes: Important for why schema validation and actual invocation semantics must stay aligned.
+
+- id: pattern-claim-0205
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `Runner.run(...)` returns `RunResult` and `Runner.run_streamed(...)` returns `RunResultStreaming`; both share surfaces such as `final_output`, `new_items`, `last_agent`, `raw_responses`, and `to_state()`, while streaming adds `stream_events()`, `current_agent`, `is_complete`, and `cancel(...)`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-results
+  notes: Core claim for result-surface taxonomy and streaming-specific controls.
+
+- id: pattern-claim-0206
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `final_output` contains the final output of the last agent that ran: it is a string without `output_type`, an object of `last_agent.output_type` when typed output is configured, or `None` if the run stopped early such as on an approval interruption; it is typed as `Any` because handoffs can change the finishing agent.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-results
+  notes: Core claim for why final answer type depends on the last executing agent.
+
+- id: pattern-claim-0207
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `to_input_list()` has different continuation modes: the default `preserve_all` keeps the full converted history, `normalized` prefers canonical local continuation input after handoff filtering or nested-history rewrites, and when using OpenAI server-managed state with `conversation_id` or `previous_response_id` you usually pass only new user input instead of resending that list.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-results
+  notes: Important for avoiding double-state management and incorrect replay behavior.
+
+- id: pattern-claim-0208
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `new_items` is the richest SDK-level view of a run, containing agent, tool, handoff, and approval metadata, while `raw_responses` is the raw model payload surface; if you need every model response in a multi-step run, inspect `raw_responses` instead of just `last_response_id`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-results
+  notes: Core claim for choosing between SDK metadata and raw model payloads.
+
+- id: pattern-claim-0209
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `last_agent` is often the best agent to reuse for the next user turn after handoffs, and in streaming mode `current_agent` updates as the run progresses so handoffs can be observed before the stream finishes.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-results
+  notes: Important for next-turn routing and live UI state.
+
+- id: pattern-claim-0210
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Pending approvals are surfaced in `interruptions`, including approvals raised by direct tools, by tools reached after a handoff, or by nested `Agent.as_tool()` runs; `to_state()` captures a resumable `RunState`, and for streamed runs you should finish consuming `stream_events()` before inspecting interruptions and resuming.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-results
+  notes: Important for approval surfaces and safe streamed resume behavior.
+
+- id: pattern-claim-0211
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In LangGraph subgraphs, if parent and subgraph have different state schemas or need state transformation, the recommended pattern is to invoke the subgraph inside a wrapper node; if they share state keys, you can add the compiled subgraph directly as a node.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-subgraphs-docs
+  notes: Core claim for composition choice based on state-contract alignment.
+
+- id: pattern-claim-0212
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Calling a subgraph inside a node is a common multi-agent pattern when each agent needs private message history, because the wrapper transforms parent state into subgraph state and maps the result back afterward.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-subgraphs-docs
+  notes: Important for private-versus-shared state boundaries in multi-agent systems.
+
+- id: pattern-claim-0213
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph subgraphs compiled with `checkpointer=None` use per-invocation persistence by default: each call starts fresh, inherits the parent checkpointer for interrupts and durable execution within that call, and this is the recommended mode for most independent subagent requests.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-subgraphs-docs
+  notes: Core claim for default isolated subgraph execution.
+
+- id: pattern-claim-0214
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Compiling a LangGraph subgraph with `checkpointer=True` enables per-thread persistence so state accumulates across calls on the same thread, which is appropriate when a subagent needs multi-turn memory rather than fresh execution on every invocation.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-subgraphs-docs
+  notes: Important for long-lived specialist subagents with memory.
+
+- id: pattern-claim-0215
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The parent graph must itself be compiled with a checkpointer for subgraph persistence features such as interrupts, state inspection, and per-thread memory to work.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-subgraphs-docs
+  notes: Important for avoiding false assumptions about child-only persistence configuration.
+
+- id: pattern-claim-0216
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    With `checkpointer=False`, a LangGraph subgraph is stateless: it behaves like a plain function call, cannot pause/resume, does not benefit from durable execution, and does not expose inspectable subgraph checkpoints.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-subgraphs-docs
+  notes: Core claim for stateless subgraph tradeoffs.
+
+- id: pattern-claim-0217
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    When persistence is enabled, LangGraph can expose subgraph state via `get_state(config, subgraphs=True)` and stream subgraph updates with `subgraphs=True`; however, multiple calls to the same stateful subgraph instance within one node conflict because they share a checkpoint namespace, so per-invocation persistence is recommended for that case.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-subgraphs-docs
+  notes: Important for state inspection, namespaced streaming, and same-instance reuse pitfalls.
+
+- id: pattern-claim-0218
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph v2 streaming emits a unified `StreamPart` dict with stable `type`, `ns`, and `data` fields regardless of stream mode count or subgraph settings, and the `ns` namespace tuple is populated for subgraph events.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-streaming-docs
+  notes: Core claim for stable stream-consumer contracts and namespaced subgraph updates.
+
+- id: pattern-claim-0219
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In LangGraph v1, stream and invoke output formats vary with single versus multiple modes and subgraph streaming, but v2 keeps the format stable and enables type narrowing on `chunk["type"]`.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-streaming-docs
+  notes: Important for designing robust stream parsers and migration-safe UIs.
+
+- id: pattern-claim-0220
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph `values` mode streams the full graph state after each step, while `updates` streams only changed keys after each step, and multiple updates within the same step are streamed separately.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-streaming-docs
+  notes: Core claim for choosing snapshot versus diff semantics in UI consumers.
+
+- id: pattern-claim-0221
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph `messages` mode streams `(message_chunk, metadata)` token updates from any part of a graph, including nodes, tools, subgraphs, or tasks, while `custom` mode carries arbitrary data emitted from nodes.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-streaming-docs
+  notes: Important for separating token UX from app-level progress signals.
+
+- id: pattern-claim-0222
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    LangGraph `checkpoints` mode emits checkpoint events in the same format as `get_state()`, `tasks` mode emits task start/finish events with results and errors, and `debug` combines checkpoints and tasks with extra metadata; all three require a checkpointer.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - langgraph-streaming-docs
+  notes: Core claim for streaming observability versus persistence-backed lifecycle tracing.
+
+- id: pattern-claim-0223
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Microsoft Agent Framework workflow streams use a unified `WorkflowEvent` type discriminator for lifecycle, executor, superstep, and request events; `request_info` commonly carries approval payloads for approval-required tools, and `workflow.run_stream(...)` / `WatchStreamAsync()` consume these events as the workflow executes.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - microsoft-agent-framework-workflow-events
+  notes: Important for event-driven workflow UIs and approval-aware consumers.
+
+- id: pattern-claim-0224
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Models guide currently recommends starting with `gpt-5.5` for complex reasoning and coding, or choosing `gpt-5.4-mini` and `gpt-5.4-nano` for lower-latency, lower-cost workloads.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-models-guide
+  notes: Core claim for current flagship-versus-small-model positioning.
+
+- id: pattern-claim-0225
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI models and compare-models pages expose materially different per-model properties, including endpoints, supported features, context window, max output tokens, knowledge cutoff, pricing, and rate limits, so model selection cannot be reduced to a single quality score.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-models-guide
+    - openai-compare-models-guide
+  notes: Core claim for capability-gated routing and compatibility checks.
+
+- id: pattern-claim-0226
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK recommends using string model names with the default OpenAI provider and staying on the Responses model path for most OpenAI-only apps; out of the box it supports both the recommended `OpenAIResponsesModel` and the older `OpenAIChatCompletionsModel`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-models
+  notes: Important for default path selection and model-shape awareness.
+
+- id: pattern-claim-0227
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In the OpenAI Agents SDK, agents without an explicit model use a default model; you can override that default globally with `OPENAI_DEFAULT_MODEL` or per run with `RunConfig(model=...)`, and the docs currently note `gpt-4.1` as the default for compatibility and low latency while recommending `gpt-5.5` for higher quality when available.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-models
+  notes: Important for default-model governance and avoiding implicit model drift.
+
+- id: pattern-claim-0228
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK lets you mix models and providers in one workflow through `RunConfig(model_provider=...)`, `Agent.model`, or direct `Model` implementations, enabling smaller fast models for triage and larger models for harder sub-tasks.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-models
+  notes: Core claim for intra-workflow specialization and provider portability.
+
+- id: pattern-claim-0229
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The OpenAI Agents SDK recommends using a single model shape per workflow because Responses and Chat Completions shapes support different features and tools; if you mix shapes, you must ensure every required feature is available on both.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-models
+  notes: Important for preventing feature-shape drift across mixed-model workflows.
+
+- id: pattern-claim-0230
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's safety best practices recommend using the free Moderation API to help reduce the frequency of unsafe content in completions, or alternatively building a tailored content filtration system.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-safety-best-practices
+  notes: Core claim for model-adjacent safety filtering.
+
+- id: pattern-claim-0231
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI recommends red-teaming applications against both representative and adversarial inputs to test robustness against off-topic drift and prompt-injection-style attacks.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-safety-best-practices
+  notes: Important for pre-production safety validation and abuse discovery.
+
+- id: pattern-claim-0232
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI recommends human review wherever possible before outputs are used in practice, emphasizing that HITL is especially critical in high-stakes domains and code generation, and that reviewers should have access to the original source information needed to verify outputs.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-safety-best-practices
+  notes: Core claim for verification-ready oversight rather than blind signoff.
+
+- id: pattern-claim-0233
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI's safety guidance says prompt engineering can constrain the topic and tone of outputs, and that providing additional context such as a few high-quality examples of desired behavior can help steer model outputs in desired directions.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-safety-best-practices
+  notes: Important for non-adversarial safety steering before stronger controls engage.
+
+- id: pattern-claim-0234
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI recommends basic KYC-style controls such as requiring registration, linking to an existing account, or even requiring payment or identity cards in higher-risk contexts to reduce misuse risk.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-safety-best-practices
+  notes: Important for tying safety posture to user identity and friction.
+
+- id: pattern-claim-0235
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI recommends constraining user input length, limiting output tokens, narrowing input and output ranges, using validated dropdowns where possible, and returning answers from validated backend materials when feasible because these measures reduce prompt injection and misuse risk more effectively than unconstrained open-ended generation.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-safety-best-practices
+  notes: Core claim for hard-boundary safety controls and retrieval-over-generation choices.
+
+- id: pattern-claim-0236
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In the OpenAI Agents SDK, `instructions` serve as the agent's system prompt and may be either a string or a callable that dynamically generates instructions from the run context and agent instance.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-agent-ref
+  notes: Core claim for dynamic instruction contracts and prompt authority.
+
+- id: pattern-claim-0237
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The `prompt` field can dynamically configure instructions, tools, and other agent config outside of code, but it is only usable with OpenAI models on the Responses API path.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-agent-ref
+  notes: Important for separating agent configuration authority from provider portability.
+
+- id: pattern-claim-0238
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `Agent.output_type` defaults to `str`; in most cases you pass a regular Python type such as a dataclass, Pydantic model, or TypedDict, while non-strict schemas require `AgentOutputSchema(..., strict_json_schema=False)` and custom JSON schemas require an `AgentOutputSchemaBase` subclass.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-agent-ref
+  notes: Core claim for output typing and schema-authority customization.
+
+- id: pattern-claim-0239
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `tool_use_behavior` supports `run_llm_again`, `stop_on_first_tool`, `StopAtTools`, or a callable returning `ToolsToFinalOutputResult`; however, this behavior only applies to FunctionTools, while hosted tools are always processed by the LLM.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-agent-ref
+  notes: Important for separating function-tool finalization from hosted-tool semantics.
+
+- id: pattern-claim-0240
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `reset_tool_choice` defaults to `True` so that after a tool call the agent resets tool choice to its default, helping avoid infinite loops of repeated tool usage.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-agent-ref
+  notes: Core claim for loop prevention and post-tool control flow.
+
+- id: pattern-claim-0241
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `Agent.clone()` uses `dataclasses.replace` and therefore performs a shallow copy: mutable lists like `tools` and `handoffs` are only re-created when overridden, but their contained tool functions and handoff objects remain shared.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-agent-ref
+  notes: Important for understanding configuration reuse versus shared mutable contracts.
+
+- id: pattern-claim-0242
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI Agents SDK handoffs are represented to the LLM as tools; by default the tool name resolves to `transfer_to_<agent_name>`, and a plain `Agent` handoff can append its `handoff_description` to the default tool description.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-handoffs
+  notes: Core claim for delegation being a model-selected tool action.
+
+- id: pattern-claim-0243
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In a handoff, `input_type` defines the handoff tool-call arguments, the SDK validates the JSON locally and passes the parsed value to `on_handoff`, but it does not replace the receiving agent's main input, does not dispatch to a different destination, and is separate from `RunContextWrapper.context`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-handoffs
+  notes: Core claim for metadata-at-handoff versus runtime state and destination choice.
+
+- id: pattern-claim-0244
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Handoff `input_filter` receives a `HandoffInputData` object containing `input_history`, `pre_handoff_items`, `new_items`, and optional `input_items`, allowing the next agent's visible history to be rewritten without altering session history.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-handoffs
+  notes: Important for history shaping and state-visibility boundaries.
+
+- id: pattern-claim-0245
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Nested handoffs are opt-in beta and disabled by default; when enabled, prior transcript history is collapsed into a single assistant summary inside a `<CONVERSATION HISTORY>` block, and a per-handoff `input_filter` takes precedence over a run-level handoff filter.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-handoffs
+  notes: Important for transcript compaction across intra-run delegation chains.
+
+- id: pattern-claim-0246
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Handoffs stay within a single run: input guardrails still apply only to the first agent in the chain, output guardrails only to the agent that produces the final output, and tool guardrails should be used when checks are needed around each custom function-tool call.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-handoffs
+    - openai-agents-sdk-agent-ref
+  notes: Core claim for run-wide versus per-tool safety boundaries during delegation.
+
+- id: pattern-claim-0247
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `Agent.as_tool()` differs from a handoff in two key ways: the nested agent receives generated input instead of the full conversation history, and after it returns the original agent continues the conversation; `as_tool()` also supports structured input parameters, approval pauses, streaming callbacks, and custom output extraction.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-agent-ref
+    - openai-agents-sdk-tools
+  notes: Core claim for choosing delegation-as-takeover versus delegation-as-call.
+
+- id: pattern-claim-0248
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In Microsoft Agent Framework workflows, checkpoints are created at the end of every superstep after all executors in that superstep finish, and a checkpoint captures executor state, pending messages for the next superstep, pending requests and responses, and shared states.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - microsoft-agent-framework-checkpoints
+  notes: Core claim for superstep barriers as checkpoint boundaries.
+
+- id: pattern-claim-0249
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    To enable checkpointing, a `CheckpointManager` or `CheckpointStorage` must be provided when running the workflow, and checkpoints can be observed through `SuperStepCompletedEvent` or the run's `Checkpoints` collection.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - microsoft-agent-framework-checkpoints
+  notes: Important for observability and run-bound checkpoint access.
+
+- id: pattern-claim-0250
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Microsoft Agent Framework ships in-memory, file, and Azure Cosmos checkpoint storage implementations that all obey the same checkpoint-storage protocol, so durability can change without changing workflow or executor code.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - microsoft-agent-framework-checkpoints
+  notes: Core claim for storage portability beneath a stable checkpoint interface.
+
+- id: pattern-claim-0251
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A Microsoft Agent Framework workflow can resume from a specific checkpoint either on the same run instance or by rehydrating a new workflow instance from `checkpoint_id` and checkpoint storage.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - microsoft-agent-framework-checkpoints
+  notes: Important for same-run resume versus fresh-instance rehydration semantics.
+
+- id: pattern-claim-0252
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    To make executor-local state checkpointable, executors must explicitly save and restore it: in .NET via `OnCheckpointingAsync` and `OnCheckpointRestoredAsync`, and in Python via `on_checkpoint_save` and `on_checkpoint_restore`.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - microsoft-agent-framework-checkpoints
+  notes: Core claim for executor-owned state not being magically persisted.
+
+- id: pattern-claim-0253
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Microsoft Agent Framework checkpoint storage is a trust boundary: checkpoints must never be loaded from untrusted or tampered sources, and file or Cosmos storage should be accessible only to authorized users or services.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - microsoft-agent-framework-checkpoints
+  notes: Core claim for checkpoint security and infrastructure trust assumptions.
+
+- id: pattern-claim-0254
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    File and Cosmos checkpoint storage use a restricted unpickler by default, allow only a built-in safe type set plus framework internals, and require explicit `allowed_checkpoint_types` for extra application types; if pickle-based serialization is disallowed by the threat model, use in-memory storage or a custom storage strategy.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - microsoft-agent-framework-checkpoints
+  notes: Important for deserialization risk control and serialization-strategy choice.
+
+- id: pattern-claim-0255
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In OpenAI Agents SDK, input guardrails run only for the first agent in the chain; they receive the same input passed to the agent, produce a `GuardrailFunctionOutput`, and raise `InputGuardrailTripwireTriggered` when `.tripwire_triggered` is true.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-guardrails
+  notes: Core claim for input-tripwire execution point and exception semantics.
+
+- id: pattern-claim-0256
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Input guardrails support two execution modes: parallel execution is the default (`run_in_parallel=True`) and starts concurrently with agent execution, which can mean the agent already consumed tokens or executed tools before cancellation if the guardrail later fails.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-guardrails
+  notes: Important for latency versus side-effect exposure tradeoffs.
+
+- id: pattern-claim-0257
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    When an input guardrail uses blocking execution (`run_in_parallel=False`), it completes before the agent starts; if the tripwire triggers, the agent never executes, so token consumption and tool execution are avoided.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-guardrails
+  notes: Core claim for pre-execution stop semantics.
+
+- id: pattern-claim-0258
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Output guardrails run only for the agent that produces the final output, always execute after the agent completes, and raise `OutputGuardrailTripwireTriggered` when their tripwire is triggered; they do not support `run_in_parallel`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-guardrails
+  notes: Important for understanding post-generation veto versus pre-execution prevention.
+
+- id: pattern-claim-0259
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Tool guardrails run on every custom function-tool invocation, with input tool guardrails before execution and output tool guardrails after execution; they can skip the call, replace the output, or raise a tripwire depending on stage and result.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-guardrails
+  notes: Core claim for per-tool validation and interception semantics.
+
+- id: pattern-claim-0260
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI Agents SDK tool guardrails apply only to `function_tool`-based custom function tools; they do not apply to handoffs, hosted tools, built-in execution tools (`ComputerTool`, `ShellTool`, `ApplyPatchTool`, `LocalShellTool`), or `Agent.as_tool()` directly.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-guardrails
+  notes: Important for guardrail coverage-boundary questions.
+
+- id: pattern-claim-0261
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI Agents SDK groups tools into five categories: hosted OpenAI tools, local or runtime execution tools, function tools, agents as tools, and the experimental Codex tool.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tools
+  notes: Core taxonomy claim for tool execution-locus discussions.
+
+- id: pattern-claim-0262
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Hosted OpenAI tools run alongside the model on OpenAI servers, while local or runtime execution tools run in the application's environment; specifically, `ComputerTool` and `ApplyPatchTool` always run locally, and `ShellTool` can run either locally or in a hosted container.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tools
+  notes: Important for separating execution locus from tool naming.
+
+- id: pattern-claim-0263
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The hosted tool set documented for `OpenAIResponsesModel` includes `WebSearchTool`, `FileSearchTool`, `CodeInterpreterTool`, `HostedMCPTool`, `ImageGenerationTool`, and `ToolSearchTool`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tools
+  notes: Core claim for hosted-tool availability and scope.
+
+- id: pattern-claim-0264
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `FileSearchTool` supports `filters`, `ranking_options`, and `include_search_results` in addition to vector-store selection and result limits, while `WebSearchTool` supports `filters`, `user_location`, and `search_context_size`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tools
+  notes: Important for comparing hosted search tools beyond the basic name list.
+
+- id: pattern-claim-0265
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `ToolSearchTool` lets OpenAI Responses models defer large tool surfaces until runtime so the model loads only the subset needed for the current turn; this can reduce tool-schema token overhead when many tools, namespace groups, or hosted MCP servers exist.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tools
+  notes: Core claim for deferred tool loading and schema-surface control.
+
+- id: pattern-claim-0266
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Deferred-loading function tools must be paired with exactly one `ToolSearchTool()`, and searchable surfaces include `@function_tool(defer_loading=True)`, `tool_namespace(...)`, and `HostedMCPTool(tool_config={..., "defer_loading": True})`; the standard `Runner` does not auto-execute client-executed tool-search mode.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tools
+  notes: Important for runtime tool-surface loading constraints.
+
+- id: pattern-claim-0267
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `Agent.as_tool()` is a convenience wrapper that supports runtime options such as `max_turns`, `run_config`, `hooks`, `previous_response_id`, `conversation_id`, `session`, and `needs_approval`, and it can expose structured input through `parameters`, `input_builder`, and `include_input_schema`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tools
+  notes: Important for distinguishing simple agent-as-tool wrapping from full orchestration code.
+
+- id: pattern-claim-0268
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In OpenAI Agents SDK MCP integrations, the execution locus determines the recommended integration: `HostedMCPTool` lets the Responses API call a publicly reachable server on the model's behalf, while `MCPServerStreamableHttp`, `MCPServerSse`, and `MCPServerStdio` keep transport management in the application.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-mcp
+  notes: Core claim for hosted versus client-managed MCP choices.
+
+- id: pattern-claim-0269
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `Agent.mcp_config` can request best-effort conversion of MCP tool schemas to strict JSON schema via `convert_schemas_to_strict`, while `failure_error_function` controls whether MCP tool failures become model-visible error text or raise exceptions; a server-level failure formatter overrides the agent-level one.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-mcp
+  notes: Important for schema and failure-surfacing boundaries around MCP.
+
+- id: pattern-claim-0270
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Hosted MCP pushes the entire tool round-trip into OpenAI infrastructure: `HostedMCPTool` forwards server metadata to the Responses API, the model lists and invokes the remote server's tools without an extra callback to the Python process, and hosted servers are not added to `mcp_servers`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-mcp
+  notes: Core claim for hosted-MCP control-plane boundaries.
+
+- id: pattern-claim-0271
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Hosted MCP approvals are configured in `HostedMCPTool.tool_config["require_approval"]` with `"always"` / `"never"` or per-tool maps and can call `on_approval_request`; local MCP servers also support `require_approval`, accepting `"always"` / `"never"`, booleans, per-tool maps, or grouped allowlists.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-mcp
+    - openai-agents-sdk-human-in-the-loop
+  notes: Important for comparing hosted and local MCP approval surfaces.
+
+- id: pattern-claim-0272
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Local MCP transports support `tool_meta_resolver`, which injects per-call `_meta` payloads before `call_tool()` so applications can pass metadata such as tenant IDs or trace context from run context into MCP requests.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-mcp
+  notes: Core claim for per-call context propagation into MCP servers.
+
+- id: pattern-claim-0273
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    MCP tool filtering can be static via `create_static_tool_filter()` allow and block lists or dynamic via a callable that receives `ToolFilterContext`; when both allow and block lists are present, the SDK applies the allow-list first and then removes blocked tools from the remaining set.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-mcp
+  notes: Important for least-privilege exposure semantics.
+
+- id: pattern-claim-0274
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In dynamic MCP tool filtering, the filter context exposes the active `run_context`, the requesting `agent`, and the `server_name`, allowing per-run and per-agent tool exposure decisions.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-mcp
+  notes: Important for context-aware MCP least-privilege control.
+
+- id: pattern-claim-0275
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Even with Structured Outputs, applications must still handle refusal and incomplete responses separately: a refusal for safety reasons or an incomplete response caused by token limits may not match the provided JSON schema.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API structured outputs guide as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-structured-outputs-guide
+  notes: Core claim for explicit out-of-schema edge cases.
+
+- id: pattern-claim-0276
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In Structured Outputs, the root schema must be an object and must not use `anyOf` at the top level, although nested `anyOf` is allowed if each nested schema itself fits the supported subset.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API structured outputs guide as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-structured-outputs-guide
+  notes: Important for root-schema design and discriminated-union pitfalls.
+
+- id: pattern-claim-0277
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Structured Outputs requires all fields or function parameters to be listed as `required`; optionality should be modeled with a union that includes `null`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API structured outputs guide as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-structured-outputs-guide
+  notes: Core claim for required-field semantics.
+
+- id: pattern-claim-0278
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Every object in a Structured Outputs schema must set `additionalProperties: false`; this is required because the feature only supports generating keys explicitly defined in the schema.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API structured outputs guide as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-structured-outputs-guide
+  notes: Important for strict object-shape enforcement.
+
+- id: pattern-claim-0279
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Structured Outputs schemas are bounded in size: they may contain at most 5000 object properties total with up to 10 levels of nesting, and total string length across property names, definition names, enum values, and const values cannot exceed 120,000 characters.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API structured outputs guide as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-structured-outputs-guide
+  notes: Core claim for schema-size ceilings.
+
+- id: pattern-claim-0280
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Structured Outputs allows at most 1000 enum values across all enum properties, and for a single string-enum property with more than 250 values the combined string length of those enum values cannot exceed 15,000 characters.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API structured outputs guide as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-structured-outputs-guide
+  notes: Important for enum-heavy classification schemas.
+
+- id: pattern-claim-0281
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Structured Outputs preserves schema key order in generated output, and if `strict: true` is used with an unsupported JSON Schema keyword or pattern, the API returns an error rather than silently accepting the schema.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API structured outputs guide as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-structured-outputs-guide
+  notes: Important for deterministic rendering and schema-validation failure behavior.
+
+- id: pattern-claim-0282
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    For fine-tuned models, the first request made with a given Structured Outputs schema has additional latency while the API processes that schema, but subsequent requests with the same schema do not; other models do not have this limitation.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI API structured outputs guide as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-structured-outputs-guide
+  notes: Important for cold-schema latency planning.
+
+- id: pattern-claim-0283
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    In OpenAI Agents SDK, approval rules can be attached to `function_tool`, `Agent.as_tool`, `ShellTool`, and `ApplyPatchTool` via `needs_approval`; local MCP servers use `require_approval`, and hosted MCP servers use `HostedMCPTool` with `tool_config={"require_approval": ...}` plus optional `on_approval_request`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-human-in-the-loop
+  notes: Core claim for approval-capable surfaces.
+
+- id: pattern-claim-0284
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    When a model emits a tool call, the runner evaluates the applicable approval rule, and if a decision for that call is already stored in `RunContextWrapper` it proceeds without prompting; `always_approve=True` or `always_reject=True` persists the same decision for future calls to that tool during the rest of the run.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-human-in-the-loop
+  notes: Important for approval caching and sticky-decision semantics.
+
+- id: pattern-claim-0285
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Approval pauses surface in `RunResult.interruptions` or `RunResultStreaming.interruptions` as `ToolApprovalItem` entries containing fields such as `agent.name`, `tool_name`, and `arguments`; this includes approvals raised after a handoff or inside nested `Agent.as_tool()` executions.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-human-in-the-loop
+  notes: Core claim for run-wide interruption visibility.
+
+- id: pattern-claim-0286
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    To resume a paused approval flow, convert the result to `RunState` with `result.to_state()`, call `state.approve(...)` or `state.reject(...)`, and resume with `Runner.run(agent, state)` or `Runner.run_streamed(agent, state)` using the original top-level agent; the run continues where it left off and can pause again for new approvals.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-human-in-the-loop
+  notes: Core claim for pause-resume semantics.
+
+- id: pattern-claim-0287
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Sticky approval decisions created with `always_approve=True` or `always_reject=True` are stored in `RunState`, so they survive `state.to_string()` / `RunState.from_string(...)` and `state.to_json()` / `RunState.from_json(...)` when resuming the same paused run later.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-human-in-the-loop
+  notes: Important for long-running approval durability.
+
+- id: pattern-claim-0288
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Approval rejection text is customizable at two layers: `RunConfig.tool_error_formatter` provides a run-wide fallback, while `state.reject(..., rejection_message=...)` overrides one specific rejection; the per-call rejection message takes precedence when both are present.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-human-in-the-loop
+  notes: Important for model-visible rejection semantics.
+
+- id: pattern-claim-0289
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Local `ShellTool` and `ApplyPatchTool` support approval policies and automatic `on_approval` callbacks, but hosted shell environments do not support `needs_approval` or `on_approval`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-human-in-the-loop
+  notes: Important for local-versus-hosted approval capability boundaries.
+
+- id: pattern-claim-0290
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Serialized `RunState` includes application context plus SDK-managed runtime metadata such as approvals, usage, serialized `tool_input`, nested agent-as-tool resumptions, trace metadata, and server-managed conversation settings; applications should therefore treat `RunContextWrapper.context` as persisted data rather than an ephemeral secret-only container.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-human-in-the-loop
+  notes: Important for durable-state security and context design.
+
+- id: pattern-claim-0291
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    OpenAI Agents SDK tracing is enabled by default and can be disabled globally with `OPENAI_AGENTS_DISABLE_TRACING=1`, globally in code with `set_tracing_disabled(True)`, or per run with `RunConfig.tracing_disabled=True`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: Core claim for tracing enablement and disablement surfaces.
+
+- id: pattern-claim-0292
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    For organizations using OpenAI APIs under a Zero Data Retention policy, Agents SDK tracing is unavailable.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: Important for compliance-driven observability limits.
+
+- id: pattern-claim-0293
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    A trace represents one end-to-end workflow and has `workflow_name`, `trace_id`, optional `group_id`, `disabled`, and optional `metadata`; `trace_id` must follow the format `trace_<32_alphanumeric>`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: Core claim for trace identity and grouping.
+
+- id: pattern-claim-0294
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Spans represent timed operations and carry `started_at`, `ended_at`, `trace_id`, `parent_id`, and `span_data`; automatically created or custom spans are nested under the nearest current span via a Python `contextvar`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: Important for parent-child causal structure.
+
+- id: pattern-claim-0295
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    By default, the SDK wraps `Runner.run`, `run_sync`, and `run_streamed` in a trace, wraps each agent execution in `agent_span`, and traces generation, function-tool, guardrail, handoff, transcription, speech, and speech-group operations; the default trace name is `Agent workflow`.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: Core claim for default span coverage.
+
+- id: pattern-claim-0296
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Multiple `Runner.run(...)` calls can be grouped into a single higher-level trace by wrapping them in `with trace(...):`, so the individual runs appear as parts of one overall workflow trace instead of separate traces.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: Important for multi-run workflow grouping.
+
+- id: pattern-claim-0297
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    The default `BatchTraceProcessor` exports traces in the background every few seconds or when its queue fills and performs a final flush at process exit; `flush_traces()` blocks until buffered traces and spans are exported and should be called after a trace closes when immediate delivery is required in long-running workers.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: Core claim for export timing and explicit flush behavior.
+
+- id: pattern-claim-0298
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    `add_trace_processor()` adds a secondary processor alongside the default OpenAI exporter, while `set_trace_processors()` replaces the defaults entirely and stops backend export unless a `TracingProcessor` is explicitly included.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: Important for custom export-pipeline design.
+
+- id: pattern-claim-0299
+  domain: ai-agent
+  component: agent-patterns
+  statement: >-
+    Some spans capture sensitive payloads: `generation_span()` records model inputs and outputs and `function_span()` records function inputs and outputs; this capture is controlled by `RunConfig.trace_include_sensitive_data`, which defaults to `True` and can also be configured with the `OPENAI_AGENTS_TRACE_INCLUDE_SENSITIVE_DATA` environment variable.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-25"
+  last_verified_at: "2026-04-25"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: Important for privacy-aware tracing design.

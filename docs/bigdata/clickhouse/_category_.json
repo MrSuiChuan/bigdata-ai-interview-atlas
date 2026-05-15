@@ -1,0 +1,9 @@
+{
+  "label": "ClickHouse",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+    "title": "ClickHouse",
+    "description": "ClickHouse 知识库：覆盖 MergeTree、Part、稀疏索引、写入与查询路径、更新删除、物化视图、投影、字典、性能优化、治理与排障。"
+  }
+}

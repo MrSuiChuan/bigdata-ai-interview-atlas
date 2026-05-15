@@ -1,0 +1,1646 @@
+- id: flink-claim-0001
+  domain: bigdata
+  component: flink
+  statement: The Flink stable documentation page identifies Flink 2.2 as the latest stable release and Flink 1.20 as the LTS documentation line.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-22"
+  last_verified_at: "2026-04-22"
+  source_ids:
+    - flink-docs-home
+  notes: Helpful when discussing version boundaries and why Flink interview answers should mention stable versus LTS lines.
+
+- id: flink-claim-0002
+  domain: bigdata
+  component: flink
+  statement: Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-docs-home
+  notes: This is the best official anchor for positioning Flink in interviews.
+
+- id: flink-claim-0003
+  domain: bigdata
+  component: flink
+  statement: Keyed state in Flink is maintained as an embedded key/value store, partitioned and distributed together with the keyed streams that the stateful operators read.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-stateful-stream-processing
+  notes: This is the most important official statement behind Flink's local-state execution model.
+
+- id: flink-claim-0004
+  domain: bigdata
+  component: flink
+  statement: Aligning the keys of streams and state makes all keyed state updates local operations, guaranteeing consistency without transaction overhead and allowing transparent state redistribution on rescaling.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-stateful-stream-processing
+  notes: Useful for explaining why keyBy is not just a partitioning API but a state placement rule.
+
+- id: flink-claim-0005
+  domain: bigdata
+  component: flink
+  statement: Key Groups are the atomic unit by which Flink redistributes keyed state, and there are exactly as many Key Groups as the defined maximum parallelism.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-stateful-stream-processing
+  notes: This is a high-value principle fact for discussing rescaling and state movement.
+
+- id: flink-claim-0006
+  domain: bigdata
+  component: flink
+  statement: Flink implements fault tolerance through a combination of stream replay and checkpointing; a checkpoint marks a point in each input stream together with the corresponding state of each operator.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-stateful-stream-processing
+  notes: This is the core official description of Flink's fault-tolerance model.
+
+- id: flink-claim-0007
+  domain: bigdata
+  component: flink
+  statement: A Flink dataflow can resume from a checkpoint with exactly-once processing semantics by restoring operator state and replaying records from the checkpointed stream positions.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-stateful-stream-processing
+  notes: This is the right official boundary for exactly-once inside the runtime.
+
+- id: flink-claim-0008
+  domain: bigdata
+  component: flink
+  statement: The checkpoint interval is a tradeoff between fault-tolerance overhead during execution and recovery time, which is largely determined by how many records need to be replayed after failure.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-stateful-stream-processing
+  notes: Good for answering why shorter checkpoint intervals are not free.
+
+- id: flink-claim-0009
+  domain: bigdata
+  component: flink
+  statement: For Flink checkpointing to realize its full guarantees, the data stream source must be able to rewind the stream to a defined recent point.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-stateful-stream-processing
+  notes: This clarifies why runtime exactly-once and end-to-end guarantees are not the same question.
+
+- id: flink-claim-0010
+  domain: bigdata
+  component: flink
+  statement: By default checkpointing is disabled; enabling it requires calling enableCheckpointing(interval), and Flink supports choosing exactly-once or at-least-once checkpointing modes.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-checkpointing
+  notes: Important for configuration and guarantee discussions.
+
+- id: flink-claim-0011
+  domain: bigdata
+  component: flink
+  statement: Unaligned checkpoints can greatly reduce checkpoint times under backpressure, but they only work for exactly-once checkpoints and with one concurrent checkpoint.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-checkpointing
+  notes: Good for discussing latency-pressure tradeoffs under heavy backpressure.
+
+- id: flink-claim-0012
+  domain: bigdata
+  component: flink
+  statement: In unaligned checkpoints, in-flight buffer data becomes part of the checkpoint state, allowing checkpoint barriers to overtake those buffers and making checkpoint duration less dependent on current throughput.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-checkpointing
+  notes: This is the official mechanism-level explanation of unaligned checkpoints.
+
+- id: flink-claim-0013
+  domain: bigdata
+  component: flink
+  statement: Event time is the time an event occurred on the producing device; its progress depends on the data rather than wall clocks, and watermarks are the mechanism that signals event-time progress.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-timely-stream-processing
+  notes: This is the cleanest official anchor for event-time explanations.
+
+- id: flink-claim-0014
+  domain: bigdata
+  component: flink
+  statement: A Watermark(t) declares that event time has reached t in a stream, meaning there should be no more elements with timestamps less than or equal to t.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-timely-stream-processing
+  notes: This is the official semantic boundary of watermarks.
+
+- id: flink-claim-0015
+  domain: bigdata
+  component: flink
+  statement: For operators with multiple input streams, Flink defines the operator's current event time as the minimum of its input streams' event times.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-timely-stream-processing
+  notes: This is the key reason one slow or idle input can hold back downstream event time.
+
+- id: flink-claim-0016
+  domain: bigdata
+  component: flink
+  statement: Assigning a WatermarkStrategy directly on a source is preferable because the source can exploit split, shard, or partition knowledge and therefore produce a more accurate overall watermark.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-generating-watermarks
+  notes: This is a high-value engineering detail that distinguishes source-side and post-source watermark assignment.
+
+- id: flink-claim-0017
+  domain: bigdata
+  component: flink
+  statement: If one input split, partition, or shard becomes idle, watermark progress can stall because the effective watermark is computed as the minimum over parallel watermarks; WatermarkStrategy.withIdleness can mark such inputs idle.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-generating-watermarks
+  notes: Essential for real-world watermark troubleshooting.
+
+- id: flink-claim-0018
+  domain: bigdata
+  component: flink
+  statement: Keyed state is scoped to the key of the current input element and can only be used on a KeyedStream created by keyBy or key_by.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-working-with-state
+  notes: This is the most important API boundary for state access.
+
+- id: flink-claim-0019
+  domain: bigdata
+  component: flink
+  statement: Flink keyed state primitives include ValueState, ListState, ReducingState, AggregatingState, and MapState, all accessed through StateDescriptor handles from the RuntimeContext of rich functions.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-working-with-state
+  notes: Good for explaining the state API without hand-waving.
+
+- id: flink-claim-0020
+  domain: bigdata
+  component: flink
+  statement: Operator state is bound to one parallel operator instance, supports redistribution on rescaling, and is mainly used in sources, sinks, and cases where state cannot be partitioned by key.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-working-with-state
+  notes: Important when distinguishing operator state from keyed state.
+
+- id: flink-claim-0021
+  domain: bigdata
+  component: flink
+  statement: Broadcast state is a special form of operator state used when one broadcast stream carries rules or control data that must be replicated to all downstream subtasks processing another stream.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-working-with-state
+  notes: This is the right official framing for dynamic rule streams.
+
+- id: flink-claim-0022
+  domain: bigdata
+  component: flink
+  statement: The Flink runtime consists of a JobManager and one or more TaskManagers; the JobManager coordinates scheduling, checkpoints, and recovery, while TaskManagers execute tasks and exchange data streams.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-architecture-doc
+  notes: Core cluster architecture fact for interview answers.
+
+- id: flink-claim-0023
+  domain: bigdata
+  component: flink
+  statement: Operator subtasks are chained into tasks for distributed execution, with each task executed by one thread; chaining reduces thread handover and buffering overhead, improving throughput and lowering latency.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-architecture-doc
+  notes: This is the official basis for operator chaining discussions.
+
+- id: flink-claim-0024
+  domain: bigdata
+  component: flink
+  statement: A task slot is the smallest unit of resource scheduling in a TaskManager; slots isolate managed memory but do not provide CPU isolation.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-architecture-doc
+  notes: This is a frequent source of misunderstanding in resource discussions.
+
+- id: flink-claim-0025
+  domain: bigdata
+  component: flink
+  statement: By default, Flink allows subtasks from the same job to share slots, so one slot may hold an entire pipeline; as a result, a cluster needs as many task slots as the highest parallelism used in the job rather than the total number of operators.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-architecture-doc
+  notes: This is the cleanest official explanation for slot sharing in interviews.
+
+- id: flink-claim-0026
+  domain: bigdata
+  component: flink
+  statement: HashMapStateBackend keeps state as Java heap objects and is very fast, while EmbeddedRocksDBStateBackend scales state with local disk space but pays higher serialization and storage-access cost; choosing between them is largely a choice between performance and scalability.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-state-backends-ops
+  notes: High-value tradeoff statement for state backend selection.
+
+- id: flink-claim-0027
+  domain: bigdata
+  component: flink
+  statement: Checkpoints are created, owned, and released by Flink for failure recovery, while savepoints are created, owned, and deleted by users for planned manual operations such as upgrades or job graph changes.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-checkpoints-vs-savepoints
+  notes: This is the most important conceptual difference between checkpoints and savepoints.
+
+- id: flink-claim-0028
+  domain: bigdata
+  component: flink
+  statement: Checkpoints are optimized to be lightweight and fast to restore, whereas savepoints focus more on portability and operational flexibility; since Flink 1.15 savepoints can also use a faster backend-native format with limitations.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-checkpoints-vs-savepoints
+    - flink-savepoints
+  notes: Useful when discussing upgrade strategy and operational tradeoffs.
+
+- id: flink-claim-0029
+  domain: bigdata
+  component: flink
+  statement: When checkpointing is enabled and the user does not specify a restart strategy, Flink's current default restart strategy is exponential delay restart.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-task-failure-recovery
+  notes: Important operational default for production troubleshooting.
+
+- id: flink-claim-0030
+  domain: bigdata
+  component: flink
+  statement: The restart pipelined region failover strategy restarts the smallest set of pipelined regions required for recovery instead of always restarting all tasks in the job; a region is a set of tasks connected via pipelined data exchanges.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-23"
+  last_verified_at: "2026-04-23"
+  source_ids:
+    - flink-task-failure-recovery
+  notes: This is a high-value principle fact for explaining modern failover behavior.
+
+- id: flink-claim-0031
+  domain: bigdata
+  component: flink
+  statement: Processing time is the local system time of the machine that is executing the respective operation.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-timely-stream-processing
+  notes: This is the cleanest official definition of processing time.
+
+- id: flink-claim-0032
+  domain: bigdata
+  component: flink
+  statement: Flink operators process watermarks completely before forwarding them downstream, and all records resulting from a watermark are emitted before the watermark itself is forwarded.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-generating-watermarks
+  notes: Important for understanding watermark-triggered window emission order.
+
+- id: flink-claim-0033
+  domain: bigdata
+  component: flink
+  statement: When one source or split advances its watermark much faster than others, downstream tasks may need to buffer more data in state while waiting for the minimum watermark to advance.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-generating-watermarks
+  notes: This is the core motivation behind watermark alignment.
+
+- id: flink-claim-0034
+  domain: bigdata
+  component: flink
+  statement: Watermark alignment keeps watermarks of sources or splits in the same group from drifting too far apart by limiting how far ahead fast sources can advance relative to lagging ones.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-generating-watermarks
+  notes: Useful for explaining state-size control in multi-partition streaming.
+
+- id: flink-claim-0035
+  domain: bigdata
+  component: flink
+  statement: Watermark alignment can pause consuming from a source or split that is too far ahead until the rest of the watermark group catches up.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-generating-watermarks
+  notes: This is the mechanism-level explanation of how alignment enforces max drift.
+
+- id: flink-claim-0036
+  domain: bigdata
+  component: flink
+  statement: Watermark alignment only works for FLIP-27 sources and does not work for legacy sources or after a DataStream already exists and assignTimestampsAndWatermarks has been called on it.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-generating-watermarks
+  notes: This is a very practical boundary for source selection and API placement.
+
+- id: flink-claim-0037
+  domain: bigdata
+  component: flink
+  statement: Operator state is still not supported in the Python DataStream API.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-working-with-state
+  notes: Important for accurately describing PyFlink capability boundaries.
+
+- id: flink-claim-0038
+  domain: bigdata
+  component: flink
+  statement: Broadcast state is always represented as a MapState and is available only to operators that have both a broadcasted stream and a non-broadcasted stream, and multiple broadcast states with different names can exist in one operator.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-working-with-state
+  notes: This sharpens the API and topology boundary for broadcast state.
+
+- id: flink-claim-0039
+  domain: bigdata
+  component: flink
+  statement: List-style operator state in Flink supports even-split redistribution by default, meaning each operator gets a subset of the state elements on restore and rescaling.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-working-with-state
+  notes: This is the most practical redistribution mode to know for operator state.
+
+- id: flink-claim-0040
+  domain: bigdata
+  component: flink
+  statement: Union redistribution for operator state gives every operator the complete list of state elements on restore, and high-cardinality union state can cause RPC framesize or OutOfMemory issues.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-working-with-state
+  notes: High-value warning for rescaling and source-state design.
+
+- id: flink-claim-0041
+  domain: bigdata
+  component: flink
+  statement: Stateful sources that want exactly-once state update guarantees on failure and recovery need to make emitting records and updating state atomic, typically by synchronizing both operations on the source context checkpoint lock.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-working-with-state
+  notes: This is the key source-side boundary behind end-to-end guarantees.
+
+- id: flink-claim-0042
+  domain: bigdata
+  component: flink
+  statement: Checkpoint timeout specifies how long a checkpoint may take before being discarded.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-checkpointing
+  notes: Good for answering why slow checkpoints do not hang forever.
+
+- id: flink-claim-0043
+  domain: bigdata
+  component: flink
+  statement: Configuring a minimum pause between checkpoints means no checkpoint will be triggered for at least that time after the previous one completes, and this setting implies that concurrent checkpoints cannot be executed at the same time.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-checkpointing
+  notes: This is the cleanest way to explain checkpoint concurrency throttling.
+
+- id: flink-claim-0044
+  domain: bigdata
+  component: flink
+  statement: Externalized checkpoints write metadata to persistent storage and are not automatically cleaned up when the owning job fails, so they remain available for manual recovery.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-checkpointing
+  notes: This separates normal checkpoint lifecycle from operator-controlled recovery artifacts.
+
+- id: flink-claim-0045
+  domain: bigdata
+  component: flink
+  statement: The tolerable checkpoint failure number defines how many consecutive checkpoint failures are tolerated before the whole job fails over, and its default value is 0 for the failure reasons it covers.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-checkpointing
+  notes: Useful for explaining why some jobs fail over after a single checkpoint problem.
+
+- id: flink-claim-0046
+  domain: bigdata
+  component: flink
+  statement: If checkpointing is not enabled, Flink does not use a restart strategy by default; if checkpointing is enabled and no restart strategy is configured, exponential delay restart is used.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-task-failure-recovery
+  notes: This pairs the default restart behavior directly with checkpoint configuration.
+
+- id: flink-claim-0047
+  domain: bigdata
+  component: flink
+  statement: Flink provides no restart, fixed delay, failure rate, and exponential delay restart strategies.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-task-failure-recovery
+  notes: This is the compact official list of restart strategy types.
+
+- id: flink-claim-0048
+  domain: bigdata
+  component: flink
+  statement: The Restart All Failover Strategy recovers by restarting all tasks of the job.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-task-failure-recovery
+  notes: Good for contrasting coarse-grained and fine-grained recovery.
+
+- id: flink-claim-0049
+  domain: bigdata
+  component: flink
+  statement: In Flink failover, a pipelined-region is a set of tasks connected through pipelined data exchanges, while batch data exchanges form boundaries between regions.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-task-failure-recovery
+  notes: This refines the definition of region boundaries used by region failover.
+
+- id: flink-claim-0050
+  domain: bigdata
+  component: flink
+  statement: Under the Restart Pipelined Region Failover Strategy, recovery restarts the region containing the failed task, the regions consuming data from it if needed for consistency, and the regions producing data for unavailable result partitions.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-task-failure-recovery
+  notes: This captures the actual restart closure of region-based recovery.
+
+- id: flink-claim-0051
+  domain: bigdata
+  component: flink
+  statement: Savepoints can only restore from matching operator identifiers, so using manually assigned operator IDs via uid(String) is strongly recommended for stateful jobs.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-savepoints
+  notes: This is the most important upgrade-safety fact in savepoint operations.
+
+- id: flink-claim-0052
+  domain: bigdata
+  component: flink
+  statement: Savepoints support both canonical and native formats; canonical format is backend-independent and more portable, while native format is backend-specific and can be faster to trigger and restore.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - flink-savepoints
+  notes: This extends the savepoint tradeoff beyond the simpler checkpoint-versus-savepoint distinction.
+
+- id: flink-claim-0053
+  domain: bigdata
+  component: flink
+  statement: A Flink window is created as soon as the first element assigned to it arrives and is completely removed when time passes the window end timestamp plus the configured allowed lateness; Flink guarantees this removal only for time-based windows, not for others such as global windows.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-windows
+  notes: Core lifecycle fact for window-state cleanup answers.
+
+- id: flink-claim-0054
+  domain: bigdata
+  component: flink
+  statement: In keyed streams, windowed computation can be performed in parallel by multiple tasks, while in non-keyed streams all windowing logic is executed by a single task with parallelism 1.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-windows
+  notes: Important for explaining why windowAll is a scalability boundary.
+
+- id: flink-claim-0055
+  domain: bigdata
+  component: flink
+  statement: A Trigger determines when a window is ready to be processed, each WindowAssigner comes with a default Trigger, and GlobalWindow's default trigger never fires so custom triggering is required to produce results.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-windows
+  notes: High-value boundary for trigger questions.
+
+- id: flink-claim-0056
+  domain: bigdata
+  component: flink
+  statement: Trigger methods return TriggerResult values CONTINUE, FIRE, PURGE, or FIRE_AND_PURGE; FIRE emits the current window result while FIRE_AND_PURGE emits the result and clears the window contents afterward.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-windows
+  notes: Good mechanism-level fact for separating early firing from state cleanup.
+
+- id: flink-claim-0057
+  domain: bigdata
+  component: flink
+  statement: ReduceFunction and AggregateFunction can incrementally aggregate window elements as they arrive, whereas a ProcessWindowFunction alone is less efficient because Flink must buffer all elements of the window before invoking it.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-windows
+  notes: Key tradeoff for window-function design answers.
+
+- id: flink-claim-0058
+  domain: bigdata
+  component: flink
+  statement: Combining a ProcessWindowFunction with a ReduceFunction or AggregateFunction lets Flink keep incremental aggregation while still exposing window metadata to the ProcessWindowFunction.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-windows
+  notes: Useful for practical optimization answers.
+
+- id: flink-claim-0059
+  domain: bigdata
+  component: flink
+  statement: Specifying an Evictor prevents any pre-aggregation because all elements have to be passed to the evictor before computation, which causes windows with evictors to create significantly more state.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-windows
+  notes: High-value state-size warning for window tuning.
+
+- id: flink-claim-0060
+  domain: bigdata
+  component: flink
+  statement: By default allowed lateness is 0, so elements that arrive behind the watermark are dropped.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-windows
+  notes: Important default-value fact for late-data questions.
+
+- id: flink-claim-0061
+  domain: bigdata
+  component: flink
+  statement: If allowed lateness is greater than 0, Flink keeps window state until the lateness period expires; late but not dropped elements may trigger additional late firings, and in session windows these late firings can even merge windows by bridging the gap between them.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-windows
+  notes: Sharp semantic boundary for late-data correctness.
+
+- id: flink-claim-0062
+  domain: bigdata
+  component: flink
+  statement: KeyedProcessFunction extends ProcessFunction and gives access to the current key inside onTimer, making it suitable for low-level keyed control logic.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-process-function
+  notes: Good boundary for when to use KeyedProcessFunction instead of generic ProcessFunction.
+
+- id: flink-claim-0063
+  domain: bigdata
+  component: flink
+  statement: Flink's TimerService maintains both processing-time and event-time timers, deduplicates timers per key and timestamp, and synchronizes invocations of onTimer and processElement so users do not need to handle concurrent state modification themselves.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-process-function
+  notes: Core timer execution model fact.
+
+- id: flink-claim-0064
+  domain: bigdata
+  component: flink
+  statement: Flink timers are fault tolerant and checkpointed together with application state; when recovering from failure or restoring from a savepoint, the timers are restored as well.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-process-function
+  notes: Important for reasoning about timer-driven workflows after restart.
+
+- id: flink-claim-0065
+  domain: bigdata
+  component: flink
+  statement: Checkpointed processing-time timers that should have fired before restoration will fire immediately after recovery or savepoint restore.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-process-function
+  notes: Good recovery edge-case fact for timer logic.
+
+- id: flink-claim-0066
+  domain: bigdata
+  component: flink
+  statement: Large numbers of timers can increase checkpointing time because timers are part of checkpointed state, and Flink recommends timer coalescing by reducing timer resolution to cut timer cardinality.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-process-function
+  notes: Useful for checkpoint-cost and timer-scale discussions.
+
+- id: flink-claim-0067
+  domain: bigdata
+  component: flink
+  statement: The Flink Kafka connector provides exactly-once guarantees for reading from and writing to Kafka topics.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-kafka-connector
+  notes: High-level official positioning for Kafka connector semantics.
+
+- id: flink-claim-0068
+  domain: bigdata
+  component: flink
+  statement: Kafka source commits current consuming offsets when checkpoints complete to keep Flink checkpoint state and committed broker offsets consistent, but the source does not rely on committed offsets for fault tolerance and uses them only to expose consumer progress for monitoring.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-kafka-connector
+  notes: Core distinction between monitoring offsets and recovery state.
+
+- id: flink-claim-0069
+  domain: bigdata
+  component: flink
+  statement: The Kafka source does not automatically become idle when parallelism exceeds the number of Kafka partitions, so users must either reduce parallelism or configure an idle timeout in the WatermarkStrategy to avoid watermark stalling.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-kafka-connector
+  notes: Important operational boundary for partition-skew and idle-partition scenarios.
+
+- id: flink-claim-0070
+  domain: bigdata
+  component: flink
+  statement: KafkaSink supports DeliveryGuarantee.NONE, AT_LEAST_ONCE, and EXACTLY_ONCE; AT_LEAST_ONCE and EXACTLY_ONCE both require checkpointing to be enabled, while the default is NONE.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-kafka-connector
+  notes: Good baseline fact for sink semantics.
+
+- id: flink-claim-0071
+  domain: bigdata
+  component: flink
+  statement: In DeliveryGuarantee.EXACTLY_ONCE mode, KafkaSink writes all messages in a Kafka transaction that is committed on checkpoint; duplicate-free consumption after restart therefore depends on downstream consumers reading only committed data via Kafka's isolation.level setting.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-kafka-connector
+  notes: Important end-to-end boundary for exactly-once answers.
+
+- id: flink-claim-0072
+  domain: bigdata
+  component: flink
+  statement: DeliveryGuarantee.EXACTLY_ONCE with KafkaSink requires setTransactionalIdPrefix, that prefix must be unique across applications on the same Kafka cluster, and Kafka transaction.timeout.ms should exceed maximum checkpoint duration plus maximum restart duration to avoid data loss from expired uncommitted transactions.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-kafka-connector
+  notes: High-value operational configuration boundary.
+
+- id: flink-claim-0073
+  domain: bigdata
+  component: flink
+  statement: Flink can guarantee exactly-once state updates to user-defined state only when the source participates in the snapshotting mechanism.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-connector-guarantees
+  notes: Sharp boundary between internal runtime guarantees and connector participation.
+
+- id: flink-claim-0074
+  domain: bigdata
+  component: flink
+  statement: To guarantee end-to-end exactly-once record delivery in addition to exactly-once state semantics, the data sink must also participate in the checkpointing mechanism.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-connector-guarantees
+  notes: Core end-to-end semantics fact.
+
+- id: flink-claim-0075
+  domain: bigdata
+  component: flink
+  statement: Dynamic tables are the core concept of Flink's Table API and SQL support for streaming data, continuous queries over them never terminate, and the output is always semantically equivalent to executing the same query in batch mode on a snapshot of the input tables.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-dynamic-tables
+  notes: Core semantic anchor for streaming SQL questions.
+
+- id: flink-claim-0076
+  domain: bigdata
+  component: flink
+  statement: Flink models streaming SQL as a three-step pipeline in which a stream is converted into a dynamic table, a continuous query produces another dynamic table, and that result is converted back into a stream.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-dynamic-tables
+  notes: Good conceptual bridge between DataStream and Table API.
+
+- id: flink-claim-0077
+  domain: bigdata
+  component: flink
+  statement: In Flink dynamic tables, update queries emit INSERT and UPDATE changes, whereas append queries emit only INSERT changes.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-dynamic-tables
+  notes: Important for changelog mode reasoning.
+
+- id: flink-claim-0078
+  domain: bigdata
+  component: flink
+  statement: When converting a dynamic table back into a stream, Flink can encode changes as append-only, retract, or upsert streams; an upsert stream requires a unique key and encodes UPDATE as a single upsert message while retract encodes UPDATE as retract-old plus add-new."
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-dynamic-tables
+  notes: Core distinction for append versus retract versus upsert.
+
+- id: flink-claim-0079
+  domain: bigdata
+  component: flink
+  statement: Only append and retract streams are supported when converting a dynamic table into a DataStream.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-dynamic-tables
+  notes: Important API boundary when bridging Table API back to DataStream.
+
+- id: flink-claim-0080
+  domain: bigdata
+  component: flink
+  statement: A time-to-live can be assigned to keyed state of any type in Flink, and all state collection types support per-entry TTL semantics so list elements and map entries expire independently.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-working-with-state
+  notes: Core TTL capability statement.
+
+- id: flink-claim-0081
+  domain: bigdata
+  component: flink
+  statement: If a TTL is configured and a state value has expired, Flink cleans it up on a best-effort basis rather than guaranteeing immediate physical deletion at the expiration boundary.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-working-with-state
+  notes: Important for distinguishing logical unavailability from instant storage cleanup.
+
+- id: flink-claim-0082
+  domain: bigdata
+  component: flink
+  statement: By default, expired state values are explicitly removed on read and are also garbage collected in the background when the configured state backend supports background cleanup; background cleanup can be disabled through StateTtlConfig.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-working-with-state
+  notes: High-value operational fact for cleanup expectations.
+
+- id: flink-claim-0083
+  domain: bigdata
+  component: flink
+  statement: Flink TTL refresh behavior can be configured to update on create/write only or also on reads, and using ReturnExpiredIfNotCleanedUp together with OnReadAndWrite can disable the state read cache and cause performance loss in PyFlink.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-working-with-state
+  notes: Useful for deeper TTL tradeoff questions.
+
+- id: flink-claim-0084
+  domain: bigdata
+  component: flink
+  statement: Starting with Flink 2.2.0, the system supports seamless enabling or disabling of State TTL for existing state without requiring savepoint changes, provided serializers are otherwise compatible.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-state-ttl-migration
+  notes: Important version-boundary fact for upgrade answers.
+
+- id: flink-claim-0085
+  domain: bigdata
+  component: flink
+  statement: Full TTL migration support across all major state backends is available from Flink 2.2.0 onward; RocksDB support arrived in 2.1.0 while HeapKeyedStateBackend support arrived in 2.2.0.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-state-ttl-migration
+  notes: Good upgrade boundary for mixed-backend clusters.
+
+- id: flink-claim-0086
+  domain: bigdata
+  component: flink
+  statement: TTL is not applied retroactively to entries restored from non-TTL state; those restored entries only start expiring after their next access or update.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-state-ttl-migration
+  notes: Important subtlety for privacy and retention discussions.
+
+- id: flink-claim-0087
+  domain: bigdata
+  component: flink
+  statement: Flink state schema evolution is supported only for state types serialized by Flink's own type serialization framework, and currently the supported schema-evolution type families are POJO and Avro.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-state-schema-evolution
+  notes: Good entry point for schema-evolution boundaries.
+
+- id: flink-claim-0088
+  domain: bigdata
+  component: flink
+  statement: For POJO state schema evolution, Flink allows fields to be removed or added, initializes added fields with their Java default values, but does not allow declared field types or the POJO class name and namespace to change.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-state-schema-evolution
+  notes: High-value mechanism fact for savepoint-compatible changes.
+
+- id: flink-claim-0089
+  domain: bigdata
+  component: flink
+  statement: Flink fully supports evolving Avro state as long as the schema change is compatible under Avro schema-resolution rules, but generated Avro classes used as state types cannot be relocated or moved to different namespaces on restore.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-state-schema-evolution
+  notes: Important Avro-specific caveat.
+
+- id: flink-claim-0090
+  domain: bigdata
+  component: flink
+  statement: Flink does not support schema evolution of keys because changing key structure can create non-deterministic behavior and Flink has no way to merge previously distinct key groups that become identical after the change.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-state-schema-evolution
+  notes: Sharp boundary for keyed-state migrations.
+
+- id: flink-claim-0091
+  domain: bigdata
+  component: flink
+  statement: Kryo cannot be used for Flink state schema evolution because the framework cannot verify whether incompatible changes were made, and any contained type serialized through Kryo also loses schema-evolution support.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-state-schema-evolution
+  notes: Good warning for teams that rely on generic serialization.
+
+- id: flink-claim-0092
+  domain: bigdata
+  component: flink
+  statement: Async I/O in Flink is intended for external-data access where synchronous per-record waiting would dominate total operator work, and a single parallel function instance can overlap many requests concurrently to improve throughput.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-async-io
+  notes: Core motivation fact for async enrichment.
+
+- id: flink-claim-0093
+  domain: bigdata
+  component: flink
+  statement: Scaling a synchronous MapFunction to very high parallelism can sometimes improve throughput but usually carries high resource cost in tasks, threads, network connections, buffers, and internal bookkeeping compared with proper async I/O.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-async-io
+  notes: Useful tradeoff fact for architecture interviews.
+
+- id: flink-claim-0094
+  domain: bigdata
+  component: flink
+  statement: In async I/O, unordered wait emits results as soon as requests finish and gives the lowest latency and lowest overhead under processing time, while ordered wait preserves input order by buffering later results behind earlier unfinished requests.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-async-io
+  notes: Core ordered-versus-unordered tradeoff.
+
+- id: flink-claim-0095
+  domain: bigdata
+  component: flink
+  statement: >-
+    When event time is enabled, watermarks establish order boundaries for
+    unordered async I/O: records may be emitted out of order only between
+    watermarks, and this causes unordered mode to inherit some of the latency
+    and management overhead of ordered mode depending on watermark frequency.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-async-io
+  notes: Important event-time caveat for unordered async mode.
+
+- id: flink-claim-0096
+  domain: bigdata
+  component: flink
+  statement: The Flink async I/O operator provides full exactly-once fault-tolerance guarantees by storing records for in-flight asynchronous requests in checkpoints and re-triggering those requests during recovery.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-async-io
+  notes: Core fault-tolerance fact for async operators.
+
+- id: flink-claim-0097
+  domain: bigdata
+  component: flink
+  statement: Flink async I/O includes built-in retry support through AsyncRetryStrategy and AsyncRetryPredicate, allowing retries to be driven by empty results, exceptions, and retry-attempt limits.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-async-io
+  notes: Important operational feature for external-call reliability.
+
+- id: flink-claim-0098
+  domain: bigdata
+  component: flink
+  statement: Flink recommends using a DirectExecutor for Java async callback execution because callbacks typically do minimal work and this avoids unnecessary thread-to-thread handover overhead.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-async-io
+  notes: High-value implementation tip for Java jobs.
+
+- id: flink-claim-0099
+  domain: bigdata
+  component: flink
+  statement: Flink's AsyncFunction is not invoked multi-threadedly; there is only one AsyncFunction instance per stream partition and it is called sequentially, so blocking inside asyncInvoke destroys the intended asynchronous behavior.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-async-io
+  notes: Important caveat that catches many incorrect async implementations.
+
+- id: flink-claim-0100
+  domain: bigdata
+  component: flink
+  statement: The AsyncWaitOperator cannot be chained to a SourceFunction or SourceStreamTask.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-async-io
+  notes: Good graph-shape boundary for advanced operator-layout questions.
+
+- id: flink-claim-0101
+  domain: bigdata
+  component: flink
+  statement: >-
+    Flink window joins behave like inner joins: only elements from both streams
+    that share a key and belong to the same window are emitted, while unmatched
+    elements are not output.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-joining
+  notes: Core semantic fact for DataStream joins.
+
+- id: flink-claim-0102
+  domain: bigdata
+  component: flink
+  statement: Elements produced by a Flink window join receive as their timestamp the largest timestamp that still lies within the respective window.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-joining
+  notes: Useful for downstream event-time reasoning.
+
+- id: flink-claim-0103
+  domain: bigdata
+  component: flink
+  statement: Flink interval join matches two keyed stream elements when the right-side event timestamp lies within a configured relative interval around the left-side event timestamp, formally b.timestamp ∈ [a.timestamp + lowerBound; a.timestamp + upperBound].
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-joining
+  notes: Formal interval-join condition.
+
+- id: flink-claim-0104
+  domain: bigdata
+  component: flink
+  statement: Flink interval join currently supports only inner joins.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-joining
+  notes: Important capability boundary.
+
+- id: flink-claim-0105
+  domain: bigdata
+  component: flink
+  statement: Flink interval join currently supports only event time.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-joining
+  notes: Important temporal boundary for join design.
+
+- id: flink-claim-0106
+  domain: bigdata
+  component: flink
+  statement: When Flink passes a matched interval-join pair to ProcessJoinFunction, the pair is assigned the larger timestamp of the two input elements.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-joining
+  notes: Useful for downstream time semantics.
+
+- id: flink-claim-0107
+  domain: bigdata
+  component: flink
+  statement: In Flink monitoring, a back pressure warning for a task means it is producing data faster than downstream operators can consume, and back pressure propagates in the opposite direction of record flow.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-monitoring-backpressure
+  notes: Core runtime interpretation fact.
+
+- id: flink-claim-0108
+  domain: bigdata
+  component: flink
+  statement: Every Flink subtask exposes backPressuredTimeMsPerSecond, idleTimeMsPerSecond, and busyTimeMsPerSecond metrics, and at any instant these values add up to approximately 1000ms.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-monitoring-backpressure
+  notes: Good quantitative metric fact for diagnosis.
+
+- id: flink-claim-0109
+  domain: bigdata
+  component: flink
+  statement: Flink judges back pressure based on output-buffer availability, while idleness is determined by whether input is available.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-monitoring-backpressure
+  notes: Important because it ties backpressure to network/output behavior rather than CPU alone.
+
+- id: flink-claim-0110
+  domain: bigdata
+  component: flink
+  statement: Flink WebUI aggregates the maximum back pressure and busy metrics across all subtasks in the JobGraph and color-codes tasks with blue for idling, black for fully back pressured, and red for fully busy.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-monitoring-backpressure
+  notes: Useful for explaining UI-level diagnosis.
+
+- id: flink-claim-0111
+  domain: bigdata
+  component: flink
+  statement: Flink defines WebUI back pressure status as OK for 0%-10%, LOW for 10%-50%, and HIGH for 50%-100% backpressured time.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-monitoring-backpressure
+  notes: Simple but high-value operational threshold fact.
+
+- id: flink-claim-0112
+  domain: bigdata
+  component: flink
+  statement: >-
+    The Flink DataStream API supports three runtime execution modes:
+    STREAMING, BATCH, and AUTOMATIC, with STREAMING as the default.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-execution-mode
+  notes: Baseline execution-mode fact.
+
+- id: flink-claim-0113
+  domain: bigdata
+  component: flink
+  statement: BATCH execution mode can only be used for bounded jobs, while STREAMING execution mode can be used for both bounded and unbounded jobs.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-execution-mode
+  notes: Important boundedness boundary.
+
+- id: flink-claim-0114
+  domain: bigdata
+  component: flink
+  statement: A Flink DataStream application executed over bounded input produces the same final results regardless of execution mode, but STREAMING mode may emit incremental updates on the way whereas BATCH mode emits only final results at the end.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-execution-mode
+  notes: Core semantic comparison fact.
+
+- id: flink-claim-0115
+  domain: bigdata
+  component: flink
+  statement: Enabling BATCH execution mode lets Flink apply optimizations that depend on bounded input, including different join and aggregation strategies and a different shuffle implementation for more efficient scheduling and failure recovery.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-execution-mode
+  notes: High-value optimization fact for batch-vs-streaming questions.
+
+- id: flink-claim-0116
+  domain: bigdata
+  component: flink
+  statement: Flink recommends configuring execution.runtime-mode at submission time rather than hard-coding it in the program so that the same application remains flexible across execution modes.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-execution-mode
+  notes: Useful engineering guideline.
+
+- id: flink-claim-0117
+  domain: bigdata
+  component: flink
+  statement: In STREAMING execution mode all tasks must remain online continuously and network shuffles are pipelined so records are sent to downstream tasks immediately with buffering on the network layer.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-execution-mode
+  notes: Core runtime behavior fact for low-latency streaming.
+
+- id: flink-claim-0118
+  domain: bigdata
+  component: flink
+  statement: In BATCH execution mode, because the input is bounded, Flink can separate a job into stages that execute one after another instead of requiring all tasks to run online at the same time.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-execution-mode
+  notes: Good explanation for stage-style scheduling in batch mode.
+
+- id: flink-claim-0119
+  domain: bigdata
+  component: flink
+  statement: In the broadcast state pattern, a rules stream is broadcast to all downstream tasks and stored locally in broadcast state created from a MapStateDescriptor.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-broadcast-state-pattern
+  notes: Core pattern-definition fact.
+
+- id: flink-claim-0120
+  domain: bigdata
+  component: flink
+  statement: When connecting a keyed or non-keyed stream with a BroadcastStream, the connect call is made on the non-broadcasted stream; keyed streams use KeyedBroadcastProcessFunction while non-keyed streams use BroadcastProcessFunction.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-broadcast-state-pattern
+  notes: Important API-shape fact.
+
+- id: flink-claim-0121
+  domain: bigdata
+  component: flink
+  statement: In Flink broadcast state, the broadcast side has read-write access while the non-broadcast side has read-only access, because there is no cross-task communication and only the broadcast side sees the same broadcast elements across all tasks.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-broadcast-state-pattern
+  notes: Core consistency boundary.
+
+- id: flink-claim-0122
+  domain: bigdata
+  component: flink
+  statement: Flink requires the logic in processBroadcastElement to have the same deterministic behavior across all parallel instances, and updates must not depend on event ordering because the order of broadcast events may differ across tasks.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-broadcast-state-pattern
+  notes: High-value determinism rule for dynamic-rule systems.
+
+- id: flink-claim-0123
+  domain: bigdata
+  component: flink
+  statement: KeyedBroadcastProcessFunction exposes timer registration only from processElement on the keyed, non-broadcast side; timer registration is not available in processBroadcastElement because broadcast elements have no associated key.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-broadcast-state-pattern
+  notes: Important keyed-timer boundary in broadcast patterns.
+
+- id: flink-claim-0124
+  domain: bigdata
+  component: flink
+  statement: >-
+    All tasks checkpoint their broadcast state instead of only one task doing
+    so, which avoids restore hotspots but increases checkpointed state size by
+    a factor of parallelism; on restore or rescaling, Flink guarantees no
+    duplicates and no missing data, and broadcast state remains in-memory at
+    runtime rather than using RocksDB.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - flink-broadcast-state-pattern
+  notes: Good operational tradeoff fact for large broadcast-state deployments.
+
+- id: flink-claim-0125
+  domain: bigdata
+  component: flink
+  statement: Flink CEP lets users specify event patterns over streams and detects matching event sequences using declarative pattern definitions rather than hand-written low-level state machines.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-05-07"
+  last_verified_at: "2026-05-07"
+  source_ids:
+    - flink-cep
+  notes: Core high-level positioning fact for CEP.
+
+- id: flink-claim-0126
+  domain: bigdata
+  component: flink
+  statement: Flink CEP supports strict, relaxed, and non-deterministic relaxed contiguity, which differ in whether unrelated events may appear between matched pattern elements and whether multiple matches may be produced from the same candidate sequence.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-05-07"
+  last_verified_at: "2026-05-07"
+  source_ids:
+    - flink-cep
+  notes: Important semantic boundary for pattern matching behavior.
+
+- id: flink-claim-0127
+  domain: bigdata
+  component: flink
+  statement: After a CEP pattern match is emitted, Flink uses an After Match Skip Strategy to decide how much of the partially matched event buffer should be discarded before looking for subsequent matches.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-05-07"
+  last_verified_at: "2026-05-07"
+  source_ids:
+    - flink-cep
+  notes: Core mechanism fact for overlapping versus non-overlapping matches.
+
+- id: flink-claim-0128
+  domain: bigdata
+  component: flink
+  statement: In Flink SQL, temporal joins use FOR SYSTEM_TIME AS OF to join a probe-side row against the version of a changing table that was valid at a specific time attribute.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-05-07"
+  last_verified_at: "2026-05-07"
+  source_ids:
+    - flink-table-sql-joins
+  notes: Core semantic definition for temporal joins.
+
+- id: flink-claim-0129
+  domain: bigdata
+  component: flink
+  statement: Lookup joins are a special case of temporal joins in which the changing table is represented by an external system that is queried at runtime for matching dimension rows.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-05-07"
+  last_verified_at: "2026-05-07"
+  source_ids:
+    - flink-table-sql-joins
+  notes: Important bridge between temporal semantics and external dimension lookups.
+
+- id: flink-claim-0130
+  domain: bigdata
+  component: flink
+  statement: A Flink catalog stores metadata such as databases, tables, views, functions, and type information, and serves as the metadata bridge between Table API or SQL and external systems.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-05-07"
+  last_verified_at: "2026-05-07"
+  source_ids:
+    - flink-table-catalogs
+  notes: Core definition for catalog responsibilities.
+
+- id: flink-claim-0131
+  domain: bigdata
+  component: flink
+  statement: Flink resolves object references in Table API and SQL through the current catalog and current database, so unqualified names are interpreted relative to that default metadata context.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-05-07"
+  last_verified_at: "2026-05-07"
+  source_ids:
+    - flink-table-catalogs
+  notes: Important boundary for name resolution and metadata routing.
+
+- id: flink-claim-0132
+  domain: bigdata
+  component: flink
+  statement: A Flink Data Source is built from three core components—Split, SplitEnumerator, and SourceReader—with splits as the unit of work distribution and SourceReaders running in parallel on TaskManagers.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-05-07"
+  last_verified_at: "2026-05-07"
+  source_ids:
+    - flink-data-sources
+  notes: Core architectural fact for custom source design.
+
+- id: flink-claim-0133
+  domain: bigdata
+  component: flink
+  statement: In the FLIP-27 source API, event-time assignment and watermark generation happen as part of the source, and the WatermarkStrategy is provided when the source is created.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-05-07"
+  last_verified_at: "2026-05-07"
+  source_ids:
+    - flink-data-sources
+  notes: Important source-side time-semantics boundary.
+
+- id: flink-claim-0134
+  domain: bigdata
+  component: flink
+  statement: Flink's Sink API is centered around creating SinkWriter instances, and SinkWriter.flush(endOfInput) is invoked on checkpoint or end of input to flush pending data for at-least-once behavior.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-05-07"
+  last_verified_at: "2026-05-07"
+  source_ids:
+    - flink-data-sinks
+  notes: Core API fact for custom sink semantics.
+
+- id: flink-claim-0135
+  domain: bigdata
+  component: flink
+  statement: Flink's type system uses TypeInformation and type extraction to choose efficient serializers and execution strategies, distinguishing among POJOs, tuples, collections, special types, and generic types.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-05-07"
+  last_verified_at: "2026-05-07"
+  source_ids:
+    - flink-serialization
+  notes: Core definition for Flink serialization model.
+
+- id: flink-claim-0136
+  domain: bigdata
+  component: flink
+  statement: Types that Flink cannot recognize as POJO or other specialized categories fall back to generic handling, which is serialized through Kryo rather than Flink's more optimized specialized serializers.
+  status: reviewed
+  confidence: high
+  version_scope: "Flink 2.2 stable docs as verified on 2026-05-07"
+  last_verified_at: "2026-05-07"
+  source_ids:
+    - flink-serialization
+  notes: High-value performance and compatibility boundary for user-defined types.

@@ -1,0 +1,54 @@
+- id: case-claim-0001
+  domain: ai-agent
+  component: rag-case
+  statement: >-
+    Datawhale's all-in-rag project is positioned as a full-stack guide for RAG application development and is suitable as a learning path source for RAG pipeline implementation.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale all-in-rag repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-all-in-rag
+  notes: Community course framing; use as case material, not as the only authority for retrieval behavior.
+
+- id: case-claim-0002
+  domain: ai-agent
+  component: rag-case
+  statement: >-
+    Datawhale's what-is-vs project is positioned around vector search and RAG practice, making it useful for explaining the retrieval layer behind knowledge applications.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale what-is-vs repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-what-is-vs
+  notes: Community learning source for vector-search framing.
+
+- id: case-claim-0003
+  domain: ai-agent
+  component: rag-case
+  statement: >-
+    Datawhale's easy-vecdb project is positioned as a vector database principle and practice tutorial, making it useful for separating vector database responsibilities from the broader RAG application layer.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale easy-vecdb repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-easy-vecdb
+  notes: Community learning source for vector database framing.
+
+- id: case-claim-0004
+  domain: ai-agent
+  component: rag-case
+  statement: >-
+    A production RAG case should separate ingestion, chunking, indexing, retrieval, reranking, grounding, answer synthesis, evaluation, and freshness governance instead of treating RAG as a single vector search call.
+  status: reviewed
+  confidence: high
+  version_scope: "Existing AI Agent RAG pattern documents as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-all-in-rag
+    - practice-what-is-vs
+    - practice-easy-vecdb
+  notes: Synthesized case-design claim based on existing verified RAG pattern structure and Datawhale project positioning.
+

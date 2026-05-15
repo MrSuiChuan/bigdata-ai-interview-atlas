@@ -1,0 +1,609 @@
+- id: clickhouse-claim-0001
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse documentation positions ClickHouse as an open-source column-oriented database management system for online analytical processing.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-docs
+  notes: This is the anchor fact for explaining why ClickHouse should be answered as an OLAP system rather than an OLTP engine.
+
+- id: clickhouse-claim-0002
+  domain: bigdata
+  component: clickhouse
+  statement: MergeTree-family tables store data in parts and keep rows ordered on disk according to the sorting key defined by ORDER BY.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-mergetree-docs
+  notes: This is the storage-level fact behind most ClickHouse read-path explanations.
+
+- id: clickhouse-claim-0003
+  domain: bigdata
+  component: clickhouse
+  statement: In MergeTree, each data part is divided into granules and the sparse primary index stores marks that point to groups of rows rather than every row.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-sparse-primary-indexes-guide
+  notes: Use this claim when explaining why ClickHouse prunes ranges instead of doing row-by-row index lookups.
+
+- id: clickhouse-claim-0004
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse sparse primary indexes are for data skipping and pruning; they are not row-unique transaction indexes like those in typical OLTP databases.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-sparse-primary-indexes-guide
+    - clickhouse-mergetree-docs
+  notes: This boundary is central to avoiding incorrect OLTP-style explanations.
+
+- id: clickhouse-claim-0005
+  domain: bigdata
+  component: clickhouse
+  statement: Inserts create new data parts and background merge processes later combine smaller parts into larger parts over time.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-mergetree-docs
+    - clickhouse-system-merges-doc
+  notes: This is the most important mechanism behind write amplification, part counts and long-term read performance.
+
+- id: clickhouse-claim-0006
+  domain: bigdata
+  component: clickhouse
+  statement: Replicated MergeTree engines use ClickHouse Keeper or ZooKeeper metadata and keep data replicated across multiple replicas.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-replication-docs
+  notes: This is the right source-backed boundary for replica health and recovery discussions.
+
+- id: clickhouse-claim-0007
+  domain: bigdata
+  component: clickhouse
+  statement: The Distributed table engine does not store data of its own; it enables distributed query processing over multiple servers.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-distributed-engine-doc
+  notes: Use this to distinguish local tables from the access layer represented by Distributed tables.
+
+- id: clickhouse-claim-0008
+  domain: bigdata
+  component: clickhouse
+  statement: For inserts into a Distributed table, data can be sent in foreground or first written locally and sent in background depending on Distributed-engine settings.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-distributed-engine-doc
+    - clickhouse-settings-doc
+  notes: This is an important visibility and durability boundary in distributed write-path answers.
+
+- id: clickhouse-claim-0009
+  domain: bigdata
+  component: clickhouse
+  statement: The system.parts table contains information about data parts for MergeTree tables.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-system-parts-doc
+  notes: This is the first observation surface for active parts, bytes and partition distribution.
+
+- id: clickhouse-claim-0010
+  domain: bigdata
+  component: clickhouse
+  statement: The system.part_log table records events that happen with data parts, such as creation, merge and download.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-system-part-log-doc
+  notes: Use this when reconstructing part lifecycle and background-merge history.
+
+- id: clickhouse-claim-0011
+  domain: bigdata
+  component: clickhouse
+  statement: The system.query_log table contains information about executed queries.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-system-query-log-doc
+  notes: This is the core evidence source for query duration, read rows and read bytes.
+
+- id: clickhouse-claim-0012
+  domain: bigdata
+  component: clickhouse
+  statement: The system.query_thread_log table contains information about query execution threads.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-system-query-thread-log-doc
+  notes: This is useful for long-tail and parallelism diagnosis that is invisible in aggregate query_log alone.
+
+- id: clickhouse-claim-0013
+  domain: bigdata
+  component: clickhouse
+  statement: The system.merges table shows current merges and part mutations that are in process for MergeTree tables.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-system-merges-doc
+  notes: Use this when checking whether background work is keeping up with write volume.
+
+- id: clickhouse-claim-0014
+  domain: bigdata
+  component: clickhouse
+  statement: The system.mutations table contains information about mutations of MergeTree tables and whether they are finished.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-system-mutations-doc
+  notes: This is the main evidence source for ALTER UPDATE or DELETE backlog.
+
+- id: clickhouse-claim-0015
+  domain: bigdata
+  component: clickhouse
+  statement: The system.replicas table provides information and status for replicated tables.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-system-replicas-doc
+  notes: Use this to read absolute_delay, queue size, readonly state and session health.
+
+- id: clickhouse-claim-0016
+  domain: bigdata
+  component: clickhouse
+  statement: The system.replication_queue table shows tasks waiting in the replication queue for replicated tables.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-system-replication-queue-doc
+  notes: This is the key surface for diagnosing fetch, merge and mutation lag on replicas.
+
+- id: clickhouse-claim-0017
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse EXPLAIN supports multiple views, including index-usage and pipeline oriented explanations that help inspect how a statement will be executed.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-explain-doc
+  notes: This is the official anchor for using EXPLAIN as evidence instead of intuition.
+
+- id: clickhouse-claim-0018
+  domain: bigdata
+  component: clickhouse
+  statement: PREWHERE is a ClickHouse optimization that first reads only the columns needed for prewhere filtering, so fewer columns need to be loaded for granules that are later discarded.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-prewhere-doc
+  notes: This is one of the cleanest mechanism-level explanations of how ClickHouse reduces read volume.
+
+- id: clickhouse-claim-0019
+  domain: bigdata
+  component: clickhouse
+  statement: The ClickHouse query optimization guide emphasizes that reducing the amount of data processed is the most effective way to improve query latency.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-query-optimization-guide
+  notes: This is the official reason tuning should start with schema, pruning and scan reduction rather than thread knobs.
+
+- id: clickhouse-claim-0020
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse documents that a partition key should not be too granular and that, in most cases, partitioning is primarily a data-management boundary rather than the main source of query acceleration.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-partitioning-key-doc
+    - clickhouse-mergetree-docs
+  notes: This is the most useful official boundary for PARTITION BY design.
+
+- id: clickhouse-claim-0021
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse TTL rules can delete expired data, move data between storage volumes or disks, and recompress data after an expression becomes true.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-ttl-doc
+  notes: This is the correct capability boundary for TTL discussions.
+
+- id: clickhouse-claim-0022
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse access control entities include users, roles, row policies, settings profiles and quotas, and the documentation describes a SQL-driven workflow for managing them.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-access-rights-doc
+  notes: This is the core official framing for ClickHouse security governance.
+
+- id: clickhouse-claim-0023
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse workload scheduling provides resources, workloads and scheduler controls so queries and background work can be governed rather than competing without policy.
+  status: reviewed
+  confidence: medium
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-workload-scheduling-doc
+  notes: Use this carefully as a governance boundary, not as a promise that scheduling alone solves poor schema design.
+
+- id: clickhouse-claim-0024
+  domain: bigdata
+  component: clickhouse
+  statement: The system.processes table contains information about currently executing queries.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-system-processes-doc
+  notes: This is the main live-view surface before a query finishes and lands in query_log.
+
+- id: clickhouse-claim-0025
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse documents system.metrics, system.events and system.asynchronous_metrics as different system tables for observing server metrics and profile counters.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-system-metrics-doc
+    - clickhouse-system-events-doc
+    - clickhouse-system-asynchronous-metrics-doc
+  notes: This is the correct starting point for building a server-level monitoring view.
+
+- id: clickhouse-claim-0026
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse provides BACKUP and RESTORE documentation for backing up and restoring tables or databases as part of operational recovery planning.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-08
+  last_verified_at: '2026-05-08'
+  source_ids:
+    - clickhouse-backup-doc
+  notes: This is the official boundary for backup-based recovery, which is distinct from replica self-healing.
+
+- id: clickhouse-claim-0027
+  domain: bigdata
+  component: clickhouse
+  statement: Incremental materialized views shift work from query time to insert time by running their SELECT on inserted blocks and writing results to a target table.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-incremental-materialized-view-doc
+  notes: Use this when explaining why incremental materialized views reduce query latency by paying insert-time cost.
+
+- id: clickhouse-claim-0028
+  domain: bigdata
+  component: clickhouse
+  statement: For incremental materialized views with JOINs, only inserts into the left-most source table trigger view execution; changes to right-side tables do not trigger updates.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-incremental-materialized-view-doc
+  notes: This is the most important correctness boundary for answering JOIN-related materialized view questions.
+
+- id: clickhouse-claim-0029
+  domain: bigdata
+  component: clickhouse
+  statement: Refreshable materialized views periodically re-execute a query over the full dataset, store the result in a target table, and can be forced with SYSTEM REFRESH VIEW.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-refreshable-materialized-view-doc
+  notes: Use this to distinguish refreshable views from insert-triggered incremental views.
+
+- id: clickhouse-claim-0030
+  domain: bigdata
+  component: clickhouse
+  statement: The system.view_refreshes table exposes refreshable materialized view status, last and next refresh times, and read_rows or written_rows evidence.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-refreshable-materialized-view-doc
+  notes: This is the official observability surface for refreshable view scheduling and failure diagnosis.
+
+- id: clickhouse-claim-0031
+  domain: bigdata
+  component: clickhouse
+  statement: Projections are hidden additional data representations automatically maintained with the base table, and ClickHouse can choose the projection or base table that reads less data while preserving the same result.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-projections-doc
+  notes: Use this to explain why projections differ from manual query rewrites and from external summary tables.
+
+- id: clickhouse-claim-0032
+  domain: bigdata
+  component: clickhouse
+  statement: Since ClickHouse 25.5, projections can store full columns or store the sorting key plus _part_offset, allowing an index-like projection with lower storage overhead.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-projections-doc
+  notes: This is the key modern detail for projection design trade-offs.
+
+- id: clickhouse-claim-0033
+  domain: bigdata
+  component: clickhouse
+  statement: A ClickHouse dictionary provides an in-memory key-value representation of data from internal or external sources for low-latency lookups.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-dictionary-doc
+  notes: This is the anchor fact for dictionary-based enrichment and lookup discussions.
+
+- id: clickhouse-claim-0034
+  domain: bigdata
+  component: clickhouse
+  statement: Dictionary-backed lookups can accelerate a specific JOIN shape, most notably LEFT ANY key-value lookups that can use the Direct Join algorithm.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-dictionary-doc
+    - clickhouse-joins-guide
+  notes: Use this when comparing query-time JOINs, dictionaries, and denormalization.
+
+- id: clickhouse-claim-0035
+  domain: bigdata
+  component: clickhouse
+  statement: Lightweight DELETE marks rows as deleted and hides them from later queries, but physical removal happens later during merges unless a heavier rewrite path is used.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-delete-statement-doc
+  notes: This is the most important boundary when explaining delete visibility versus storage reclamation.
+
+- id: clickhouse-claim-0036
+  domain: bigdata
+  component: clickhouse
+  statement: Lightweight UPDATE uses patch parts, makes updated values logically visible to SELECT immediately after patch creation, and only materializes changes physically during later merges or mutations.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-update-statement-doc
+  notes: This separates logical visibility from physical rewrite cost in UPDATE explanations.
+
+- id: clickhouse-claim-0037
+  domain: bigdata
+  component: clickhouse
+  statement: Lightweight UPDATE cannot modify columns used in partition or primary keys and may disable projections or skipping indexes on patched data parts.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-update-statement-doc
+  notes: This is a key operational caveat for deciding whether lightweight updates fit a workload.
+
+- id: clickhouse-claim-0038
+  domain: bigdata
+  component: clickhouse
+  statement: "ClickHouse documents ACID insert guarantees case by case: single-table MergeTree inserts can be atomic and durable, inserts into a Distributed table are transactional per shard rather than as a whole, and Buffer-table inserts are not ACID."
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-transactional-doc
+  notes: Use this to answer consistency questions precisely instead of saying ClickHouse is simply strong or weak consistent.
+
+- id: clickhouse-claim-0039
+  domain: bigdata
+  component: clickhouse
+  statement: With async_insert enabled, atomicity is documented when wait_for_async_insert is 1, but not ensured when wait_for_async_insert is 0.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-transactional-doc
+    - clickhouse-asynchronous-inserts-doc
+  notes: This is the sharpest boundary between durable async ingestion and fire-and-forget ingestion.
+
+- id: clickhouse-claim-0040
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse deduplicates retried inserts for MergeTree-family tables using block identifiers, and the insert_deduplication_token setting can override data-hash based deduplication behavior.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-deduplicating-inserts-doc
+  notes: Use this for exactly-once style retry semantics and duplicate-suppression caveats.
+
+- id: clickhouse-claim-0041
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse recommends synchronous inserts be batched, at least around 1,000 rows and ideally 10,000 to 100,000 rows, because batch size is the primary throughput optimization and too many small inserts create too many parts.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-bulk-inserts-doc
+    - clickhouse-asynchronous-inserts-doc
+  notes: This is the official basis for the small-batch anti-pattern explanation.
+
+- id: clickhouse-claim-0042
+  domain: bigdata
+  component: clickhouse
+  statement: Asynchronous inserts buffer incoming data and flush when size, timeout, or queued-query thresholds are hit, reducing part creation overhead when client-side batching is not feasible.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-asynchronous-inserts-doc
+  notes: This is the mechanism-level explanation behind async_insert throughput improvements.
+
+- id: clickhouse-claim-0043
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse query parallelism distributes selected granules across processing lanes, and max_threads determines the number of lanes with a default roughly matching available CPU threads.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-query-parallelism-doc
+  notes: Use this when explaining why raising concurrency or node count interacts with CPU, memory, and skew.
+
+- id: clickhouse-claim-0044
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse lazy materialization defers reading some columns until later plan stages and is especially effective for Top N queries; EXPLAIN can show lazily read columns.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-lazy-materialization-doc
+  notes: This is the current official explanation for dramatic Top N speedups on wide rows.
+
+- id: clickhouse-claim-0045
+  domain: bigdata
+  component: clickhouse
+  statement: The query execution analyzer documentation maps EXPLAIN AST, EXPLAIN QUERY TREE, EXPLAIN PLAN and EXPLAIN PIPELINE to distinct parse, analysis, planning and pipeline stages.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-analyzer-guide-doc
+    - clickhouse-explain-doc
+  notes: Use this to build a structured evidence chain instead of treating EXPLAIN as a single opaque output.
+
+- id: clickhouse-claim-0046
+  domain: bigdata
+  component: clickhouse
+  statement: The server-side query cache is an OLAP-oriented transactionally inconsistent result cache with TTL-based staleness, and cached entries are per server and not shared across users by default.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-query-cache-doc
+  notes: This is the critical boundary for deciding whether query cache is safe for a workload.
+
+- id: clickhouse-claim-0047
+  domain: bigdata
+  component: clickhouse
+  statement: The query condition cache stores one bit per filter condition and granule to remember whether no rows matched before, and it only works when the analyzer is enabled.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-query-condition-cache-doc
+  notes: Use this to distinguish condition cache from result cache and from ordinary indexes.
+
+- id: clickhouse-claim-0048
+  domain: bigdata
+  component: clickhouse
+  statement: The userspace page cache keeps remote-data pages in process memory rather than the OS page cache, is intended for remote storage access, and does not survive server restarts.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-userspace-page-cache-doc
+  notes: This is the main boundary between userspace page cache and filesystem cache.
+
+- id: clickhouse-claim-0049
+  domain: bigdata
+  component: clickhouse
+  statement: The schema design guide states that compression and query performance are strongly influenced by the ordering key, data types, and codecs configured in the schema.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-schema-design-doc
+  notes: This is the right anchor for explaining why schema design precedes parameter tuning in ClickHouse.
+
+- id: clickhouse-claim-0050
+  domain: bigdata
+  component: clickhouse
+  statement: ClickHouse best-practice guidance warns that mutations rewrite data parts, are totally ordered, can intensify resource usage, and should be avoided when engine-level alternatives such as ReplacingMergeTree or CollapsingMergeTree fit the workload.
+  status: reviewed
+  confidence: high
+  version_scope: ClickHouse docs as verified on 2026-05-09
+  last_verified_at: '2026-05-09'
+  source_ids:
+    - clickhouse-avoid-mutations-doc
+  notes: This is the core source-backed reason frequent updates and deletes are treated as a design smell in ClickHouse.

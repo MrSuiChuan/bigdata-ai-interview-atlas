@@ -1,0 +1,9 @@
+{
+  "label": "HBase",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+    "title": "HBase",
+    "description": "HBase 知识库：覆盖 RowKey、Region、WAL、MemStore、HFile、Compaction、热点治理与读写路径。"
+  }
+}

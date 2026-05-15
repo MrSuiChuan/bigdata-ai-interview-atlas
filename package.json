@@ -1,0 +1,28 @@
+{
+  "name": "bigdata-ai-interview-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Markdown-first big data and AI agent interview knowledge system",
+  "scripts": {
+    "validate": "node scripts/validate-content.mjs",
+    "validate:frontmatter": "node scripts/validate-frontmatter.mjs",
+    "validate:references": "node scripts/validate-references.mjs",
+    "validate:examples": "node scripts/validate-code-snippets.mjs",
+    "audit:quality": "node scripts/audit-content-quality.mjs --write",
+    "audit:frontend": "node scripts/audit-frontend-coverage.mjs --write",
+    "audit:datawhale": "node scripts/audit-datawhale-sources.mjs --write",
+    "audit:claims": "node scripts/audit-claims.mjs --write",
+    "audit:examples": "node scripts/audit-examples.mjs --write",
+    "audit:knowledge": "node scripts/audit-knowledge-style.mjs --write",
+    "audit:component-quality": "node scripts/audit-component-quality.mjs --write",
+    "audit:all": "npm.cmd run audit:quality && npm.cmd run audit:knowledge && npm.cmd run audit:frontend && npm.cmd run audit:component-quality && npm.cmd run audit:datawhale && npm.cmd run audit:claims && npm.cmd run audit:examples",
+    "catalog:build": "node scripts/build-catalog-from-markdown.mjs --write",
+    "content:enhance-guides": "node scripts/enhance-component-guides.mjs --write",
+    "report:coverage": "node scripts/report-content-coverage.mjs --write",
+    "report:questions": "node scripts/report-question-bank-coverage.mjs --write"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

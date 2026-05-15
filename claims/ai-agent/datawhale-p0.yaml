@@ -1,0 +1,112 @@
+- id: practice-p0-claim-0001
+  domain: ai-agent
+  component: agent-foundations
+  statement: >-
+    Datawhale's hello-agents repository is positioned as a from-scratch tutorial for building agents, making it suitable as a learning-path source for explaining the minimum agent loop and practice progression.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale hello-agents repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-hello-agents
+  notes: Community course framing; official framework docs remain the authority for runtime semantics.
+
+- id: practice-p0-claim-0002
+  domain: ai-agent
+  component: agent-foundations
+  statement: >-
+    A from-scratch agent learning path should distinguish the model call, tool schema, runtime loop, memory or state, observation, and termination condition instead of treating an agent as only a prompt.
+  status: reviewed
+  confidence: high
+  version_scope: "Existing official agent framework docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - openai-agents-sdk-docs
+    - openai-agents-sdk-tools
+    - practice-hello-agents
+  notes: Synthesized teaching claim grounded in existing official SDK concepts and Datawhale learning-path positioning.
+
+- id: practice-p0-claim-0003
+  domain: ai-agent
+  component: harness-engineering
+  statement: >-
+    Datawhale's self-harness repository is positioned around harness engineering for building robust runtime infrastructure for complex, long-running AI agents.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale self-harness repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-self-harness
+  notes: Community course framing for harness engineering.
+
+- id: practice-p0-claim-0004
+  domain: ai-agent
+  component: harness-engineering
+  statement: >-
+    Long-running agent harness design should treat admission control, state persistence, checkpointing, retries, idempotency, observability, human intervention, and recovery as runtime responsibilities rather than prompt responsibilities.
+  status: reviewed
+  confidence: high
+  version_scope: "Existing long-running agent pattern documents as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-self-harness
+    - langgraph-persistence-docs
+    - microsoft-agent-framework-workflows
+  notes: Synthesized design claim based on existing verified runtime and persistence sources.
+
+- id: practice-p0-claim-0005
+  domain: ai-agent
+  component: camel-ai
+  statement: >-
+    CAMEL-AI documentation positions CAMEL-AI as a framework for building multi-agent AI systems, and its Workforce module is documented as a multi-agent collaboration engine.
+  status: reviewed
+  confidence: high
+  version_scope: "CAMEL-AI docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - camel-ai-docs
+    - camel-ai-workforce-docs
+  notes: Official CAMEL-AI positioning claim.
+
+- id: practice-p0-claim-0006
+  domain: ai-agent
+  component: camel-ai
+  statement: >-
+    Datawhale's handy-multi-agent repository is positioned as a CAMEL-based multi-agent tutorial for understanding how to build an Agent Society from the ground up.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale handy-multi-agent repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-handy-multi-agent
+  notes: Community course framing for CAMEL-based multi-agent learning.
+
+- id: practice-p0-claim-0007
+  domain: ai-agent
+  component: wow-agent
+  statement: >-
+    Datawhale's wow-agent repository is positioned as a simple and cross-platform agent framework and tutorial.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale wow-agent repository as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-wow-agent
+  notes: Community framework positioning; implementation details should be checked from the repository before deeper code-level claims.
+
+- id: practice-p0-claim-0008
+  domain: ai-agent
+  component: agent-frameworks
+  statement: >-
+    Framework interview answers should separate framework positioning, core abstractions, runtime responsibilities, integration boundaries, and production governance rather than only listing supported APIs.
+  status: reviewed
+  confidence: high
+  version_scope: "Existing agent framework documents as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - practice-wow-agent
+    - practice-handy-multi-agent
+    - openai-agents-sdk-docs
+    - camel-ai-docs
+  notes: General framework-comparison claim for interview system writing.
+

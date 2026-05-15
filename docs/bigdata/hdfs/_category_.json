@@ -1,0 +1,9 @@
+{
+  "label": "HDFS",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+    "title": "HDFS",
+    "description": "HDFS 知识库：覆盖 NameNode、DataNode、Block、副本、HA、权限、容量治理与生产排障。"
+  }
+}

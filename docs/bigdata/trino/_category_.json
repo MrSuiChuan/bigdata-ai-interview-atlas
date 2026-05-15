@@ -1,0 +1,9 @@
+{
+  "label": "Trino",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+    "title": "Trino",
+    "description": "Trino 知识库：覆盖 Coordinator、Worker、Catalog、Connector、Split、Stage、Exchange、资源组、容错执行与联邦查询边界。"
+  }
+}

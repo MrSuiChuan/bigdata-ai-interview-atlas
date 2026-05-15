@@ -1,0 +1,513 @@
+- id: llm-foundation-claim-0001
+  domain: llm-foundations
+  component: llm-overview
+  statement: >-
+    A modern LLM interview answer should distinguish model pretraining, tokenizer and context budget, post-training or alignment, inference behavior, tool or application integration, and evaluation rather than treating an LLM as only a text completion API.
+  status: reviewed
+  confidence: high
+  version_scope: "Primary LLM papers and official docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - gpt3-language-models-paper
+    - huggingface-tokenizers-course
+    - instructgpt-rlhf-paper
+  notes: Synthesized interview-system claim grounded in primary papers and official tokenizer docs.
+
+- id: llm-foundation-claim-0002
+  domain: llm-foundations
+  component: transformer
+  statement: >-
+    The Transformer architecture introduced self-attention and multi-head attention as central mechanisms for sequence modeling, removing recurrence from the main architecture described in the paper.
+  status: reviewed
+  confidence: high
+  version_scope: "Attention Is All You Need paper as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - transformer-attention-paper
+  notes: Primary paper claim.
+
+- id: llm-foundation-claim-0003
+  domain: llm-foundations
+  component: transformer
+  statement: >-
+    Decoder-only autoregressive language models generate text by modeling the next-token distribution conditioned on previous tokens, so generation quality and cost are strongly tied to context construction and decoding behavior.
+  status: reviewed
+  confidence: high
+  version_scope: "LLM papers and official docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - gpt3-language-models-paper
+  notes: General autoregressive modeling claim; decoding-specific details should be tied to model-provider docs when added.
+
+- id: llm-foundation-claim-0004
+  domain: llm-foundations
+  component: tokenizer
+  statement: >-
+    Tokenizers convert text into model-consumable token IDs and often use subword algorithms such as BPE, WordPiece, or Unigram, so token count is not equivalent to character count or word count.
+  status: reviewed
+  confidence: high
+  version_scope: "Hugging Face tokenizer course and OpenAI help article as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - huggingface-tokenizers-course
+    - openai-tokenizer-help
+  notes: Official course and help article claim.
+
+- id: llm-foundation-claim-0005
+  domain: llm-foundations
+  component: tokenizer
+  statement: >-
+    Context budgeting should account for prompt tokens, completion tokens, cached tokens when applicable, and provider-specific reasoning tokens when applicable; exceeding or misallocating this budget can harm cost, latency, and answer quality.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI help article as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - openai-tokenizer-help
+  notes: Provider-specific token accounting may differ; always verify current API docs for a concrete model.
+
+- id: llm-foundation-claim-0006
+  domain: llm-foundations
+  component: post-training
+  statement: >-
+    InstructGPT-style RLHF pipelines include supervised fine-tuning, reward model training from human preference comparisons, and policy optimization to better align model outputs with user intent.
+  status: reviewed
+  confidence: high
+  version_scope: "InstructGPT paper as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - instructgpt-rlhf-paper
+  notes: Primary paper claim.
+
+- id: llm-foundation-claim-0007
+  domain: llm-foundations
+  component: post-training
+  statement: >-
+    Direct Preference Optimization uses preference data to optimize a policy more directly than a separate reward-model-plus-RL pipeline, but it still depends on the quality and coverage of preference pairs.
+  status: reviewed
+  confidence: high
+  version_scope: "DPO paper and Hugging Face TRL docs as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - dpo-paper
+    - huggingface-trl-dpo-docs
+  notes: Primary paper and implementation docs claim.
+
+- id: llm-foundation-claim-0008
+  domain: llm-foundations
+  component: post-training
+  statement: >-
+    Post-training can change instruction-following behavior and preference alignment, but it does not guarantee factual correctness, tool correctness, security, or domain compliance without evaluation and runtime controls.
+  status: reviewed
+  confidence: high
+  version_scope: "InstructGPT and DPO papers as verified on 2026-04-26"
+  last_verified_at: "2026-04-26"
+  source_ids:
+    - instructgpt-rlhf-paper
+    - dpo-paper
+  notes: Synthesized boundary claim for interview answers.
+
+- id: llm-foundation-claim-0009
+  domain: llm-foundations
+  component: llm-application-development
+  statement: >-
+    Datawhale's llm-cookbook is positioned as a developer-oriented LLM learning handbook covering prompt engineering, LLM application systems, LangChain development, private-data chat, generative AI evaluation/debugging, fine-tuning, semantic search, RAG, tools, agents, and advanced prompt techniques.
+  status: reviewed
+  confidence: high
+  version_scope: "Datawhale llm-cookbook repository README and metadata as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-llm-cookbook
+  notes: Community-course positioning claim; do not use it as the sole source for provider API semantics.
+
+- id: llm-foundation-claim-0010
+  domain: llm-foundations
+  component: llm-application-development
+  statement: >-
+    Datawhale's llm-universe is positioned as a beginner-oriented LLM application development path covering model API calling, knowledge-base construction, RAG application construction, Streamlit deployment, validation, and iteration.
+  status: reviewed
+  confidence: high
+  version_scope: "Datawhale llm-universe repository README and metadata as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-llm-universe
+  notes: Community-course positioning claim; use official docs for concrete model-provider behavior.
+
+- id: llm-foundation-claim-0011
+  domain: llm-foundations
+  component: llm-training-foundations
+  statement: >-
+    Datawhale's happy-llm is positioned as a from-NLP-to-LLM learning path covering NLP basics, Transformer, pretrained language models, LLM concepts and training, LLaMA2 implementation practice, tokenizer training, small-model pretraining, SFT, LoRA/QLoRA, evaluation, RAG, and Agent.
+  status: reviewed
+  confidence: high
+  version_scope: "Datawhale happy-llm repository README and metadata as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-happy-llm
+  notes: Community-course positioning claim; technical mechanism claims should be backed by papers or official framework docs.
+
+- id: llm-foundation-claim-0012
+  domain: llm-foundations
+  component: llm-application-development
+  statement: >-
+    A practical LLM application learning path should separate provider/API calling, prompt and context construction, knowledge/RAG grounding, orchestration and UI, evaluation and iteration, and production safety controls instead of treating application development as a single prompt-writing step.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale LLM application courses and evaluation docs as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-llm-cookbook
+    - practice-llm-universe
+    - openai-evaluation-best-practices
+  notes: Synthesized interview-system claim grounded in community course structure and official evaluation guidance.
+
+- id: llm-foundation-claim-0013
+  domain: llm-foundations
+  component: rag-foundations
+  statement: >-
+    RAG foundations should be explained as an end-to-end pipeline including corpus ingestion, cleaning, chunking, embedding, indexing, retrieval, optional reranking, prompt assembly, generation, citation or grounding checks, and retrieval-aware evaluation.
+  status: reviewed
+  confidence: high
+  version_scope: "RAG paper, OpenAI retrieval guide, and Microsoft RAG evaluator docs as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - rag-paper
+    - openai-retrieval-guide
+    - azure-rag-evaluators
+  notes: Synthesized RAG pipeline claim for interview answers.
+
+- id: llm-foundation-claim-0014
+  domain: llm-foundations
+  component: llm-training-foundations
+  statement: >-
+    From-scratch LLM learning should distinguish architecture implementation, tokenizer and data pipeline, pretraining objective, supervised fine-tuning or PEFT, evaluation, and deployment; a small educational model is useful for understanding the pipeline but is not equivalent to production-scale LLM pretraining.
+  status: reviewed
+  confidence: high
+  version_scope: "Happy-LLM course framing and primary LLM papers as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-happy-llm
+    - transformer-attention-paper
+    - huggingface-tokenizers-course
+    - gpt3-language-models-paper
+  notes: Boundary claim to prevent confusing educational reproduction with large-scale production training.
+
+- id: llm-foundation-claim-0015
+  domain: llm-foundations
+  component: parameter-efficient-fine-tuning
+  statement: >-
+    LoRA fine-tunes models by training low-rank adaptation parameters while keeping original pretrained weights frozen, while QLoRA extends the memory-efficiency story by backpropagating through frozen quantized pretrained weights into LoRA adapters.
+  status: reviewed
+  confidence: high
+  version_scope: "LoRA and QLoRA papers as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - lora-paper
+    - qlora-paper
+  notes: Primary paper claim for PEFT interview answers.
+
+- id: llm-foundation-claim-0016
+  domain: llm-foundations
+  component: llm-theory-to-engineering
+  statement: >-
+    Datawhale's base-llm, so-large-lm, code-your-own-llm, diy-llm, and tiny-universe projects collectively cover a theory-to-engineering path from NLP foundations and Transformer architecture to data engineering, pretraining, post-training, inference, evaluation, safety, and white-box implementation practice.
+  status: reviewed
+  confidence: high
+  version_scope: "Datawhale repository READMEs and metadata as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-base-llm
+    - practice-so-large-lm
+    - practice-code-your-own-llm
+    - practice-diy-llm
+    - practice-tiny-universe
+  notes: Community-course coverage claim; mechanism claims still need primary sources.
+
+- id: llm-foundation-claim-0017
+  domain: llm-foundations
+  component: llm-training-foundations
+  statement: >-
+    LLM full-stack interview answers should separate data engineering, tokenization, architecture, pretraining objective, training systems, scaling tradeoffs, post-training, inference optimization, evaluation, safety, and deployment rather than discussing model training as only a loss curve.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale full-stack LLM courses and scaling papers as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-base-llm
+    - practice-diy-llm
+    - scaling-laws-paper
+    - chinchilla-compute-optimal-paper
+  notes: Synthesized interview-system claim grounded in course structure and scaling literature.
+
+- id: llm-foundation-claim-0018
+  domain: llm-foundations
+  component: open-source-llm-deployment-finetuning
+  statement: >-
+    Datawhale's self-llm is positioned as a Linux-based open-source LLM guide covering environment setup, deployment and usage of mainstream open-source LLMs, command-line and demo deployment, LangChain integration, full fine-tuning, LoRA, and p-tuning.
+  status: reviewed
+  confidence: high
+  version_scope: "Datawhale self-llm repository README and metadata as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-self-llm
+  notes: Community-course positioning claim; concrete hardware and model requirements must be checked per model and framework.
+
+- id: llm-foundation-claim-0019
+  domain: llm-foundations
+  component: open-source-llm-deployment-finetuning
+  statement: >-
+    Open-source LLM deployment and fine-tuning interviews should distinguish environment and dependency setup, model acquisition and license, quantization or precision choice, inference serving, full fine-tuning versus PEFT, evaluation, rollback, and data/security boundaries.
+  status: reviewed
+  confidence: medium
+  version_scope: "Datawhale self-llm and PEFT papers as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-self-llm
+    - lora-paper
+    - qlora-paper
+  notes: Synthesized deployment and fine-tuning interview claim.
+
+- id: llm-foundation-claim-0020
+  domain: llm-foundations
+  component: prompt-engineering
+  statement: >-
+    Datawhale's smart-prompt is positioned as a beginner prompt construction tutorial covering semantic compression, chain-of-thought, few-shot prompting, and meta-prompting.
+  status: reviewed
+  confidence: high
+  version_scope: "Datawhale smart-prompt repository README and metadata as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-smart-prompt
+  notes: Community-course positioning claim; prompting mechanism claims should use papers and provider docs.
+
+- id: llm-foundation-claim-0021
+  domain: llm-foundations
+  component: prompt-engineering
+  statement: >-
+    Prompt engineering should be explained as task specification, context selection, examples, reasoning scaffolds, output constraints, evaluation, and failure handling; it should not be treated as magic wording that guarantees correctness across models and tasks.
+  status: reviewed
+  confidence: medium
+  version_scope: "Prompting papers and Datawhale prompt courses as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-smart-prompt
+    - practice-llm-cookbook
+    - gpt3-language-models-paper
+    - chain-of-thought-paper
+    - self-consistency-paper
+  notes: Synthesized prompt-engineering boundary claim for interview answers.
+
+- id: llm-foundation-claim-0022
+  domain: llm-foundations
+  component: inference
+  statement: >-
+    Autoregressive LLM inference can be explained as a prefill phase that processes the input context and a decode phase that generates one token at a time; KV cache avoids repeatedly recomputing past attention states but can become a major memory bottleneck for long contexts and high concurrency.
+  status: reviewed
+  confidence: high
+  version_scope: "GPT paper and Hugging Face KV cache docs as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - gpt3-language-models-paper
+    - huggingface-kv-cache-docs
+  notes: Synthesized inference claim grounded in autoregressive LM framing and official KV cache docs.
+
+- id: llm-foundation-claim-0023
+  domain: llm-foundations
+  component: inference
+  statement: >-
+    Decoding strategies such as greedy decoding, sampling, temperature, top-p, beam search, and assisted decoding change how next-token probabilities are turned into output tokens; they affect diversity, determinism, latency, and repetition, but do not add missing knowledge to the model.
+  status: reviewed
+  confidence: high
+  version_scope: "Hugging Face generation docs as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - huggingface-generation-strategies-docs
+  notes: Core decoding boundary claim for interview answers.
+
+- id: llm-foundation-claim-0024
+  domain: llm-foundations
+  component: evaluation
+  statement: >-
+    LLM evaluation should be treated as eval-driven development with task-specific datasets, expected behaviors, regression checks, trace or component-level diagnosis when applicable, and production feedback loops rather than one-off subjective demo inspection.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI evaluation best practices as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - openai-evaluation-best-practices
+    - openai-agent-evals-guide
+  notes: Evaluation process claim reused from official OpenAI evaluation guidance.
+
+- id: llm-foundation-claim-0025
+  domain: llm-foundations
+  component: llm-safety
+  statement: >-
+    Prompt injection is a core LLM application security risk in which crafted user or external content manipulates model behavior and can contribute to unauthorized actions, sensitive information exposure, or compromised decision-making.
+  status: reviewed
+  confidence: high
+  version_scope: "OWASP LLM Top 10 and OpenAI prompt injection article as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - owasp-llm-top10-2025
+    - openai-prompt-injection-blog
+  notes: Security risk framing for LLM and Agent interviews.
+
+- id: llm-foundation-claim-0026
+  domain: llm-foundations
+  component: llm-safety
+  statement: >-
+    LLM safety for tool-using or retrieval-using systems requires system-level controls such as least privilege, sandboxing, permission checks, output validation, human approval for high-risk actions, monitoring, and evaluation; prompt wording alone is not a reliable security boundary.
+  status: reviewed
+  confidence: high
+  version_scope: "OWASP LLM Top 10 and OpenAI prompt injection article as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - owasp-llm-top10-2025
+    - openai-prompt-injection-blog
+  notes: Synthesized safety boundary claim for production interviews.
+
+- id: llm-foundation-claim-0027
+  domain: llm-foundations
+  component: multimodal
+  statement: >-
+    Multimodal LLM systems should separate modality input processing, image-text or audio-text representation alignment, context assembly, generation, and task-specific evaluation; adding images or audio does not remove the need for grounding, permissions, latency budgeting, and failure handling.
+  status: reviewed
+  confidence: medium
+  version_scope: "OpenAI vision docs and CLIP paper as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - openai-images-vision-docs
+    - clip-paper
+  notes: Synthesized multimodal system claim; concrete API behavior must be checked against current provider docs.
+
+- id: llm-foundation-claim-0028
+  domain: llm-foundations
+  component: post-training
+  statement: >-
+    Datawhale's post-training-of-llms repository is positioned as a Chinese learning path for post-training, covering SFT, DPO, online RL, and practical code examples based on a DeepLearning.AI short course.
+  status: reviewed
+  confidence: high
+  version_scope: "Datawhale post-training-of-llms repository README and metadata as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-post-training-of-llms
+  notes: Community-course positioning claim.
+
+- id: llm-foundation-claim-0029
+  domain: llm-foundations
+  component: post-training
+  statement: >-
+    A post-training interview answer should distinguish SFT, offline preference optimization such as DPO, online RL-style optimization, evaluation, data quality, reward or judge reliability, and regression risk rather than treating post-training as a single fine-tuning step.
+  status: reviewed
+  confidence: high
+  version_scope: "Post-training sources and preference optimization papers as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-post-training-of-llms
+    - instructgpt-rlhf-paper
+    - dpo-paper
+    - huggingface-trl-dpo-docs
+  notes: Synthesized post-training interview claim grounded in primary papers and community course structure.
+
+- id: llm-foundation-claim-0030
+  domain: llm-foundations
+  component: information-retrieval
+  statement: >-
+    Information retrieval foundations for RAG should include inverted indexes and keyword retrieval, vector or dense retrieval, hybrid retrieval, reranking, query rewriting, and retrieval evaluation because generation quality is bounded by what relevant evidence can be found and ranked.
+  status: reviewed
+  confidence: high
+  version_scope: "IR textbook, BM25 docs, DPR paper, BEIR paper, and RAG sources as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - stanford-ir-book
+    - azure-bm25-scoring
+    - dpr-paper
+    - beir-paper
+    - rag-paper
+  notes: Synthesized IR-to-RAG foundation claim.
+
+- id: llm-foundation-claim-0031
+  domain: llm-foundations
+  component: huggingface-ecosystem
+  statement: >-
+    Datawhale's unlock-hf repository is positioned as a Hugging Face ecosystem learning path covering Datasets, Transformers, Tokenizers, Models, PEFT, Evaluate, Diffusers, Gradio, and project cases.
+  status: reviewed
+  confidence: high
+  version_scope: "Datawhale unlock-hf repository README and metadata as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-unlock-hf
+  notes: Community-course positioning claim; concrete library behavior should use Hugging Face official docs.
+
+- id: llm-foundation-claim-0032
+  domain: llm-foundations
+  component: huggingface-ecosystem
+  statement: >-
+    Hugging Face ecosystem interview answers should separate dataset loading and processing, tokenization, model loading, training or PEFT, generation or inference, evaluation, packaging, and deployment instead of treating Transformers as only a pipeline shortcut.
+  status: reviewed
+  confidence: high
+  version_scope: "Hugging Face official docs as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - huggingface-transformers-docs
+    - huggingface-datasets-docs
+    - huggingface-peft-docs
+    - huggingface-evaluate-docs
+  notes: Synthesized ecosystem claim grounded in official docs.
+
+- id: llm-foundation-claim-0033
+  domain: llm-foundations
+  component: llm-reasoning
+  statement: >-
+    Datawhale's reasoning-kingdom repository is positioned as a reasoning-science conceptual trilogy spanning logic, algorithms, neural networks, Transformer, reasoning boundaries, and formal reasoning context.
+  status: reviewed
+  confidence: high
+  version_scope: "Datawhale reasoning-kingdom repository README and metadata as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-reasoning-kingdom
+  notes: Conceptual-reading positioning claim, not an empirical model capability claim.
+
+- id: llm-foundation-claim-0034
+  domain: llm-foundations
+  component: llm-reasoning
+  statement: >-
+    LLM reasoning should be explained as probabilistic generation augmented by prompting, decomposition, tool use, retrieval, search, verification, and evaluation; methods such as CoT, self-consistency, ReAct, and Tree of Thoughts can improve some task classes but do not guarantee formal correctness.
+  status: reviewed
+  confidence: high
+  version_scope: "Reasoning papers and reasoning-kingdom framing as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-reasoning-kingdom
+    - chain-of-thought-paper
+    - self-consistency-paper
+    - react-paper
+    - tree-of-thoughts-paper
+  notes: Synthesized reasoning boundary claim.
+
+- id: llm-foundation-claim-0035
+  domain: llm-foundations
+  component: llm-practice-bootcamp
+  statement: >-
+    Datawhale's open-ai-general-course and llm-preview repositories provide broad AI general education and practice-oriented LLM bootcamp framing, covering AI foundations, programming and tools, environment setup, API calls, local model invocation, vLLM deployment, prompt engineering, and LoRA fine-tuning.
+  status: reviewed
+  confidence: high
+  version_scope: "Datawhale open-ai-general-course and llm-preview repository READMEs and metadata as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-open-ai-general-course
+    - practice-llm-preview
+  notes: Community-course positioning claim for learning-path design.
+
+- id: llm-foundation-claim-0036
+  domain: llm-foundations
+  component: llm-foundations
+  statement: >-
+    Datawhale's hands-on-llm repository is tracked for completeness, but the README snapshot verified on 2026-04-27 only contained a repository title, so it should not be used for substantive interview knowledge claims.
+  status: reviewed
+  confidence: high
+  version_scope: "Datawhale hands-on-llm repository README and metadata as verified on 2026-04-27"
+  last_verified_at: "2026-04-27"
+  source_ids:
+    - practice-hands-on-llm
+  notes: Completeness and exclusion rationale.

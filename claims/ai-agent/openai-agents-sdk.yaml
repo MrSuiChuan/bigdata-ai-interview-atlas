@@ -1,0 +1,366 @@
+- id: openai-agents-claim-0001
+  domain: ai-agent
+  component: openai-agents-sdk
+  statement: >-
+    OpenAI Agents SDK documentation describes a small set of primitives centered on agents, handoffs, guardrails,
+    sessions, and tracing for building agentic applications.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-docs
+  notes: Core framing for SDK positioning.
+
+- id: openai-agents-claim-0002
+  domain: ai-agent
+  component: openai-agents-sdk
+  statement: >-
+    OpenAI Agents SDK adds a runtime around model calls that can manage turns, tool execution, handoffs, sessions,
+    and tracing for multi-step workflows.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-docs
+    - openai-platform-agents-overview
+  notes: Useful when comparing the SDK with lower-level API usage.
+
+- id: openai-agents-claim-0003
+  domain: ai-agent
+  component: openai-agents-sdk
+  statement: >-
+    The Tools documentation groups tool support into hosted tools, function tools, and agents as tools.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-tools
+  notes: Good entry point for tool taxonomy questions.
+
+- id: openai-agents-claim-0004
+  domain: ai-agent
+  component: openai-agents-sdk
+  statement: >-
+    Function tools automatically derive schemas from Python functions and can also use Pydantic models for more control.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-tools
+  notes: Important for explaining structured tool calling rather than free-form text actions.
+
+- id: openai-agents-claim-0005
+  domain: ai-agent
+  component: openai-agents-sdk
+  statement: >-
+    Agents-as-tools let one agent be used as a tool by another agent, which differs from handoffs because control returns
+    to the original agent after the tool call completes.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-tools
+    - openai-agents-sdk-handoffs
+  notes: High-value distinction for interview follow-up questions.
+
+- id: openai-agents-claim-0006
+  domain: ai-agent
+  component: openai-agents-sdk
+  statement: >-
+    Handoffs are a built-in delegation mechanism for transferring execution from one agent to another.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-handoffs
+  notes: Canonical definition of handoffs in the SDK.
+
+- id: openai-agents-claim-0007
+  domain: ai-agent
+  component: openai-agents-sdk
+  statement: >-
+    Handoffs are represented to the language model as tools, which is how the model can decide to delegate work.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-handoffs
+  notes: Useful when explaining why handoffs feel similar to tools but have different control semantics.
+
+- id: openai-agents-claim-0008
+  domain: ai-agent
+  component: openai-agents-sdk
+  statement: >-
+    Sessions automatically maintain conversation history across agent runs so applications do not have to manually pass
+    full message history each time.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-sessions
+  notes: Core claim for runtime memory discussions.
+
+- id: openai-agents-claim-0009
+  domain: ai-agent
+  component: openai-agents-sdk
+  statement: >-
+    The SDK provides multiple session backends including in-memory and SQLAlchemy-backed implementations.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-sessions
+  notes: Useful for production state-persistence questions.
+
+- id: openai-agents-claim-0010
+  domain: ai-agent
+  component: openai-agents-sdk
+  statement: >-
+    Tracing is built into the SDK and captures the entire agent workflow including generations, tool calls, handoffs,
+    guardrails, and other execution steps.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-tracing
+  notes: High-value claim for observability and debugging.
+
+- id: openai-agents-claim-0011
+  domain: ai-agent
+  component: openai-agents-sdk
+  statement: >-
+    The SDK supports input guardrails, output guardrails, and tool guardrails as separate interception points.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-guardrails
+  notes: Important for explaining policy enforcement boundaries.
+
+- id: openai-agents-claim-0012
+  domain: ai-agent
+  component: openai-agents-sdk
+  statement: >-
+    Input guardrails run on the first agent, output guardrails run on the final agent output, and tool guardrails run
+    when custom function tools are invoked.
+  status: reviewed
+  confidence: high
+  version_scope: "OpenAI Agents SDK docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - openai-agents-sdk-guardrails
+  notes: Good detailed claim for interview questions about where guardrails are applied.
+
+- id: langgraph-claim-0001
+  domain: ai-agent
+  component: langgraph
+  statement: >-
+    LangGraph positions itself as a low-level orchestration framework and runtime for building, managing,
+    and deploying long-running, stateful agents.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - langgraph-overview-docs
+  notes: This is the core positioning claim for LangGraph.
+
+- id: langgraph-claim-0002
+  domain: ai-agent
+  component: langgraph
+  statement: >-
+    LangGraph overview documentation highlights durable execution, human-in-the-loop, and streaming as core capabilities.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - langgraph-overview-docs
+  notes: Use for comparing LangGraph with simpler single-turn runtimes.
+
+- id: langgraph-claim-0003
+  domain: ai-agent
+  component: langgraph
+  statement: >-
+    LangGraph persistence stores graph state in checkpoints created at every super-step and organizes them into threads.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - langgraph-persistence-docs
+  notes: Core claim for checkpointing and recovery.
+
+- id: langgraph-claim-0004
+  domain: ai-agent
+  component: langgraph
+  statement: >-
+    The persistence layer is what enables capabilities such as memory, human-in-the-loop flows, time travel,
+    and fault-tolerant resumption.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - langgraph-persistence-docs
+  notes: Important for explaining why persistence is not just storage plumbing.
+
+- id: langgraph-claim-0005
+  domain: ai-agent
+  component: langgraph
+  statement: >-
+    Streaming in LangGraph can expose token-level output, workflow progress, updates, and debugging-oriented runtime data.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - langgraph-streaming-docs
+  notes: Useful when discussing real-time UX and observability.
+
+- id: langgraph-claim-0006
+  domain: ai-agent
+  component: langgraph
+  statement: >-
+    LangGraph human-in-the-loop flows use interrupts to pause graph execution and require a checkpointer plus thread
+    identity to resume later.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - langgraph-human-in-the-loop-docs
+    - langgraph-persistence-docs
+  notes: High-value detail for approval and review workflows.
+
+- id: langgraph-claim-0007
+  domain: ai-agent
+  component: langgraph
+  statement: >-
+    LangGraph documentation recommends using a thread as the primary pointer to a sequence of checkpoints for a session.
+  status: reviewed
+  confidence: high
+  version_scope: "LangGraph docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - langgraph-persistence-docs
+  notes: Useful when explaining the difference between transient state and resumable conversation state.
+
+- id: microsoft-agent-framework-claim-0001
+  domain: ai-agent
+  component: microsoft-agent-framework
+  statement: >-
+    Microsoft Agent Framework is described by Microsoft as the direct successor to Semantic Kernel and AutoGen.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - microsoft-agent-framework-overview
+  notes: Core positioning claim for Microsoft Agent Framework.
+
+- id: microsoft-agent-framework-claim-0002
+  domain: ai-agent
+  component: microsoft-agent-framework
+  statement: >-
+    Microsoft Agent Framework overview states that the framework is currently in public preview.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - microsoft-agent-framework-overview
+  notes: Important boundary for production-readiness discussions.
+
+- id: microsoft-agent-framework-claim-0003
+  domain: ai-agent
+  component: microsoft-agent-framework
+  statement: >-
+    Microsoft distinguishes workflows from agents by describing workflows as predefined executable logic while agents
+    dynamically determine steps with LLM reasoning.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - microsoft-agent-framework-workflows
+  notes: One of the highest-value interview distinctions in the framework.
+
+- id: microsoft-agent-framework-claim-0004
+  domain: ai-agent
+  component: microsoft-agent-framework
+  statement: >-
+    Microsoft Agent Framework workflow features include type safety, flexible control flow, external integration,
+    checkpointing, and multi-agent orchestration.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - microsoft-agent-framework-workflows
+  notes: Use for enterprise workflow capability questions.
+
+- id: microsoft-agent-framework-claim-0005
+  domain: ai-agent
+  component: microsoft-agent-framework
+  statement: >-
+    Workflows in Microsoft Agent Framework are built from executors and connected with edges that control execution flow.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - microsoft-agent-framework-workflows
+  notes: Good for explaining the concrete workflow model beyond marketing terms.
+
+- id: microsoft-agent-framework-claim-0006
+  domain: ai-agent
+  component: microsoft-agent-framework
+  statement: >-
+    AgentSession maintains a conversation context between agent invocations so conversation history can persist across turns.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - microsoft-agent-framework-conversations
+  notes: Core claim for state and memory discussions.
+
+- id: microsoft-agent-framework-claim-0007
+  domain: ai-agent
+  component: microsoft-agent-framework
+  statement: >-
+    AgentSession supports serialization and deserialization so conversation state can be stored and later restored.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - microsoft-agent-framework-conversations
+  notes: Important for resumability and persistence questions.
+
+- id: microsoft-agent-framework-claim-0008
+  domain: ai-agent
+  component: microsoft-agent-framework
+  statement: >-
+    Microsoft Agent Framework observability integrates with OpenTelemetry and emits traces, logs, and metrics
+    for agent and workflow execution.
+  status: reviewed
+  confidence: high
+  version_scope: "Microsoft Agent Framework docs as verified on 2026-04-24"
+  last_verified_at: "2026-04-24"
+  source_ids:
+    - microsoft-agent-framework-observability
+    - microsoft-agent-framework-workflow-events
+  notes: High-value production operations claim.

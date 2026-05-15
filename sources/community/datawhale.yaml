@@ -1,0 +1,1298 @@
+- id: practice-self-dify
+  title: Datawhale self-dify
+  kind: community-course
+  component: dify
+  url: https://github.com/datawhalechina/self-dify
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for Dify learning path, local deployment course framing, and application examples. Platform behavior must be
+    checked against Dify official docs.
+  source_tier: trusted-community
+  category: Engineering
+  subcategory: ai-application-engineering
+  import_priority: P1
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-handy-ollama
+  title: Datawhale handy-ollama
+  kind: community-course
+  component: ollama
+  url: https://github.com/datawhalechina/handy-ollama
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for local Ollama learning path and deployment-oriented examples. Runtime behavior must be checked against Ollama
+    official docs.
+  source_tier: trusted-community
+  category: Engineering
+  subcategory: ai-application-engineering
+  import_priority: P1
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-coze-ai-assistant
+  title: Datawhale coze-ai-assistant
+  kind: community-course
+  component: coze
+  url: https://github.com/datawhalechina/coze-ai-assistant
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for Coze private assistant learning path, workflow practice, and case structure. Platform behavior must be
+    checked against Coze or Coze Studio official sources.
+  source_tier: trusted-community
+  category: Engineering
+  subcategory: ai-application-engineering
+  import_priority: P1
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-all-in-rag
+  title: Datawhale all-in-rag
+  kind: community-course
+  component: rag
+  url: https://github.com/datawhalechina/all-in-rag
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for RAG full-stack learning path and implementation-oriented case material. Core retrieval behavior should be
+    checked against primary retrieval sources.
+  source_tier: trusted-community
+  category: RAG
+  subcategory: retrieval-augmented-generation
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-what-is-vs
+  title: Datawhale what-is-vs
+  kind: community-course
+  component: vector-search
+  url: https://github.com/datawhalechina/what-is-vs
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for vector search and RAG practice framing. Algorithmic and database behavior should be checked against primary
+    sources when used for factual claims.
+  source_tier: trusted-community
+  category: RAG
+  subcategory: retrieval-augmented-generation
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-easy-vecdb
+  title: Datawhale easy-vecdb
+  kind: community-course
+  component: vector-database
+  url: https://github.com/datawhalechina/easy-vecdb
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for vector database learning path and practice material. Indexing and retrieval claims should be cross-checked
+    with primary sources.
+  source_tier: trusted-community
+  category: RAG
+  subcategory: retrieval-augmented-generation
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-llm-protocols-guide
+  title: Datawhale llm-protocols-guide
+  kind: community-course
+  component: llm-protocols
+  url: https://github.com/datawhalechina/llm-protocols-guide
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for LLM protocol learning path and integration framing. Protocol semantics must be checked against official
+    specifications.
+  source_tier: trusted-community
+  category: Engineering
+  subcategory: ai-application-engineering
+  import_priority: P1
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-mcp-lite-dev
+  title: Datawhale mcp-lite-dev
+  kind: community-code
+  component: mcp
+  url: https://github.com/datawhalechina/mcp-lite-dev
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for MCP minimal development examples and learning path. Protocol behavior must be checked against MCP official
+    docs.
+  source_tier: trusted-community
+  category: Engineering
+  subcategory: ai-application-engineering
+  import_priority: P1
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-hello-agents
+  title: Datawhale hello-agents
+  kind: community-course
+  component: agent-foundations
+  url: https://github.com/datawhalechina/hello-agents
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for from-scratch agent learning path and practice structure. Core runtime semantics should be verified against
+    official agent framework docs.
+  source_tier: trusted-community
+  category: AI Agent
+  subcategory: agent-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-self-harness
+  title: Datawhale self-harness
+  kind: community-course
+  component: harness-engineering
+  url: https://github.com/datawhalechina/self-harness
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: Use for harness engineering and long-running agent runtime architecture framing.
+  source_tier: trusted-community
+  category: AI Agent
+  subcategory: agent-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-handy-multi-agent
+  title: Datawhale handy-multi-agent
+  kind: community-course
+  component: camel-ai
+  url: https://github.com/datawhalechina/handy-multi-agent
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for CAMEL-based multi-agent learning path and practice structure. CAMEL behavior should be checked against
+    CAMEL-AI official docs.
+  source_tier: trusted-community
+  category: AI Agent
+  subcategory: agent-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-wow-agent
+  title: Datawhale wow-agent
+  kind: community-framework
+  component: wow-agent
+  url: https://github.com/datawhalechina/wow-agent
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: Use for cross-platform agent framework learning and practice material.
+  source_tier: trusted-community
+  category: AI Agent
+  subcategory: agent-foundations
+  import_priority: P2
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-handy-n8n
+  title: Datawhale handy-n8n
+  kind: community-course
+  component: n8n
+  url: https://github.com/datawhalechina/handy-n8n
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for n8n Chinese learning path covering deployment, nodes, code, credentials, AI/RAG/MCP, HITL, error handling,
+    custom nodes, and cases. Platform behavior must be checked against n8n official docs.
+  source_tier: trusted-community
+  category: RAG
+  subcategory: retrieval-augmented-generation
+  import_priority: P2
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-anycli
+  title: Datawhale anycli
+  kind: community-project
+  component: cli-agent
+  url: https://github.com/datawhalechina/anycli
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for CLI registration, indexing, structured metadata, JSON output, dry-run install, and agent-native CLI
+    capability scheduling concepts.
+  source_tier: trusted-community
+  category: Engineering
+  subcategory: ai-application-engineering
+  import_priority: P1
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-hello-generic-agent
+  title: Datawhale hello-generic-agent
+  kind: community-course
+  component: generic-agent
+  url: https://github.com/datawhalechina/hello-generic-agent
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for GenericAgent Chinese learning path, installation, browser automation, chat-platform integration, layered
+    memory, context compression, self-evolution, and cases. Core project behavior should be checked against the
+    GenericAgent repository.
+  source_tier: trusted-community
+  category: AI Agent
+  subcategory: agent-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-easy-pocket
+  title: Datawhale easy-pocket
+  kind: community-course
+  component: pocketflow
+  url: https://github.com/datawhalechina/easy-pocket
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for PocketFlow interactive Chinese tutorial, Node/Flow abstractions, orchestration framing, and example-driven
+    learning path. Framework behavior should be checked against PocketFlow official docs and repository.
+  source_tier: trusted-community
+  category: 暂不合并
+  subcategory: weakly-related
+  import_priority: P3
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-resonant-soul
+  title: Datawhale resonant-soul
+  kind: community-case
+  component: ai-mental-health-agent
+  url: https://github.com/datawhalechina/resonant-soul
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for AI mental-health agent case framing. Safety, crisis, clinical, privacy, and escalation claims require
+    high-trust external sources before being stated as guidance.
+  source_tier: trusted-community
+  category: AI Agent
+  subcategory: agent-foundations
+  import_priority: P2
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-video-devour
+  title: Datawhale video-devour
+  kind: community-case
+  component: video-note-agent
+  url: https://github.com/datawhalechina/video-devour
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for ASR plus VLM video-note workflow case, including transcript outline, video slicing, key-frame extraction,
+    VLM frame selection, and report generation.
+  source_tier: trusted-community
+  category: Engineering
+  subcategory: ai-application-engineering
+  import_priority: P2
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-vibe-blog
+  title: Datawhale vibe-blog
+  kind: community-case
+  component: multi-agent-writing
+  url: https://github.com/datawhalechina/vibe-blog
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for multi-agent long-form technical writing case, including research, outline planning, writing, code
+    integration, diagram generation, illustration, review, and publishing pipeline.
+  source_tier: trusted-community
+  category: Engineering
+  subcategory: ai-application-engineering
+  import_priority: P1
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-smart-dev
+  title: Datawhale smart-dev
+  kind: community-course
+  component: ai-coding-workflow
+  url: https://github.com/datawhalechina/smart-dev
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for Roo Code plus DeepSeek AI programming workflow learning path. Tool behavior should be checked against
+    official Roo Code and model-provider docs where necessary.
+  source_tier: trusted-community
+  category: Engineering
+  subcategory: ai-application-engineering
+  import_priority: P1
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-openclaw-tutorial
+  title: Datawhale openclaw-tutorial
+  kind: community-course
+  component: openclaw
+  url: https://github.com/datawhalechina/openclaw-tutorial
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for OpenClaw one-week learning path covering setup, channels, workspace, skills, cron, heartbeat, and personal
+    assistant projects.
+  source_tier: trusted-community
+  category: Engineering
+  subcategory: ai-application-engineering
+  import_priority: P1
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-hand-on-openclaw
+  title: Datawhale hand-on-openclaw
+  kind: community-course
+  component: openclaw
+  url: https://github.com/datawhalechina/hand-on-openclaw
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for OpenClaw Chinese installation and usage manual, including Windows, WSL, Docker, model/API setup, IM
+    integration, ClawHub, skills, workspace, and use cases.
+  source_tier: trusted-community
+  category: Engineering
+  subcategory: ai-application-engineering
+  import_priority: P1
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-agentic-ai
+  title: Datawhale agentic-ai
+  kind: community-course
+  component: agentic-ai
+  url: https://github.com/datawhalechina/agentic-ai
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for Chinese course notes and translations around Agentic AI workflows, reflection, tool use, practical tips, and
+    highly autonomous agents. Primary semantics should be checked against DeepLearning.AI and framework docs.
+  source_tier: trusted-community
+  category: AI Agent
+  subcategory: agent-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-agent-skills-with-anthropic
+  title: Datawhale agent-skills-with-anthropic
+  kind: community-course
+  component: agent-skills
+  url: https://github.com/datawhalechina/agent-skills-with-anthropic
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for Chinese course notes on Agent Skills, including why skills, skills vs tools/MCP/subagents, custom skills,
+    Claude API, Claude Code, and Claude Agent SDK.
+  source_tier: trusted-community
+  category: AI Agent
+  subcategory: agent-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-agent-tutorial
+  title: Datawhale agent-tutorial
+  kind: community-course
+  component: agent-foundations
+  url: https://github.com/datawhalechina/agent-tutorial
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for practical Agent tutorial material around ModelScope Agent, schedule assistant, tool/API use, and general
+    agent creation thinking.
+  source_tier: trusted-community
+  category: AI Agent
+  subcategory: agent-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-hugging-multi-agent
+  title: Datawhale hugging-multi-agent
+  kind: community-course
+  component: metagpt
+  url: https://github.com/datawhalechina/hugging-multi-agent
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for MetaGPT-based multi-agent learning path, role/action development, runnable agents, manager agents, and
+    software-company-style collaboration.
+  source_tier: trusted-community
+  category: AI Agent
+  subcategory: agent-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-easy-langent
+  title: Datawhale easy-langent
+  kind: community-course
+  component: langchain-langgraph-lagent
+  url: https://github.com/datawhalechina/easy-langent
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for Chinese practical course covering LangChain, LangGraph, RAG, memory, tools, multi-agent collaboration, and
+    comprehensive agent projects.
+  source_tier: trusted-community
+  category: AI Agent
+  subcategory: agent-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-wow-rag
+  title: Datawhale wow-rag
+  kind: community-course
+  component: rag
+  url: https://github.com/datawhalechina/wow-rag
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for simple cross-platform RAG framework and tutorial material covering document processing, vector retrieval,
+    prompt engineering, QA engine, and streaming deployment.
+  source_tier: trusted-community
+  category: RAG
+  subcategory: retrieval-augmented-generation
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-llm-cookbook
+  title: Datawhale llm-cookbook
+  kind: community-course
+  component: llm-application-development
+  url: https://github.com/datawhalechina/llm-cookbook
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for developer-oriented LLM learning path covering prompt engineering, LLM application systems, LangChain app
+    development, private-data chat, Gradio apps, evaluation/debugging, fine-tuning, semantic search, advanced retrieval,
+    RAG, tools, agents, and advanced prompt techniques. API and framework behavior must be checked against official
+    docs.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-llm-universe
+  title: Datawhale llm-universe
+  kind: community-course
+  component: llm-application-development
+  url: https://github.com/datawhalechina/llm-universe
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for beginner-oriented LLM application development, model API calling, knowledge base setup, RAG application
+    construction, Streamlit deployment, validation, and iteration.
+  source_tier: trusted-community
+  category: RAG
+  subcategory: retrieval-augmented-generation
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-happy-llm
+  title: Datawhale happy-llm
+  kind: community-course
+  component: llm-training-foundations
+  url: https://github.com/datawhalechina/happy-llm
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for from-NLP-to-LLM learning path covering NLP basics, Transformer, pretrained language models, LLM concepts,
+    LLaMA2 implementation practice, tokenizer training, small-model pretraining, supervised fine-tuning, LoRA/QLoRA,
+    evaluation, RAG, and Agent. Architecture, training, and optimization claims must be checked against papers or
+    official framework docs.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-base-llm
+  title: Datawhale base-llm
+  kind: community-course
+  component: llm-theory-to-engineering
+  url: https://github.com/datawhalechina/base-llm
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for from-NLP-to-LLM algorithm learning path, including NLP foundations, Transformer, BERT/GPT/T5, Llama-style
+    practice, PEFT/LoRA, RLHF, quantization, inference acceleration, deployment, safety, and multimodal topics. Primary
+    claims should be verified against papers or official docs.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-so-large-lm
+  title: Datawhale so-large-lm
+  kind: community-course
+  component: llm-theory-foundations
+  url: https://github.com/datawhalechina/so-large-lm
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for LLM theory-to-practice learning path covering data preparation, model building, training strategy,
+    evaluation, safety, ethics, model capabilities, architecture, RAG basics, and open-source Llama-family learning
+    framing.
+  source_tier: trusted-community
+  category: RAG
+  subcategory: retrieval-augmented-generation
+  import_priority: P2
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-self-llm
+  title: Datawhale self-llm
+  kind: community-course
+  component: open-source-llm-deployment-finetuning
+  url: https://github.com/datawhalechina/self-llm
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for Linux-based open-source LLM environment setup, deployment, command-line usage, demo deployment, LangChain
+    integration, full fine-tuning, LoRA, and p-tuning learning paths. Concrete model requirements must be checked
+    against the model's official card and framework docs.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-code-your-own-llm
+  title: Datawhale code-your-own-llm
+  kind: community-course
+  component: llm-white-box-implementation
+  url: https://github.com/datawhalechina/code-your-own-llm
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for end-to-end white-box LLM implementation learning path, including data, tokenization, architecture,
+    pretraining, mid-training, SFT, RL, inference, evaluation, and safety. Repository currently describes itself as
+    alpha; treat as learning material rather than authoritative production guidance.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-diy-llm
+  title: Datawhale diy-llm
+  kind: community-course
+  component: llm-full-stack-training
+  url: https://github.com/datawhalechina/diy-llm
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for full-stack LLM building course framing around tokenizer, Transformer, MoE, GPU/CUDA/Triton, distributed
+    training, scaling laws, inference optimization, data engineering, evaluation, SFT/RLHF/GRPO, and assignments.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-tiny-universe
+  title: Datawhale tiny-universe
+  kind: community-course
+  component: llm-white-box-systems
+  url: https://github.com/datawhalechina/tiny-universe
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for white-box from-scratch LLM system learning path covering Tiny Transformer, Tiny Llama, Tiny RAG, Tiny Agent,
+    Tiny Eval, Tiny GraphRAG, and implementation-oriented mental models.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-smart-prompt
+  title: Datawhale smart-prompt
+  kind: community-course
+  component: prompt-engineering
+  url: https://github.com/datawhalechina/smart-prompt
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for prompt construction learning path around semantic compression, chain-of-thought, few-shot prompting, and
+    meta-prompting. Mechanism claims should be checked against model papers and current provider docs.
+  source_tier: trusted-community
+  category: 暂不合并
+  subcategory: weakly-related
+  import_priority: P3
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-post-training-of-llms
+  title: Datawhale post-training-of-llms
+  kind: community-course
+  component: post-training
+  url: https://github.com/datawhalechina/post-training-of-llms
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for Chinese course framing around SFT, DPO, online RL, and post-training practice. Algorithmic claims must be
+    checked against papers and official framework docs.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-fun-ir
+  title: Datawhale fun-ir
+  kind: community-course
+  component: information-retrieval
+  url: https://github.com/datawhalechina/fun-ir
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Repository metadata positions it as an information retrieval introduction, but the README snapshot is still
+    template-like alpha material. Use only as a weak planning signal; rely on primary IR sources for factual content.
+  source_tier: trusted-community
+  category: RAG
+  subcategory: retrieval-augmented-generation
+  import_priority: P2
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-unlock-hf
+  title: Datawhale unlock-hf
+  kind: community-course
+  component: huggingface-ecosystem
+  url: https://github.com/datawhalechina/unlock-hf
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for Hugging Face ecosystem learning path covering Datasets, Transformers, Tokenizers, Models, PEFT, Evaluate,
+    Diffusers, Gradio, and project cases. Library behavior must be checked against Hugging Face official docs.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P2
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-reasoning-kingdom
+  title: Datawhale reasoning-kingdom
+  kind: community-book
+  component: llm-reasoning
+  url: https://github.com/datawhalechina/reasoning-kingdom
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for reasoning-science framing around logic, algorithms, neural networks, Transformer, reasoning boundaries, and
+    philosophical context. Treat as conceptual reading material, not as a source for empirical model capability claims.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P2
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-open-ai-general-course
+  title: Datawhale open-ai-general-course
+  kind: community-course
+  component: ai-general-education
+  url: https://github.com/datawhalechina/open-ai-general-course
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for broad AI general education learning path, audience segmentation, AI foundations, programming foundations,
+    machine learning foundations, and open-source tool learning sequence.
+  source_tier: trusted-community
+  category: 暂不合并
+  subcategory: weakly-related
+  import_priority: P3
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-llm-preview
+  title: Datawhale llm-preview
+  kind: community-course
+  component: llm-practice-bootcamp
+  url: https://github.com/datawhalechina/llm-preview
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    Use for practice-oriented LLM bootcamp framing covering environment setup, model download, API use, Transformers
+    local calls, vLLM deployment, prompt engineering, and LoRA fine-tuning. Concrete hardware and package requirements
+    are time-sensitive and must be checked before operational use.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P2
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-hands-on-llm
+  title: Datawhale hands-on-llm
+  kind: community-repository
+  component: llm-foundations
+  url: https://github.com/datawhalechina/hands-on-llm
+  version_scope: Datawhale GitHub repository README and metadata as verified on 2026-04-27
+  last_verified_at: '2026-04-27'
+  trust_level: trusted-community
+  notes: >-
+    README snapshot only contains the repository title, so it is tracked for completeness but not used for substantive
+    claims.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P2
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-unlock-deepseek
+  title: Datawhale unlock-deepseek
+  kind: community-course
+  component: deepseek
+  url: https://github.com/datawhalechina/unlock-deepseek
+  version_scope: Datawhale GitHub repository as verified on 2026-04-26
+  last_verified_at: '2026-04-26'
+  trust_level: trusted-community
+  notes: >-
+    Use for DeepSeek paper-reading and reproduction learning path. Model, benchmark, architecture, and API claims must
+    be checked against DeepSeek official repositories, papers, and API docs.
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-foundations
+  import_priority: P2
+  import_status: source-indexed
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-llm-deploy
+  title: Datawhale llm-deploy
+  kind: community-course
+  component: llm-deployment
+  url: https://github.com/datawhalechina/llm-deploy
+  version_scope: Datawhale GitHub repository as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  trust_level: trusted-community
+  notes: 大模型推理和部署理论与实践，适合整理推理引擎、显存、吞吐、延迟和生产部署。 API、协议、框架版本和模型能力边界需要官方来源交叉复核。
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-deployment
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false
+- id: practice-llms-from-scratch-cn
+  title: Datawhale llms-from-scratch-cn
+  kind: community-course
+  component: llm-from-scratch
+  url: https://github.com/datawhalechina/llms-from-scratch-cn
+  version_scope: Datawhale GitHub repository as verified on 2026-04-28
+  last_verified_at: '2026-04-28'
+  trust_level: trusted-community
+  notes: 从零构建大语言模型，适合整理 GLM/Llama/RWKV 类模型实现和从机制到代码的白盒理解。 API、协议、框架版本和模型能力边界需要官方来源交叉复核。
+  source_tier: trusted-community
+  category: LLM
+  subcategory: llm-from-scratch
+  import_priority: P0
+  import_status: question-ready
+  use_for:
+    - 学习路径
+    - 项目实践
+    - 面试题素材
+  requires_official_cross_check:
+    - API 行为
+    - 协议细节
+    - 框架版本
+    - 模型能力边界
+  license_checked: false
+  commit_pinned: false

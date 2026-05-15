@@ -1,0 +1,9 @@
+{
+  "label": "Hive",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "title": "Hive",
+    "description": "Hive 知识库：覆盖 Metastore、SQL 编译、分区分桶、ORC、ACID、Tez、统计信息与数仓治理。"
+  }
+}
