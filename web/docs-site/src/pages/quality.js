@@ -20,14 +20,6 @@ export default function QualityPage() {
             <p className="hero-kicker">Quality Board</p>
             <h1>质量看板</h1>
             <p className="hero-text">这里不是单纯展示“内容有多少”，而是检查每个组件是否足够支撑学习、面试、系统设计和生产排障。</p>
-            <div className="hero-actions">
-              <Link className="button button--primary button--lg" to="/docs/blueprint/component-quality-standard">
-                查看质量标准
-              </Link>
-              <Link className="button button--secondary button--lg" to="/docs/blueprint/question-to-knowledge-audit">
-                查看题库映射
-              </Link>
-            </div>
           </div>
           <div className="catalog-stat-grid">
             <article className="stat-card">

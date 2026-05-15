@@ -45,6 +45,7 @@ const config = {
     defaultLocale: "zh-Hans",
     locales: ["zh-Hans"],
   },
+  trailingSlash: true,
   themes: [
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
@@ -83,7 +84,6 @@ const config = {
         { to: "/dashboard", label: "仪表盘", position: "left" },
         { to: "/learning-paths", label: "学习路径", position: "left" },
         { to: "/mock-interview", label: "模拟面试", position: "left" },
-        { to: "/docs/category/blueprint", label: "实施蓝图", position: "left" },
       ],
     },
     footer: {
@@ -99,13 +99,6 @@ const config = {
             { label: "学习仪表盘", to: "/dashboard" },
             { label: "学习路径", to: "/learning-paths" },
             { label: "模拟面试", to: "/mock-interview" },
-          ],
-        },
-        {
-          title: "建设方式",
-          items: [
-            { label: "内容规范", to: "/docs/blueprint/content-spec" },
-            { label: "实施路线", to: "/docs/blueprint/implementation-roadmap" },
           ],
         },
       ],
@@ -129,6 +122,7 @@ const config = {
           path: path.resolve(__dirname, "../../docs"),
           routeBasePath: "docs",
           sidebarPath: require.resolve("./sidebars.js"),
+          exclude: ["**/_*.{js,jsx,ts,tsx,md,mdx,json}", "**/blueprint/**"],
         },
         blog: false,
         theme: {

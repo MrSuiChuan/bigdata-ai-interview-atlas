@@ -1,7 +1,7 @@
 ---
 kb_id: overview
 title: 知识库总览
-domain: blueprint
+domain: project
 component: project
 topic: overview
 difficulty: beginner

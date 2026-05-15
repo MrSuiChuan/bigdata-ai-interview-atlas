@@ -20,12 +20,6 @@ const pillars = [
     text: "把 LLM 拆成 Tokenizer、Attention、预训练、后训练、上下文预算和评估，不再只停留在调用 API。",
     href: "/llm-foundations",
   },
-  {
-    eyebrow: "治理方式",
-    title: "不是文章堆积，而是可校验的知识系统",
-    text: "文档、题目、Claim、Source 分层管理，再配合自动校验脚本，让内容可以长期维护，而不是写一阵就失控。",
-    href: "/docs/category/blueprint",
-  },
 ];
 
 const quickLinks = [
@@ -117,12 +111,6 @@ const learningTracks = [
     items: ["Transformer", "Tokenizer", "Post-training", "Token Budget"],
     href: "/llm-foundations",
   },
-  {
-    title: "系统建设线",
-    subtitle: "先定义结构，再把内容、搜索、练题接起来",
-    items: ["内容规范", "实施路线", "校验脚本", "文档站"],
-    href: "/docs/category/blueprint",
-  },
 ];
 
 export default function Home() {
@@ -146,9 +134,6 @@ export default function Home() {
               </Link>
               <Link className="button button--secondary button--lg" to="/mock-interview">
                 模拟面试
-              </Link>
-              <Link className="button button--secondary button--lg" to="/docs/blueprint/implementation-roadmap">
-                查看实施路线
               </Link>
             </div>
           </div>
