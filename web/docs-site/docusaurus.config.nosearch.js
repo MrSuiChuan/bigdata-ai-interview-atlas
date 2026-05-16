@@ -4,7 +4,7 @@ const { themes } = require("prism-react-renderer");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "大数据与 AI 面试图谱",
-  tagline: "一个可追溯、以 Markdown 为核心的大数据与 AI Agent 面试知识库",
+  tagline: "一个以中文知识解读、题库训练和模拟面试为核心的大数据与 AI 学习系统",
   favicon: "img/favicon.svg",
   url: "http://localhost",
   baseUrl: "/",
@@ -36,7 +36,6 @@ const config = {
         { to: "/ai-agents", label: "AI Agent", position: "left" },
         { to: "/llm-foundations", label: "大模型基础", position: "left" },
         { to: "/questions", label: "题库", position: "left" },
-        { to: "/quality", label: "质量看板", position: "left" },
         { to: "/dashboard", label: "仪表盘", position: "left" },
         { to: "/learning-paths", label: "学习路径", position: "left" },
         { to: "/mock-interview", label: "模拟面试", position: "left" },

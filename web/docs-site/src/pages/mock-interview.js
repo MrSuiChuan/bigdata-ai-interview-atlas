@@ -144,7 +144,7 @@ export default function MockInterviewPage() {
       <main className="atlas-home catalog-page">
         <section className="catalog-hero catalog-hero--amber">
           <div className="catalog-hero-copy">
-            <p className="hero-kicker">Mock Interview</p>
+            <p className="hero-kicker">模拟训练</p>
             <h1>模拟面试</h1>
             <p className="hero-text">
               现在这一页不再只是占位。你可以切换场景、逐轮作答、查看结构化自检结果，再跳回文档和题库继续补薄弱点。
@@ -188,7 +188,7 @@ export default function MockInterviewPage() {
               <div className="mock-rounds">
                 {scenario.rounds.map((round, index) => (
                   <article key={round} className="mock-round-card">
-                    <span className="catalog-badge catalog-badge--planned">Round {index + 1}</span>
+                    <span className="catalog-badge catalog-badge--planned">第 {index + 1} 轮</span>
                     <p>{round}</p>
                   </article>
                 ))}
@@ -225,7 +225,7 @@ export default function MockInterviewPage() {
             <article className="mock-shell-card">
               <p className="section-label">当前轮次</p>
               <h2>
-                Round {roundIndex + 1} / {scenario.rounds.length}
+                第 {roundIndex + 1} 轮 / 共 {scenario.rounds.length} 轮
               </h2>
               <p>{currentQuestion}</p>
               <label className="mock-answer-field">
@@ -302,7 +302,7 @@ export default function MockInterviewPage() {
                 <article key={item.round} className="mock-round-card">
                   <div className="question-card-head">
                     <div>
-                      <span className="catalog-badge catalog-badge--live">Round {index + 1}</span>
+                      <span className="catalog-badge catalog-badge--live">第 {index + 1} 轮</span>
                       <p className="mock-round-question">{item.round}</p>
                     </div>
                     <ScorePill tone={item.analysis.tone}>{item.analysis.verdict}</ScorePill>

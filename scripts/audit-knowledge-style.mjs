@@ -1,4 +1,4 @@
-import fs from "node:fs";
+﻿import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import yaml from "js-yaml";
@@ -250,7 +250,7 @@ const markdown = [
 ].join("\n");
 
 if (shouldWrite) {
-  fs.writeFileSync(path.join(repoRoot, "docs", "blueprint", "knowledge-style-audit.md"), markdown, "utf8");
+  fs.writeFileSync(path.join(repoRoot, "internal", "blueprint", "knowledge-style-audit.md"), markdown, "utf8");
 }
 
 console.log(JSON.stringify({
@@ -273,3 +273,4 @@ console.log(JSON.stringify({
 if (hardFailures.length && process.argv.includes("--strict")) {
   process.exit(1);
 }
+

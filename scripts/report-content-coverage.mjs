@@ -184,5 +184,6 @@ const markdown = [
   "",
 ].join("\n");
 
-if (shouldWrite) fs.writeFileSync(path.join(repoRoot, "docs", "blueprint", "content-coverage-status.md"), markdown, "utf8");
+if (shouldWrite) fs.writeFileSync(path.join(repoRoot, "internal", "blueprint", "content-coverage-status.md"), markdown, "utf8");
 console.log(JSON.stringify({ rows: rows.length, totals }, null, 2));
+

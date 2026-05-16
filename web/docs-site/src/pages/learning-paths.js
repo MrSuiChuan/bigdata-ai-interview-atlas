@@ -8,7 +8,7 @@ export default function LearningPathsPage() {
       <main className="atlas-home catalog-page">
         <section className="catalog-hero catalog-hero--neutral">
           <div className="catalog-hero-copy">
-            <p className="hero-kicker">Learning Paths</p>
+            <p className="hero-kicker">学习路线</p>
             <h1>学习路径</h1>
             <p className="hero-text">
               这里不是一堆零散文章的列表，而是面向目标岗位和准备周期的学习路线图。先搭结构，再按阶段进入文档、题库和模拟面试。

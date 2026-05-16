@@ -114,10 +114,10 @@ export default function QuestionsPage() {
       <main className="atlas-home catalog-page">
         <section className="catalog-hero catalog-hero--neutral">
           <div className="catalog-hero-copy">
-            <p className="hero-kicker">Question Bank</p>
+            <p className="hero-kicker">题库练习</p>
             <h1>题库总览</h1>
             <p className="hero-text">
-              题库不是和知识库分离的题目列表，而是从知识点、工程链路、样例代码和来源证据中抽出的练习层。先按方向筛选，再按组件、难度、题型和掌握状态缩小范围。
+              题库不是和知识库分离的题目列表，而是从知识点、工程链路、样例代码和参考资料中抽出的练习层。先按方向筛选，再按组件、难度、题型和掌握状态缩小范围。
             </p>
             <div className="question-summary-row">
               <span className="mini-chip">{questionBank.length} 道题</span>

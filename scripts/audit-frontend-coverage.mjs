@@ -211,7 +211,8 @@ async function buildReport() {
 
 const report = await buildReport();
 if (shouldWrite) {
-  fs.writeFileSync(path.join(repoRoot, "docs", "blueprint", "frontend-coverage-audit.md"), report.markdown, "utf8");
+  fs.writeFileSync(path.join(repoRoot, "internal", "blueprint", "frontend-coverage-audit.md"), report.markdown, "utf8");
 }
 console.log(JSON.stringify(report.summary, null, 2));
+
 

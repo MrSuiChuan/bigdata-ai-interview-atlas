@@ -104,7 +104,7 @@ export default function QuestionDetailPage({ question }) {
       <main className="atlas-home catalog-page">
         <section className="catalog-hero catalog-hero--neutral">
           <div className="catalog-hero-copy">
-            <p className="hero-kicker">Question Detail</p>
+            <p className="hero-kicker">题目详情</p>
             <h1>{question.title}</h1>
             <p className="hero-text">{question.summary}</p>
             <div className="question-summary-row">

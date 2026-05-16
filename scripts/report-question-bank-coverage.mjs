@@ -1,4 +1,4 @@
-import fs from "node:fs";
+﻿import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -80,7 +80,8 @@ function buildMarkdown() {
 
 const markdown = buildMarkdown();
 if (process.argv.includes("--write")) {
-  fs.writeFileSync(path.join(repoRoot, "docs", "blueprint", "question-bank-coverage.md"), markdown, "utf8");
+  fs.writeFileSync(path.join(repoRoot, "internal", "blueprint", "question-bank-coverage.md"), markdown, "utf8");
 }
 
 console.log(`question bank coverage: ${questionBank.length} questions`);
+

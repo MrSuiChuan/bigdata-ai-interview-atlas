@@ -85,5 +85,6 @@ const markdown = [
   "",
 ].join("\n");
 
-if (shouldWrite) fs.writeFileSync(path.join(repoRoot, "docs", "blueprint", "example-quality-audit.md"), markdown, "utf8");
+if (shouldWrite) fs.writeFileSync(path.join(repoRoot, "internal", "blueprint", "example-quality-audit.md"), markdown, "utf8");
 console.log(JSON.stringify({ total: files.length, python: pythonFiles.length, sql: sqlFiles.length, shell: shellFiles.length, conceptual: conceptual.length, pythonAvailable }, null, 2));
+

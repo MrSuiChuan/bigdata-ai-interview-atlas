@@ -26,7 +26,7 @@
 
 交付物：
 
-1. `docs/blueprint/content-spec.md`
+1. `internal/blueprint/content-spec.md`
 2. `templates/`
 3. 初版校验脚本
 
@@ -126,3 +126,4 @@ AI 不应该做的事：
 ## 运行方式
 
 相对稳定的组件可以按季度复核。变化快的 AI Agent 主题建议按月复核，或者在官方文档变更后立即复核。
+

@@ -1,4 +1,4 @@
-import Link from "@docusaurus/Link";
+﻿import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 
 const pillars = [
@@ -11,7 +11,7 @@ const pillars = [
   {
     eyebrow: "AI Agent",
     title: "把框架、协议、模式和工程实践放到一张图里",
-    text: "覆盖 OpenAI Agents SDK、LangGraph、Microsoft Agent Framework、MCP 等主流主题，并强调版本边界与来源追溯。",
+    text: "覆盖 OpenAI Agents SDK、LangGraph、Microsoft Agent Framework、MCP 等主流主题，并强调边界、协作方式和工程落地。",
     href: "/ai-agents",
   },
   {
@@ -56,39 +56,39 @@ const practiceLoops = [
   },
   {
     title: "最后做模拟面试复盘",
-    text: "用场景化模拟把知识点串起来，再根据复盘报告回看文档和题库补强。",
+    text: "用场景化模拟把知识点串起来，再根据复盘结果回看文档和题库补强。",
     href: "/mock-interview",
     label: "开始模拟",
   },
 ];
 
-const steps = [
-  "先写 Source，再写 Claim，再组装文档和题目",
-  "所有 reviewed 内容都要带版本范围和核验日期",
-  "代码样例单独落盘，避免文档里只有伪代码",
-  "AI 只负责解释、追问和模拟面试，不充当唯一事实来源",
+const learningHabits = [
+  "先读总览页，再进入对象、链路、边界和排障页",
+  "遇到容易混淆的概念时，优先做对比和职责拆分",
+  "看完文档后立刻刷题，把原理转成可表达的回答",
+  "做模拟面试时，先讲结论，再补机制、边界和取舍",
 ];
 
 const mapNodes = [
   {
-    label: "Source",
-    title: "来源层",
-    text: "记录官方文档、规范和一手资料，是准确性校验的起点。",
+    label: "总览",
+    title: "总览层",
+    text: "先回答技术是做什么的、处在系统哪一层、为什么不能和相邻组件混着理解。",
   },
   {
-    label: "Claim",
-    title: "事实层",
-    text: "把复杂知识拆成最小可复核事实，方便复用、更新和审查。",
+    label: "机制",
+    title: "机制层",
+    text: "把核心对象、执行链路、状态变化和一致性边界讲清楚，避免只记术语。",
   },
   {
-    label: "Doc",
-    title: "文档层",
-    text: "把事实组织成适合学习和复习的主题文档，服务长期积累。",
+    label: "场景",
+    title: "场景层",
+    text: "把性能、故障恢复、系统设计和生产排障放进真实场景里理解。",
   },
   {
-    label: "Question",
-    title: "题库层",
-    text: "从文档和事实生成题目、标准答案、追问和评分依据。",
+    label: "训练",
+    title: "训练层",
+    text: "通过题库、收藏、复习和模拟面试，把阅读沉淀成可复述、可判断的能力。",
   },
 ];
 
@@ -101,7 +101,7 @@ const learningTracks = [
   },
   {
     title: "Agent 工程线",
-    subtitle: "先懂框架和协议，再看生产治理",
+    subtitle: "先懂框架和协议，再看生产落地",
     items: ["OpenAI Agents SDK", "LangGraph", "MCP", "Microsoft Agent Framework"],
     href: "/ai-agents",
   },
@@ -115,15 +115,14 @@ const learningTracks = [
 
 export default function Home() {
   return (
-    <Layout title="大数据与 AI 面试图谱" description="一个可追溯的大数据与 AI Agent 知识学习系统。">
+    <Layout title="大数据与 AI 面试图谱" description="一个面向大数据、AI Agent 与大模型基础的中文学习系统。">
       <main className="atlas-home">
         <section className="hero-panel">
           <div className="hero-copy">
-            <p className="hero-kicker">Markdown-First Interview Knowledge Base</p>
+            <p className="hero-kicker">中文知识库与训练系统</p>
             <h1>把大数据和 AI Agent 知识体系，做成一张可以长期维护的知识地图</h1>
             <p className="hero-text">
-              这不是一个只会聊天的刷题机器人，而是一个以文档、事实、题库和来源为核心的知识工程底座。
-              我们先把准确性和结构打稳，再把检索、练题和模拟面试叠上去。
+              这里把知识库、题库、学习路径和模拟面试接成一个完整学习闭环，帮助你不只记住概念，还能讲清机制、边界和工程判断。
             </p>
             <div className="hero-actions">
               <Link className="button button--primary button--lg" to="/docs/overview">
@@ -139,18 +138,18 @@ export default function Home() {
           </div>
           <div className="hero-aside">
             <div className="stat-card stat-card--tall">
-              <span className="stat-label">当前入库范围</span>
-              <strong>5 个大数据主题 + 4 个 AI Agent 主题</strong>
-              <p>Kafka、Spark、Flink、Hive、Iceberg 已接入大数据主线；OpenAI Agents SDK、MCP、LangGraph、Microsoft Agent Framework 已接入 Agent 主线。</p>
+              <span className="stat-label">当前覆盖方向</span>
+              <strong>大数据 + AI Agent + 大模型基础</strong>
+              <p>围绕消息、计算、湖仓、Agent Runtime、协议协作与大模型基础，把知识点拆成可学习、可练习、可复盘的结构。</p>
             </div>
             <div className="stat-card stat-card--split">
               <div>
-                <span className="stat-label">内容模型</span>
-                <strong>Source -&gt; Claim -&gt; Doc -&gt; Question</strong>
+                <span className="stat-label">使用方式</span>
+                <strong>先读知识库，再刷题和模拟</strong>
               </div>
               <div>
-                <span className="stat-label">准确性策略</span>
-                <strong>来源优先、版本标注、自动校验、人工复核</strong>
+                <span className="stat-label">适合人群</span>
+                <strong>准备面试、补体系、做项目复盘</strong>
               </div>
             </div>
           </div>
@@ -168,9 +167,9 @@ export default function Home() {
 
         <section className="system-map">
           <div className="section-head">
-            <p className="section-label">系统结构</p>
-            <h2>知识系统不是一层文档，而是四层协作</h2>
-            <p>先把来源和事实打牢，再往上长文档、题库和练习体验，这样内容才能持续演进，而不是越写越乱。</p>
+            <p className="section-label">学习结构</p>
+            <h2>不是一层文档，而是一条从理解到表达的学习链</h2>
+            <p>先把总览和机制看懂，再进入系统设计、故障场景和题目训练，这样知识才更容易沉淀成稳定能力。</p>
           </div>
           <div className="map-grid">
             {mapNodes.map((node) => (
@@ -187,7 +186,7 @@ export default function Home() {
           <div className="section-head">
             <p className="section-label">学习路径</p>
             <h2>不同目标，走不同学习线</h2>
-            <p>首页不是营销页，而是一张可执行的导览图。你可以按组件、Agent 工程或系统建设视角进入内容。</p>
+            <p>首页不是营销页，而是一张可执行的导览图。你可以按组件、Agent 工程或大模型基础视角进入内容。</p>
           </div>
           <div className="track-grid">
             {learningTracks.map((track) => (
@@ -209,7 +208,7 @@ export default function Home() {
         <section className="detail-grid">
           <div className="detail-card">
             <p className="section-label">快速入口</p>
-            <h2>从这里开始扩写内容</h2>
+            <h2>从这里开始进入内容</h2>
             <div className="quick-links">
               {quickLinks.map((item) => (
                 <Link key={item.label} className="quick-link" to={item.href}>
@@ -220,10 +219,10 @@ export default function Home() {
           </div>
 
           <div className="detail-card">
-            <p className="section-label">构建规则</p>
-            <h2>先把系统性建立起来，再让 AI 参与进来</h2>
+            <p className="section-label">学习建议</p>
+            <h2>先把节奏跑顺，再让练习产生效果</h2>
             <ul className="step-list">
-              {steps.map((step) => (
+              {learningHabits.map((step) => (
                 <li key={step}>{step}</li>
               ))}
             </ul>
@@ -239,7 +238,7 @@ export default function Home() {
           <div className="module-grid">
             {practiceLoops.map((item) => (
               <article key={item.title} className="module-card">
-                <p className="section-label">Practice Loop</p>
+                <p className="section-label">学习闭环</p>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
                 <div className="inline-links">

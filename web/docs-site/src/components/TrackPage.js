@@ -1,7 +1,6 @@
 ﻿import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 import { getFeaturedQuestions } from "../data/catalog.js";
-import { componentQualityByTrackAndComponent } from "../data/quality.js";
 
 function StatusBadge({ status }) {
   const className = status === "已入库" ? "catalog-badge catalog-badge--live" : "catalog-badge catalog-badge--planned";
@@ -70,7 +69,7 @@ export default function TrackPage({ track }) {
       <main className="atlas-home catalog-page">
         <section className={`catalog-hero catalog-hero--${track.accent}`}>
           <div className="catalog-hero-copy">
-            <p className="hero-kicker">{track.eyebrow}</p>
+            <p className="hero-kicker">专题学习线</p>
             <h1>{track.title}</h1>
             <p className="hero-text">{track.description}</p>
             <p className="catalog-focus">{track.focus}</p>
@@ -115,12 +114,10 @@ export default function TrackPage({ track }) {
           <div className="section-head">
             <p className="section-label">专题地图</p>
             <h2>这条学习线先讲什么，再补什么</h2>
-            <p>这里不是简单列题目，而是把已完成样板和接下来要补的模块放到同一张内容地图里。</p>
+            <p>这里把主题模块、入口文档和配套题目放在同一张学习地图里，方便按主线推进，不用自己来回拼装。</p>
           </div>
           <div className="module-grid">
-            {track.modules.map((module, index) => {
-              const quality = componentQualityByTrackAndComponent[`${track.slug}/${module.title}`];
-              return (
+            {track.modules.map((module, index) => (
               <article key={module.title} className="module-card">
                 <div className="module-card-head">
                   <div>
@@ -133,14 +130,6 @@ export default function TrackPage({ track }) {
                   <StatusBadge status={module.status} />
                 </div>
                 <p className="module-level">{module.level}</p>
-                {quality ? (
-                  <div className="quality-strip">
-                    <span className={`quality-grade quality-grade--${quality.grade.toLowerCase()}`}>{quality.grade}</span>
-                    <span>{quality.score} 分</span>
-                    <span>{quality.themeCoverage}/{quality.themeTotal} 项覆盖</span>
-                    <span>{Math.round(quality.relatedDocCoverage * 100)}% 题库映射</span>
-                  </div>
-                ) : null}
                 <p>{module.summary}</p>
                 <div className="module-metrics">
                   <span>{module.docs.length} 篇文档</span>
@@ -173,22 +162,16 @@ export default function TrackPage({ track }) {
                   ) : (
                     <span className="inline-link inline-link--muted">题目待补充</span>
                   )}
-                  {quality?.primaryDoc ? (
-                    <Link className="inline-link" to={`/docs/${quality.primaryDoc.replace(/^docs\//, "").replace(/\.md$/, "")}`}>
-                      质量指南
-                    </Link>
-                  ) : null}
                 </div>
               </article>
-              );
-            })}
+            ))}
           </div>
         </section>
 
         <section className="detail-grid catalog-detail-grid">
           <article className="detail-card">
-            <p className="section-label">写作原则</p>
-            <h2>这一条线怎样保持准确、可读、能复习</h2>
+            <p className="section-label">学习建议</p>
+            <h2>这一条线怎样读得更顺</h2>
             <ul className="step-list">
               {track.principles.map((item) => (
                 <li key={item}>{item}</li>
@@ -196,8 +179,8 @@ export default function TrackPage({ track }) {
             </ul>
           </article>
           <article className="detail-card">
-            <p className="section-label">开发节奏</p>
-            <h2>接下来怎么继续往下扩</h2>
+            <p className="section-label">下一步</p>
+            <h2>接下来怎么继续往下学</h2>
             <ul className="step-list">
               {track.roadmap.map((item) => (
                 <li key={item}>{item}</li>
@@ -222,4 +205,3 @@ export default function TrackPage({ track }) {
     </Layout>
   );
 }
-

@@ -21,7 +21,7 @@ export default function ReviewQueuePage() {
       <main className="atlas-home catalog-page">
         <section className="catalog-hero catalog-hero--amber">
           <div className="catalog-hero-copy">
-            <p className="hero-kicker">Review Queue</p>
+            <p className="hero-kicker">复习清单</p>
             <h1>复习队列</h1>
             <p className="hero-text">把暂时没答稳、需要二次打磨的题集中到这里，后面还可以继续接入推荐复习顺序和间隔复习策略。</p>
           </div>

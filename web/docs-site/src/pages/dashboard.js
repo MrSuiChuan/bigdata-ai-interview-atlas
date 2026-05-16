@@ -53,7 +53,7 @@ export default function DashboardPage() {
       <main className="atlas-home catalog-page">
         <section className="catalog-hero catalog-hero--green">
           <div className="catalog-hero-copy">
-            <p className="hero-kicker">Study Dashboard</p>
+            <p className="hero-kicker">学习进度</p>
             <h1>学习仪表盘</h1>
             <p className="hero-text">这里把阅读、练题、复习和模拟面试放到同一个面板里，帮助你快速判断下一步该补哪一块。</p>
           </div>

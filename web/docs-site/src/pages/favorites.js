@@ -21,7 +21,7 @@ export default function FavoritesPage() {
       <main className="atlas-home catalog-page">
         <section className="catalog-hero catalog-hero--neutral">
           <div className="catalog-hero-copy">
-            <p className="hero-kicker">Favorites</p>
+            <p className="hero-kicker">收藏题目</p>
             <h1>收藏夹</h1>
             <p className="hero-text">把高频题、薄弱题和你想反复打磨表达的题先收进这里，后面再接账号同步或学习计划联动。</p>
           </div>

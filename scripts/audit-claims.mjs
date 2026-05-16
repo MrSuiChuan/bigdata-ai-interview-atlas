@@ -112,5 +112,6 @@ const markdown = [
   "",
 ].join("\n");
 
-if (shouldWrite) fs.writeFileSync(path.join(repoRoot, "docs", "blueprint", "claim-quality-audit.md"), markdown, "utf8");
+if (shouldWrite) fs.writeFileSync(path.join(repoRoot, "internal", "blueprint", "claim-quality-audit.md"), markdown, "utf8");
 console.log(JSON.stringify({ total: claims.length, generated: generated.length, highGenerated: highGenerated.length, noSource: noSource.length, communityOnly: communityOnly.length }, null, 2));
+

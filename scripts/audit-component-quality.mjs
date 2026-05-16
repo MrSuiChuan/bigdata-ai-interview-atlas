@@ -1,4 +1,4 @@
-import fs from "node:fs";
+﻿import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import yaml from "js-yaml";
@@ -418,34 +418,15 @@ ${audit.weakSupport.length ? audit.weakSupport.slice(0, 40).map((row) => `- ${ro
 `;
 }
 
-function buildQualityData(rows) {
-  const gradeOrder = { S: 0, A: 1, B: 2, C: 3, D: 4 };
-  const sorted = [...rows].sort((a, b) => gradeOrder[a.grade] - gradeOrder[b.grade] || b.score - a.score);
-  const summary = {
-    total: rows.length,
-    byGrade: Object.fromEntries(["S", "A", "B", "C", "D"].map((grade) => [grade, rows.filter((row) => row.grade === grade).length])),
-    avgScore: Math.round(rows.reduce((sum, row) => sum + row.score, 0) / Math.max(rows.length, 1)),
-    generatedAt: today,
-  };
-  const byTrackComponent = Object.fromEntries(sorted.map((row) => [`${row.track}/${row.componentLabel}`, row]));
-  return [
-    `export const qualitySummary = ${JSON.stringify(summary, null, 2)};`,
-    `export const componentQuality = ${JSON.stringify(sorted, null, 2)};`,
-    `export const componentQualityByTrackAndComponent = ${JSON.stringify(byTrackComponent, null, 2)};`,
-    "",
-  ].join("\n");
-}
-
 const docs = loadDocs();
 const questions = loadQuestions();
 const rows = buildQualityRows(docs, questions);
 const questionAudit = buildQuestionAudit(docs, questions);
 
 if (shouldWrite) {
-  fs.writeFileSync(path.join(repoRoot, "docs", "blueprint", "component-quality-standard.md"), buildStandardDoc(), "utf8");
-  fs.writeFileSync(path.join(repoRoot, "docs", "blueprint", "component-quality-audit.md"), buildAuditDoc(rows), "utf8");
-  fs.writeFileSync(path.join(repoRoot, "docs", "blueprint", "question-to-knowledge-audit.md"), buildQuestionAuditDoc(questionAudit), "utf8");
-  fs.writeFileSync(path.join(repoRoot, "web", "docs-site", "src", "data", "quality.js"), buildQualityData(rows), "utf8");
+  fs.writeFileSync(path.join(repoRoot, "internal", "blueprint", "component-quality-standard.md"), buildStandardDoc(), "utf8");
+  fs.writeFileSync(path.join(repoRoot, "internal", "blueprint", "component-quality-audit.md"), buildAuditDoc(rows), "utf8");
+  fs.writeFileSync(path.join(repoRoot, "internal", "blueprint", "question-to-knowledge-audit.md"), buildQuestionAuditDoc(questionAudit), "utf8");
 }
 
 const summary = {
@@ -464,3 +445,4 @@ const summary = {
 console.log(JSON.stringify(summary, null, 2));
 
 if (questionAudit.missingRelated.length > 0) process.exitCode = 1;
+

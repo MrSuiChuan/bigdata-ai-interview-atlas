@@ -232,8 +232,9 @@ function buildReport() {
 
 const report = buildReport();
 if (shouldWrite) {
-  const outPath = path.join(repoRoot, "docs", "blueprint", "content-quality-audit.md");
+  const outPath = path.join(repoRoot, "internal", "blueprint", "content-quality-audit.md");
   fs.writeFileSync(outPath, report.markdown, "utf8");
 }
 console.log(JSON.stringify(report.summary, null, 2));
+
 
